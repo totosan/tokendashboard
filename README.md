@@ -38,7 +38,8 @@ Scans laufen bei geöffnetem Dashboard jede Minute. Standarduniversum: die 100 l
 - `dist/pattern.js`: deterministische Mustererkennung und Kerzenaggregation
 - `dist/breakout.js`: Erkennung und Darstellung der Konsolidierungen und Ausbrüche
 - `dist/help.js`: kontextbezogene Hilfe
-- `dist/tradfi.js`: Long-Scanner für Aktien-Perpetuals
+- `dist/tradfi.js`: Long-Mustererkennung für Aktien- und Krypto-Perpetuals
+- `dist/field.js`: browserlokales Feldtest-Protokoll und CSV-Export
 
 Die Mustererkennung verwendet abgeschlossene Kerzen. In der Standardansicht bedeutet „Ausbruch bestätigt“ einen gerichteten Schlusskurs über dem Hoch bzw. unter dem Tief der Konsolidierung und die Erfüllung des gewählten Volumenfilters; es ist keine Aussage zur Wahrscheinlichkeit einer weiteren Fortsetzung. Es werden keine Orders ausgeführt.
 
@@ -47,3 +48,7 @@ Google Fonts wird für die Schriftarten verwendet; ohne Zugriff greifen Systemsc
 ## TradFi-Ansicht
 
 Die Ansicht filtert Bitgets USDT-Perpetual-Instrumente anhand der Klassifizierung `isRwa=YES` und `instrumentType=stock`. Sie ist eine vereinfachte Annäherung an eine Momentum-Pullback-Strategie: Rollierende 24h-Futures-Veränderung ersetzt keine vorbörsliche Aktienveränderung. Nachrichten, Free Float und Aktien-Relativvolumen gegenüber dem 50-Tage-Durchschnitt sind nicht enthalten. Das neue Hoch wird erst nach Abschluss der 1-Minuten-Kerze und beim Scan angezeigt, nicht tickgenau. Die Ansicht ist kein vollständiger Strategietest und führt keine Orders aus.
+
+## Coin-Feldtest
+
+Unter „Coins · Impuls & Rücksetzer“ durchsucht das Dashboard Krypto-USDT-Perpetuals nach dem Long-Momentum-Muster auf abgeschlossenen 1-Minuten-Kerzen. „Neues Hoch berührt“ ist ein nach Kerzenschluss und Scan angezeigtes Muster, kein Echtzeitsignal. Das manuelle Feldtest-Protokoll speichert Zeit, Richtung, Ein- und Ausstieg, Positionswert, Gebühren und Notiz lokal im Browser und bietet CSV-Export. Das geschätzte Ergebnis berücksichtigt kein Funding; Slippage nur über eingegebene Ausführungskurse. Es werden keine Orders ausgeführt.
