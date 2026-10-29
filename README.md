@@ -19,6 +19,7 @@ Anschließend http://localhost:8080 öffnen. Für Marktdaten ist eine Internetve
 - Ausbruchsscanner auf Basis abgeschlossener 5-Minuten-Kerzen mit Konsolidierung, Schlusskurs-Ausbruch und wählbarem Volumenfaktor
 - Musterprofile Treppen & Konsolidierung sowie Gegenkerzen in einer Scanneransicht; separates Momentum-Ranking
 - Integrierte Hilfe zu Funktionen, Mustern, Filtern und der Interpretation von Treffern
+- TradFi-Aktien-Perpetuals: Momentum und Rücksetzer auf geschlossenen 1-Minuten-Kerzen; angelehnt an die erste Kerze mit neuem Hoch
 - USDT-Perpetuals, Long- und Short-Ansicht
 - Momentum über 1, 5 und 15 Minuten
 - Breakout mit erhöhtem Volumen und 2–4 kleinen Gegenkerzen
@@ -37,7 +38,12 @@ Scans laufen bei geöffnetem Dashboard jede Minute. Standarduniversum: die 100 l
 - `dist/pattern.js`: deterministische Mustererkennung und Kerzenaggregation
 - `dist/breakout.js`: Erkennung und Darstellung der Konsolidierungen und Ausbrüche
 - `dist/help.js`: kontextbezogene Hilfe
+- `dist/tradfi.js`: Long-Scanner für Aktien-Perpetuals
 
 Die Mustererkennung verwendet abgeschlossene Kerzen. In der Standardansicht bedeutet „Ausbruch bestätigt“ einen gerichteten Schlusskurs über dem Hoch bzw. unter dem Tief der Konsolidierung und die Erfüllung des gewählten Volumenfilters; es ist keine Aussage zur Wahrscheinlichkeit einer weiteren Fortsetzung. Es werden keine Orders ausgeführt.
 
 Google Fonts wird für die Schriftarten verwendet; ohne Zugriff greifen Systemschriften.
+
+## TradFi-Ansicht
+
+Die Ansicht filtert Bitgets USDT-Perpetual-Instrumente anhand der Klassifizierung `isRwa=YES` und `instrumentType=stock`. Sie ist eine vereinfachte Annäherung an eine Momentum-Pullback-Strategie: Rollierende 24h-Futures-Veränderung ersetzt keine vorbörsliche Aktienveränderung. Nachrichten, Free Float und Aktien-Relativvolumen gegenüber dem 50-Tage-Durchschnitt sind nicht enthalten. Das neue Hoch wird erst nach Abschluss der 1-Minuten-Kerze und beim Scan angezeigt, nicht tickgenau. Die Ansicht ist kein vollständiger Strategietest und führt keine Orders aus.
