@@ -41,8 +41,11 @@ Scans laufen bei geöffnetem Dashboard jede Minute. Standarduniversum: die 100 l
 - `dist/tradfi.js`: Long-Mustererkennung für Aktien- und Krypto-Perpetuals
 - `dist/field.js`: browserlokales Feldtest-Protokoll und CSV-Export
 - `dist/orderbook.js`: Orderbuch-Snapshots, Liquiditätsbalken und Ausführungsschätzung
+- `tradingview/`: separate Pine-Script-Strategien und Anleitung für Backtests in TradingView
 
 Die Mustererkennung verwendet abgeschlossene Kerzen. In der Standardansicht bedeutet „Ausbruch bestätigt“ einen gerichteten Schlusskurs über dem Hoch bzw. unter dem Tief der Konsolidierung und die Erfüllung des gewählten Volumenfilters; es ist keine Aussage zur Wahrscheinlichkeit einer weiteren Fortsetzung. Es werden keine Orders ausgeführt.
+
+Die TradingView-Skripte sind eigenständige Backtest-Annahmen und keine Änderung am Dashboard. Regeln, Abweichungen und Ausführungsgrenzen stehen in [`tradingview/README.md`](tradingview/README.md).
 
 Google Fonts wird für die Schriftarten verwendet; ohne Zugriff greifen Systemschriften.
 
