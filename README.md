@@ -16,7 +16,7 @@ Anschließend http://localhost:8080 öffnen. Für Marktdaten ist eine Internetve
 
 ## Funktionen
 
-- Ausbruchsscanner auf Basis abgeschlossener 5-Minuten-Kerzen mit Konsolidierung, Schlusskurs-Ausbruch und wählbarem Volumenfaktor
+- Ausbruchsscanner: drei gerichtete 15-Minuten-Kerzen (alternativ 5 Minuten), eine Gegenkerze und Schlusskurs-Ausbruch mit wählbarem Volumenfaktor
 - Musterprofile Treppen & Konsolidierung sowie Gegenkerzen in einer Scanneransicht; separates Momentum-Ranking
 - Integrierte Hilfe zu Funktionen, Mustern, Filtern und der Interpretation von Treffern
 - TradFi-Aktien-Perpetuals: Momentum und Rücksetzer auf geschlossenen 1-Minuten-Kerzen; angelehnt an die erste Kerze mit neuem Hoch
@@ -42,7 +42,7 @@ Scans laufen bei geöffnetem Dashboard jede Minute. Standarduniversum: die 100 l
 - `dist/field.js`: browserlokales Feldtest-Protokoll und CSV-Export
 - `dist/orderbook.js`: Orderbuch-Snapshots, Liquiditätsbalken und Ausführungsschätzung
 
-Die Mustererkennung verwendet abgeschlossene Kerzen. In der Standardansicht bedeutet „Ausbruch bestätigt“ einen gerichteten Schlusskurs über dem Hoch bzw. unter dem Tief der Konsolidierung und die Erfüllung des gewählten Volumenfilters; es ist keine Aussage zur Wahrscheinlichkeit einer weiteren Fortsetzung. Es werden keine Orders ausgeführt.
+Die Mustererkennung verwendet abgeschlossene Kerzen. Im Treppenprofil bedeutet „Ausbruch bestätigt“ einen gerichteten Schlusskurs über dem Hoch bzw. unter dem Tief der einen Gegenkerze und die Erfüllung des gewählten Volumenfilters gegenüber dieser Gegenkerze; es ist keine Aussage zur Wahrscheinlichkeit einer weiteren Fortsetzung. Es werden keine Orders ausgeführt.
 
 Google Fonts wird für die Schriftarten verwendet; ohne Zugriff greifen Systemschriften.
 
