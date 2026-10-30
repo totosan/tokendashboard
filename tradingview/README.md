@@ -13,9 +13,9 @@ Diese drei Pine-Script-v6-Dateien sind eigenständige `strategy()`-Skripte für 
 
 ### Treppen & Konsolidierung — `stairs_consolidation.pine`
 
-- Dashboard-Referenz: `dist/breakout.js`, Standardprofil `stairs`. Sechs gerichtete Impulskerzen benötigen mindestens vier steigende Schlusskurse (Short gespiegelt). Darauf folgen vier Konsolidierungskerzen; der Rücklauf vom Impulshoch/-tief beträgt 5–50 % und die Konsolidierung verletzt den Impulsursprung nicht. Ihr Gegenextrem darf höchstens 0,2 % über das Impulsextrem hinausragen.
+- Dashboard-Referenz: `dist/breakout.js`, Standardprofil `stairs`. Sechs gerichtete Impulskerzen benötigen mindestens vier steigende Schlusskurs-Übergänge (Short gespiegelt). Darauf folgen vier Konsolidierungskerzen; der Rücklauf vom Impulshoch/-tief beträgt 5–50 % und die Konsolidierung verletzt den Impulsursprung nicht. Ihr Gegenextrem darf höchstens 0,2 % über das Impulsextrem hinausragen.
 - Ein Einstiegssignal entsteht erst, wenn die nächste abgeschlossene Kerze gerichtet über das Konsolidierungshoch (Long) beziehungsweise unter das Konsolidierungstief (Short) schließt und ihr Volumen mindestens dem einstellbaren Faktor des Durchschnitts der vier Konsolidierungskerzen entspricht. Standardfaktor: 1,0. Die Datei enthält beide Richtungen; „Direction“ kann sie einzeln begrenzen.
-- Dashboard-Standard ist 5m. Andere Chartzeiträume ändern die Dauer der sechs/four Kerzen entsprechend.
+- Dashboard-Standard ist 5m. Andere Chartzeiträume ändern die Dauer der sechs Impuls- und vier Konsolidierungskerzen entsprechend.
 
 ### Impuls & Gegenkerzen — `impulse_counter_candles.pine`
 
@@ -47,8 +47,8 @@ Die folgenden Erwartungen sind Regelprüfungen, keine behaupteten TradingView-Er
 
 | Skript | Prüffall | Erwartung |
 | --- | --- | --- |
-| Treppen | Auf einem lückenlosen 5m-Chart sechs Impulskerzen mit mindestens vier steigenden Schlusskursen, vier Kerzen mit 5–50 % Rücklauf und danach eine grüne Schlusskerze über dem Konsolidierungshoch; Ausbruchsvolumen mindestens 1,0× des Konsolidierungsdurchschnitts. | SETUP auf der letzten Konsolidierungskerze; TRIGGER am Ausbruchsschluss; Long-Order frühestens am nächsten Open. |
-| Treppen | Spiegelbildlich fallender Impuls und Ausbruchsschluss unter dem Konsolidierungstief. | Short-Setup und Short-Order. Ein Rücklauf außerhalb 5–50 %, weniger als vier steigende/fallende Impulsschlüsse oder unzureichendes Volumen ergibt keinen Trigger. |
+| Treppen | Auf einem lückenlosen 5m-Chart sechs Impulskerzen mit mindestens vier steigenden Schlusskurs-Übergängen, vier Kerzen mit 5–50 % Rücklauf und danach eine grüne Schlusskerze über dem Konsolidierungshoch; Ausbruchsvolumen mindestens 1,0× des Konsolidierungsdurchschnitts. | SETUP auf der letzten Konsolidierungskerze; TRIGGER am Ausbruchsschluss; Long-Order frühestens am nächsten Open. |
+| Treppen | Spiegelbildlich fallender Impuls und Ausbruchsschluss unter dem Konsolidierungstief; Rücklaufgrenzen genau 5 % oder 50 % testen. | Short-Setup und Short-Order; beide Grenzwerte sind inklusiv. Ein Rücklauf unter 5 % oder über 50 %, weniger als vier steigende/fallende Impulsübergänge oder unzureichendes Volumen ergibt keinen Trigger. |
 | Impuls & Gegenkerzen | Standardeinstellungen; gültiger 1m-/5m-Impuls über der vorherigen Zehn-Kerzen-Range, drei absteigende Gegenkerzen mit gültigem Rücklauf und Volumen, danach Schluss jenseits der letzten Gegenkerze bei intakter Struktur. | SETUP auf dem letzten Gegenkerzenschluss; bestätigter Long- oder Short-Trigger auf der Folgekerze. |
 | Impuls & Gegenkerzen | Gegenrichtung spiegeln; alternativ Volumenfaktor über das gemessene Verhältnis oder maximalen Rücklauf unter den tatsächlichen Rücklauf setzen. | Short muss spiegelbildlich funktionieren; ein nicht erfüllter Filter unterdrückt den Trigger. Zwei bis vier Gegenkerzen sind zulässig, außerhalb dieses Bereichs nicht. |
 | Momentum-Pullback | Auf einem 1m-Chart zwei überwiegend steigende Impulskerzen (mindestens 0,5 %), eine fallende Pullbackkerze und eine Folgekerze, die über dem Pullbackhoch schließt und das Pullbacktief hält. | SETUP, dann NEW HIGH und Long-Order frühestens am nächsten Open. |
