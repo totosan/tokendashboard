@@ -2,7 +2,7 @@
 strategy("Dashboard · Momentum-Pullback / erstes neues Hoch", overlay=true,
      pyramiding=0, initial_capital=10000, default_qty_type=strategy.percent_of_equity,
      default_qty_value=10, commission_type=strategy.commission.percent,
-     commission_value=0.06, slippage=2, process_orders_on_close=false)
+     commission_value=0.06, slippage=2, calc_on_every_tick=false, process_orders_on_close=false)
 
 int impulseBars = input.int(2, "Impulse candles (dashboard checks 2–6)", minval=2, maxval=6)
 int pullbackBars = input.int(1, "Pullback candles (dashboard checks 1–3)", minval=1, maxval=3)

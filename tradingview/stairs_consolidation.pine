@@ -2,7 +2,7 @@
 strategy("Dashboard · Treppen & Konsolidierung", overlay=true, pyramiding=0,
      initial_capital=10000, default_qty_type=strategy.percent_of_equity,
      default_qty_value=10, commission_type=strategy.commission.percent,
-     commission_value=0.06, slippage=2, process_orders_on_close=false)
+     commission_value=0.06, slippage=2, calc_on_every_tick=false, process_orders_on_close=false)
 
 string tradeSide = input.string("Both", "Direction", options=["Both", "Long", "Short"])
 float minVolume = input.float(1.0, "Breakout volume / consolidation average", minval=0, step=0.1)
@@ -38,7 +38,8 @@ f_stair(int side, int shift, bool requireBreakout) =>
          retracement >= 0.05 and retracement <= 0.5 and rangeBottom > origin and
          rangeTop <= peak + math.abs(peak) * 0.002
     bool breakoutOk = dirClose > rangeTop and dirClose > dirOpen and
-         not na(volume) and not na(rangeVolume) and volume >= rangeVolume * minVolume
+         not na(volume) and not na(rangeVolume) and rangeVolume > 0 and
+         volume >= rangeVolume * minVolume
     [structureOk and (not requireBreakout or breakoutOk), side * rangeTop, side * rangeBottom]
 
 [longSetup, longSetupTrigger, longSetupStop] = f_stair(1, 0, false)
