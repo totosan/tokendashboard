@@ -63,3 +63,7 @@ Die Orderbuchansicht lädt die 15-Minuten-Kerzen für den ausgewählten Kontrakt
 ## Volumenprofil
 
 In der Orderbuchansicht kann ein geschätztes historisches Volumenprofil für 4, 12 oder 24 Stunden eingeblendet werden. Es verteilt das Basisvolumen jeder abgeschlossenen 15-Minuten-Kerze gleichmäßig zwischen deren Tief und Hoch auf 24 Preiszonen. Die tatsächliche Verteilung ist unbekannt; die Anzeige nennt vorhandene und erwartete Kerzen. Die laufende Kerze wird ausgeschlossen. Das Profil ergänzt den Chart und verändert keine Scannerregeln; ein Nutzen als Filter wurde nicht nachgewiesen.
+
+## Marktüberblick
+
+Über „◉ Marktüberblick“ bei einem Treffer werden der 1h-Trend (EMA 20/50 auf abgeschlossenen 1h-Kerzen; Abstand unter 0,1 % gilt als uneinheitlich) und die Hochs und Tiefs des UTC-Vortags sowie der letzten 24 Stunden angezeigt. Die Prozentabstände beziehen sich auf den letzten abgeschlossenen 15m-Schlusskurs. Der 24h-Zeitraum endet mit dieser Kerze. Der Überblick lädt Daten nur beim Öffnen und aktualisiert ungefähr minütlich. Bei unvollständigen Daten werden Werte nicht angezeigt. Es handelt sich um Marktinformationen, keine Filter, Prognose oder garantierten Unterstützungs- und Widerstandszonen.
