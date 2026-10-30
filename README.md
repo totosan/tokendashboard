@@ -40,6 +40,7 @@ Scans laufen bei geöffnetem Dashboard jede Minute. Standarduniversum: die 100 l
 - `dist/help.js`: kontextbezogene Hilfe
 - `dist/tradfi.js`: Long-Mustererkennung für Aktien- und Krypto-Perpetuals
 - `dist/field.js`: browserlokales Feldtest-Protokoll und CSV-Export
+- `dist/orderbook.js`: Orderbuch-Snapshots, Liquiditätsbalken und Ausführungsschätzung
 
 Die Mustererkennung verwendet abgeschlossene Kerzen. In der Standardansicht bedeutet „Ausbruch bestätigt“ einen gerichteten Schlusskurs über dem Hoch bzw. unter dem Tief der Konsolidierung und die Erfüllung des gewählten Volumenfilters; es ist keine Aussage zur Wahrscheinlichkeit einer weiteren Fortsetzung. Es werden keine Orders ausgeführt.
 
@@ -52,3 +53,7 @@ Die Ansicht filtert Bitgets USDT-Perpetual-Instrumente anhand der Klassifizierun
 ## Coin-Feldtest
 
 Unter „Coins · Impuls & Rücksetzer“ durchsucht das Dashboard Krypto-USDT-Perpetuals nach dem Long-Momentum-Muster auf abgeschlossenen 1-Minuten-Kerzen. „Neues Hoch berührt“ ist ein nach Kerzenschluss und Scan angezeigtes Muster, kein Echtzeitsignal. Das manuelle Feldtest-Protokoll speichert Zeit, Richtung, Ein- und Ausstieg, Positionswert, Gebühren und Notiz lokal im Browser und bietet CSV-Export. Das geschätzte Ergebnis berücksichtigt kein Funding; Slippage nur über eingegebene Ausführungskurse. Es werden keine Orders ausgeführt.
+
+## Orderbuch-Ansicht
+
+Über „◫ Orderbuch“ bei einem ausgewählten Scanner-Treffer erscheint der vergangene Kursverlauf mit den drei größten sichtbaren Kauf- und Verkaufsstufen je Seite innerhalb von ±0,2 % um den Orderbuch-Mittelpunkt. Es werden maximal 50 Stufen je Seite geladen. Bei geöffnetem Fenster wird der öffentliche Bitget-Snapshot etwa alle zwei Sekunden abgerufen; der Datenstatus und die tatsächlich abgedeckte Tiefe sind sichtbar. Sinkendes Volumen auf derselben Stufe wird nach mindestens zehn Sekunden als Vergleich gekennzeichnet, ohne Rückschlüsse auf die Absicht oder Ursache. Spread, ein begrenztes Buchverhältnis und die geschätzte zusätzliche Auswirkung einer 1.200-USDT-Market-Kauforder werden angezeigt. Es werden keine Orders ausgeführt. Sichtbare Liquidität ist keine Prognose.
