@@ -28,7 +28,7 @@ Anschließend http://localhost:8080 öffnen. Für Marktdaten ist eine Internetve
 - Spread, Funding und Open Interest als Ticker-Snapshots
 - Browserlokale Historie und CSV-Export
 
-Scans laufen bei geöffnetem Dashboard jede Minute. Standarduniversum: die 100 liquidesten Kontrakte nach 24h-Volumen, mit mindestens 10 Mio. USDT Volumen. Große Universen können länger als eine Minute benötigen. Ausfälle und vorläufige Ergebnisse werden gekennzeichnet.
+Scans laufen bei geöffnetem Dashboard jede Minute. Strategie, Richtung und Scannerfilter bleiben während des Scans bedienbar; Änderungen brechen den laufenden Scan ab und starten einen neuen. Die Coin-Suche filtert die angezeigten Ergebnisse. Standarduniversum: die 100 liquidesten Kontrakte nach 24h-Volumen, mit mindestens 10 Mio. USDT Volumen. Große Universen können länger als eine Minute benötigen. Ausfälle und vorläufige Ergebnisse werden gekennzeichnet.
 
 ## Dateien
 
