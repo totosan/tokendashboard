@@ -1,0 +1,96 @@
+//@version=6
+strategy("Dashboard · Impuls & Gegenkerzen", overlay=true, pyramiding=0,
+     initial_capital=10000, default_qty_type=strategy.percent_of_equity,
+     default_qty_value=10, commission_type=strategy.commission.percent,
+     commission_value=0.06, slippage=2, process_orders_on_close=false)
+
+string tradeSide = input.string("Both", "Direction", options=["Both", "Long", "Short"])
+int pullbackBars = input.int(3, "Counter candles", minval=2, maxval=4)
+int impulseBars = input.int(2, "Impulse candles (selected from dashboard's 2–6 range)", minval=2, maxval=6)
+float minImpulse = input.float(1.0, "Minimum impulse (%)", minval=0, step=0.1)
+float minVolume = input.float(1.5, "Impulse volume / prior 10-bar average", minval=0, step=0.1)
+float maxRetracement = input.float(0.5, "Maximum retracement", minval=0.05, maxval=0.66, step=0.01)
+bool requireQuiet = input.bool(true, "Require lower average pullback volume")
+float stopPercent = input.float(1.0, "Stop loss (%)", minval=0.01, step=0.1)
+float targetPercent = input.float(2.0, "Take profit (%)", minval=0.01, step=0.1)
+
+f_pattern(int side, bool confirmation) =>
+    float dirOpen = side * open
+    float dirHigh = side == 1 ? high : -low
+    float dirLow = side == 1 ? low : -high
+    float dirClose = side * close
+    int pullbackEnd = confirmation ? 1 : 0
+    int impulseEnd = pullbackEnd + pullbackBars
+    int impulseStart = impulseEnd + impulseBars - 1
+    float origin = dirOpen[impulseStart]
+    float finish = dirClose[impulseEnd]
+    float peak = ta.highest(dirHigh, impulseBars)[impulseEnd]
+    float pullbackLow = ta.lowest(dirLow, pullbackBars)[pullbackEnd]
+    float trigger = dirHigh[pullbackEnd]
+    float baseline = ta.highest(dirHigh, 10)[impulseStart + 1]
+    float swing = peak - origin
+    float impulsePercent = origin != 0 ? (finish - origin) / math.abs(origin) * 100 : na
+    float retracement = swing > 0 ? (peak - pullbackLow) / swing : na
+    int directionalImpulse = 0
+    bool counterCandles = true
+    for i = 0 to impulseBars - 1
+        if dirClose[impulseEnd + i] > dirOpen[impulseEnd + i]
+            directionalImpulse += 1
+    for i = 0 to pullbackBars - 1
+        int offset = pullbackEnd + i
+        if dirClose[offset] >= dirOpen[offset]
+            counterCandles := false
+        if i > 0 and dirClose[offset] <= dirClose[offset - 1]
+            counterCandles := false
+    float impulseVolume = ta.sma(volume, impulseBars)[impulseEnd]
+    float baselineVolume = ta.sma(volume, 10)[impulseStart + 1]
+    float pullbackVolume = ta.sma(volume, pullbackBars)[pullbackEnd]
+    float impulseBody = ta.sma(math.abs(close - open), impulseBars)[impulseEnd]
+    float pullbackBody = ta.sma(math.abs(close - open), pullbackBars)[pullbackEnd]
+    bool contiguous = true
+    for i = 0 to impulseStart + 9
+        int offset = impulseStart + 10 - i
+        if time[offset] - time[offset - 1] != timeframe.in_seconds() * 1000
+            contiguous := false
+    bool validSetup = not na(origin) and not na(baseline) and not na(impulsePercent) and
+         not na(retracement) and not na(impulseVolume) and not na(baselineVolume) and
+         contiguous and directionalImpulse >= int(math.ceil(impulseBars * 2.0 / 3.0)) and
+         impulsePercent >= minImpulse and finish > baseline and origin <= baseline and
+         finish >= peak - swing * 0.2 and swing > 0 and retracement >= 0.05 and
+         retracement <= maxRetracement and pullbackLow > origin and counterCandles and
+         baselineVolume > 0 and impulseVolume / baselineVolume >= minVolume and
+         not na(impulseBody) and impulseBody > 0 and pullbackBody / impulseBody < 0.8 and
+         (not requireQuiet or (not na(pullbackVolume) and pullbackVolume < impulseVolume))
+    bool confirmed = dirClose > dirOpen and dirClose > trigger and dirLow > pullbackLow
+    [validSetup and (not confirmation or confirmed), side * trigger, side * pullbackLow]
+
+[longSetup, longSetupTrigger, longSetupStop] = f_pattern(1, false)
+[shortSetup, shortSetupTrigger, shortSetupStop] = f_pattern(-1, false)
+[longSignal, longTrigger, longInvalidation] = f_pattern(1, true)
+[shortSignal, shortTrigger, shortInvalidation] = f_pattern(-1, true)
+
+bool flat = strategy.position_size == 0
+bool enterLong = barstate.isconfirmed and flat and tradeSide != "Short" and longSignal
+bool enterShort = barstate.isconfirmed and flat and tradeSide != "Long" and shortSignal
+int stopTicks = int(math.max(1, math.round(close * stopPercent / 100 / syminfo.mintick)))
+int targetTicks = int(math.max(1, math.round(close * targetPercent / 100 / syminfo.mintick)))
+
+if enterLong
+    strategy.entry("Long", strategy.long)
+    strategy.exit("Long exit", from_entry="Long", loss=stopTicks, profit=targetTicks)
+else if enterShort
+    strategy.entry("Short", strategy.short)
+    strategy.exit("Short exit", from_entry="Short", loss=stopTicks, profit=targetTicks)
+
+plotshape(longSetup and tradeSide != "Short", title="Long pullback setup", text="SETUP",
+     style=shape.circle, location=location.belowbar, color=color.new(color.lime, 15), textcolor=color.black, size=size.tiny)
+plotshape(shortSetup and tradeSide != "Long", title="Short pullback setup", text="SETUP",
+     style=shape.circle, location=location.abovebar, color=color.new(color.red, 15), textcolor=color.white, size=size.tiny)
+plotshape(enterLong, title="Long trigger / entry order", text="TRIGGER",
+     style=shape.triangleup, location=location.belowbar, color=color.lime, textcolor=color.black, size=size.small)
+plotshape(enterShort, title="Short trigger / entry order", text="TRIGGER",
+     style=shape.triangledown, location=location.abovebar, color=color.red, textcolor=color.white, size=size.small)
+plot(longSignal ? longTrigger : shortSignal ? shortTrigger : na, "Last counter-candle trigger", color=color.orange, style=plot.style_circles, linewidth=2)
+plot(longSignal ? longInvalidation : shortSignal ? shortInvalidation : na, "Pullback structure invalidation", color=color.new(color.red, 15), style=plot.style_circles)
+plotshape(strategy.closedtrades > nz(strategy.closedtrades[1]), title="Exit", text="EXIT",
+     style=shape.xcross, location=location.abovebar, color=color.yellow, textcolor=color.black, size=size.tiny)

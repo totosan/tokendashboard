@@ -1,0 +1,62 @@
+//@version=6
+strategy("Dashboard · Momentum-Pullback / erstes neues Hoch", overlay=true,
+     pyramiding=0, initial_capital=10000, default_qty_type=strategy.percent_of_equity,
+     default_qty_value=10, commission_type=strategy.commission.percent,
+     commission_value=0.06, slippage=2, process_orders_on_close=false)
+
+int impulseBars = input.int(2, "Impulse candles (dashboard checks 2–6)", minval=2, maxval=6)
+int pullbackBars = input.int(1, "Pullback candles (dashboard checks 1–3)", minval=1, maxval=3)
+float minImpulse = input.float(0.5, "Minimum impulse (%)", minval=0, step=0.1)
+float stopPercent = input.float(1.0, "Stop loss (%)", minval=0.01, step=0.1)
+float targetPercent = input.float(2.0, "Take profit (%)", minval=0.01, step=0.1)
+
+f_momentum(bool confirmation) =>
+    int pullbackEnd = confirmation ? 1 : 0
+    int impulseEnd = pullbackEnd + pullbackBars
+    int impulseStart = impulseEnd + impulseBars - 1
+    float origin = open[impulseStart]
+    float finish = close[impulseEnd]
+    float peak = ta.highest(high, impulseBars)[impulseEnd]
+    float pullbackLow = ta.lowest(low, pullbackBars)[pullbackEnd]
+    float trigger = high[pullbackEnd]
+    float swing = peak - origin
+    float impulsePercent = origin > 0 ? (finish / origin - 1) * 100 : na
+    float retracement = swing > 0 ? (peak - pullbackLow) / swing : na
+    int advancingCandles = 0
+    bool decliningPullback = true
+    bool contiguous = true
+    for i = 0 to impulseBars - 1
+        if close[impulseEnd + i] > open[impulseEnd + i]
+            advancingCandles += 1
+    for i = 0 to pullbackBars - 1
+        if close[pullbackEnd + i] >= open[pullbackEnd + i]
+            decliningPullback := false
+    for i = 0 to impulseStart - 1
+        int offset = impulseStart - i
+        if time[offset] - time[offset - 1] != timeframe.in_seconds() * 1000
+            contiguous := false
+    bool setupOk = not na(origin) and not na(impulsePercent) and not na(retracement) and
+         contiguous and advancingCandles >= int(math.ceil(impulseBars * 2.0 / 3.0)) and finish > origin and
+         impulsePercent >= minImpulse and retracement >= 0 and retracement <= 0.5 and
+         pullbackLow > origin and decliningPullback
+    bool confirmed = high > trigger and close > trigger and low > pullbackLow
+    [setupOk and (not confirmation or confirmed), trigger, pullbackLow]
+
+[pullbackSetup, setupTrigger, setupInvalidation] = f_momentum(false)
+[longSignal, longTrigger, longInvalidation] = f_momentum(true)
+bool enterLong = barstate.isconfirmed and strategy.position_size == 0 and longSignal
+int stopTicks = int(math.max(1, math.round(close * stopPercent / 100 / syminfo.mintick)))
+int targetTicks = int(math.max(1, math.round(close * targetPercent / 100 / syminfo.mintick)))
+
+if enterLong
+    strategy.entry("Long", strategy.long)
+    strategy.exit("Long exit", from_entry="Long", loss=stopTicks, profit=targetTicks)
+
+plotshape(pullbackSetup, title="Long pullback setup", text="SETUP",
+     style=shape.circle, location=location.belowbar, color=color.new(color.lime, 15), textcolor=color.black, size=size.tiny)
+plotshape(enterLong, title="Confirmed high / entry order", text="NEW HIGH",
+     style=shape.triangleup, location=location.belowbar, color=color.lime, textcolor=color.black, size=size.small)
+plot(longSignal ? longTrigger : na, "Last pullback high / trigger", color=color.orange, style=plot.style_circles, linewidth=2)
+plot(longSignal ? longInvalidation : na, "Pullback low / invalidation", color=color.new(color.red, 15), style=plot.style_circles)
+plotshape(strategy.closedtrades > nz(strategy.closedtrades[1]), title="Exit", text="EXIT",
+     style=shape.xcross, location=location.abovebar, color=color.yellow, textcolor=color.black, size=size.tiny)
