@@ -1,0 +1,74 @@
+//@version=6
+strategy("Dashboard · Treppen & Konsolidierung", overlay=true, pyramiding=0,
+     initial_capital=10000, default_qty_type=strategy.percent_of_equity,
+     default_qty_value=10, commission_type=strategy.commission.percent,
+     commission_value=0.06, slippage=2, calc_on_every_tick=false, process_orders_on_close=false)
+
+string tradeSide = input.string("Both", "Direction", options=["Both", "Long", "Short"])
+float minVolume = input.float(1.0, "Breakout volume / consolidation average", minval=0, step=0.1)
+float stopPercent = input.float(1.0, "Stop loss (%)", minval=0.01, step=0.1)
+float targetPercent = input.float(2.0, "Take profit (%)", minval=0.01, step=0.1)
+
+f_stair(int side, int shift, bool requireBreakout) =>
+    float dirOpen = side * open
+    float dirHigh = side == 1 ? high : -low
+    float dirLow = side == 1 ? low : -high
+    float dirClose = side * close
+    int impulseEnd = shift + 4
+    int impulseStart = shift + 9
+    float origin = dirOpen[impulseStart]
+    float finish = dirClose[impulseEnd]
+    float peak = ta.highest(dirHigh, 6)[impulseEnd]
+    float rangeTop = ta.highest(dirHigh, 4)[shift]
+    float rangeBottom = ta.lowest(dirLow, 4)[shift]
+    float swing = peak - origin
+    float retracement = swing > 0 ? (peak - rangeBottom) / swing : na
+    int advancingCloses = 0
+    for i = 0 to 4
+        if dirClose[impulseStart - i] > dirClose[impulseStart - i - 1]
+            advancingCloses += 1
+    float rangeVolume = ta.sma(volume, 4)[shift]
+    bool contiguous = true
+    for i = 0 to impulseStart - 1
+        int offset = impulseStart - i
+        if time[offset] - time[offset - 1] != timeframe.in_seconds() * 1000
+            contiguous := false
+    bool structureOk = not na(origin) and not na(peak) and not na(rangeTop) and
+         contiguous and finish > origin and advancingCloses >= 4 and swing > 0 and
+         retracement >= 0.05 and retracement <= 0.5 and rangeBottom > origin and
+         rangeTop <= peak + math.abs(peak) * 0.002
+    bool breakoutOk = dirClose > rangeTop and dirClose > dirOpen and
+         not na(volume) and not na(rangeVolume) and rangeVolume > 0 and
+         volume >= rangeVolume * minVolume
+    [structureOk and (not requireBreakout or breakoutOk), side * rangeTop, side * rangeBottom]
+
+[longSetup, longSetupTrigger, longSetupStop] = f_stair(1, 0, false)
+[shortSetup, shortSetupTrigger, shortSetupStop] = f_stair(-1, 0, false)
+[longSignal, longTrigger, longInvalidation] = f_stair(1, 1, true)
+[shortSignal, shortTrigger, shortInvalidation] = f_stair(-1, 1, true)
+
+bool flat = strategy.position_size == 0
+bool enterLong = barstate.isconfirmed and flat and tradeSide != "Short" and longSignal
+bool enterShort = barstate.isconfirmed and flat and tradeSide != "Long" and shortSignal
+int stopTicks = int(math.max(1, math.round(close * stopPercent / 100 / syminfo.mintick)))
+int targetTicks = int(math.max(1, math.round(close * targetPercent / 100 / syminfo.mintick)))
+
+if enterLong
+    strategy.entry("Long", strategy.long)
+    strategy.exit("Long exit", from_entry="Long", loss=stopTicks, profit=targetTicks)
+else if enterShort
+    strategy.entry("Short", strategy.short)
+    strategy.exit("Short exit", from_entry="Short", loss=stopTicks, profit=targetTicks)
+
+plotshape(longSetup and tradeSide != "Short", title="Long setup", text="SETUP",
+     style=shape.circle, location=location.belowbar, color=color.new(color.lime, 15), textcolor=color.black, size=size.tiny)
+plotshape(shortSetup and tradeSide != "Long", title="Short setup", text="SETUP",
+     style=shape.circle, location=location.abovebar, color=color.new(color.red, 15), textcolor=color.white, size=size.tiny)
+plotshape(enterLong, title="Long trigger / entry order", text="TRIGGER",
+     style=shape.triangleup, location=location.belowbar, color=color.lime, textcolor=color.black, size=size.small)
+plotshape(enterShort, title="Short trigger / entry order", text="TRIGGER",
+     style=shape.triangledown, location=location.abovebar, color=color.red, textcolor=color.white, size=size.small)
+plot(longSignal ? longTrigger : shortSignal ? shortTrigger : na, "Breakout level", color=color.orange, style=plot.style_circles, linewidth=2)
+plot(longSignal ? longInvalidation : shortSignal ? shortInvalidation : na, "Structure invalidation", color=color.new(color.red, 15), style=plot.style_circles)
+plotshape(strategy.closedtrades > nz(strategy.closedtrades[1]), title="Exit", text="EXIT",
+     style=shape.xcross, location=location.abovebar, color=color.yellow, textcolor=color.black, size=size.tiny)
