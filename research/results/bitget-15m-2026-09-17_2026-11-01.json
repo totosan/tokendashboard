@@ -1521,57 +1521,57 @@
       }
     },
     {
-      "mean_gross_bps": -0.6714358756148001,
+      "mean_gross_bps": -0.6831954129683634,
       "mean_loss_bps": -20.474995178687944,
-      "mean_mae_bps": -18.3619084345749,
-      "mean_mfe_bps": 17.404180561299338,
+      "mean_mae_bps": -18.3725534152647,
+      "mean_mfe_bps": 17.41178698664627,
       "mean_net_bps_by_round_trip_cost": {
-        "12": -12.671435875614801,
-        "22": -22.6714358756148,
-        "37": -37.6714358756148
+        "12": -12.683195412968363,
+        "22": -22.683195412968363,
+        "37": -37.68319541296837
       },
-      "mean_win_bps": 18.170881288001254,
+      "mean_win_bps": 18.201897098184073,
       "median_gross_bps": 0.0,
-      "median_mae_bps": -10.241423499240954,
-      "median_mfe_bps": 9.54885219959234,
-      "n": 696,
+      "median_mae_bps": -10.21867974657642,
+      "median_mfe_bps": 9.530869427087918,
+      "n": 695,
       "period": "development",
-      "profit_factor_event_level": 0.9306264249204382,
+      "profit_factor_event_level": 0.9295128355329059,
       "side": "long",
       "strategy": "three_close_momentum_baseline",
       "symbol": "COINUSDT",
-      "win_rate_gross_pct": 49.56896551724138,
+      "win_rate_gross_pct": 49.49640287769784,
       "win_rate_net_pct_by_round_trip_cost": {
-        "12": 22.844827586206897,
-        "22": 13.36206896551724,
-        "37": 5.747126436781609
+        "12": 22.87769784172662,
+        "22": 13.381294964028779,
+        "37": 5.755395683453238
       }
     },
     {
-      "mean_gross_bps": -0.2534949107565198,
-      "mean_loss_bps": -23.33417925170571,
-      "mean_mae_bps": -23.92289706377127,
-      "mean_mfe_bps": 25.238401515417866,
+      "mean_gross_bps": -0.2177179514198396,
+      "mean_loss_bps": -23.330148075342404,
+      "mean_mae_bps": -23.91991711525062,
+      "mean_mfe_bps": 25.275299763247425,
       "mean_net_bps_by_round_trip_cost": {
-        "12": -12.253494910756519,
-        "22": -22.25349491075652,
-        "37": -37.25349491075652
+        "12": -12.21771795141984,
+        "22": -22.21771795141984,
+        "37": -37.21771795141984
       },
       "mean_win_bps": 24.38266051611716,
-      "median_gross_bps": -1.0382059800662091,
-      "median_mae_bps": -16.279574560451593,
-      "median_mfe_bps": 17.747278750590567,
-      "n": 685,
+      "median_gross_bps": -1.0378828198731593,
+      "median_mae_bps": -16.243514994974674,
+      "median_mfe_bps": 17.76621703713954,
+      "n": 684,
       "period": "development",
-      "profit_factor_event_level": 0.9784924377950356,
+      "profit_factor_event_level": 0.9814982098574522,
       "side": "long",
       "strategy": "three_close_momentum_baseline",
       "symbol": "DOGEUSDT",
-      "win_rate_gross_pct": 47.2992700729927,
+      "win_rate_gross_pct": 47.368421052631575,
       "win_rate_net_pct_by_round_trip_cost": {
-        "12": 28.759124087591243,
-        "22": 18.248175182481752,
-        "37": 8.905109489051096
+        "12": 28.801169590643276,
+        "22": 18.27485380116959,
+        "37": 8.91812865497076
       }
     },
     {
@@ -1656,57 +1656,57 @@
       }
     },
     {
-      "mean_gross_bps": 1.2035232202684392,
-      "mean_loss_bps": -18.91507058728543,
-      "mean_mae_bps": -19.8291396602624,
-      "mean_mfe_bps": 22.766950110295582,
+      "mean_gross_bps": 1.2112494344361524,
+      "mean_loss_bps": -18.95460563448378,
+      "mean_mae_bps": -19.839302504610767,
+      "mean_mfe_bps": 22.794219925508283,
       "mean_net_bps_by_round_trip_cost": {
-        "12": -10.796476779731561,
-        "22": -20.79647677973156,
-        "37": -35.79647677973156
+        "12": -10.788750565563848,
+        "22": -20.78875056556385,
+        "37": -35.788750565563845
       },
       "mean_win_bps": 21.94876010435909,
-      "median_gross_bps": -0.42116967241434544,
-      "median_mae_bps": -14.626243925017768,
-      "median_mfe_bps": 16.18024971230314,
-      "n": 727,
+      "median_gross_bps": -0.39197263424939344,
+      "median_mae_bps": -14.633454612043572,
+      "median_mfe_bps": 16.181148876378558,
+      "n": 726,
       "period": "development",
-      "profit_factor_event_level": 1.1256993695987076,
+      "profit_factor_event_level": 1.1264123167557085,
       "side": "long",
       "strategy": "three_close_momentum_baseline",
       "symbol": "SOLUSDT",
-      "win_rate_gross_pct": 49.10591471801926,
+      "win_rate_gross_pct": 49.17355371900827,
       "win_rate_net_pct_by_round_trip_cost": {
-        "12": 27.51031636863824,
-        "22": 16.643741403026134,
-        "37": 8.528198074277855
+        "12": 27.548209366391184,
+        "22": 16.666666666666664,
+        "37": 8.539944903581267
       }
     },
     {
-      "mean_gross_bps": -0.5432233097363285,
+      "mean_gross_bps": -0.5484927463137299,
       "mean_loss_bps": -10.674478254865772,
-      "mean_mae_bps": -10.347365930062983,
-      "mean_mfe_bps": 9.73940866626749,
+      "mean_mae_bps": -10.354525934962915,
+      "mean_mfe_bps": 9.735903501387327,
       "mean_net_bps_by_round_trip_cost": {
-        "12": -12.543223309736328,
-        "22": -22.54322330973633,
-        "37": -37.54322330973633
+        "12": -12.54849274631373,
+        "22": -22.54849274631373,
+        "37": -37.54849274631373
       },
-      "mean_win_bps": 10.180349835680733,
-      "median_gross_bps": -0.26075619295906627,
-      "median_mae_bps": -4.51009132934832,
-      "median_mfe_bps": 4.153902071757365,
-      "n": 695,
+      "mean_win_bps": 10.201699032540857,
+      "median_gross_bps": -0.2607936002746447,
+      "median_mae_bps": -4.507297916925834,
+      "median_mfe_bps": 4.142383950617168,
+      "n": 694,
       "period": "development",
-      "profit_factor_event_level": 0.8995213291448191,
+      "profit_factor_event_level": 0.8986926305422452,
       "side": "long",
       "strategy": "three_close_momentum_baseline",
       "symbol": "TSLAUSDT",
-      "win_rate_gross_pct": 47.76978417266187,
+      "win_rate_gross_pct": 47.69452449567723,
       "win_rate_net_pct_by_round_trip_cost": {
-        "12": 11.07913669064748,
-        "22": 5.323741007194244,
-        "37": 2.446043165467626
+        "12": 11.095100864553315,
+        "22": 5.3314121037463975,
+        "37": 2.4495677233429394
       }
     },
     {
@@ -1845,57 +1845,57 @@
       }
     },
     {
-      "mean_gross_bps": -2.7196338285141275,
+      "mean_gross_bps": -2.6866626142766252,
       "mean_loss_bps": -19.472652691382045,
-      "mean_mae_bps": -21.156582017630335,
-      "mean_mfe_bps": 16.529714431032996,
+      "mean_mae_bps": -21.12370158162238,
+      "mean_mfe_bps": 16.51548217462702,
       "mean_net_bps_by_round_trip_cost": {
-        "12": -14.719633828514127,
-        "22": -24.719633828514127,
-        "37": -39.71963382851413
+        "12": -14.686662614276624,
+        "22": -24.686662614276624,
+        "37": -39.68666261427663
       },
-      "mean_win_bps": 19.598071511305285,
-      "median_gross_bps": -3.0398832684819244,
-      "median_mae_bps": -11.035497517013493,
-      "median_mfe_bps": 8.811090225562257,
-      "n": 309,
+      "mean_win_bps": 19.506430383076545,
+      "median_gross_bps": -2.9439562161504007,
+      "median_mae_bps": -11.023080237412831,
+      "median_mfe_bps": 8.830584938138708,
+      "n": 310,
       "period": "out_of_sample",
-      "profit_factor_event_level": 0.7533928027666985,
+      "profit_factor_event_level": 0.7555941148775857,
       "side": "long",
       "strategy": "three_close_momentum_baseline",
       "symbol": "COINUSDT",
-      "win_rate_gross_pct": 42.394822006472495,
+      "win_rate_gross_pct": 42.58064516129032,
       "win_rate_net_pct_by_round_trip_cost": {
-        "12": 18.446601941747574,
-        "22": 12.297734627831716,
-        "37": 6.472491909385113
+        "12": 18.387096774193548,
+        "22": 12.258064516129032,
+        "37": 6.451612903225806
       }
     },
     {
-      "mean_gross_bps": -1.262369477782383,
-      "mean_loss_bps": -17.296149174146,
-      "mean_mae_bps": -17.941300539954394,
-      "mean_mfe_bps": 18.50478877455021,
+      "mean_gross_bps": -1.3347848037677639,
+      "mean_loss_bps": -17.338119716083288,
+      "mean_mae_bps": -17.966053260052984,
+      "mean_mfe_bps": 18.447675228949745,
       "mean_net_bps_by_round_trip_cost": {
-        "12": -13.262369477782382,
-        "22": -23.262369477782382,
-        "37": -38.262369477782386
+        "12": -13.334784803767764,
+        "22": -23.334784803767764,
+        "37": -38.33478480376776
       },
       "mean_win_bps": 19.385124362691077,
-      "median_gross_bps": -2.537749016623403,
-      "median_mae_bps": -14.502307185233487,
-      "median_mfe_bps": 12.737230925996545,
-      "n": 323,
+      "median_gross_bps": -2.5537261079516815,
+      "median_mae_bps": -14.525644378261537,
+      "median_mfe_bps": 12.69772938704894,
+      "n": 324,
       "period": "out_of_sample",
-      "profit_factor_event_level": 0.8660548732230101,
+      "profit_factor_event_level": 0.859077285481769,
       "side": "long",
       "strategy": "three_close_momentum_baseline",
       "symbol": "DOGEUSDT",
-      "win_rate_gross_pct": 42.10526315789473,
+      "win_rate_gross_pct": 41.9753086419753,
       "win_rate_net_pct_by_round_trip_cost": {
-        "12": 21.671826625387,
-        "22": 11.455108359133128,
-        "37": 4.024767801857585
+        "12": 21.604938271604937,
+        "22": 11.419753086419753,
+        "37": 4.012345679012346
       }
     },
     {
@@ -1980,57 +1980,57 @@
       }
     },
     {
-      "mean_gross_bps": -0.161308884450277,
-      "mean_loss_bps": -15.52049836922487,
-      "mean_mae_bps": -17.014568203834365,
-      "mean_mfe_bps": 19.402397977436735,
+      "mean_gross_bps": -0.17457263251603036,
+      "mean_loss_bps": -15.45354180233491,
+      "mean_mae_bps": -17.000306786520337,
+      "mean_mfe_bps": 19.35104380958811,
       "mean_net_bps_by_round_trip_cost": {
-        "12": -12.161308884450277,
-        "22": -22.16130888445028,
-        "37": -37.16130888445028
+        "12": -12.17457263251603,
+        "22": -22.174572632516032,
+        "37": -37.17457263251603
       },
       "mean_win_bps": 16.61870660120838,
-      "median_gross_bps": -1.1520516119123414,
-      "median_mae_bps": -13.77178189994277,
-      "median_mfe_bps": 14.393235179466224,
-      "n": 319,
+      "median_gross_bps": -1.1645842301888365,
+      "median_mae_bps": -13.682696451385311,
+      "median_mfe_bps": 14.372498922810006,
+      "n": 320,
       "period": "out_of_sample",
-      "profit_factor_event_level": 0.9799063254380463,
+      "profit_factor_event_level": 0.9782234027019902,
       "side": "long",
       "strategy": "three_close_momentum_baseline",
       "symbol": "SOLUSDT",
-      "win_rate_gross_pct": 47.33542319749217,
+      "win_rate_gross_pct": 47.1875,
       "win_rate_net_pct_by_round_trip_cost": {
-        "12": 22.570532915360502,
-        "22": 11.912225705329153,
-        "37": 3.761755485893417
+        "12": 22.5,
+        "22": 11.875,
+        "37": 3.75
       }
     },
     {
-      "mean_gross_bps": 2.9076918911398595,
+      "mean_gross_bps": 2.9082773280257697,
       "mean_loss_bps": -12.675161133945005,
-      "mean_mae_bps": -13.063142182297675,
-      "mean_mfe_bps": 15.47806053198298,
+      "mean_mae_bps": -13.041310308284075,
+      "mean_mfe_bps": 15.468668294940702,
       "mean_net_bps_by_round_trip_cost": {
-        "12": -9.092308108860141,
-        "22": -19.09230810886014,
-        "37": -34.09230810886014
+        "12": -9.09172267197423,
+        "22": -19.09172267197423,
+        "37": -34.09172267197423
       },
-      "mean_win_bps": 17.42973201754948,
-      "median_gross_bps": 0.5368983382991743,
-      "median_mae_bps": -6.458557588805425,
-      "median_mfe_bps": 6.0301507537685595,
-      "n": 351,
+      "mean_win_bps": 17.3506382808502,
+      "median_gross_bps": 0.5369992671699908,
+      "median_mae_bps": -6.456624232619723,
+      "median_mfe_bps": 6.09364584937766,
+      "n": 352,
       "period": "out_of_sample",
-      "profit_factor_event_level": 1.4821537419065889,
+      "profit_factor_event_level": 1.4836247530634459,
       "side": "long",
       "strategy": "three_close_momentum_baseline",
       "symbol": "TSLAUSDT",
-      "win_rate_gross_pct": 51.28205128205128,
+      "win_rate_gross_pct": 51.42045454545454,
       "win_rate_net_pct_by_round_trip_cost": {
-        "12": 20.7977207977208,
-        "22": 12.250712250712251,
-        "37": 7.122507122507122
+        "12": 20.738636363636363,
+        "22": 12.215909090909092,
+        "37": 7.1022727272727275
       }
     },
     {
@@ -2061,30 +2061,30 @@
       }
     },
     {
-      "mean_gross_bps": 0.09268289573954822,
+      "mean_gross_bps": 0.07740328984226183,
       "mean_loss_bps": -7.140277765705558,
-      "mean_mae_bps": -6.6189837207508875,
-      "mean_mfe_bps": 6.944268971333599,
+      "mean_mae_bps": -6.629942303070011,
+      "mean_mfe_bps": 6.9379216362419065,
       "mean_net_bps_by_round_trip_cost": {
-        "12": -11.907317104260452,
-        "22": -21.907317104260454,
-        "37": -36.90731710426045
+        "12": -11.922596710157737,
+        "22": -21.922596710157737,
+        "37": -36.92259671015774
       },
-      "mean_win_bps": 8.343967865040991,
-      "median_gross_bps": -0.2974596942117991,
-      "median_mae_bps": -2.9922202274090814,
-      "median_mfe_bps": 2.9819591471602624,
-      "n": 605,
+      "mean_win_bps": 8.340360496064388,
+      "median_gross_bps": -0.29785003797910825,
+      "median_mae_bps": -2.9936092900806344,
+      "median_mfe_bps": 2.9816479892980086,
+      "n": 604,
       "period": "development",
-      "profit_factor_event_level": 1.0253325068252104,
+      "profit_factor_event_level": 1.021121247117427,
       "side": "short",
       "strategy": "three_close_momentum_baseline",
       "symbol": "AAPLUSDT",
-      "win_rate_gross_pct": 44.95867768595041,
+      "win_rate_gross_pct": 44.867549668874176,
       "win_rate_net_pct_by_round_trip_cost": {
-        "12": 7.6033057851239665,
-        "22": 4.132231404958678,
-        "37": 1.6528925619834711
+        "12": 7.6158940397351,
+        "22": 4.13907284768212,
+        "37": 1.6556291390728477
       }
     },
     {
@@ -2115,57 +2115,57 @@
       }
     },
     {
-      "mean_gross_bps": -1.4476711700967202,
+      "mean_gross_bps": -1.4709434305069338,
       "mean_loss_bps": -14.423005811849233,
-      "mean_mae_bps": -14.344901611095223,
-      "mean_mfe_bps": 13.859178147972441,
+      "mean_mae_bps": -14.362478049035804,
+      "mean_mfe_bps": 13.850012134763091,
       "mean_net_bps_by_round_trip_cost": {
-        "12": -13.44767117009672,
-        "22": -23.44767117009672,
-        "37": -38.44767117009672
+        "12": -13.470943430506933,
+        "22": -23.470943430506935,
+        "37": -38.470943430506935
       },
-      "mean_win_bps": 14.025008842606956,
-      "median_gross_bps": -1.445656459455602,
-      "median_mae_bps": -10.413954699297623,
-      "median_mfe_bps": 8.725289706884576,
-      "n": 683,
+      "mean_win_bps": 14.02371757533491,
+      "median_gross_bps": -1.5020388893294268,
+      "median_mae_bps": -10.41405389367478,
+      "median_mfe_bps": 8.706121740880146,
+      "n": 682,
       "period": "development",
-      "profit_factor_event_level": 0.814718044049638,
+      "profit_factor_event_level": 0.8120151530932986,
       "side": "short",
       "strategy": "three_close_momentum_baseline",
       "symbol": "BNBUSDT",
-      "win_rate_gross_pct": 45.387994143484626,
+      "win_rate_gross_pct": 45.30791788856305,
       "win_rate_net_pct_by_round_trip_cost": {
-        "12": 18.594436310395317,
-        "22": 8.638360175695462,
-        "37": 2.4890190336749636
+        "12": 18.475073313782993,
+        "22": 8.651026392961878,
+        "37": 2.4926686217008798
       }
     },
     {
-      "mean_gross_bps": -0.7118467208096453,
-      "mean_loss_bps": -12.267351521792122,
-      "mean_mae_bps": -13.0783799744733,
-      "mean_mfe_bps": 13.566973578313856,
+      "mean_gross_bps": -0.7077089880955463,
+      "mean_loss_bps": -12.290335797004058,
+      "mean_mae_bps": -13.09160958807853,
+      "mean_mfe_bps": 13.578538026252815,
       "mean_net_bps_by_round_trip_cost": {
-        "12": -12.711846720809646,
-        "22": -22.711846720809646,
-        "37": -37.711846720809646
+        "12": -12.707708988095547,
+        "22": -22.707708988095547,
+        "37": -37.70770898809555
       },
       "mean_win_bps": 13.191443182594668,
-      "median_gross_bps": -1.072287993267862,
-      "median_mae_bps": -9.470688634052316,
-      "median_mfe_bps": 7.793962026296231,
-      "n": 694,
+      "median_gross_bps": -1.059454069549659,
+      "median_mae_bps": -9.474268392659635,
+      "median_mfe_bps": 7.845442199417851,
+      "n": 693,
       "period": "development",
-      "profit_factor_event_level": 0.8937433941721382,
+      "profit_factor_event_level": 0.8944319748780627,
       "side": "short",
       "strategy": "three_close_momentum_baseline",
       "symbol": "BTCUSDT",
-      "win_rate_gross_pct": 45.38904899135447,
+      "win_rate_gross_pct": 45.45454545454545,
       "win_rate_net_pct_by_round_trip_cost": {
-        "12": 17.86743515850144,
-        "22": 8.645533141210375,
-        "37": 2.4495677233429394
+        "12": 17.893217893217894,
+        "22": 8.658008658008658,
+        "37": 2.4531024531024532
       }
     },
     {
@@ -2385,30 +2385,30 @@
       }
     },
     {
-      "mean_gross_bps": -0.5680711575699641,
+      "mean_gross_bps": -0.5362716848520525,
       "mean_loss_bps": -8.286683510106945,
-      "mean_mae_bps": -6.926550488584525,
-      "mean_mfe_bps": 6.850905259732521,
+      "mean_mae_bps": -6.904278622061745,
+      "mean_mfe_bps": 6.863532764899671,
       "mean_net_bps_by_round_trip_cost": {
-        "12": -12.568071157569964,
-        "22": -22.568071157569964,
-        "37": -37.56807115756997
+        "12": -12.536271684852052,
+        "22": -22.536271684852053,
+        "37": -37.53627168485205
       },
-      "mean_win_bps": 7.9758612052142475,
-      "median_gross_bps": -0.28810583025395964,
-      "median_mae_bps": -3.4596177626888824,
-      "median_mfe_bps": 2.9060943551401097,
-      "n": 310,
+      "mean_win_bps": 7.985405202749611,
+      "median_gross_bps": -0.28782776386515607,
+      "median_mae_bps": -3.4541320054093383,
+      "median_mfe_bps": 2.9097680914835777,
+      "n": 311,
       "period": "out_of_sample",
-      "profit_factor_event_level": 0.8637742891707505,
+      "profit_factor_event_level": 0.8709850895844282,
       "side": "short",
       "strategy": "three_close_momentum_baseline",
       "symbol": "AAPLUSDT",
-      "win_rate_gross_pct": 45.16129032258064,
+      "win_rate_gross_pct": 45.337620578778136,
       "win_rate_net_pct_by_round_trip_cost": {
-        "12": 10.0,
-        "22": 4.838709677419355,
-        "37": 0.967741935483871
+        "12": 9.967845659163988,
+        "22": 4.823151125401929,
+        "37": 0.964630225080386
       }
     },
     {
@@ -2439,57 +2439,57 @@
       }
     },
     {
-      "mean_gross_bps": 1.261559584422278,
+      "mean_gross_bps": 1.3012055207031414,
       "mean_loss_bps": -13.79187266789408,
-      "mean_mae_bps": -14.083118917935936,
-      "mean_mfe_bps": 15.91054096734908,
+      "mean_mae_bps": -14.047801604736188,
+      "mean_mfe_bps": 15.923191142618359,
       "mean_net_bps_by_round_trip_cost": {
-        "12": -10.738440415577722,
-        "22": -20.73844041557772,
-        "37": -35.73844041557772
+        "12": -10.698794479296858,
+        "22": -20.698794479296858,
+        "37": -35.69879447929686
       },
-      "mean_win_bps": 19.114711456932547,
-      "median_gross_bps": -0.9365174928088749,
-      "median_mae_bps": -9.471035594130761,
-      "median_mfe_bps": 8.707009142359112,
-      "n": 331,
+      "mean_win_bps": 19.08385158175318,
+      "median_gross_bps": -0.8223112311445124,
+      "median_mae_bps": -9.39032033899223,
+      "median_mfe_bps": 8.745515166060368,
+      "n": 332,
       "period": "out_of_sample",
-      "profit_factor_event_level": 1.1691451273165874,
+      "profit_factor_event_level": 1.174987775794664,
       "side": "short",
       "strategy": "three_close_momentum_baseline",
       "symbol": "BNBUSDT",
-      "win_rate_gross_pct": 45.61933534743202,
+      "win_rate_gross_pct": 45.78313253012048,
       "win_rate_net_pct_by_round_trip_cost": {
-        "12": 20.241691842900302,
-        "22": 11.782477341389729,
-        "37": 3.625377643504532
+        "12": 20.481927710843372,
+        "22": 11.74698795180723,
+        "37": 3.614457831325301
       }
     },
     {
-      "mean_gross_bps": 0.7676978323694563,
-      "mean_loss_bps": -12.093112725385478,
-      "mean_mae_bps": -12.002155789644062,
-      "mean_mfe_bps": 13.19974683307163,
+      "mean_gross_bps": 0.7561673460987675,
+      "mean_loss_bps": -12.046589133944465,
+      "mean_mae_bps": -11.980691869104025,
+      "mean_mfe_bps": 13.179463184062461,
       "mean_net_bps_by_round_trip_cost": {
-        "12": -11.232302167630543,
-        "22": -21.232302167630543,
-        "37": -36.23230216763054
+        "12": -11.243832653901233,
+        "22": -21.243832653901233,
+        "37": -36.24383265390123
       },
       "mean_win_bps": 12.832994335005528,
-      "median_gross_bps": 0.4190598921915978,
-      "median_mae_bps": -7.762815817270452,
-      "median_mfe_bps": 7.14010768278317,
-      "n": 376,
+      "median_gross_bps": 0.41697275328433925,
+      "median_mae_bps": -7.747426482853648,
+      "median_mfe_bps": 7.139784839608199,
+      "n": 377,
       "period": "out_of_sample",
-      "profit_factor_event_level": 1.1311501133125546,
+      "profit_factor_event_level": 1.1293135639376952,
       "side": "short",
       "strategy": "three_close_momentum_baseline",
       "symbol": "BTCUSDT",
-      "win_rate_gross_pct": 51.59574468085106,
+      "win_rate_gross_pct": 51.45888594164456,
       "win_rate_net_pct_by_round_trip_cost": {
-        "12": 15.957446808510639,
-        "22": 7.446808510638298,
-        "37": 3.723404255319149
+        "12": 15.915119363395224,
+        "22": 7.427055702917771,
+        "37": 3.7135278514588856
       }
     },
     {

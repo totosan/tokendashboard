@@ -241,7 +241,7 @@ def evaluate_event(
         "strategy": kind,
         "signal_time_utc": datetime.fromtimestamp(int(bars[index]["timestamp"]) / 1000, timezone.utc).isoformat(),
         "entry_time_utc": datetime.fromtimestamp(int(entry_bar["timestamp"]) / 1000, timezone.utc).isoformat(),
-        "period": "development" if int(bars[index]["timestamp"]) < split_ms else "out_of_sample",
+        "period": "development" if int(entry_bar["timestamp"]) < split_ms else "out_of_sample",
         "gross_bps": sign * (float(entry_bar["close"]) / entry - 1) * 10000,
         "mfe_bps": sign * (
             float(entry_bar["high"] if side == "long" else entry_bar["low"]) / entry - 1

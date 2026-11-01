@@ -69,6 +69,14 @@ class BreakoutSignalTests(unittest.TestCase):
         self.assertAlmostEqual(result["mfe_bps"], 200)
         self.assertAlmostEqual(result["mae_bps"], -100)
 
+    def test_split_classifies_event_by_entry_time(self):
+        bars = [
+            candle(0, 100, 101, 99, 100),
+            candle(BAR_MS, 100, 101, 98, 99),
+        ]
+        result = evaluate_event(bars, 0, "short", "test", BAR_MS)
+        self.assertEqual(result["period"], "out_of_sample")
+
 
 if __name__ == "__main__":
     unittest.main()
