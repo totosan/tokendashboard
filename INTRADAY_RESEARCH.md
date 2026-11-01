@@ -48,6 +48,15 @@ Alle folgenden Ansätze sind **Hypothesen**, keine Empfehlungen. Die Regeln, Par
 6. Stichprobe, Abdeckung, brutto/netto, Mittel/Median, Trefferquote, durchschnittlichen Gewinn/Verlust, Profitfaktor, Drawdown und Unsicherheit berichten, soweit die Methode dies zulässt. Ergebnisse nach BTC/ETH, Altcoins und verfügbaren TradFi-Kontrakten trennen; negative und uneindeutige Resultate nicht auslassen.
 7. Rohdatenparameter, UTC-Zeitstempel, Codeversion, fehlende Intervalle, Ausführungs- und Kostenannahmen sowie jedes getestete Signal reproduzierbar festhalten. Eine Trefferquote von 55 % ist kein alleiniges Erfolgskriterium.
 
+### Präzisierung der Muster für reproduzierbare Tests
+
+- **Konsolidierung:** feste Anzahl abgeschlossener Bars; Grenzen aus deren Hoch/Tief; Rangebreite vorab als Anteil am Preis oder anhand eines ATR aus ausschließlich vorherigen Bars begrenzen. Die Ausbruchskerze darf die zu brechende Grenze nicht mitdefinieren. Es gibt keinen universell richtigen Grenzwert.
+- **Breakout:** abgeschlossener Schluss über der vorab bestimmten Range (Long) bzw. darunter (Short); Wick-Touch allein ist kein Schlusskurs-Trigger. Ein Retest muss ebenfalls mit vorher festgelegtem Zeitfenster und Preisband definiert werden. Fehl-, Nicht-Retest- und verspätete Ausbrüche im Nenner behalten.
+- **Pullback:** Impuls, Rücklauf vom Impulsextrem und Strukturbruch mit festen, abgeschlossenen Bars bestimmen. Wenn eine Swing-Erkennung spätere Bars benötigt, darf der Signalzeitpunkt nicht rückdatiert werden.
+- **Volumen:** Signalbar-Volumen gegen eine ausschließlich aus vorherigen Bars gebildete Basis vergleichen; Handelsplatz, Kontrakt, Volumeneinheit und Fenster dokumentieren. Volumen ist Kontext, kein Fortsetzungsbeweis.
+- **VWAP / Mean Reversion:** Sessionstart und Zeitzone für VWAP (24/7 UTC-Tag und rollierendes Fenster sind verschieden) festlegen. Bei OHLCV ist Preis×Volumen nur ein Näherungsmaß. Reversion braucht vorab definierte Referenz, Abweichung, Ausstieg und Invalidierung; Trends und Regimewechsel können die Annahme brechen.
+- **Multi-Timeframe:** nur die letzte vollständig abgeschlossene höhere Kerze zum Signalzeitpunkt verwenden und Datenverfügbarkeit zeitlich ausrichten. Viele Zeitrahmen/Längen zu testen erhöht Mehrfachtest-Risiko.
+
 ## Externe Evidenz und Datenstatus
 
 ### Bitget – Dokumentationshinweise, noch nicht vollständig verifiziert
@@ -64,17 +73,22 @@ Historische Trades, Quotes, Spreads und Orderbuchtiefe konnten nicht als reprodu
 
 ### Fachliteratur – Kontext, kein Nachweis für dieses Dashboard
 
-Die nachfolgenden Arbeiten werden nur als Methodik-/Marktkontext geführt. Ihre Märkte, Zeiträume und Regeln sind nicht Bitget-USDT- oder Stock-Perpetuals und begründen keine Wirksamkeit der lokalen Scanner:
+Die nachfolgenden Arbeiten wurden durch eine interne Rechercheaufgabe als relevante Literaturhinweise identifiziert. Originaltexte konnten in dieser Sitzung nicht unabhängig abgerufen werden; die Kurzbeschreibungen sind deshalb keine eigenständige Literaturauswertung. Ihre Märkte, Zeiträume und Regeln sind nicht Bitget-USDT- oder Stock-Perpetuals und begründen keine Wirksamkeit der lokalen Scanner:
 
+- Shen, Urquhart & Wang, [“Bitcoin intraday time series momentum”](https://research.birmingham.ac.uk/en/publications/bitcoin-intraday-time-series-momentum/) – direkterer Krypto-/Intraday-Kontext; nicht gleichbedeutend mit 5m/15m-Einstiegen oder Bitget-Ausführung.
+- [“Technical analysis in cryptocurrency markets: Do transaction costs and bubbles matter?”](https://www.sciencedirect.com/science/article/pii/S1042443122000816) – Krypto-Technikanalyse mit Kosten-/Blasenbezug; untersuchte Regeln, Venues und Zeiträume belegen keine Bitget-Perpetual-Performance.
+- Brock, Lakonishok & LeBaron, [“The Profitability of Technical Trading Rules in the Stock Market”](https://doi.org/10.1111/j.1540-6261.1992.tb04681.x) – historische Moving-Average-/Trading-Range-Break-Regeln in Aktien; kein Nachweis für heutige Intraday- oder Krypto-Regeln.
+- Park & Irwin, [“What Do We Know About the Profitability of Technical Analysis?”](https://doi.org/10.1111/j.1467-6419.2007.00519.x) – Review heterogener Studien und methodischer Grenzen, kein pauschaler Wirksamkeitsbeleg.
 - Lo, Mamaysky & Wang, [“Foundations of Technical Analysis”](https://doi.org/10.1111/0022-1082.00265) – formalisierte Chartmuster in US-Aktien.
 - Sullivan, Timmermann & White, [“Data-Snooping, Technical Trading Rule Performance, and the Bootstrap”](https://doi.org/10.1111/0022-1082.00163) – Daten-Snooping und Mehrfachtests technischer Regeln.
-- Bailey et al., [“The Probability of Backtest Overfitting”](https://doi.org/10.21314/JCF.2016.322) – Verfahren zur Beurteilung von Backtest-Überanpassung.
+- White, [“A Reality Check for Data Snooping”](https://doi.org/10.1111/1468-0262.00152) – Bootstrap-Korrektur für Mehrfachtests; ersetzt keine realistischen Daten und Fills.
+- Bailey et al., [“The Probability of Backtest Overfitting”](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2326253) – Verfahren zur Beurteilung von Backtest-Überanpassung, kein Profitabilitätsbeleg.
 - Gao et al., [“Market Intraday Momentum”](https://doi.org/10.1016/j.jfineco.2018.05.009) – Intraday-Momentum in einem anderen Markt.
 - Harvey, Liu & Zhu, [“...and the Cross-Section of Expected Returns”](https://doi.org/10.1093/rfs/hhv059) – Mehrfachtests in empirischer Finanzforschung.
 - Osler, [“Support for Resistance: Technical Analysis and Intraday Exchange Rates”](https://www.newyorkfed.org/research/epr/00v06n2/0007osle.html) – veröffentlichte Support-/Resistance-Niveaus im FX-Markt.
 - Bertsimas & Lo, [“Optimal Control of Execution Costs”](https://doi.org/10.1016/S1386-4181(97)00012-8) – Ausführungskosten, kein Nachweis für VWAP-Prognosekraft.
 
-Originaltexte konnten in dieser Sitzung nicht unabhängig abgerufen werden; weitergehende Detailbehauptungen aus den Arbeiten sind daher nicht abgeleitet.
+Alle Quellen belegen allenfalls Befunde in den jeweils untersuchten Daten und nicht eine Trefferquote oder einen Nettovorteil des Dashboards.
 
 ## Orchestrierung und Status
 
@@ -84,15 +98,15 @@ Die folgende Nummerierung ist eine **vorgeschlagene Struktur**, keine angelegte 
 |---|---|---|---|
 | 1 | Bestand: Code, Daten, Wiederverwendung | `scanner-audit` | Code-Audit abgeschlossen; keine Tests mit Marktdaten. |
 | 2 | Breakout/Konsolidierung/Pullback | `scanner-audit` | Regeln und Grenzen geprüft; keine echte Konsolidierungsvalidierung oder Backtest. |
-| 3 | Volumen und Profile | `scanner-audit`, `patterns-mtf-volume` | Implementierung geprüft; API-Volumensemantik und Profilmehrwert offen. |
-| 4 | MTF/Regime | `scanner-audit`, `patterns-mtf-volume` | 1h-Kontext geprüft; 4h-Filter/Test offen. |
-| 5 | Zusätzliche Ansätze | `strategy-evidence`, `patterns-mtf-volume` | Recherche läuft; keine Strategie wird vorab als wirksam eingestuft. |
+| 3 | Volumen und Profile | `scanner-audit`, `patterns-mtf-volume` | Code geprüft; Definitionsvorschläge dokumentiert; API-Volumensemantik und Profilmehrwert offen. |
+| 4 | MTF/Regime | `scanner-audit`, `patterns-mtf-volume` | 1h-Kontext und kausale Bar-Ausrichtung geprüft; 4h-Filter/Test offen. |
+| 5 | Zusätzliche Ansätze | `strategy-evidence`, `patterns-mtf-volume` | Literaturhinweise und operationale Hypothesen dokumentiert; keine Strategie als wirksam eingestuft. |
 | 6 | Krypto-Universum | `universes-tradfi` | Recherche läuft; historisches Point-in-time-Universum fehlt. |
 | 7 | TradFi-Übertragbarkeit | `universes-tradfi`, `bitget-data` | Recherche läuft bzw. Austausch-/Produktdetails nur teilweise über indexierte Quellen verfügbar. |
 | 8 | Daten/Kosten/Ausführung | `bitget-data` | Recherche abgeschlossen; direkte Dokumentationsprüfung, tatsächliche Kosten und Historienabdeckung offen. |
-| 9 | Validierung/Synthese/kritischer Review | `strategy-evidence`, danach unabhängiger Kritiker | Fachrecherche läuft; unabhängiger Review noch nicht beauftragt. |
+| 9 | Validierung/Synthese/kritischer Review | `strategy-evidence`, danach unabhängiger Kritiker | Methodik- und Literaturrecherche abgeschlossen; unabhängiger Review noch nicht beauftragt. |
 
-Die fünf internen Rechercheaufgaben wurden in dieser Sitzung tatsächlich gestartet; nur für `scanner-audit` und `bitget-data` lagen beim Schreiben dieses Abschnitts Ergebnisse vor. Agenten, die noch arbeiten, sind weder abgeschlossen noch verloren. Es gab keine Status-Nachfrage, deshalb wird kein „Lost Repeat“-Zustand behauptet. Nach Eingang der restlichen Ergebnisse ist ein unabhängiger Kritiker vorgesehen.
+Fünf interne Rechercheaufgaben wurden gestartet; vier haben Ergebnisse geliefert (`scanner-audit`, `bitget-data`, `strategy-evidence`, `patterns-mtf-volume`), während `universes-tradfi` zum Zeitpunkt dieses Berichts noch lief. Diese Agenten decken überlappende Themen ab; es wurde nicht je eine separate Aufgabe für alle neun Themen vergeben. Keine Aufgabe war GitHub-Assignee oder konnte ihr Ergebnis im Issue dokumentieren. Ein laufender Agent ist weder abgeschlossen noch verloren. Es gab keine Status-Nachfrage, deshalb wird kein „Lost Repeat“-Zustand behauptet. Ein unabhängiger Kritiker ist nach Abschluss der laufenden Recherche vorgesehen.
 
 **Vorgeschlagene Label-Konvention:** Themenlabels wie `topic:breakout`, `topic:volume-profile`, `topic:tradfi`, `topic:data-costs`, `topic:validation`; Statuslabels `state:pending`, `state:in-progress`, `state:blocked`, `state:review`, `state:done`. Issue #3 selbst hat derzeit keine Labels; ob diese Labels im Repository existieren, blieb wegen Timeout der Label-Abfrage offen. Keines wurde erstellt oder gesetzt.
 
@@ -102,4 +116,4 @@ Die fünf internen Rechercheaufgaben wurden in dieser Sitzung tatsächlich gesta
 - Als erste Untersuchung vorhandene Long-/Short-Signale gegen eine einfache, vorher festgelegte Momentum-Baseline testen; eine separate enge Konsolidierung als eigene Hypothese behandeln.
 - Profile, MTF-Filter und Indikatoren jeweils nur auf inkrementellen Out-of-sample-Mehrwert prüfen; keine kumulierte Auswahl „bester“ Filter ohne Offenlegung aller Varianten.
 - Crypto-Perpetuals und Stock-Perpetuals getrennt behandeln. Kosten, Funding, Datenlücken und tatsächlich erreichbare Preise pro Instrument nachweisen.
-- Offen bleiben GitHub-Teilaufgaben/Labels, direkte Bitget-Dokumentationsprüfung, historische Datenbeschaffung, reproduzierbarer Test samt Ergebnissen und unabhängiger Review. Issue #3 bleibt offen, bis seine Akzeptanzkriterien tatsächlich erfüllt sind.
+- Offen bleiben GitHub-Teilaufgaben/Labels, direkte Bitget-Dokumentationsprüfung, historische Datenbeschaffung, reproduzierbarer Test samt Ergebnissen, Ergebnis der laufenden Universen-/TradFi-Recherche und unabhängiger Review. Issue #3 bleibt offen, bis seine Akzeptanzkriterien tatsächlich erfüllt sind.
