@@ -30,7 +30,7 @@ Issue [#1](https://github.com/totosan/tokendashboard/issues/1) behandelt separat
 
 ### Was echte Konsolidierung für einen Test bedeuten müsste
 
-Eine testbare Konsolidierungsdefinition muss ausschließlich vergangene, am Signalzeitpunkt verfügbare Daten benutzen und vor dem Test festgelegt werden. Beispielsweise könnten Dauer, Rangebreite relativ zur vorherigen ATR/Volatilität und Überlappung der Kerzen gemeinsam eine Zone definieren; ein Ausbruch wäre ein abgeschlossener Schluss außerhalb der Zone mit vorab festgelegtem Volumenvergleich. Ein Retest muss zeitlich begrenzt, räumlich definiert und vom späteren Fortsetzungstrigger getrennt sein. Diese Varianten sind **Hypothesen für Tests**, keine vorgeschlagenen produktiven Regeln. Fehl- und Spätausbrüche gehören in die Ergebnismessung, nicht in eine nachträgliche Auswahllogik.
+Eine testbare Konsolidierungsdefinition muss ausschließlich vergangene, am Signalzeitpunkt verfügbare Daten benutzen und vor dem Test festgelegt werden. Eine konkrete **Beispiel-Spezifikation zur Vorregistrierung** wäre: abgeschlossene Zone aus sechs Bars; gesamte High-Low-Spanne höchstens 1,0 × ATR(14) aus vorher verfügbaren Bars plus ein vorab festgelegter Mindestwert für benachbarte Kerzenüberlappung. Long/Short-Ausbruch: abgeschlossener Schluss außerhalb des fixierten Zonenhochs/-tiefs, optional mit vorab festgelegtem ATR-Puffer und Volumenvergleich gegen eine feste vergangene Basis. Retest: innerhalb der nächsten sechs Bars Rückkehr in ein definiertes Band um die Ausbruchsgrenze und Schluss zurück außerhalb der Zone, ohne Bruch ihrer Gegenseite. Fehlausbruch: Schluss zurück in der Zone innerhalb von drei Bars; späte Bewegung: überschrittenes Maximalalter oder Abstand von beispielsweise mehr als 1 × ATR zur Grenze. Schwellen und Fenster sind **ungetestete Beispiele**, keine gewählten Dashboard-Standardwerte; sie müssen vor einem historischen Test festgeschrieben und mit allen Varianten berichtet werden. Fehl-, Nicht-Retest- und Spätausbrüche bleiben in der Abdeckung und Ergebnismessung sichtbar.
 
 ## Vergleich der Ansätze und vorläufige Priorität
 
@@ -78,16 +78,16 @@ Die Nummerierung ist eine **Vorschlagsstruktur für GitHub-Sub-Issues**. Keines 
 | Nummer | Vorgeschlagenes Thema | Abhängigkeit / messbares Lieferobjekt | Intern beauftragte Recherche |
 |---|---|---|---|
 | 1 | Bestand und Dashboard-Daten | Scannerregeln, Code-/Datenquellen, Einschränkungen und Wiederverwendung mit Zeilenreferenzen. | `dashboard-audit` – abgeschlossen, lokaler Code-Audit. |
-| 2 | Breakout, Konsolidierung und Pullback | Operationalisierte Zone/Trigger/Retest-Varianten und Vergleich zum bestehenden Scanner; Testdaten/Code sofern verfügbar. | `breakout-pullback` – Recherche aktiv; kein Backtest. |
+| 2 | Breakout, Konsolidierung und Pullback | Operationalisierte Zone/Trigger/Retest-Varianten und Vergleich zum bestehenden Scanner; Testdaten/Code sofern verfügbar. | `breakout-pullback` – Testdefinitionen abgeschlossen; externe Quellenzugriffe blockiert, kein Backtest. |
 | 3 | Volumen/Volumenprofil | Candle-Näherung gegen Trade-Daten, POC/VAH/VAL und Relativvolumen; Datenverfügbarkeit nachweisen. | `volume-profile` – abgeschlossen, Code-Audit; offizielle Datensemantik und alternative Historie unverifiziert. |
 | 4 | MTF und Marktregime | Kausale 1h/4h-Kontextdefinitionen und inkrementeller 5m/15m-Vergleich. | `timeframe-regimes` – abgeschlossen, Methodikvorschlag, keine Quellenprüfung oder Messung. |
 | 5 | Zusätzliche Signal-Familien | Präregistrierte EMA/Niveaus/VWAP/Mean-Reversion-Hypothesen samt Ausfallbedingungen. | `alternative-approaches` – abgeschlossen, Hypothesen und Ausfallbedingungen; Quellenzugriff blockiert. |
 | 6 | Krypto-Universum | Gleiche Methodik für BTC/ETH, Altcoins, breite und Eigenschaftsgruppen; Bias- und Kostenbericht. | `crypto-universe` – blockiert nach Rechercheversuchen: externe Quellen, historische Universen, Kosten- und Performance-Daten nicht verifiziert; nur Testdesign geliefert. |
 | 7 | TradFi-Übertragbarkeit | Aktuelle Instrumente/Produktspezifikationen und getrennte, quellengestützte Untersuchung. | `tradfi-transfer` – abgeschlossen, Verfügbarkeit/Marktdetails bleiben unverifiziert. |
 | 8 | Daten, Ausführung und Risiko | Historien-/Zeitstempel-/Gebühren-/Funding-/Spread-/Slippage-Abdeckung je Instrument belegen. | `bitget-data` – abgeschlossen; API-Historienlimits, Zeitstempel und konkrete aktuelle Kosten unverifiziert. |
-| 9 | Validierung, Synthese und Review | Reproduzierbare Ergebnisse, Vergleichsmatrix, Unsicherheit und unabhängige Kritik aller Teilergebnisse. | `methodology-review` – abgeschlossen, Testmethodik; unabhängiger Schlusskritiker erst nach Abschluss der laufenden Recherche. |
+| 9 | Validierung, Synthese und Review | Reproduzierbare Ergebnisse, Vergleichsmatrix, Unsicherheit und unabhängige Kritik aller Teilergebnisse. | `methodology-review` – abgeschlossen, Testmethodik; `independent-critic` – Review läuft, Ergebnis noch ausstehend. |
 
-Die Agenten liefen als interne Rechercheaufgaben, nicht als GitHub Issue-Assignees. Keine GitHub-Issue-Erstellung, Zuweisung, Label-Erstellung, Kommentar- oder Statuspflege ist über die verfügbaren Schreibwerkzeuge möglich. Es wurden keine fehlgeschlagenen Agenten, Status-Wiederholungen oder `Lost Repeat`-Labels dokumentiert; Nichterreichbarkeit eines Issue-Endpunkts ist kein Agentenausfall.
+Die Agenten liefen als interne Rechercheaufgaben, nicht als GitHub Issue-Assignees. Keine GitHub-Issue-Erstellung, Zuweisung, Label-Erstellung, Kommentar- oder Statuspflege ist über die verfügbaren Schreibwerkzeuge möglich. `crypto-universe` antwortete nach zwei Statusanfragen mit „research incomplete“/blockiert; `breakout-pullback` antwortete auf die Statusanfrage mit Ergebnissen. Keiner wurde als verloren dokumentiert; `Lost Repeat` ist daher nicht gesetzt (und ein Label kann hier nicht erstellt werden). Ein nicht erreichbarer externer Dienst ist kein Agentenausfall.
 
 ### Label-Konvention
 
@@ -113,7 +113,7 @@ Die abgefragten Repository-Labels sind die GitHub-Standardlabels (`bug`, `enhanc
 ## Offene Aufgaben und nächster Schritt
 
 - [ ] GitHub-Child-Issues unter #3 anlegen, Beziehungen/Assignees setzen und Topic-/State-Labels erstellen/setzen; nötig ist eine Sitzung mit GitHub-Schreibzugriff.
-- [ ] Den unabhängigen Schlusskritiker nach Abschluss der noch laufenden internen Recherche beauftragen; Quellen, Methodik, Auswahl-/Lookahead-Bias und Aussagen prüfen. Bis dahin kein unabhängiger Review behaupten.
+- [ ] Ergebnis des laufenden unabhängigen Schlusskritikers einarbeiten; Quellen, Methodik, Auswahl-/Lookahead-Bias und Aussagen nachprüfen. Bis dahin keinen abgeschlossenen unabhängigen Review behaupten.
 - [ ] Offizielle Bitget-Endpunktdokumentation und Live-Instrumente erneut abrufen; pro Instrument Historienumfang, Zeitstempel, Kosten/Funding und Markthandelszeiten anhand datierter Primärquellen verifizieren.
 - [ ] Historische OHLCV- und gegebenenfalls Trade-/Quote-/Orderbuchdaten reproduzierbar sichern; wenn passende Daten nicht abrufbar sind, Datenlücke und nächsten Zugangsschritt dokumentieren.
 - [ ] Erst danach vorab definierte Out-of-sample-Tests mit Baseline, realistischen Kosten und Ergebnissen je BTC/ETH, Altcoin-Gruppe und verifiziertem TradFi-Instrument durchführen.
