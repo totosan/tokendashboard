@@ -24,6 +24,10 @@
 | Orderbuch | `dist/orderbook.js:26-30` lädt einen aktuellen Snapshot und sammelt bei geöffneter Ansicht etwa alle fünf Sekunden bis zu 15 Minuten flüchtige Snapshots. | Kein historisches Orderbuch. Die Kaufwirkung ist eine Momentaufnahme für 1.200 USDT und schließt Spread und Gebühren aus (`README.md:57-61`). |
 | Kosten und Protokoll | Ticker-Spread, Funding und Open Interest sind Snapshots (`dist/app.js:25`); das lokale Feldprotokoll berechnet aus manuell eingegebenen Kursen/Positionswerten und Gebühren (`dist/field.js:8-14`). | Keine historische Kostenreihe und kein automatischer Kostenabzug im Scanner. Das Feldprotokoll berücksichtigt Funding nicht; Slippage nur, soweit sie in den eingegebenen Kursen steckt (`README.md:53-55`). Hebel liefert keinen statistischen Vorteil und vergrößert Verluste/Margin-Risiko. |
 
+### Bezug zu Issue #1
+
+Issue [#1](https://github.com/totosan/tokendashboard/issues/1) behandelt separat kopierbare TradingView-Strategie-Skripte zu ähnlichen Mustern. In diesem Repository liegen keine Pine-Skripte oder TradingView-Backtest-Ergebnisse. Daher werden dort genannte Entry-/Exit- und Parameterannahmen nicht als gemessene Evidenz für den Dashboard-Scanner übernommen; Abweichungen sind anhand der aktuellen `main`-Implementierung oben zu beurteilen. Ein späterer Pine-Backtest kann eine weitere unabhängige Implementierung liefern, ersetzt aber weder Bitget-spezifische Daten-/Ausführungstests noch die hier geforderte Cross-Symbol-Validierung.
+
 ### Was echte Konsolidierung für einen Test bedeuten müsste
 
 Eine testbare Konsolidierungsdefinition muss ausschließlich vergangene, am Signalzeitpunkt verfügbare Daten benutzen und vor dem Test festgelegt werden. Beispielsweise könnten Dauer, Rangebreite relativ zur vorherigen ATR/Volatilität und Überlappung der Kerzen gemeinsam eine Zone definieren; ein Ausbruch wäre ein abgeschlossener Schluss außerhalb der Zone mit vorab festgelegtem Volumenvergleich. Ein Retest muss zeitlich begrenzt, räumlich definiert und vom späteren Fortsetzungstrigger getrennt sein. Diese Varianten sind **Hypothesen für Tests**, keine vorgeschlagenen produktiven Regeln. Fehl- und Spätausbrüche gehören in die Ergebnismessung, nicht in eine nachträgliche Auswahllogik.
@@ -55,6 +59,16 @@ Die frühere Stichprobe aus Issue #3 (acht Coins, 45 Tage, 15m-Folgekerzen-Exit,
 
 **Ausdrücklich nicht als Erfolgskriterium übernehmen:** 55 % Trefferquote. Sie sagt ohne durchschnittliches Gewinn-/Verlustverhältnis, Kosten und Unsicherheit nichts über Nettoerwartung oder Drawdown aus.
 
+## Vorläufige Synthese und Empfehlungen
+
+1. **Keine Regel als wirksam einstufen und keine produktive Filter-/Automationsänderung ableiten**, bis die Daten- und Out-of-sample-Lücken geschlossen sind. Die vorhandenen Treffer sind beschreibende Setups.
+2. **Als erste überprüfbare Hypothese** die vorhandenen Long-/Short-Ausbruch- und Impuls-Rücksetzer-Signale nach einem fixierten, geschlossenen 5m-/15m-Trigger vergleichen. Eine echte Konsolidierung separat definieren und gegen dieselben Baselines testen; ihr Nutzen ist unbewiesen.
+3. **Erst messen, dann ergänzen:** 1h/4h-Regime, Profil-/Relativvolumen und weitere Indikatoren jeweils einzeln auf inkrementellen Out-of-sample-Nutzen prüfen. Das aktuelle Kerzenprofil bleibt bis dahin Kontext, kein Handelsfilter.
+4. **Dashboard verständlich halten:** Kandidaten weiterhin von Bestätigungen unterscheiden; bei einem Test mindestens Signalzeit in UTC, verwendete geschlossene Kerzen, Preisniveau, Datenabdeckung/Alter und Spread-Snapshot sichtbar protokollieren. Keine Trefferzahl als Trefferwahrscheinlichkeit oder Prognose darstellen.
+5. **Manuelle Feldtests nur als Beobachtung protokollieren:** vor dem möglichen Einstieg Setup/Regeln und Signalzeit festhalten, tatsächliche Ein-/Ausstiegskurse, Gebühren, Finanzierung und Verzögerung nachtragen und das Ergebnis separat nach Symbolgruppe/Regime auswerten. Vorhandenes lokales Protokoll ist kein Backtest und seine Einträge belegen keine künftige Erfolgsquote.
+
+Diese Punkte sind Forschungs- und Dokumentationsempfehlungen, keine Handelsanweisungen. Es wird keine Hebel- oder Positionsgrößenempfehlung abgeleitet; eine Trefferquoten- oder Gewinnzusage gibt es nicht.
+
 ## Orchestrierung, Labels und Agenten
 
 ### Vorgeschlagene Struktur (alle direkten Eltern wären Issue #3)
@@ -64,7 +78,7 @@ Die Nummerierung ist eine **Vorschlagsstruktur für GitHub-Sub-Issues**. Keines 
 | Nummer | Vorgeschlagenes Thema | Abhängigkeit / messbares Lieferobjekt | Intern beauftragte Recherche |
 |---|---|---|---|
 | 1 | Bestand und Dashboard-Daten | Scannerregeln, Code-/Datenquellen, Einschränkungen und Wiederverwendung mit Zeilenreferenzen. | `dashboard-audit` – abgeschlossen, lokaler Code-Audit. |
-| 2 | Breakout, Konsolidierung und Pullback | Operationalisierte Zone/Trigger/Retest-Varianten und Vergleich zum bestehenden Scanner; Testdaten/Code sofern verfügbar. | Im Bestandsaudit mit betrachtet; keine separater Agent/kein Backtest. |
+| 2 | Breakout, Konsolidierung und Pullback | Operationalisierte Zone/Trigger/Retest-Varianten und Vergleich zum bestehenden Scanner; Testdaten/Code sofern verfügbar. | `breakout-pullback` – Recherche aktiv; kein Backtest. |
 | 3 | Volumen/Volumenprofil | Candle-Näherung gegen Trade-Daten, POC/VAH/VAL und Relativvolumen; Datenverfügbarkeit nachweisen. | `volume-profile` – abgeschlossen, Code-Audit; offizielle Datensemantik und alternative Historie unverifiziert. |
 | 4 | MTF und Marktregime | Kausale 1h/4h-Kontextdefinitionen und inkrementeller 5m/15m-Vergleich. | `timeframe-regimes` – abgeschlossen, Methodikvorschlag, keine Quellenprüfung oder Messung. |
 | 5 | Zusätzliche Signal-Familien | Präregistrierte EMA/Niveaus/VWAP/Mean-Reversion-Hypothesen samt Ausfallbedingungen. | `alternative-approaches` – abgeschlossen, Hypothesen und Ausfallbedingungen; Quellenzugriff blockiert. |
