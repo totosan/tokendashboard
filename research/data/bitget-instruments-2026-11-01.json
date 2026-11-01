@@ -1,0 +1,125 @@
+{
+  "requestTime": 1793545658919,
+  "data": [
+    {
+      "symbol": "BTCUSDT",
+      "status": "online",
+      "instrumentType": "crypto",
+      "isRwa": "NO",
+      "type": "perpetual",
+      "fundInterval": "8",
+      "makerFeeRate": "0.0002",
+      "takerFeeRate": "0.0006"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "status": "online",
+      "instrumentType": "crypto",
+      "isRwa": "NO",
+      "type": "perpetual",
+      "fundInterval": "8",
+      "makerFeeRate": "0.0002",
+      "takerFeeRate": "0.0006"
+    },
+    {
+      "symbol": "XRPUSDT",
+      "status": "online",
+      "instrumentType": "crypto",
+      "isRwa": "NO",
+      "type": "perpetual",
+      "fundInterval": "8",
+      "makerFeeRate": "0.0002",
+      "takerFeeRate": "0.0006"
+    },
+    {
+      "symbol": "ADAUSDT",
+      "status": "online",
+      "instrumentType": "crypto",
+      "isRwa": "NO",
+      "type": "perpetual",
+      "fundInterval": "8",
+      "makerFeeRate": "0.0002",
+      "takerFeeRate": "0.0006"
+    },
+    {
+      "symbol": "LINKUSDT",
+      "status": "online",
+      "instrumentType": "crypto",
+      "isRwa": "NO",
+      "type": "perpetual",
+      "fundInterval": "8",
+      "makerFeeRate": "0.0002",
+      "takerFeeRate": "0.0006"
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "status": "online",
+      "instrumentType": "crypto",
+      "isRwa": "NO",
+      "type": "perpetual",
+      "fundInterval": "8",
+      "makerFeeRate": "0.0002",
+      "takerFeeRate": "0.0006"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "status": "online",
+      "instrumentType": "crypto",
+      "isRwa": "NO",
+      "type": "perpetual",
+      "fundInterval": "8",
+      "makerFeeRate": "0.0002",
+      "takerFeeRate": "0.0006"
+    },
+    {
+      "symbol": "BNBUSDT",
+      "status": "online",
+      "instrumentType": "crypto",
+      "isRwa": "NO",
+      "type": "perpetual",
+      "fundInterval": "8",
+      "makerFeeRate": "0.0002",
+      "takerFeeRate": "0.0006"
+    },
+    {
+      "symbol": "TSLAUSDT",
+      "status": "online",
+      "instrumentType": "stock",
+      "isRwa": "YES",
+      "type": "perpetual",
+      "fundInterval": "8",
+      "makerFeeRate": "0.0002",
+      "takerFeeRate": "0.0006"
+    },
+    {
+      "symbol": "NVDAUSDT",
+      "status": "online",
+      "instrumentType": "stock",
+      "isRwa": "YES",
+      "type": "perpetual",
+      "fundInterval": "8",
+      "makerFeeRate": "0.0002",
+      "takerFeeRate": "0.0006"
+    },
+    {
+      "symbol": "AAPLUSDT",
+      "status": "online",
+      "instrumentType": "stock",
+      "isRwa": "YES",
+      "type": "perpetual",
+      "fundInterval": "8",
+      "makerFeeRate": "0.0002",
+      "takerFeeRate": "0.0006"
+    },
+    {
+      "symbol": "COINUSDT",
+      "status": "online",
+      "instrumentType": "stock",
+      "isRwa": "YES",
+      "type": "perpetual",
+      "fundInterval": "8",
+      "makerFeeRate": "0.0002",
+      "takerFeeRate": "0.0006"
+    }
+  ]
+}
