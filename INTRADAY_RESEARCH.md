@@ -248,6 +248,20 @@ Der zweite Schritt benötigt ein begrenztes Ergebnis oder einen dokumentierten
 Blocker des ersten Schritts, nicht dessen Erfolg. Der historische
 Quotes-/Impact-Blocker des Elternpakets verhindert diese Teilaufgaben nicht.
 
+1.8.1 hat inzwischen zwei sequenzielle 3-Print-Seiten je BTCUSDT/AAPLUSDT mit
+vier öffentlichen GETs ohne Retry geprüft. Neue, separate Evidenz:
+[`bitget-trade-pagination-2026-11-02T160432.624978Z.json`](research/data/bitget-trade-pagination-2026-11-02T160432.624978Z.json).
+`research/trade_pagination.py` speichert unveränderliche Requestparameter,
+Originalbytes (Base64), decodierte Antworten und nachrechenbare Hashes;
+`research.test_trade_pagination` prüft zwölf Fälle inklusive ungültiger
+Cursor-Grenzen, Duplikate und Fensterverletzungen. Das verifiziert nur
+Cursor-Konsistenz dieser Stichprobe, keine vollständige Trade-Abdeckung und
+keine historische Ausführbarkeit. Der frühere widersprüchliche Beleg bleibt
+unverändert und wird dadurch nicht rückwirkend validiert.
+Reproduktion: `timeout 140s python3 -m research.trade_pagination`;
+Offline-Prüfung: `python3 -m unittest research.test_trade_pagination -v`.
+Der Funding-Fachagent bearbeitet danach 1.8.2 mit eigenem begrenztem Budget.
+
 | Reihenfolge | Paket / zuständiges Issue | Evidenz-Gate |
 |---|---|---|
 | 1, klein | Trade-Paginierung, #15 unter #7 | Sequenzielle Cursor, IDs, Duplikate und Zeitfenster anhand gespeicherter Antworten prüfen; maximal acht öffentliche GETs. |

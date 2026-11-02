@@ -1,0 +1,264 @@
+{
+  "schema_version": 1,
+  "story": "#15; parent #7; epic #3",
+  "started_utc": "2026-11-02T16:04:32.624978+00:00",
+  "status": "verified",
+  "documentation": "https://www.bitget.com/legacy-docs/classic/contract/market/Get-Fills-History",
+  "cursor_semantics": "idLessThan exclusively requests older IDs; use preceding response endId. This endpoint returns a descending data array without endId; its last (minimum integer) tradeId is the page end ID.",
+  "requested_window_utc": [
+    "2026-09-17T14:30:00Z",
+    "2026-09-17T14:31:00Z"
+  ],
+  "timestamp_policy": "startTime <= ts < endTime (exact half-open minute)",
+  "max_market_requests": 8,
+  "per_request_deadline_seconds": 15,
+  "max_retries_total": 1,
+  "requests": [
+    {
+      "request_number": 1,
+      "page": 1,
+      "attempt": 1,
+      "method": "GET",
+      "parameters": {
+        "symbol": "BTCUSDT",
+        "productType": "USDT-FUTURES",
+        "startTime": "1789655400000",
+        "endTime": "1789655460000",
+        "limit": "3"
+      },
+      "url": "https://api.bitget.com/api/v2/mix/market/fills-history?symbol=BTCUSDT&productType=USDT-FUTURES&startTime=1789655400000&endTime=1789655460000&limit=3",
+      "started_utc": "2026-11-02T16:04:32.639920+00:00",
+      "status": "verified",
+      "http_status": 200,
+      "actual_url": "https://api.bitget.com/api/v2/mix/market/fills-history?symbol=BTCUSDT&productType=USDT-FUTURES&startTime=1789655400000&endTime=1789655460000&limit=3",
+      "raw_response_base64": "eyJjb2RlIjoiMDAwMDAiLCJtc2ciOiJzdWNjZXNzIiwicmVxdWVzdFRpbWUiOjE3OTM2MzU0NzMxMDUsImRhdGEiOlt7InRyYWRlSWQiOiIxNDg0NDg4MDgyMjAxNTI2MjgwIiwicHJpY2UiOiI3Njg5OS40Iiwic2l6ZSI6IjAuMDA0MSIsInNpZGUiOiJTZWxsIiwidHMiOiIxNzg5NjU1NDU5OTI4Iiwic3ltYm9sIjoiQlRDVVNEVCJ9LHsidHJhZGVJZCI6IjE0ODQ0ODgwODIyMDE1MjYyNzgiLCJwcmljZSI6Ijc2ODk5LjQiLCJzaXplIjoiMC4wMDI1Iiwic2lkZSI6IlNlbGwiLCJ0cyI6IjE3ODk2NTU0NTk5MjgiLCJzeW1ib2wiOiJCVENVU0RUIn0seyJ0cmFkZUlkIjoiMTQ4NDQ4ODA4MjIwMTUyNjI3NiIsInByaWNlIjoiNzY4OTkuNCIsInNpemUiOiIwLjAwNSIsInNpZGUiOiJTZWxsIiwidHMiOiIxNzg5NjU1NDU5OTI4Iiwic3ltYm9sIjoiQlRDVVNEVCJ9XX0=",
+      "raw_response_sha256": "f6a5c351a815f6343ad60b9842e72eac081073ea8274edcfcdeec6229f871cff",
+      "raw_response_bytes": 434,
+      "response": {
+        "code": "00000",
+        "msg": "success",
+        "requestTime": 1793635473105,
+        "data": [
+          {
+            "tradeId": "1484488082201526280",
+            "price": "76899.4",
+            "size": "0.0041",
+            "side": "Sell",
+            "ts": "1789655459928",
+            "symbol": "BTCUSDT"
+          },
+          {
+            "tradeId": "1484488082201526278",
+            "price": "76899.4",
+            "size": "0.0025",
+            "side": "Sell",
+            "ts": "1789655459928",
+            "symbol": "BTCUSDT"
+          },
+          {
+            "tradeId": "1484488082201526276",
+            "price": "76899.4",
+            "size": "0.005",
+            "side": "Sell",
+            "ts": "1789655459928",
+            "symbol": "BTCUSDT"
+          }
+        ]
+      },
+      "response_canonical_sha256": "249d03b892797f9c5c6f19399f68fe89e8b5b625e328f150e13b2cb59ea8c808",
+      "retrieved_utc": "2026-11-02T16:04:33.207545+00:00",
+      "elapsed_seconds": 0.567633,
+      "next_idLessThan": "1484488082201526276"
+    },
+    {
+      "request_number": 2,
+      "page": 2,
+      "attempt": 1,
+      "method": "GET",
+      "parameters": {
+        "symbol": "BTCUSDT",
+        "productType": "USDT-FUTURES",
+        "startTime": "1789655400000",
+        "endTime": "1789655460000",
+        "limit": "3",
+        "idLessThan": "1484488082201526276"
+      },
+      "url": "https://api.bitget.com/api/v2/mix/market/fills-history?symbol=BTCUSDT&productType=USDT-FUTURES&startTime=1789655400000&endTime=1789655460000&limit=3&idLessThan=1484488082201526276",
+      "started_utc": "2026-11-02T16:04:33.207633+00:00",
+      "status": "verified",
+      "http_status": 200,
+      "actual_url": "https://api.bitget.com/api/v2/mix/market/fills-history?symbol=BTCUSDT&productType=USDT-FUTURES&startTime=1789655400000&endTime=1789655460000&limit=3&idLessThan=1484488082201526276",
+      "raw_response_base64": "eyJjb2RlIjoiMDAwMDAiLCJtc2ciOiJzdWNjZXNzIiwicmVxdWVzdFRpbWUiOjE3OTM2MzU0NzM2MTYsImRhdGEiOlt7InRyYWRlSWQiOiIxNDg0NDg4MDgyMjAxNTI2Mjc0IiwicHJpY2UiOiI3Njg5OS40Iiwic2l6ZSI6IjAuMDAxMSIsInNpZGUiOiJTZWxsIiwidHMiOiIxNzg5NjU1NDU5OTI4Iiwic3ltYm9sIjoiQlRDVVNEVCJ9LHsidHJhZGVJZCI6IjE0ODQ0ODgwODIyMDE1MjYyNzIiLCJwcmljZSI6Ijc2ODk5LjQiLCJzaXplIjoiMC4wMzU4Iiwic2lkZSI6IlNlbGwiLCJ0cyI6IjE3ODk2NTU0NTk5MjgiLCJzeW1ib2wiOiJCVENVU0RUIn0seyJ0cmFkZUlkIjoiMTQ4NDQ4ODA4MTg5MTE0Nzc3NiIsInByaWNlIjoiNzY4OTkuNSIsInNpemUiOiIwLjAwMDciLCJzaWRlIjoiQnV5IiwidHMiOiIxNzg5NjU1NDU5ODU0Iiwic3ltYm9sIjoiQlRDVVNEVCJ9XX0=",
+      "raw_response_sha256": "e9d250dfbc483630abbdee0075469e78641a1d72720b4bc2e4b520e229412c3e",
+      "raw_response_bytes": 434,
+      "response": {
+        "code": "00000",
+        "msg": "success",
+        "requestTime": 1793635473616,
+        "data": [
+          {
+            "tradeId": "1484488082201526274",
+            "price": "76899.4",
+            "size": "0.0011",
+            "side": "Sell",
+            "ts": "1789655459928",
+            "symbol": "BTCUSDT"
+          },
+          {
+            "tradeId": "1484488082201526272",
+            "price": "76899.4",
+            "size": "0.0358",
+            "side": "Sell",
+            "ts": "1789655459928",
+            "symbol": "BTCUSDT"
+          },
+          {
+            "tradeId": "1484488081891147776",
+            "price": "76899.5",
+            "size": "0.0007",
+            "side": "Buy",
+            "ts": "1789655459854",
+            "symbol": "BTCUSDT"
+          }
+        ]
+      },
+      "response_canonical_sha256": "70b861747849ea1384d53f40424cf8ad51842161fa278d667a2f95c251f2df33",
+      "retrieved_utc": "2026-11-02T16:04:33.707500+00:00",
+      "elapsed_seconds": 0.499879,
+      "next_idLessThan": "1484488081891147776"
+    },
+    {
+      "request_number": 3,
+      "page": 1,
+      "attempt": 1,
+      "method": "GET",
+      "parameters": {
+        "symbol": "AAPLUSDT",
+        "productType": "USDT-FUTURES",
+        "startTime": "1789655400000",
+        "endTime": "1789655460000",
+        "limit": "3"
+      },
+      "url": "https://api.bitget.com/api/v2/mix/market/fills-history?symbol=AAPLUSDT&productType=USDT-FUTURES&startTime=1789655400000&endTime=1789655460000&limit=3",
+      "started_utc": "2026-11-02T16:04:33.707568+00:00",
+      "status": "verified",
+      "http_status": 200,
+      "actual_url": "https://api.bitget.com/api/v2/mix/market/fills-history?symbol=AAPLUSDT&productType=USDT-FUTURES&startTime=1789655400000&endTime=1789655460000&limit=3",
+      "raw_response_base64": "eyJjb2RlIjoiMDAwMDAiLCJtc2ciOiJzdWNjZXNzIiwicmVxdWVzdFRpbWUiOjE3OTM2MzU0NzM5NDIsImRhdGEiOlt7InRyYWRlSWQiOiIxNDg0NDg4MDc2NjQ4MjM1MDA4IiwicHJpY2UiOiIzMzQuMTQiLCJzaXplIjoiMC4wMiIsInNpZGUiOiJCdXkiLCJ0cyI6IjE3ODk2NTU0NTg2MDQiLCJzeW1ib2wiOiJBQVBMVVNEVCJ9LHsidHJhZGVJZCI6IjE0ODQ0ODgwNzA3MTc0ODkxNTIiLCJwcmljZSI6IjMzNC4xMiIsInNpemUiOiIwLjY1Iiwic2lkZSI6IlNlbGwiLCJ0cyI6IjE3ODk2NTU0NTcxOTAiLCJzeW1ib2wiOiJBQVBMVVNEVCJ9LHsidHJhZGVJZCI6IjE0ODQ0ODc5OTY0NzQxMTQwNTAiLCJwcmljZSI6IjMzNC4wNCIsInNpemUiOiIwLjUiLCJzaWRlIjoiQnV5IiwidHMiOiIxNzg5NjU1NDM5NDg5Iiwic3ltYm9sIjoiQUFQTFVTRFQifV19",
+      "raw_response_sha256": "cd14a02417c90d8e5df2546cfd20aa9d6d48828fd3b614a7a3be95aaacb9cef1",
+      "raw_response_bytes": 426,
+      "response": {
+        "code": "00000",
+        "msg": "success",
+        "requestTime": 1793635473942,
+        "data": [
+          {
+            "tradeId": "1484488076648235008",
+            "price": "334.14",
+            "size": "0.02",
+            "side": "Buy",
+            "ts": "1789655458604",
+            "symbol": "AAPLUSDT"
+          },
+          {
+            "tradeId": "1484488070717489152",
+            "price": "334.12",
+            "size": "0.65",
+            "side": "Sell",
+            "ts": "1789655457190",
+            "symbol": "AAPLUSDT"
+          },
+          {
+            "tradeId": "1484487996474114050",
+            "price": "334.04",
+            "size": "0.5",
+            "side": "Buy",
+            "ts": "1789655439489",
+            "symbol": "AAPLUSDT"
+          }
+        ]
+      },
+      "response_canonical_sha256": "8161e3791e49126b616b15d3836370f4bc7587057073934f99f337fd9923493f",
+      "retrieved_utc": "2026-11-02T16:04:34.025762+00:00",
+      "elapsed_seconds": 0.318208,
+      "next_idLessThan": "1484487996474114050"
+    },
+    {
+      "request_number": 4,
+      "page": 2,
+      "attempt": 1,
+      "method": "GET",
+      "parameters": {
+        "symbol": "AAPLUSDT",
+        "productType": "USDT-FUTURES",
+        "startTime": "1789655400000",
+        "endTime": "1789655460000",
+        "limit": "3",
+        "idLessThan": "1484487996474114050"
+      },
+      "url": "https://api.bitget.com/api/v2/mix/market/fills-history?symbol=AAPLUSDT&productType=USDT-FUTURES&startTime=1789655400000&endTime=1789655460000&limit=3&idLessThan=1484487996474114050",
+      "started_utc": "2026-11-02T16:04:34.025824+00:00",
+      "status": "verified",
+      "http_status": 200,
+      "actual_url": "https://api.bitget.com/api/v2/mix/market/fills-history?symbol=AAPLUSDT&productType=USDT-FUTURES&startTime=1789655400000&endTime=1789655460000&limit=3&idLessThan=1484487996474114050",
+      "raw_response_base64": "eyJjb2RlIjoiMDAwMDAiLCJtc2ciOiJzdWNjZXNzIiwicmVxdWVzdFRpbWUiOjE3OTM2MzU0NzQyODEsImRhdGEiOlt7InRyYWRlSWQiOiIxNDg0NDg3OTk2NDc0MTE0MDQ4IiwicHJpY2UiOiIzMzQuMDMiLCJzaXplIjoiMC41Iiwic2lkZSI6IkJ1eSIsInRzIjoiMTc4OTY1NTQzOTQ4OSIsInN5bWJvbCI6IkFBUExVU0RUIn0seyJ0cmFkZUlkIjoiMTQ4NDQ4Nzk3OTI3NzQ2NzY1MiIsInByaWNlIjoiMzM0LjAyIiwic2l6ZSI6IjAuNSIsInNpZGUiOiJCdXkiLCJ0cyI6IjE3ODk2NTU0MzUzODkiLCJzeW1ib2wiOiJBQVBMVVNEVCJ9LHsidHJhZGVJZCI6IjE0ODQ0ODc5NTQxNDEwMDM3NzgiLCJwcmljZSI6IjMzMy45MiIsInNpemUiOiIwLjA2Iiwic2lkZSI6IkJ1eSIsInRzIjoiMTc4OTY1NTQyOTM5NiIsInN5bWJvbCI6IkFBUExVU0RUIn1dfQ==",
+      "raw_response_sha256": "98080943ad9e08f76987cb569f16b47b7d99e1da72bddb23cb781b525b30b398",
+      "raw_response_bytes": 424,
+      "response": {
+        "code": "00000",
+        "msg": "success",
+        "requestTime": 1793635474281,
+        "data": [
+          {
+            "tradeId": "1484487996474114048",
+            "price": "334.03",
+            "size": "0.5",
+            "side": "Buy",
+            "ts": "1789655439489",
+            "symbol": "AAPLUSDT"
+          },
+          {
+            "tradeId": "1484487979277467652",
+            "price": "334.02",
+            "size": "0.5",
+            "side": "Buy",
+            "ts": "1789655435389",
+            "symbol": "AAPLUSDT"
+          },
+          {
+            "tradeId": "1484487954141003778",
+            "price": "333.92",
+            "size": "0.06",
+            "side": "Buy",
+            "ts": "1789655429396",
+            "symbol": "AAPLUSDT"
+          }
+        ]
+      },
+      "response_canonical_sha256": "635e4d186d7062551bc14e62760c0d7604c73a627fd230ecdb6dd23c4ce2b947",
+      "retrieved_utc": "2026-11-02T16:04:34.373450+00:00",
+      "elapsed_seconds": 0.347637,
+      "next_idLessThan": "1484487954141003778"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol": "BTCUSDT",
+      "status": "verified",
+      "verified_pages": 2,
+      "unique_sample_trades": 6
+    },
+    {
+      "symbol": "AAPLUSDT",
+      "status": "verified",
+      "verified_pages": 2,
+      "unique_sample_trades": 6
+    }
+  ],
+  "limitations": "Two tiny pages per symbol test sequential cursor consistency only. Even verified pages do not establish complete trades, gap-free coverage, market representativeness or strategy efficacy. Original six-print evidence is unchanged and does not verify paging.",
+  "reproduce": "timeout 140s python -m research.trade_pagination",
+  "hash_scheme": "SHA256; canonical JSON: sorted keys, compact separators, UTF-8, no NaN",
+  "finished_utc": "2026-11-02T16:04:34.373519+00:00",
+  "actual_market_requests": 4,
+  "artifact_payload_sha256": "ec89c36848766ee6251660511d9e88e5804a03726af591375a90cd11ba7a39d5"
+}
