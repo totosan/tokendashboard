@@ -380,6 +380,17 @@ Der unabhängige Kritiker in #8 meldet keine handlungsrelevanten Befunde.
 Damit ist der begrenzte Quellencheck akzeptiert; historische Vollständigkeit
 und Identität bleiben unverifiziert und #10 bleibt blockiert.
 
+Als Aufwandsposition 9 bearbeitet ein Validierungsmethodik-Fachagent 1.9.1
+[#22](https://github.com/totosan/tokendashboard/issues/22) unter #8:
+ein eingefrorenes Fixed-Panel-Walk-forward-Protokoll mit Offline-Readiness-
+Audit. Die vorhandenen Fenster sind bereits eingesehen und dürfen nicht
+nachträglich zum frischen Holdout erklärt werden. Reservierte zukünftige
+Prüfperioden benötigen noch Daten, Warmup-/Outcome-Grenzen, purged Splits und
+eine vorab definierte Abhängigkeits-/Mehrfachtestbehandlung. Ein
+`NOT_READY`-Beleg ist keine durchgeführte Walk-forward-Validierung.
+Diese begrenzte Vorbereitung autorisiert weder einen Bulkdownload noch
+Portfolio-/Liquidationssimulationen ohne deren Datenvoraussetzungen.
+
 | Reihenfolge | Paket / zuständiges Issue | Evidenz-Gate |
 |---|---|---|
 | 1, klein | Trade-Paginierung, #15 unter #7 | Sequenzielle Cursor, IDs, Duplikate und Zeitfenster anhand gespeicherter Antworten prüfen; maximal acht öffentliche GETs. |
