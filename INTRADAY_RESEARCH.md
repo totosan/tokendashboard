@@ -228,7 +228,7 @@ Alle Quellen belegen allenfalls Befunde in den jeweils untersuchten Daten und ni
 | 1.2 | [#14 Breakout, Konsolidierung und Pullback](https://github.com/totosan/tokendashboard/issues/14) | `topic:breakout` · `state:review` · fester Box-/Retest-Kandidat plus Treppen-Ausbruch getestet; keine Nettowirksamkeitsbehauptung |
 | 1.3 | [#13 Volumen und Profile](https://github.com/totosan/tokendashboard/issues/13) | `topic:volume-profile` · `state:review` · separater RVOL≥1,5×-Arm getestet; echtes Trade-Profil/Value Area und Langzeit-Historie offen |
 | 1.4 | [#12 Marktregime und MTF](https://github.com/totosan/tokendashboard/issues/12) | `topic:regime-mtf` · `state:review` · 1h-/4h-EMA20-Filter nur nach vollständigen UTC-Bins getestet; kein vollständiger Regime-/Walk-forward-Test |
-| 1.5 | [#11 Trend, VWAP und Mean Reversion](https://github.com/totosan/tokendashboard/issues/11) | `topic:indicators` · `state:review` · EMA20/50-Crossover und UTC-VWAP-Reclaim getestet; Tageslevels/RSI/Bollinger offen |
+| 1.5 | [#11 Trend, VWAP und Mean Reversion](https://github.com/totosan/tokendashboard/issues/11) | `topic:indicators` · `state:in-progress` · EMA20/50-Crossover und UTC-VWAP-Reclaim getestet; neuer Fachagent bearbeitet Tageslevels/RSI/Bollinger in #17 |
 | 1.6 | [#10 Krypto-Universum](https://github.com/totosan/tokendashboard/issues/10) | `topic:crypto-universe` · `state:blocked` · geprüfte Bitget-Endpunkte lieferten kein vollständiges PIT-Listing-/Delistinguniversum; Pilotpanel ist current-survivor |
 | 1.7 | [#9 TradFi-Übertragbarkeit](https://github.com/totosan/tokendashboard/issues/9) | `topic:tradfi` · `state:blocked` · vier aktuelle Issuer/ISIN-Mappings und AAPL-Fundingproben; Underlying-Kalender/Mapping für Sessiontest fehlt |
 | 1.8 | [#7 Daten, Ausführung und Risiko](https://github.com/totosan/tokendashboard/issues/7) | `topic:execution-risk` · `state:blocked` · Funding- und kleine Trades-Archive-Stichproben abrufbar; historische Quotes/Depth für echte Kosten fehlen |
@@ -278,6 +278,12 @@ Canonical-Hashes wurden nachgerechnet. Der Koordinator bestätigt insgesamt
 #15/#16 abgeschlossen, nicht die historischen Vollständigkeitsfragen.
 Die breiteren Blocker
 von #7/#9/#10 und die explorative Natur der bisherigen Eventtests bleiben bestehen.
+
+Die nächste begrenzte Fachagentenaufgabe ist 1.5.1
+[#17](https://github.com/totosan/tokendashboard/issues/17), natives Kind von #11:
+feste kausale Prior-UTC-Day-Level-, Wilder-RSI14- und Bollinger20-Reentry-Arme,
+ausschließlich offline auf den vorhandenen Snapshots. Ein unabhängiger Review
+folgt erst nach Lieferung; weder Ergebnis noch Wirksamkeit wird vorweggenommen.
 
 | Reihenfolge | Paket / zuständiges Issue | Evidenz-Gate |
 |---|---|---|
