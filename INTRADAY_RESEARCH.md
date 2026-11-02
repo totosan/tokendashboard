@@ -238,6 +238,39 @@ Die acht Domänenberichte 1.1–1.8 liegen vor. Nach dem ersten unabhängigen Re
 
 **Tatsächlich erstellte Labels:** Topics `topic:research`, `topic:inventory`, `topic:breakout`, `topic:volume-profile`, `topic:regime-mtf`, `topic:indicators`, `topic:crypto-universe`, `topic:tradfi`, `topic:execution-risk`, `topic:validation`; States `state:pending`, `state:in-progress`, `state:blocked`, `state:review`, `state:done`. Die Konvention ist ein `topic:*`-Label für den Arbeitsbereich plus genau ein `state:*`-Label für den aktuellen Status. Statusangaben hier sind der zuletzt verifizierte GitHub-Snapshot, keine Erfolgsaussage.
 
+### Umsetzung nach steigendem Aufwand
+
+Die erste Ausführungswelle besteht aus zwei nativen Kindern von #7: 1.8.1
+[#15](https://github.com/totosan/tokendashboard/issues/15) prüft sequenzielle
+Trade-Cursor; danach erweitert 1.8.2
+[#16](https://github.com/totosan/tokendashboard/issues/16) die Funding-Abdeckung.
+Der zweite Schritt benötigt ein begrenztes Ergebnis oder einen dokumentierten
+Blocker des ersten Schritts, nicht dessen Erfolg. Der historische
+Quotes-/Impact-Blocker des Elternpakets verhindert diese Teilaufgaben nicht.
+
+| Reihenfolge | Paket / zuständiges Issue | Evidenz-Gate |
+|---|---|---|
+| 1, klein | Trade-Paginierung, #15 unter #7 | Sequenzielle Cursor, IDs, Duplikate und Zeitfenster anhand gespeicherter Antworten prüfen; maximal acht öffentliche GETs. |
+| 2, klein | Funding-Pilotuniversum, #16 unter #7 | Raten, Zeitraster und Lücken je Symbol; Settlement-Grenzkonvention explizit, keine Kontobuchungsbehauptung. |
+| 3, mittel | Tageslevel/RSI/Bollinger, #11 | Feste kausale Long-/Short-Regeln, Baselines und vollständige Ergebniszellen; bestehendes Fenster bleibt explorativ. |
+| 4, mittel | Volatilitätsregime und Fehl-/Spätausbrüche, #12/#14 | Vergangenheitsbasierte Labels und nachvollziehbare Nenner; keine Auswahl nur positiver Zellen. |
+| 5, mittel | Aktien-Sessionmapping, #9 | Autoritative Börsen-/Zeitzonen-/Feiertagszuordnung vor Sessiontests. |
+| 6, groß | Historische Quotes/Depth, #7 | Erst eine kleine Archivdatei samt Timestamp-/Symbol-/Depth-Semantik validieren, dann Abdeckung erweitern. |
+| 7, groß | Tradebasierte Profile, #13 | Verifizierte Trade-Abdeckung nötig; sechs Prints und reine Cursor-Verfügbarkeit reichen nicht. |
+| 8, sehr groß | Historisches Krypto-Universum, #10 | Vollständigkeitsprüfung datierter Listings/Delistings vor breitem PIT-Vergleich. |
+| 9, sehr groß | Längere Walk-forward-Prüfung, #8 | Regeln vor neuen Prüfperioden einfrieren; Daten-Gates je Teiluniversum, Abhängigkeit und Mehrfachtests behandeln. |
+| 10, höchster Aufwand | Ausführbares Portfolio/Risiko, #7/#8 | Historische Quotes, explizite Sizing-/Overlap-/Marginregeln und unabhängiger Review vor Drawdown-/Liquidationsaussagen. |
+
+Die Reihenfolge beschreibt relativen Implementierungsaufwand, keine garantierte
+Laufzeit. Je Paket erhält ein Fachagent einen begrenzten Auftrag mit exklusiven
+Dateien, Request-Budget, Netzwerk- und Kommando-Timeouts, Offline-Fehlertests und
+einem Ergebnisbericht im zugeordneten Issue. Der Koordinator prüft Artefakte und
+Reproduktion; ein unabhängiger Kritiker folgt auf die tatsächlich gelieferte
+Welle. Keine unbeschränkten Polling-/Downloadschleifen. Nicht reagierende Agenten
+werden gemäß #3 einmal erneut angefragt und nur bei belegtem wiederholtem
+Ausfall als verloren markiert. Spätere Pakete sind noch nicht gestartet;
+fehlende externe Daten werden nicht als implementierbar ausgegeben.
+
 ## Vorläufige Synthese und offene Schritte
 
 - Keine Produktivänderung und keine Erfolgsbehauptung aus dieser Recherche ableiten.
