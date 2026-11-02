@@ -366,6 +366,19 @@ Tradefenster blockiert. Als unabhängiges nächstes Gate ist 1.6.1
 [#21](https://github.com/totosan/tokendashboard/issues/21) unter #10
 vorbereitet: begrenzte offizielle Quellenprüfung für historische
 Universumsmitgliedschaft, keine breite Rekonstruktion aus heutigen Survivors.
+Die Lieferung
+[`bitget-universe-feasibility-2026-11-02.json`](research/data/bitget-universe-feasibility-2026-11-02.json)
+speichert sechs öffentliche GETs mit 164.725 Responsebytes einschließlich
+Originalbytes und Hashes. Drei datierte Announcement-Abfragen für Listings,
+Delistings und Wartung wurden mit HTTP 400/API 70010 zurückgewiesen:
+der Zeitraum liege nicht innerhalb der letzten 30 Tage. Das ist eine
+Beschränkung dieser Abfragen, kein Nachweis fehlender älterer Mitteilungen.
+Selbst vollständige Publikationszeit-Suchen wären kein vollständiges
+Effective-Date-Lifecycle-Ledger. Manifest-Schema, sechs Vollständigkeits-Gates
+und eine konkrete offizielle Datenanforderung sind festgehalten.
+Der unabhängige Kritiker in #8 meldet keine handlungsrelevanten Befunde.
+Damit ist der begrenzte Quellencheck akzeptiert; historische Vollständigkeit
+und Identität bleiben unverifiziert und #10 bleibt blockiert.
 
 | Reihenfolge | Paket / zuständiges Issue | Evidenz-Gate |
 |---|---|---|
