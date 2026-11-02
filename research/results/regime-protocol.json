@@ -1,0 +1,115 @@
+{
+  "protocol_id": "issue-18-causal-regimes-v1",
+  "status": "frozen-before-regime-analysis",
+  "freeze_scope": "The formulas, event inclusion rules, splits, costs, and reporting cells in this file are fixed before running research/regime_eval.py. No thresholds are selected from outcomes.",
+  "data": {
+    "source": "Existing saved Bitget candle snapshots and existing signal exports only; no network calls.",
+    "window_utc": "[2026-09-17T00:00:00Z, 2026-11-01T00:00:00Z)",
+    "symbols": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "SOLUSDT",
+      "BNBUSDT",
+      "XRPUSDT",
+      "DOGEUSDT",
+      "ADAUSDT",
+      "LINKUSDT",
+      "TSLAUSDT",
+      "NVDAUSDT",
+      "AAPLUSDT",
+      "COINUSDT"
+    ],
+    "timeframes": [
+      "5m",
+      "15m"
+    ],
+    "groups": {
+      "btc_eth": [
+        "BTCUSDT",
+        "ETHUSDT"
+      ],
+      "alts": [
+        "ADAUSDT",
+        "BNBUSDT",
+        "DOGEUSDT",
+        "LINKUSDT",
+        "SOLUSDT",
+        "XRPUSDT"
+      ],
+      "stock_perps": [
+        "AAPLUSDT",
+        "COINUSDT",
+        "NVDAUSDT",
+        "TSLAUSDT"
+      ]
+    },
+    "signal_timestamp": "Saved event signal_time_utc denotes the candle OPEN label. Match this exact timestamp to the snapshot bar; all features use data through that bar's close (timestamp + timeframe duration), never later bars.",
+    "entry_split_utc": "2026-10-17T00:00:00Z",
+    "split_rule": "Development if entry-bar OPEN timestamp < split; out_of_sample otherwise. Existing event export period must agree with this rule."
+  },
+  "causal_features": {
+    "volatility": {
+      "feature": "For each bar i in a contiguous cadence segment, TR_i = max(high_i-low_i, abs(high_i-close_(i-1)), abs(low_i-close_(i-1))). The normalized bar range is 10000 * TR_i / close_i basis points. Feature V_i is the arithmetic mean of normalized ranges for bars i-19 through i inclusive.",
+      "warmup": "Requires 20 consecutive bars for V and 100 prior valid V values in the same contiguous segment for regime thresholds; otherwise volatility regime is unavailable and the event is omitted from regime cells.",
+      "reference": "For each signal bar i, compare V_i against the preceding 100 valid V values V_(i-100) through V_(i-1), excluding the current value.",
+      "terciles": "Sort those 100 prior values ascending. Compute q(p) by Hyndman-Fan type 7 linear interpolation at h=(n-1)*p, zero-based, p=1/3 and p=2/3. Low if V_i <= q(1/3); middle if q(1/3) < V_i <= q(2/3); high if V_i > q(2/3). Equality belongs to the lower adjacent bucket. Tied thresholds may leave a bucket empty.",
+      "unit": "basis points of close"
+    },
+    "trend_range": {
+      "feature": "ER20_i = abs(close_i-close_(i-20)) / sum(abs(close_j-close_(j-1)) for j=i-19..i).",
+      "warmup": "Requires 21 consecutive closes in the same contiguous segment. If the denominator is zero, define ER20 as zero.",
+      "fixed_context_threshold": "Range if ER20 <= 0.30; trend if ER20 > 0.30. The threshold is fixed, not tuned."
+    },
+    "availability": "Feature assignment is based solely on completed bars at or before the signal bar. Outcome labels, future highs/lows/closes, failure flags, and delayed-entry diagnostics are retrospective descriptions and are never model/predictive features."
+  },
+  "existing_event_analysis": {
+    "inputs": [
+      "research/results/bitget-5m-2026-09-17_2026-11-01-events.csv.gz",
+      "research/results/bitget-15m-2026-09-17_2026-11-01-events.csv.gz"
+    ],
+    "strategies": {
+      "dashboard_breakout": "Existing Treppen dashboard breakout event export; no signal logic is recomputed.",
+      "three_close_momentum_baseline": "Existing three-close momentum event export; no signal logic is recomputed."
+    },
+    "baseline_integrity": "Before analysis, verify event-export SHA-256, row counts, and per-symbol/strategy/side/period counts against the saved source summary JSON. Verify each event entry timestamp equals signal bar timestamp + one timeframe and its exported period agrees with the fixed entry split. Do not mutate imported helper globals.",
+    "outcomes": "Use saved one-following-bar gross_bps, mfe_bps, and mae_bps. Keep favorable/adverse excursion separate from gross close-to-close return and do not call any of them portfolio P&L.",
+    "cost_scenarios_round_trip_bps": {
+      "12": "Existing two-taker-fee scenario.",
+      "22": "12 bp fee scenario plus 10 bp assumed round-trip spread/slippage.",
+      "37": "12 bp fee scenario plus 25 bp assumed round-trip spread/slippage."
+    },
+    "cells": "Report both strategies independently by group (btc_eth, alts, stock_perps), side (long, short), entry period (development, out_of_sample), and volatility bucket; separately report the same dimensions by trend/range context. Emit every Cartesian cell, including zero-count cells."
+  },
+  "fixed_box_breakout_diagnostics": {
+    "box": "At signal bar i, use exactly the preceding 12 consecutive bars (i-12..i-1); box_high=max(high), box_low=min(low), midpoint=(box_high+box_low)/2. Qualify only if midpoint>0 and (box_high-box_low)/midpoint <= 0.02.",
+    "breakout": "Long if close_i > box_high and close_(i-1) <= box_high; short if close_i < box_low and close_(i-1) >= box_low. This is a close-confirmed first crossing of that bar's trailing box boundary. Long and short are evaluated independently. Every qualifying crossing is retained; overlapping boxes/events are not deduplicated.",
+    "entry": "Immediate diagnostic entry at the next bar OPEN (i+1), exactly one bar after the signal close. Immediate one-bar gross return exits at that bar CLOSE; MFE/MAE use that entry bar's high/low.",
+    "failure_label": "FAILED at the first offset k in {1,2,3} if bar i+k closes inside the breakout bar's frozen box, inclusive of either box edge (box_low <= close <= box_high); record only that first offset even if later bars re-enter again. If no close is inside, label NONFAILED with no_failure_in_three_bar_window. This is retrospective only, not a feature or entry filter.",
+    "late_entry": "Separate fixed one-bar-delay diagnostic: enter at bar i+2 OPEN and exit at bar i+2 CLOSE, holding exactly one bar. Compute its own one-bar gross return/MFE/MAE and costs; never subtract an invented latency or infer fills. Report first-failure timing relative to this delayed entry: offset 1 is before delayed entry, offset 2 is its entry/holding bar, and offset 3 is after its exit bar.",
+    "denominators": "Count all qualifying close breakouts first. Report eligible complete-window count, failed/nonfailed counts and failure fraction using only complete, non-crossing windows; separately report missing-window, split-crossing, and feature-unavailable counts. For each eligible complete non-crossing denominator, report first-failure counts at offsets 1, 2, and 3 plus no-failure; these mutually exclusive counts must sum to the denominator. Relate the same offset counts to the delayed-entry timing. A missing or crossing label is not a nonfailure. Immediate and delayed returns each use their own explicitly reported complete-data denominator.",
+    "window_completeness": "The signal bar and all three following bars must exist at exact timeframe cadence in the same contiguous symbol segment. Any gap, missing bar, or end-of-file before i+3 makes the outcome window incomplete and excludes the outcome label/return from outcome statistics; retain and count the qualifying signal in the all-breakout denominator.",
+    "split_contamination": "The split is by immediate entry-bar timestamp. For development breakout diagnostics, require the immediate entry and every bar in the three-bar failure window to be before the split. For OOS, require the immediate entry and all three window bars at/after the split. Otherwise mark split_crossing and exclude from both periods' outcome statistics. Do not let future bars across the boundary label a development event.",
+    "cells": "Report the fixed-box diagnostics by group, side, entry period, volatility bucket and trend/range context with all empty cells present. Report failure timing/counts independently from return/excursion summaries."
+  },
+  "gaps_warmup_and_arithmetic": {
+    "cadence": "Use exact 5-minute or 15-minute timestamp increments. A gap or duplicate timestamp breaks a segment; no feature warmup, prior-100 threshold history, box, ER, or forward outcome window may cross it. Duplicate timestamps are rejected as invalid input.",
+    "warmup_reporting": "Count source events with unavailable volatility feature, unavailable trend/range feature, and either unavailable feature. These do not silently enter an 'unknown' market regime cell.",
+    "floating_point_edges": "Use ordinary IEEE-754 double arithmetic; compare normalized range <= 0.02 and ER20 <= 0.30 as written, with no epsilon or rounding before classification. Quantiles interpolate from unrounded feature values.",
+    "short_period_limitations": "The fixed preceding-100-value tercile reference and 20-bar range feature create a substantial initial warmup; per-symbol feature availability is reported. Short samples can produce sparse/empty group-side-period-regime cells, unstable means/rates, and tied tercile boundaries."
+  },
+  "interpretation_limits": [
+    "Exploratory reuse of the already examined 45-day, 12-symbol panel; the named OOS period is not fresh or independent validation.",
+    "Purposively selected current contracts, no point-in-time universe correction; asset group results are event-weighted.",
+    "Signals overlap in time and across symbols. No portfolio allocation, leverage, funding, liquidation, execution, spread, queue, market impact, or dependency-adjusted inference is modeled.",
+    "One-bar gross return and MFE/MAE are event outcome descriptors, not realized P&L. Cost-adjusted return is scenario arithmetic, not measured execution.",
+    "Multiple comparisons, dependence, sparse cells, and short OOS duration limit inference. No profitability or regime-efficacy claim."
+  ],
+  "reproduction": {
+    "commands": [
+      "python -m unittest research.test_regime_eval -v",
+      "python research/regime_eval.py --granularity 5m --snapshot research/data/bitget-5m-2026-09-17_2026-11-01.csv.gz --events research/results/bitget-5m-2026-09-17_2026-11-01-events.csv.gz --source-summary research/results/bitget-5m-2026-09-17_2026-11-01.json --output research/results/regimes-5m.json",
+      "python research/regime_eval.py --granularity 15m --snapshot research/data/bitget-15m-2026-09-17_2026-11-01.csv.gz --events research/results/bitget-15m-2026-09-17_2026-11-01-events.csv.gz --source-summary research/results/bitget-15m-2026-09-17_2026-11-01.json --output research/results/regimes-15m.json"
+    ],
+    "timeouts_seconds_max": 120
+  }
+}

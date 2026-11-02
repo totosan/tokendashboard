@@ -310,9 +310,31 @@ oder unabhängige Wirksamkeitsbestätigung.
 Nach Akzeptanz von #17 bearbeitet der Regime-Fachagent 1.4.1
 [#18](https://github.com/totosan/tokendashboard/issues/18), natives Kind von #12
 mit Bezug zu #14. Der Auftrag trennt kausale Volatilitäts-/Trendmerkmale von
-retrospektiven Box-Ausbruch-Fehl-/Verzögerungsdiagnosen. Ergebnisse, Umfang und
-Review sind bis zur Lieferung offen; kein teurer historischer Datencrawl wird
-dadurch implizit gestartet.
+retrospektiven Box-Ausbruch-Fehl-/Verzögerungsdiagnosen. Die Lieferung enthält
+`research/results/regime-protocol.json`, `regimes-{5m,15m}.json` und sieben
+neue Tests; der Gesamt-Testlauf umfasst 68 Tests. Features verwenden
+vergangenheitsbasierte TR/Close-Volatilität, vorherige 100 Featurewerte für
+Terzile und ER20 mit fester 0,30-Grenze. Baseline-Exporte wurden mit Snapshots
+abgeglichen (69.752 5m- und 24.627 15m-Ereignisse).
+Bei vollständigen, nicht über die Splitgrenze reichenden Boxfenstern wurden
+11.677/22.733 (5m) beziehungsweise 3.011/5.955 (15m) retrospektiv als FAILED
+markiert. Das sind keine prädiktiven Inputs, Erfolgsquoten oder Portfoliozahlen.
+Der unabhängige Review fand zunächst fehlende Erstfehler-Zeitpunkte trotz
+Protokollanforderung. Die Korrektur ergänzt disjunkte Offset-1/2/3-/Kein-Fehler-
+Zähler: 5m 6.913/2.943/1.821/11.056, 15m 1.845/745/421/2.944. Ihre Nenner
+sind die genannten vollständigen, nicht über die Splitgrenze reichenden
+Fenster. Wiederholte Reentries zählen nur beim ersten Fehler.
+Neun gezielte Tests prüfen nun auch diese Zeitpunkte. Die unabhängige
+Nachprüfung in #8 akzeptiert die Korrektur ohne verbleibende Befunde:
+beide Replays/Hashes stimmen exakt; Timingzähler und Verzögerungszuordnung
+gleichen sich aggregiert und in allen 120 Regimezellen ab. Der begrenzte
+Lieferumfang von #18 ist akzeptiert, nicht die breitere Regimevalidierung.
+
+Als nächste Daten-Gate-Aufgabe ist 1.7.1
+[#19](https://github.com/totosan/tokendashboard/issues/19) unter #9 vorbereitet:
+autoritative Underlying-/Session-Zuordnung für die vier Stock-Perps mit maximal
+zwölf öffentlichen Quellabfragen. Ein ehrlicher Nichtverifizierungsbeleg ist
+ein zulässiges Feasibility-Ergebnis, aber keine Entsperrung von #9.
 
 | Reihenfolge | Paket / zuständiges Issue | Evidenz-Gate |
 |---|---|---|
