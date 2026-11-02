@@ -5,14 +5,14 @@
 ## Was in dieser Sitzung tatsächlich geprüft wurde
 
 - Der aktuelle Default-Branch und die Implementierungen, Hilfetexte und TradingView-Dateien wurden geprüft. Die drei eigenständigen Pine-Strategien aus Issue #1 sind vorhanden; ihre Regeln sind Backtest-Annahmen, keine Wirksamkeitsbelege.
-- `node --check` bestand für alle acht `dist/*.js`-Dateien. Das Repository hat keine vorhandene Test-/Build-Konfiguration oder Backtest-Datensätze; zusätzlich wurden sieben Unit-Tests für den Forschungs-Backtest ausgeführt. Diese prüfen die Signalberechnung, nicht die Qualität realer Signale.
+- `node --check` bestand für alle acht `dist/*.js`-Dateien. Das Repository hat keine vorhandene Test-/Build-Konfiguration oder Backtest-Datensätze; die inzwischen 21 Unit-Tests decken Signalsyntax, HTF-Zeitkausalität, Lückentrennung, Splitzuordnung und Bootstrap-Fälle ab. Sie prüfen keine realen Signaleffekte.
 - Es wurden keine vorhandenen Artefakte zum in Issue #3 erwähnten Test mit acht Coins/45 Tagen gefunden. Der dort berichtete negative Befund ist nicht reproduziert und mangels Code, Auswahl, Daten und Kostenannahmen nicht unabhängig prüfbar.
 - Die öffentlichen Bitget-APIs waren erreichbar. Für 12 ausgewählte USDT-Perpetuals wurden 5m- und 15m-Kerzen vom 2026-09-17 00:00 UTC bis 2026-11-01 00:00 UTC abgerufen: 12.960 vollständige 5m-Bars und 4.320 vollständige 15m-Bars je Symbol, keine fehlenden Bars in diesen Fenstern. Die Zeitrahmen wurden getrennt ausgewertet.
 - Der TradFi-Bericht (#9) verglich die aktuellen öffentlichen Bitget-Instrumentenlisten: 307 online `stock`-RWA-USDT-Perpetuals in der geprüften Schnittmenge; davon 256 US-, 16 KR-, 11 JP-, 22 HK- und 2 CN-Region-Klassifikationen, 58 ohne ISIN. Das ist ein aktueller Snapshot, keine historische oder eindeutige Underlying-Zuordnung.
 - Der TradFi-Bericht verifizierte begrenzte 1m-Kerzenproben für AAPLUSDT bis Juni 2026 sowie fünf jüngste Fundingereignisse, nicht aber lückenlose Archive. Er dokumentiert, dass der bestehende TradFi-Scanner ausschließlich Perp-Kerzen nutzt: long-only, Impuls/Pullback-/Dochttrigger, ohne zwingenden Schlusskurs über Trigger oder Mindestvolumen. Aktien-RVOL, Premarket, News/Float-Historie, historischer Spread und tatsächliche Ausführbarkeit sind nicht belegt; vollständige Details und Reproduktionsparameter stehen in [Issue #9](https://github.com/totosan/tokendashboard/issues/9).
 - Der Profilbericht (#13) bestätigte, dass das Dashboard das sechste Candle-Feld als Volumen nutzt und es gleichmäßig über 24 Preis-Bins verteilt; die siebte Quote-Volumen-Spalte wird ignoriert. Live-Trade-Endpunkte waren erreichbar, aber Langzeithistorie, Retention und Einheiten wurden nicht geprüft; POC/Value-Area/RVOL-Vergleiche bleiben Hypothesen.
-- Der Daten-/Risikobericht (#7) dokumentierte Bitgets öffentliche Candle-, Trade-, Funding-, Depth- und Fee-Endpunkte samt dokumentierten Limits. Kleine öffentliche GET-Stichproben waren erfolgreich; authentifizierte Kontogebühren, reale Fills, historische Tiefe und Latenz wurden nicht getestet. Die Kostenannahmen der Auswertung bleiben daher Szenarien, keine historischen Ausführungswerte.
-- GitHub-Schreibzugriff ist verfügbar: Es wurden neun native Child-Issues und Topic-/State-Labels angelegt. Berichte für 1.1–1.8 liegen vor (#6 geschlossen; #14, #11, #13, #12, #10, #9 und #7 in Review). Der unabhängige Kritiker für 1.9 läuft; die Epic-Akzeptanzkriterien sind noch nicht erfüllt.
+- Der begrenzte Bitget-Follow-up prüfte 25 öffentliche GETs; der gehashte, selektierte Antwort-/Dokumentbeleg liegt in [`bitget-followup-feasibility-2026-11-01.json`](research/data/bitget-followup-feasibility-2026-11-01.json). Für BTCUSDT und AAPLUSDT wurden je 135/135 achtstündige Funding-Zeitpunkte im Testfenster gefunden; das sind veröffentlichte Raten, keine Kontobuchungen. Je Symbol wurden außerdem zwei kleine historische Trade-Print-Seiten paginiert; historische Quotes/Depth für das Fenster wurden nicht erlangt. Vier Stock-Perps haben aktuelle US-/ISIN-/Issuer-Metadaten, aber keinen verifizierten Börsenkalender. Ein historisches Point-in-time-Krypto-Universum wurde nicht gefunden.
+- GitHub-Schreibzugriff ist verfügbar: neun native Child-Issues und Topic-/State-Labels bestehen. Alle acht Fachreports und der erste unabhängige Review sind eingegangen. #6 ist für das Inventar geschlossen; #7/#9/#10 sind für eng begrenzte historische Datenabhängigkeiten blockiert; #11–#14 stehen nach der begrenzten Zusatz-Auswertung erneut in Review. Ein zweiter Review der Follow-ups läuft; die Gesamt-Akzeptanzkriterien sind nicht erfüllt.
 - Keine Produktionsregeln wurden geändert und keine Orders ausgelöst. Die Akzeptanzkriterien sind nicht erfüllt; Issue #3 bleibt offen.
 
 ## Bestandsaufnahme des Dashboards
@@ -43,19 +43,38 @@ Alle folgenden Ansätze sind **Hypothesen**, keine Empfehlungen. Die Regeln, Par
 | TradFi-Übertragbarkeit | Aktien-Perpetuals separat je Instrument und Handelszeitabschnitt evaluieren; Derivatepreis/-volumen nicht mit Aktienkurs/-volumen gleichsetzen. | Ein aktueller Snapshot listet 307 Stock-Perps, aber nur begrenzte historische Minuten-/Fundingproben wurden überprüft. Börsenkalender, Underlying-Mapping, historische Referenzpreise, Quotes/Fills und produktspezifische Kosten bleiben offen. |
 | Daten und Ausführung | Erst Candle-Zeitstempel, Kerzenschluss, Lücken, Volumeneinheiten und Instrumentlisten verifizieren. Entry frühestens am nächsten plausiblen Quote/Trade nach Scan- und manueller Verzögerung modellieren. | Live-Ticker/Orderbuch sind keine historischen Spreads, Fills oder Depth. Funding muss als zeitlich passende Kostenreihe behandelt werden. |
 
+### Zusätzliche feste Hypothesentests (explorativ)
+
+Nach Eingang des ersten Kritikerberichts wurden getrennte, vorab fixierte Arme mit denselben bereits betrachteten Bitget-Snapshots untersucht. Das ist ausdrücklich keine unberührte OOS-Prüfung. Das Skript `research/hypothesis_eval.py` speichert exakte Regeln, Parameter, Hashes, Development/OOS-Zellen, beide Seiten und alle Gruppen; alle Outcomes nutzen Signal nach Kerzenschluss und Entry am nächsten Bar-Open, danach nur einen Bar Forward.
+
+| Arm (OOS, ereignisgewichtet über Gruppen/Richtungen) | 5m N | 5m Ø brutto / netto 12 bp | 15m N | 15m Ø brutto / netto 12 bp |
+|---|---:|---:|---:|---:|
+| Bestehender Treppen-Ausbruch | 304 | -1,43 / -13,43 bp | 102 | -0,32 / -12,32 bp |
+| 3-Schlusskurs-Momentum | 23.167 | 0,02 / -11,98 bp | 8.136 | 0,00 / -12,00 bp |
+| Momentum + RVOL ≥1,5× vorherige 20 Bars | 5.459 | 0,44 / -11,56 bp | 1.837 | 0,08 / -11,92 bp |
+| Momentum + abgeschlossene 1h EMA20-Richtung | 11.337 | -0,01 / -12,01 bp | 4.260 | -0,16 / -12,16 bp |
+| Momentum + abgeschlossene 4h EMA20-Richtung | 11.363 | -0,13 / -12,13 bp | 4.038 | -0,27 / -12,27 bp |
+| EMA20/50-Crossover | 976 | -0,21 / -12,21 bp | 338 | 5,52 / -6,48 bp |
+| UTC-Session-VWAP-Reclaim (HLC3 × Basisvolumen) | 3.124 | -0,48 / -12,48 bp | 1.646 | 0,32 / -11,68 bp |
+| 12-Bar-Box, max. 2% Range, Close-Ausbruch plus Retest | 7.347 | -0,10 / -12,10 bp | 1.777 | -0,17 / -12,17 bp |
+
+Die zwölf OOS-Gruppen-/Richtungszellen pro Arm sind im JSON getrennt. Nur eine der 96 Zellen liegt über dem 12-bp-Szenario: 15m EMA20/50-Crossover, Stock-Perps Long, N=46, im Mittel +0,26 bp netto; das ist eine einzelne, nachträglich betrachtete Subgruppe ohne Multiple-Testing-Korrektur oder unabhängige Bestätigung. Sie ändert nicht die übergreifende Aussage. Keine der obigen Zahlen enthält gemessenen Spread, Slippage, Funding, Liquidation oder tatsächliche Fills. 1h/4h Filter nutzen ausschließlich vollständig abgeschlossene, lückenlose UTC-Bins mit EMA20 und 20-Bin-Warmup. RVOL, EMA-Crossover, VWAP und Boxparameter sind Hypothesen, nicht reproduzierte Produktivregeln. Tageslevel, RSI/Bollinger, echtes Trade-Volumenprofil, vollständige Regime- oder Walk-forward-Tests bleiben offen.
+
+Reproduktion: `python3 research/hypothesis_eval.py --granularity 5m --input research/data/bitget-5m-2026-09-17_2026-11-01.csv.gz --output research/results/hypotheses-5m.json` (analog `15m`). Sieben Testfälle in `research.test_hypothesis_eval` prüfen insbesondere HTF-Vollständigkeit/Warmup, Lücken und Long/Short-Boxfälle.
+
 ### Statusmatrix der Domänenberichte
 
 | Paket | Bericht / belegter Umfang | Empirischer Status |
 |---|---|---|
 | 1.1 Bestand | Codepfade, lokale Grenzen und bestehende Dashboard-Hypothesen in #6 inventarisiert. | Inventar-Akzeptanzkriterium erfüllt; #6 geschlossen. |
-| 1.2 Breakout | Regeldefinitionen/Quellen plus eigene Bitget 5m-/15m-Vorwärtsbewegungs-Auswertung in #14 und diesem Bericht. | Begrenzter OOS-Eventtest; keine Portfolio-, Ausführbarkeits- oder Robustheitsvalidierung. |
-| 1.3 Volumen/Profile | #13 beschreibt das Basisvolumen-15m-Bin-Profil, fehlende VAH/VAL/RVOL sowie API-Stichproben und falsifizierbare OHLCV-/Trade-Profilvergleiche. | Keine Profil-/RVOL-Edge-Messung; historische Trade-Abdeckung und Einheiten offen. |
-| 1.4 Regime/MTF | #12 prüft die Anzeigeimplementierung (1h EMA20/50 und Zonen); schlägt getrennte 1h-/4h-/Volatilitätsfilter-Tests vor. | Kein historischer Abruf, Backtest oder Statistiktest; Timestamp, 4h-Abdeckung und Kosten offen. |
-| 1.5 Indikatoren | #11 liefert kausale Hypothesen und Baselines für Trend, VWAP, Tagesniveaus und Mean Reversion. | Keine empirische Indikatorvalidierung. |
-| 1.6 Krypto-Universum | #10 dokumentiert Börsen-/Asset-Universen und einen vorab fixierbaren Vergleichsplan. | Kein Backtest; globale Point-in-time-Listings, Delistingvollständigkeit und Kostenregeln offen. |
-| 1.7 TradFi | #9 dokumentiert 307 aktuelle Stock-RWA-Perpetuals, begrenzte 1m-/Funding-Proben, Scannerlogik und Underlying-Grenzen. | Kein vollständiger historischer/Underlying-Abgleich oder ausführbarer Aktienvergleich. |
-| 1.8 Daten/Risiko | #7 dokumentiert öffentliche Bitget-Endpunkte/Limits, Kostenmethodik, Fee-/Funding-Abgrenzung und Hebelrisiken. | Keine persönlichen Gebühren, echten Fills, historischen Depth-Daten oder Latenzmessungen. |
-| 1.9 Kritiker | Unabhängige Prüfung in #8 reproduzierte Snapshot-Hashes, Offline-JSONs und OOS-Tabellen; identifizierte die Event-Split-Grenze und Grenzen überlappender Beobachtungen. | Grenzfall nach Review nach Entryzeit neu klassifiziert, Ergebnisse und Dokumentation aktualisiert; keine Strategievalidierung. |
+| 1.2 Breakout | Regeldefinitionen/Quellen plus bestehender Treppen-Arm und neue 12-Bar-Box-/Retest-Kandidaten auf gespeicherten Bitget 5m/15m. | Retest-Kandidat 5m N=7.347, Ø brutto -0,10 bp; 15m N=1.777, -0,17 bp. Explorativ, keine Portfolio-/Ausführbarkeitsvalidierung. |
+| 1.3 Volumen/Profile | #13 beschreibt die Basisvolumen-15m-Bin-Näherung; zusätzlich wurde ausschließlich Momentum mit RVOL≥1,5× des vorherigen 20-Bar-Mittels verglichen. | Kein echtes Trade-Profil/VAH/VAL; RVOL-Arm hat negative Nettomittel unter Kosten-Szenarien, keine Mehrfachtestkorrektur. Trade-Abdeckung bleibt begrenzt. |
+| 1.4 Regime/MTF | #12 prüft den Anzeige-Code; Zusatztest mit 1h/4h abgeschlossenen UTC-Bins, EMA20 und 20-Bin-Warmup als einzelne Filterarme. | Kein vollständiger Regime-/Walk-forward-Test; je 45-Tage-Fenster und schon eingesehenes OOS. Volatilitätsregime fehlt. |
+| 1.5 Indikatoren | #11 lieferte kausale Vorschläge; zusätzlich EMA20/50-Crossover und UTC-HLC3/Basisvolumen-VWAP-Reclaim als getrennte Event-Arme. | EMA 15m Stock-Perp Long hat eine einzelne positive Fee-Sensitivitätszelle (N=46); unbestätigt, gruppenweise sonst keine robuste Aussage. Tageslevel, RSI/Bollinger nicht getestet. |
+| 1.6 Krypto-Universum | #10 dokumentiert PIT-/Survivorship-Grenzen; aktuelle 8 Krypto-Perps wurden nur als festes Pilotpanel benutzt. | Breiter/verzerrungskorrigierter Vergleich blockiert: keine vollständige datierte Membership-/Delistinghistorie durch die geprüften Quellen belegt. |
+| 1.7 TradFi | #9 dokumentiert aktuelle Stock-RWA-Perps; Zusatzprobe bestätigt vier konkrete aktuelle US-Issuer/ISIN-Mappings und AAPL/BTC-Fundingraten. | Kein offizieller Underlying-Handelskalender oder historische Börsen-/Underlying-Abbildung; ausgeführt wird nur Perp-Preis, keine Aktie. |
+| 1.8 Daten/Risiko | #7 dokumentiert Bitget-Endpunkte/Limits; Zusatzprobe paginierte BTC/AAPL-Funding (135/135 Zeitpunkte) und je sechs historische Trade-Prints über kleine 1-Minuten-Proben. | Fundingrate ist kein eigener Account-Cashflow; historische Bid/Ask/Depth fehlt. Realistische Ausführung/Impact blockiert bis archivierte Quotes/Tiefe validiert werden. |
+| 1.9 Kritiker | Erste unabhängige Prüfung in #8 reproduzierte Hashes, Replays und Tabellen und fand Split-/Abhängigkeitsgrenzen; Entry-Time-Fix ist umgesetzt. | Eine erneute unabhängige Prüfung der neuen Hypothesenarme, Day-Block-Sensitivität und Datenproben ist noch nötig. |
 
 ### Mindestprotokoll für eine Evaluation
 
@@ -134,6 +153,35 @@ python3 research/intraday_eval.py --granularity 5m --input research/data/bitget-
 python3 research/intraday_eval.py --granularity 15m --input research/data/bitget-15m-2026-09-17_2026-11-01.csv.gz --summary research/results/bitget-15m-2026-09-17_2026-11-01.json --events research/results/bitget-15m-2026-09-17_2026-11-01-events.csv.gz
 ```
 
+## Nacharbeit: Abhängigkeit und Unsicherheit
+
+`research/event_uncertainty.py` ergänzt die bestehende Event-Studie um eine
+reproduzierbare Sensitivitätsanalyse: 2.000 Bootstrap-Ziehungen ganzer UTC-Tage,
+Seed 20261101, synchron über Symbole und beide Vergleichsarme. Auch Tage ohne
+Signale bleiben enthalten. Der Schätzer ist der ereignisgewichtete Mittelwert,
+nicht der Mittelwert gleichgewichteter Tagesmittel. Die 95%-Perzentilintervalle
+und die Differenz Treppen minus Momentum-Baseline stehen für Entwicklung/OOS,
+Gruppe, Richtung und Zeitrahmen in `research/results/uncertainty-{5m,15m}.json`.
+Die Eingabe-Hashes und Zellhäufigkeiten werden festgehalten bzw. geprüft.
+
+Das ist eine explorative Wiederverwendung des bereits betrachteten OOS-Fensters,
+keine neue unangetastete Validierung. Die Intervalle sind nicht für Mehrfachtests
+korrigiert; Abhängigkeit über Tagesgrenzen bleibt unmodelliert. Nur 15 OOS-Tage
+und wenige aktive Breakout-Tage machen die Intervalle instabil. Beispielsweise
+enthält das 5m-BTC/ETH-Short-Nettointervall unter 12 bp auch null
+(-17,07 bis 0,27 bp), obwohl der Punktschätzer negativ bleibt. Die positive
+relative 15m-Stock-Long-Differenz zur Baseline ist weder ein positiver
+Nettoerwartungswert noch ein korrigierter Evidenznachweis. Ein-Bar-Returns je
+Symbol/Arm liegen in aufeinanderfolgenden, nicht zwingend überlappenden
+Haltefenstern; gemeinsame Lookbacks und zeitgleiche Symbole/Arme erzeugen dennoch
+Abhängigkeit. Es gibt weiterhin keine Portfolio-/Margin-/Fill-Simulation.
+
+```sh
+python3 -m unittest research.test_hypothesis_eval research.test_event_uncertainty research.test_intraday_eval -v
+python3 -m research.event_uncertainty --events research/results/bitget-5m-2026-09-17_2026-11-01-events.csv.gz --summary research/results/bitget-5m-2026-09-17_2026-11-01.json --output research/results/uncertainty-5m.json
+python3 -m research.event_uncertainty --events research/results/bitget-15m-2026-09-17_2026-11-01-events.csv.gz --summary research/results/bitget-15m-2026-09-17_2026-11-01.json --output research/results/uncertainty-15m.json
+```
+
 ## Externe Evidenz und Datenstatus
 
 ### Bitget – direkt beobachtete öffentliche API-Antworten
@@ -141,8 +189,12 @@ python3 research/intraday_eval.py --granularity 15m --input research/data/bitget
 - Der direkte Aufruf von [`/api/v2/mix/market/history-candles`](https://api.bitget.com/api/v2/mix/market/history-candles?symbol=BTCUSDT&productType=USDT-FUTURES&granularity=15m&limit=200) lieferte `code=00000`. Die Antwortzeilen enthalten Zeitstempel, OHLC und zwei Volumenfelder; die lokal genutzte `dist/orderbook.js`-Implementierung verwendet das sechste Datenfeld (API-Antwortindex 5) als Volumen-Näherung, während die Ausbruchsauswertung das siebte Feld (Index 6, Quotevolumen in der beobachteten Antwort) verwendet. Abdeckung und Volumensemantik sind im Snapshot dieser Stichprobe dokumentiert, aber nicht mit historischen Trades abgeglichen.
 - Die eingefrorenen 5m- und 15m-Datensätze enthalten 155.520 beziehungsweise 51.840 Bars über dieselben 12 Symbole. Reproduzierbare Rohdaten-Exporte: [`5m CSV.GZ`](research/data/bitget-5m-2026-09-17_2026-11-01.csv.gz) und [`15m CSV.GZ`](research/data/bitget-15m-2026-09-17_2026-11-01.csv.gz); Kennzahlen und Ereignisse stehen im `research/results/`-Verzeichnis. Die Resultate beziehen sich nur auf diese gezielt ausgewählte Stichprobe.
 - Der öffentliche [`/api/v3/market/instruments?category=USDT-FUTURES`](https://api.bitget.com/api/v3/market/instruments?category=USDT-FUTURES)-Abruf meldete für ausgewählte Kontrakte `status=online`, `type=perpetual`; die vier Aktien-Perpetuals wurden als `instrumentType=stock`, `isRwa=YES` klassifiziert. Der gespeicherte Snapshot vom 2026-11-01 15:07:38.919 UTC enthält die 12 tatsächlich verwendeten Symbole und Felder: [`bitget-instruments-2026-11-01.json`](research/data/bitget-instruments-2026-11-01.json).
-- Dieser Snapshot zeigt für die ausgewählten 12 Instrumente `makerFeeRate=0.0002`, `takerFeeRate=0.0006`, `fundInterval=8`. Das sind zeitpunktbezogene Produktmetadaten, keine bestätigten individuellen Kontogebühren oder historischen Sätze. Die Auswertung nutzt ausschließlich den 6-bp-Taker-Satz als klare Kostenannahme; historische Funding-Zahlungen, Gebührenänderungen, Spread, Slippage und Orderausführung wurden nicht rekonstruiert.
-- Ein Live-Instrumentenabruf ist kein Nachweis der früheren Listungsdauer. Historische Trades, Quotes und Orderbuchtiefe sowie deren reproduzierbare Zeitabdeckung sind weiterhin offen; das aktuelle Dashboard-Orderbuch ist keine historische Ausführungssimulation. Dynamisch gerenderte Bitget-Dokumentationsseiten wurden nicht als Beleg für ungeprüfte Limits oder Datenhistorie verwendet.
+- Dieser Snapshot zeigt für die ausgewählten 12 Instrumente `makerFeeRate=0.0002`, `takerFeeRate=0.0006`, `fundInterval=8`. Das sind zeitpunktbezogene Produktmetadaten, keine bestätigten individuellen Kontogebühren oder historischen Sätze. Die Auswertung nutzt ausschließlich den 6-bp-Taker-Satz als klare Kostenannahme; Finanzierung wurde für den ursprünglichen Eventlauf nicht als zeitlich passender Cashflow verrechnet.
+- Ein separat datierter Follow-up speichert 25 öffentliche GET-Abfragen, ausgewählte Antworten/Dokumentation und Hashes in [`bitget-followup-feasibility-2026-11-01.json`](research/data/bitget-followup-feasibility-2026-11-01.json). Für BTCUSDT und AAPLUSDT wurden jeweils 200 paginierte Funding-Historien-Zeilen eingelesen; im festgelegten Fenster [2026-09-17 00:00, 2026-11-01 00:00) UTC ergeben sich 135 von 135 8h-Gridpunkten ohne Lücken oder Duplikate. Bei AAPL sind 13 der 135 Sätze ungleich null; der BTC-Snapshot hat 135 nicht-null Werte. Das sind veröffentlichte Fundingraten, nicht Kontobuchungen und kein Nachweis anderer Symbole.
+- `fills-history` wurde für je einen konkreten BTCUSDT- und AAPLUSDT-Minutenabschnitt paginiert: zwei Seiten mit je drei Prints, sechs eindeutige IDs pro Symbol. Das belegt nur begrenzte Sample-/Pagination-Verfügbarkeit, keine vollständigen Trades. Kein historischer BBO oder Depth-Snapshot für den untersuchten Fensterabschnitt wurde zurückgewonnen. Bitgets Depth-Dokumentation verweist auf öffentliche historische Archive, aber die dokumentierten Seiten-/GET-Probes lieferten keine Datei; das beweist nicht, dass die Archive fehlen oder Login erfordern.
+- Aktuelle V3-Metadaten ordnen AAPLUSDT (Apple, US, ISIN US0378331005), TSLAUSDT (Tesla, US, US88160R1014), NVDAUSDT (Nvidia, US, US67066G1040) und COINUSDT (Coinbase Global, US, US19260Q1076) als Stock-Perps ein; für diese vier zeigen die gespeicherten `launchTime`-Werte den 02.02.2026 UTC. Das ist Bitget-Instrumentmetadaten, keine unabhängig bestätigte Primärbörse/Session. Felder zu Börsen-MIC, Zeitzone, Handelszeiten, Feiertagen/verkürzten Sitzungen oder Historien-Mapping wurden nicht geliefert.
+- Der aktuelle BTC-USDT-Perpetual-Eintrag hat `launchTime="0"`; die geprüften V3-Instruments-/V2-Contracts-Endpunkte dokumentieren aktuelle Zustände, aber kein vollständiges datiertes Point-in-time-Listing-/Delistingarchiv. Historische Universe-Mitgliedschaft lässt sich nicht aus heute aktiven Symbolen, leeren Werten oder Candle-Lücken rekonstruieren.
+- Ergebnis: #7 ist für historische ausführbare Quote-/Depth-Kosten blockiert, nicht für öffentliche Fundingraten oder kleine Trade-Probes. #9 ist für Börsenkalender-gekoppelte Aktien-Sessionvergleiche blockiert; Perp-only-Daten bleiben auswertbar. #10 ist für einen survivorship-korrigierten breiten PIT-Universumstest blockiert. Diese klar begrenzten Blocker und nächste Schritte stehen in den jeweiligen Issues.
 
 ### Fachliteratur – Kontext, kein Nachweis für dieses Dashboard
 
@@ -165,21 +217,21 @@ Alle Quellen belegen allenfalls Befunde in den jeweils untersuchten Daten und ni
 
 ## Orchestrierung und Status
 
-**Stand 2026-11-01:** Issue [#3](https://github.com/totosan/tokendashboard/issues/3) ist offen, mit `topic:research` und `state:in-progress`. Die folgenden nativen GitHub-Child-Issues wurden mit direktem Parent #3 erstellt:
+**Stand 2026-11-02:** Issue [#3](https://github.com/totosan/tokendashboard/issues/3) ist offen, mit `topic:research` und `state:in-progress`. Die folgenden nativen GitHub-Child-Issues wurden mit direktem Parent #3 erstellt:
 
 | Nummer | Arbeitspaket / direktes Child-Issue | Topic / tatsächlicher Status |
 |---|---|---|
 | 1.1 | [#6 Bestandsaufnahme](https://github.com/totosan/tokendashboard/issues/6) | `topic:inventory` · `state:done` · Bericht mit Codezeilen/Abgrenzung eingereicht; geschlossen |
-| 1.2 | [#14 Breakout, Konsolidierung und Pullback](https://github.com/totosan/tokendashboard/issues/14) | `topic:breakout` · `state:review` · formale Definitionen/Quellen eingereicht; eigene 5m/15m-Treppen-Auswertung ergänzt; echte Box-/Retestvarianten bleiben offen |
-| 1.3 | [#13 Volumen und Profile](https://github.com/totosan/tokendashboard/issues/13) | `topic:volume-profile` · `state:review` · aktuelle Approximation, API-Stichproben und falsifizierbare OHLCV-vs-Trade-Profiltests dokumentiert; keine Edge-Messung |
-| 1.4 | [#12 Marktregime und MTF](https://github.com/totosan/tokendashboard/issues/12) | `topic:regime-mtf` · `state:review` · Code-Audit und präregistrierbare 1h-/4h-/Volatilitätstests; kein Backtest |
-| 1.5 | [#11 Trend, VWAP und Mean Reversion](https://github.com/totosan/tokendashboard/issues/11) | `topic:indicators` · `state:review` · testbare Regeln, Grenzen und Quellen eingereicht; empirisch ungetestet |
-| 1.6 | [#10 Krypto-Universum](https://github.com/totosan/tokendashboard/issues/10) | `topic:crypto-universe` · `state:review` · PIT-/Survivorship-Vergleich und Datenanforderungen dokumentiert; kein Backtest |
-| 1.7 | [#9 TradFi-Übertragbarkeit](https://github.com/totosan/tokendashboard/issues/9) | `topic:tradfi` · `state:review` · aktuelles 307er-Universum, begrenzte 1m-/Funding-Proben und Scannersemantik dokumentiert; vollständige historische Validierung offen |
-| 1.8 | [#7 Daten, Ausführung und Risiko](https://github.com/totosan/tokendashboard/issues/7) | `topic:execution-risk` · `state:review` · Bitget-Endpunkte/Limits, Kostenmodell und Hebelrisiken dokumentiert; historische Fills, Tiefe, Gebühren und Latenz offen |
-| 1.9 | [#8 Validierung, Synthese und unabhängiger Review](https://github.com/totosan/tokendashboard/issues/8) | `topic:validation` · `state:review` · unabhängiger Review eingereicht; Split-Grenze korrigiert, Gesamtakzeptanz bleibt offen |
+| 1.2 | [#14 Breakout, Konsolidierung und Pullback](https://github.com/totosan/tokendashboard/issues/14) | `topic:breakout` · `state:review` · fester Box-/Retest-Kandidat plus Treppen-Ausbruch getestet; keine Nettowirksamkeitsbehauptung |
+| 1.3 | [#13 Volumen und Profile](https://github.com/totosan/tokendashboard/issues/13) | `topic:volume-profile` · `state:review` · separater RVOL≥1,5×-Arm getestet; echtes Trade-Profil/Value Area und Langzeit-Historie offen |
+| 1.4 | [#12 Marktregime und MTF](https://github.com/totosan/tokendashboard/issues/12) | `topic:regime-mtf` · `state:review` · 1h-/4h-EMA20-Filter nur nach vollständigen UTC-Bins getestet; kein vollständiger Regime-/Walk-forward-Test |
+| 1.5 | [#11 Trend, VWAP und Mean Reversion](https://github.com/totosan/tokendashboard/issues/11) | `topic:indicators` · `state:review` · EMA20/50-Crossover und UTC-VWAP-Reclaim getestet; Tageslevels/RSI/Bollinger offen |
+| 1.6 | [#10 Krypto-Universum](https://github.com/totosan/tokendashboard/issues/10) | `topic:crypto-universe` · `state:blocked` · geprüfte Bitget-Endpunkte lieferten kein vollständiges PIT-Listing-/Delistinguniversum; Pilotpanel ist current-survivor |
+| 1.7 | [#9 TradFi-Übertragbarkeit](https://github.com/totosan/tokendashboard/issues/9) | `topic:tradfi` · `state:blocked` · vier aktuelle Issuer/ISIN-Mappings und AAPL-Fundingproben; Underlying-Kalender/Mapping für Sessiontest fehlt |
+| 1.8 | [#7 Daten, Ausführung und Risiko](https://github.com/totosan/tokendashboard/issues/7) | `topic:execution-risk` · `state:blocked` · Funding- und kleine Trades-Archive-Stichproben abrufbar; historische Quotes/Depth für echte Kosten fehlen |
+| 1.9 | [#8 Validierung, Synthese und unabhängiger Review](https://github.com/totosan/tokendashboard/issues/8) | `topic:validation` · `state:in-progress` · Follow-up-Ergebnisse/Artefakte werden vor zweitem unabhängigem Review integriert |
 
-Je eines der acht verfügbaren Hintergrund-Rechercheaufträge ist den Issues 1.1–1.8 zugeordnet. 1.1 lieferte einen Bericht mit Codezeilen, tatsächlich verwendeten Daten und expliziten Nicht-Prüfungen; sein eigenes Inventar-Akzeptanzkriterium ist erfüllt, deshalb wurde #6 geschlossen und auf `state:done` gesetzt. 1.2 lieferte operationale Hypothesen und Quellen; die spätere 5m/15m-Auswertung wurde ergänzt und #14 auf `state:review` gesetzt. 1.3 dokumentierte die bestehende Approximation und falsifizierbare Daten-/Profiltests, ohne Performanceaussage; #13 ist auf `state:review`. 1.4 dokumentierte den MTF-Anzeigekontext und ein kausales Testdesign ohne historischen Lauf; #12 ist auf `state:review`. 1.5 lieferte testbare Regelentwürfe, Baselines, Kostenfragen und eng eingeordnete Literatur; #11 ist auf `state:review`, die Ansätze sind empirisch ungetestet. 1.6 dokumentierte Quellen-/Biasgrenzen für ein PIT-Universum und einen reproduzierbaren Vergleichsplan, ohne Backtest; #10 ist auf `state:review`. 1.7 dokumentierte aktuelle Instrumentklassifikation, begrenzte historische Proben und die Long-only-Perp-Scannersemantik; #9 ist auf `state:review`, während Underlying-Abgleich und vollständige Historienprüfung offen bleiben. 1.8 dokumentierte öffentliche Endpunkte/Limits sowie Kosten- und Hebelrisiken, aber keine persönlichen Gebühren, Ausführungen oder historischen Tiefendaten; #7 ist auf `state:review`. Der unabhängige Kritiker 1.9 legte seinen Review auf #8 vor: Hashes, Replays und Gruppentabellen wurden bestätigt; Split-Zuordnung und Abhängigkeit überlappender Events wurden markiert. Der Split ist nun anhand der Entry-Bar klassifiziert und die Tabellen wurden aktualisiert. Bislang wurde kein Agent als ausgefallen dokumentiert; `Lost Repeat` ist daher weder erstellt noch gesetzt.
+Die acht Domänenberichte 1.1–1.8 liegen vor. Nach dem unabhängigen Review 1.9 wurde die Split-Zuordnung korrigiert; anschließend wurden feste Hypothesenarme, Tagesblock-Sensitivität und begrenzte Bitget-Feasibility-Proben ergänzt. #7 ist nur für historische Quotes/Tiefe blockiert; Funding-Raten und kleine Trade-Print-Seiten waren abrufbar. #9 ist für einen Börsenkalender/Underlying-Sessionvergleich blockiert, nicht für Perp-only-Daten. #10 ist für ein vollständiges point-in-time Delisting-Universum blockiert; das 12-Symbol-Panel bleibt ein heutiger Survivor-Pilot. #11–#14 haben getrennte Hypothesentests und Resultate; die OOS-Zeitspanne war bereits betrachtet, daher keine unberührte Validierung. Ein zweiter unabhängiger Review der neuen Methoden, Event-Unsicherheit und Datenproben ist beauftragt. Die Stati sind genau ein `state:*`-Label pro Issue; keine Folgearbeit wird als abgeschlossen/verifiziert dargestellt, nur weil der Code/Test läuft.
 
 **Tatsächlich erstellte Labels:** Topics `topic:research`, `topic:inventory`, `topic:breakout`, `topic:volume-profile`, `topic:regime-mtf`, `topic:indicators`, `topic:crypto-universe`, `topic:tradfi`, `topic:execution-risk`, `topic:validation`; States `state:pending`, `state:in-progress`, `state:blocked`, `state:review`, `state:done`. Die Konvention ist ein `topic:*`-Label für den Arbeitsbereich plus genau ein `state:*`-Label für den aktuellen Status. Statusangaben hier sind der zuletzt verifizierte GitHub-Snapshot, keine Erfolgsaussage.
 
