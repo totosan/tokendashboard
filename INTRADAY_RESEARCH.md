@@ -335,6 +335,21 @@ Als nächste Daten-Gate-Aufgabe bearbeitet ein Fachagent 1.7.1
 autoritative Underlying-/Session-Zuordnung für die vier Stock-Perps mit maximal
 zwölf öffentlichen Quellabfragen. Ein ehrlicher Nichtverifizierungsbeleg ist
 ein zulässiges Feasibility-Ergebnis, aber keine Entsperrung von #9.
+Die Lieferung
+[`bitget-session-feasibility-2026-11-02.json`](research/data/bitget-session-feasibility-2026-11-02.json)
+umfasst sechs öffentliche GET-URLs bzw. sieben HTTP-Transaktionen inklusive
+einer Weiterleitung. Vier aktuelle Bitget-Kontraktmetadaten und offizielle
+Nasdaq-/NYSE-Kalenderseiten sind belegt; keine Börse, MIC, Zeitzone oder
+historische Zuordnungskontinuität ist damit einem Perp autoritativ zugeordnet.
+Ohne Bitgets symbolbezogene Referenzmarkt-Spezifikation und deren
+Änderungshistorie wird kein Kalender angewendet. Der unabhängige Review in #8
+meldet keine wesentlichen Befunde und bestätigt das Transaktionsbudget.
+Die Raw-Hashes sind ohne nicht gespeicherte Originalbytes nicht nachrechenbar;
+ausgewählte Belege sind entsprechend gekennzeichnet. Der begrenzte
+Feasibility-Lieferumfang ist akzeptiert; #9 bleibt blockiert.
+Danach ist 1.8.3 [#20](https://github.com/totosan/tokendashboard/issues/20)
+unter #7 als kleines historisches Quote-/Depth-Archiv-Gate vorbereitet,
+nicht als bereits gestarteter Download oder Abdeckungsnachweis.
 
 | Reihenfolge | Paket / zuständiges Issue | Evidenz-Gate |
 |---|---|---|

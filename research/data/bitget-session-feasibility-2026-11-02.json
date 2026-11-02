@@ -1,0 +1,367 @@
+{
+  "schema_version": 1,
+  "title": "Bitget stock-perpetual session linkage feasibility",
+  "scope": {
+    "issue": 19,
+    "parent_issue": 9,
+    "epic": 3,
+    "symbols": [
+      "AAPLUSDT",
+      "TSLAUSDT",
+      "NVDAUSDT",
+      "COINUSDT"
+    ],
+    "saved_data_interval_utc": {
+      "start_inclusive": "2026-09-17T00:00:00Z",
+      "end_exclusive": "2026-11-01T00:00:00Z"
+    },
+    "retrieved_at_utc": {
+      "start": "2026-11-02T16:58:05.296140Z",
+      "end": "2026-11-02T16:58:07.237512Z"
+    },
+    "request_budget": {
+      "maximum_http_transactions_including_redirects": 12,
+      "actual_http_transactions_including_redirects": 7,
+      "actual_logical_gets": 6,
+      "redirect_transactions": 1,
+      "credentials_used": false,
+      "methods": [
+        "GET"
+      ],
+      "max_observed_request_elapsed_seconds": 0.537
+    },
+    "purpose": "Determine whether public first-party Bitget metadata authoritatively links each perp to an underlying primary exchange, MIC, timezone and historically stable identity, and identify official candidate exchange calendar sources for the saved interval.",
+    "out_of_scope": [
+      "Session-performance comparisons",
+      "Underlying-market price or volume downloads",
+      "Paid data",
+      "Orders or authenticated account access",
+      "Binance requests",
+      "Inferring exchange linkage from issuer, ISIN, region or ticker"
+    ]
+  },
+  "request_log": [
+    {
+      "id": "bitget-aapl",
+      "method": "GET",
+      "requested_url": "https://api.bitget.com/api/v3/market/instruments?category=USDT-FUTURES&symbol=AAPLUSDT",
+      "final_url": "https://api.bitget.com/api/v3/market/instruments?category=USDT-FUTURES&symbol=AAPLUSDT",
+      "redirects": [],
+      "retrieved_at_utc": "2026-11-02T16:58:05.296140Z",
+      "http_status": 200,
+      "api_code": "00000",
+      "api_message": "success",
+      "content_type": "application/json",
+      "http_date": "Mon, 02 Nov 2026 16:58:05 GMT",
+      "response_bytes": 950,
+      "response_body_truncated": false,
+      "response_body_sha256": "d332b44ea70345166ebd5727f41d9a6b8ea4ebcde3e29099518ceab5fcfcfcd4",
+      "elapsed_seconds": 0.537,
+      "selected_returned_fields": {
+        "symbol": "AAPLUSDT",
+        "category": "USDT-FUTURES",
+        "baseCoin": "AAPL",
+        "quoteCoin": "USDT",
+        "symbolType": "stock",
+        "fullName": "Apple",
+        "instrumentType": "stock",
+        "marketRegion": "US",
+        "isin": "US0378331005",
+        "isRwa": "YES",
+        "type": "perpetual",
+        "status": "online",
+        "launchTime": "1769994062305",
+        "fundInterval": "8"
+      }
+    },
+    {
+      "id": "bitget-tsla",
+      "method": "GET",
+      "requested_url": "https://api.bitget.com/api/v3/market/instruments?category=USDT-FUTURES&symbol=TSLAUSDT",
+      "final_url": "https://api.bitget.com/api/v3/market/instruments?category=USDT-FUTURES&symbol=TSLAUSDT",
+      "redirects": [],
+      "retrieved_at_utc": "2026-11-02T16:58:05.848126Z",
+      "http_status": 200,
+      "api_code": "00000",
+      "api_message": "success",
+      "content_type": "application/json",
+      "http_date": "Mon, 02 Nov 2026 16:58:06 GMT",
+      "response_bytes": 950,
+      "response_body_truncated": false,
+      "response_body_sha256": "bde626a93bbe2e73f1737388b6e009271091153d5402255662bdb56adaae1843",
+      "elapsed_seconds": 0.446,
+      "selected_returned_fields": {
+        "symbol": "TSLAUSDT",
+        "category": "USDT-FUTURES",
+        "baseCoin": "TSLA",
+        "quoteCoin": "USDT",
+        "symbolType": "stock",
+        "fullName": "Tesla",
+        "instrumentType": "stock",
+        "marketRegion": "US",
+        "isin": "US88160R1014",
+        "isRwa": "YES",
+        "type": "perpetual",
+        "status": "online",
+        "launchTime": "1769994062288",
+        "fundInterval": "8"
+      }
+    },
+    {
+      "id": "bitget-nvda",
+      "method": "GET",
+      "requested_url": "https://api.bitget.com/api/v3/market/instruments?category=USDT-FUTURES&symbol=NVDAUSDT",
+      "final_url": "https://api.bitget.com/api/v3/market/instruments?category=USDT-FUTURES&symbol=NVDAUSDT",
+      "redirects": [],
+      "retrieved_at_utc": "2026-11-02T16:58:06.309646Z",
+      "http_status": 200,
+      "api_code": "00000",
+      "api_message": "success",
+      "content_type": "application/json",
+      "http_date": "Mon, 02 Nov 2026 16:58:06 GMT",
+      "response_bytes": 951,
+      "response_body_truncated": false,
+      "response_body_sha256": "732f74a9de3c8bb441c0b57297870a0d31e360ec347422c8d33bf866c2f8cfcc",
+      "elapsed_seconds": 0.226,
+      "selected_returned_fields": {
+        "symbol": "NVDAUSDT",
+        "category": "USDT-FUTURES",
+        "baseCoin": "NVDA",
+        "quoteCoin": "USDT",
+        "symbolType": "stock",
+        "fullName": "Nvidia",
+        "instrumentType": "stock",
+        "marketRegion": "US",
+        "isin": "US67066G1040",
+        "isRwa": "YES",
+        "type": "perpetual",
+        "status": "online",
+        "launchTime": "1769994062273",
+        "fundInterval": "8"
+      }
+    },
+    {
+      "id": "bitget-coin",
+      "method": "GET",
+      "requested_url": "https://api.bitget.com/api/v3/market/instruments?category=USDT-FUTURES&symbol=COINUSDT",
+      "final_url": "https://api.bitget.com/api/v3/market/instruments?category=USDT-FUTURES&symbol=COINUSDT",
+      "redirects": [],
+      "retrieved_at_utc": "2026-11-02T16:58:06.550467Z",
+      "http_status": 200,
+      "api_code": "00000",
+      "api_message": "success",
+      "content_type": "application/json",
+      "http_date": "Mon, 02 Nov 2026 16:58:06 GMT",
+      "response_bytes": 960,
+      "response_body_truncated": false,
+      "response_body_sha256": "cf0c27a3154dcd6f59cd8e3224ff4363055f142ca681535e5a89b5d7b637e95d",
+      "elapsed_seconds": 0.349,
+      "selected_returned_fields": {
+        "symbol": "COINUSDT",
+        "category": "USDT-FUTURES",
+        "baseCoin": "COIN",
+        "quoteCoin": "USDT",
+        "symbolType": "stock",
+        "fullName": "Coinbase Global",
+        "instrumentType": "stock",
+        "marketRegion": "US",
+        "isin": "US19260Q1076",
+        "isRwa": "YES",
+        "type": "perpetual",
+        "status": "online",
+        "launchTime": "1769994064132",
+        "fundInterval": "8"
+      }
+    },
+    {
+      "id": "nasdaq-calendar",
+      "method": "GET",
+      "requested_url": "https://www.nasdaq.com/market-activity/stock-market-holiday-schedule",
+      "final_url": "https://www.nasdaq.com/market-activity/stock-market-holiday-schedule",
+      "redirects": [],
+      "retrieved_at_utc": "2026-11-02T16:58:06.914509Z",
+      "http_status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "http_date": "Mon, 02 Nov 2026 16:58:07 GMT",
+      "response_bytes": 175393,
+      "response_body_truncated": false,
+      "response_body_sha256": "b7bda4ead37353105444e3f49dcfe3970898fdeff7968413f0cb8bbec15a3640",
+      "selected_source_text": [
+        "2026 U.S. Stock Market Holiday Schedule: Labor Day, September 7, 2026 — Closed; Thanksgiving Day, November 26, 2026 — Closed.",
+        "Early Close November 27, 2026 — 1:00 p.m.; Early Close December 24, 2026 — 1:00 p.m.",
+        "Nasdaq Stock Market regular hours: Monday through Friday, opens 9:30 a.m. and closes 4:00 p.m. Eastern Time Zone."
+      ],
+      "selection_semantics": "Selected text extracted from the complete HTML body; hash is SHA-256 of the entire HTTP response body."
+    },
+    {
+      "id": "nyse-calendar",
+      "method": "GET",
+      "requested_url": "https://www.nyse.com/markets/hours-calendars",
+      "final_url": "https://www.nyse.com/trade/hours-calendars",
+      "redirects": [
+        {
+          "http_status": 302,
+          "from": "https://www.nyse.com/markets/hours-calendars",
+          "to": "https://www.nyse.com/trade/hours-calendars"
+        }
+      ],
+      "retrieved_at_utc": "2026-11-02T16:58:07.237512Z",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "http_date": "Mon, 02 Nov 2026 16:58:07 GMT",
+      "response_bytes": 122527,
+      "response_body_truncated": false,
+      "response_body_sha256": "9ede5dd8af5a2ffef372d90e1fcac65ce3e9cb74ebab6d67edbce2d4bceae93c",
+      "selected_source_text": [
+        "NYSE states all its markets observe the U.S. holidays listed for 2026, 2027, and 2028; the 2026 table lists Labor Day, Monday September 7, and Thanksgiving Day, Thursday November 26.",
+        "NYSE Tape A core trading session is 9:30 a.m. to 4:00 p.m. ET; the page states all times are Eastern Time."
+      ],
+      "selection_semantics": "Selected text extracted from the complete final HTML response body; hash is SHA-256 of the final response body. Redirect target is logged separately."
+    }
+  ],
+  "bitget_documentation_reference": {
+    "source": "Saved first-party Bitget documentation evidence in research/data/bitget-followup-feasibility-2026-11-01.json, request id 1.",
+    "url": "https://www.bitget.com/legacy-docs/uta/public/Instruments",
+    "retrieved_at_utc": "2026-11-01T20:50:07.646662+00:00",
+    "http_status": 200,
+    "raw_response_sha256": "dce9a87dd4ccc0cc0c7a9556eb75eb692f9477e9ce4643806601eb69db6ec12a",
+    "relevant_documented_fields": {
+      "instrumentType": "The field can denote stock, among other instrument types.",
+      "marketRegion": "Region code; US is United States.",
+      "isin": "An identifier for a financial security.",
+      "launchTime": "Unix millisecond timestamp indicating when the trading pair was launched."
+    },
+    "selection_semantics": "References the exact saved source record; this is prior evidence, not an additional request in this bounded run."
+  },
+  "symbols": {
+    "AAPLUSDT": {
+      "bitget_contract_metadata": {
+        "status": "verified",
+        "evidence_request_id": "bitget-aapl",
+        "claim": "Current Bitget response labels this USDT-FUTURES instrument online, perpetual, stock, US region, Apple, with ISIN US0378331005 and launchTime 1769994062305."
+      },
+      "underlying_exchange_and_mic": {
+        "status": "notverified",
+        "evidence_request_id": "bitget-aapl",
+        "claim": "The returned fields contain no exchange or MIC. No authoritative Bitget source in this bounded check links the perp to a primary exchange."
+      },
+      "exchange_timezone": {
+        "status": "notverified",
+        "claim": "Bitget did not identify an underlying exchange or timezone for this symbol."
+      },
+      "historical_identity_for_saved_interval": {
+        "status": "notverified",
+        "claim": "Current metadata and its documented launchTime do not establish that the underlying-exchange mapping or reference identity remained the same throughout 2026-09-17 through 2026-11-01."
+      },
+      "official_holiday_and_early_close_calendar_applicability": {
+        "status": "notverified",
+        "candidate_calendar_evidence": [
+          "nasdaq-calendar",
+          "nyse-calendar"
+        ],
+        "claim": "Official Nasdaq and NYSE calendar pages were retrieved, but neither calendar can be assigned to this Bitget symbol without an authoritative exchange link."
+      }
+    },
+    "TSLAUSDT": {
+      "bitget_contract_metadata": {
+        "status": "verified",
+        "evidence_request_id": "bitget-tsla",
+        "claim": "Current Bitget response labels this USDT-FUTURES instrument online, perpetual, stock, US region, Tesla, with ISIN US88160R1014 and launchTime 1769994062288."
+      },
+      "underlying_exchange_and_mic": {
+        "status": "notverified",
+        "evidence_request_id": "bitget-tsla",
+        "claim": "The returned fields contain no exchange or MIC. No authoritative Bitget source in this bounded check links the perp to a primary exchange."
+      },
+      "exchange_timezone": {
+        "status": "notverified",
+        "claim": "Bitget did not identify an underlying exchange or timezone for this symbol."
+      },
+      "historical_identity_for_saved_interval": {
+        "status": "notverified",
+        "claim": "Current metadata and its documented launchTime do not establish that the underlying-exchange mapping or reference identity remained the same throughout 2026-09-17 through 2026-11-01."
+      },
+      "official_holiday_and_early_close_calendar_applicability": {
+        "status": "notverified",
+        "candidate_calendar_evidence": [
+          "nasdaq-calendar",
+          "nyse-calendar"
+        ],
+        "claim": "Official Nasdaq and NYSE calendar pages were retrieved, but neither calendar can be assigned to this Bitget symbol without an authoritative exchange link."
+      }
+    },
+    "NVDAUSDT": {
+      "bitget_contract_metadata": {
+        "status": "verified",
+        "evidence_request_id": "bitget-nvda",
+        "claim": "Current Bitget response labels this USDT-FUTURES instrument online, perpetual, stock, US region, Nvidia, with ISIN US67066G1040 and launchTime 1769994062273."
+      },
+      "underlying_exchange_and_mic": {
+        "status": "notverified",
+        "evidence_request_id": "bitget-nvda",
+        "claim": "The returned fields contain no exchange or MIC. No authoritative Bitget source in this bounded check links the perp to a primary exchange."
+      },
+      "exchange_timezone": {
+        "status": "notverified",
+        "claim": "Bitget did not identify an underlying exchange or timezone for this symbol."
+      },
+      "historical_identity_for_saved_interval": {
+        "status": "notverified",
+        "claim": "Current metadata and its documented launchTime do not establish that the underlying-exchange mapping or reference identity remained the same throughout 2026-09-17 through 2026-11-01."
+      },
+      "official_holiday_and_early_close_calendar_applicability": {
+        "status": "notverified",
+        "candidate_calendar_evidence": [
+          "nasdaq-calendar",
+          "nyse-calendar"
+        ],
+        "claim": "Official Nasdaq and NYSE calendar pages were retrieved, but neither calendar can be assigned to this Bitget symbol without an authoritative exchange link."
+      }
+    },
+    "COINUSDT": {
+      "bitget_contract_metadata": {
+        "status": "verified",
+        "evidence_request_id": "bitget-coin",
+        "claim": "Current Bitget response labels this USDT-FUTURES instrument online, perpetual, stock, US region, Coinbase Global, with ISIN US19260Q1076 and launchTime 1769994064132."
+      },
+      "underlying_exchange_and_mic": {
+        "status": "notverified",
+        "evidence_request_id": "bitget-coin",
+        "claim": "The returned fields contain no exchange or MIC. No authoritative Bitget source in this bounded check links the perp to a primary exchange."
+      },
+      "exchange_timezone": {
+        "status": "notverified",
+        "claim": "Bitget did not identify an underlying exchange or timezone for this symbol."
+      },
+      "historical_identity_for_saved_interval": {
+        "status": "notverified",
+        "claim": "Current metadata and its documented launchTime do not establish that the underlying-exchange mapping or reference identity remained the same throughout 2026-09-17 through 2026-11-01."
+      },
+      "official_holiday_and_early_close_calendar_applicability": {
+        "status": "notverified",
+        "candidate_calendar_evidence": [
+          "nasdaq-calendar",
+          "nyse-calendar"
+        ],
+        "claim": "Official Nasdaq and NYSE calendar pages were retrieved, but neither calendar can be assigned to this Bitget symbol without an authoritative exchange link."
+      }
+    }
+  },
+  "result": {
+    "outcome": "blocker",
+    "verified_claims": [
+      "The current public Bitget API classifies all four selected symbols as online USDT futures, perpetual, stock instruments, with US marketRegion and issuer/ISIN metadata.",
+      "Bitget's published field descriptions define marketRegion as a region code and ISIN as a security identifier; the published schema does not assert exchange, MIC or timezone.",
+      "Nasdaq and NYSE official pages provide 2026 holiday/hours information; their calendars are candidate references only, not verified per-symbol mappings."
+    ],
+    "missing_claims": [
+      "No authoritative Bitget source mapping each symbol to its underlying primary exchange and MIC.",
+      "No authoritative Bitget source naming the exchange timezone or session calendar for these perps.",
+      "No point-in-time mapping or history proving the underlying identity did not change during the saved interval.",
+      "No basis to assign a specific official holiday/early-close calendar to any of the four symbols."
+    ],
+    "next_official_request": "Ask Bitget Reality Stock/Stock+ product support or documentation for a symbol-level reference-market specification for AAPLUSDT, TSLAUSDT, NVDAUSDT and COINUSDT, including primary exchange name, MIC, timezone, reference/index source and effective-from/effective-to or change history for 2026-09-17 through 2026-11-01. Only after Bitget confirms the mapping, apply the linked exchange's official historical calendar and verify all scheduled closures and early closes within that interval.",
+    "data_gate": "Keep session labels and any session-performance comparison blocked for all four symbols until the exchange/MIC/timezone link and historical validity are authoritative.",
+    "performance_analysis_run": false
+  }
+}
