@@ -226,13 +226,13 @@ Alle Quellen belegen allenfalls Befunde in den jeweils untersuchten Daten und ni
 |---|---|---|
 | 1.1 | [#6 Bestandsaufnahme](https://github.com/totosan/tokendashboard/issues/6) | `topic:inventory` · `state:done` · Bericht mit Codezeilen/Abgrenzung eingereicht; geschlossen |
 | 1.2 | [#14 Breakout, Konsolidierung und Pullback](https://github.com/totosan/tokendashboard/issues/14) | `topic:breakout` · `state:review` · fester Box-/Retest-Kandidat plus Treppen-Ausbruch getestet; keine Nettowirksamkeitsbehauptung |
-| 1.3 | [#13 Volumen und Profile](https://github.com/totosan/tokendashboard/issues/13) | `topic:volume-profile` · `state:review` · separater RVOL≥1,5×-Arm getestet; echtes Trade-Profil/Value Area und Langzeit-Historie offen |
+| 1.3 | [#13 Volumen und Profile](https://github.com/totosan/tokendashboard/issues/13) | `topic:volume-profile` · `state:in-progress` · Recovery-Fachagent prüft Endpunkt-Vollständigkeit eines festen Minutenfensters vor begrenztem Profiltest; Langzeit-Abdeckung offen |
 | 1.4 | [#12 Marktregime und MTF](https://github.com/totosan/tokendashboard/issues/12) | `topic:regime-mtf` · `state:review` · UTC-HTF-Filter und kausale Regime/Breakoutdiagnostik explorativ getestet, #18 begrenzt akzeptiert; frische Validierung offen |
 | 1.5 | [#11 Trend, VWAP und Mean Reversion](https://github.com/totosan/tokendashboard/issues/11) | `topic:indicators` · `state:review` · EMA/VWAP sowie Tageslevels/RSI/Bollinger explorativ getestet, #17 begrenzt akzeptiert; frische Validierung offen |
 | 1.6 | [#10 Krypto-Universum](https://github.com/totosan/tokendashboard/issues/10) | `topic:crypto-universe` · `state:blocked` · geprüfte Bitget-Endpunkte lieferten kein vollständiges PIT-Listing-/Delistinguniversum; Pilotpanel ist current-survivor |
 | 1.7 | [#9 TradFi-Übertragbarkeit](https://github.com/totosan/tokendashboard/issues/9) | `topic:tradfi` · `state:blocked` · vier aktuelle Issuer/ISIN-Mappings und AAPL-Fundingproben; Underlying-Kalender/Mapping für Sessiontest fehlt |
 | 1.8 | [#7 Daten, Ausführung und Risiko](https://github.com/totosan/tokendashboard/issues/7) | `topic:execution-risk` · `state:blocked` · Funding- und kleine Trades-Archive-Stichproben abrufbar; historische Quotes/Depth für echte Kosten fehlen |
-| 1.9 | [#8 Validierung, Synthese und unabhängiger Review](https://github.com/totosan/tokendashboard/issues/8) | `topic:validation` · `state:review` · zweiter unabhängiger Review eingegangen; Befunde korrigiert, Gesamtvalidierung bleibt offen |
+| 1.9 | [#8 Validierung, Synthese und unabhängiger Review](https://github.com/totosan/tokendashboard/issues/8) | `topic:validation` · `state:in-progress` · Recovery-Fachagent prüft synthetische Block-Nullkalibrierung; tatsächliche frische Validierung bleibt offen |
 
 Die acht Domänenberichte 1.1–1.8 liegen vor. Nach dem ersten unabhängigen Review wurde die Split-Zuordnung korrigiert; anschließend wurden feste Hypothesenarme, Tagesblock-Sensitivität und begrenzte Bitget-Feasibility-Proben ergänzt. Der zweite Review wurde am 02.11.2026 direkt in #8 veröffentlicht und ist nicht mehr ausstehend; er fand insbesondere die unbelegte Trade-Cursor-Paginierung. Die Aussage wurde auf kleine Print-Stichproben eingeschränkt. Zusätzlich wurden veralteter HTF-Kontext nach fehlenden Bins und unvollständige VWAP-Sessions durch Regressionstests abgesichert. #7 bleibt für historische Quotes/Tiefe blockiert; Funding-Raten und kleine Trade-Proben waren abrufbar, die Trade-Paginierung ist nicht verifiziert. #9 ist für einen Börsenkalender/Underlying-Sessionvergleich blockiert, nicht für Perp-only-Daten. #10 ist für ein vollständiges point-in-time Delisting-Universum blockiert; das 12-Symbol-Panel bleibt ein heutiger Survivor-Pilot. #11–#14 haben getrennte Hypothesentests und Resultate; die OOS-Zeitspanne war bereits betrachtet, daher keine unberührte Validierung. #8 bleibt nach Integration des Reviews offen. Die Stati sind genau ein `state:*`-Label pro Issue; keine Gesamtvalidierung wird allein aus erfolgreichen Code-/Testläufen abgeleitet.
 
@@ -439,6 +439,29 @@ Welle. Keine unbeschränkten Polling-/Downloadschleifen. Nicht reagierende Agent
 werden gemäß #3 einmal erneut angefragt und nur bei belegtem wiederholtem
 Ausfall als verloren markiert. Spätere Pakete sind noch nicht gestartet;
 fehlende externe Daten werden nicht als implementierbar ausgegeben.
+
+### Recovery-Welle am 02.11.2026
+
+Die Live-Prüfung vor Reaktivierung fand keine Hintergrundagenten und kein
+`Lost Repeat`-Label. Frühere Fachagenten lieferten ihre akzeptierten Ergebnisse;
+ein nicht mehr verfügbarer Runtime-Handle belegt keinen verlorenen Auftrag.
+Die abgeschlossenen Kinder #15–#22 bleiben geschlossen.
+
+Vier neue, dateiseitig getrennte Fachaufträge bearbeiten engere offene
+Voraussetzungen statt identische fehlgeschlagene Quellenproben zu wiederholen:
+Endpunkt-Erschöpfung eines festen AAPL-Minutenfensters und bedingtes Tradeprofil
+(#13/#7); offizieller Download-HTTP-Helper sowie aktuelle Margin-/Risk-Tier-
+Spezifikation (#7); gültige rezente Announcement-Abfrage und offizielle
+Referenzmarkt-Spezifikation ohne historische Inferenz (#9/#10); synthetische
+Nullkalibrierung synchroner Tagesblöcke und der 132-Test-Familie (#8).
+
+Öffentliche Quellabfragen haben endliche Request-/Bytebudgets, zehn Sekunden
+pro HTTP-Anfrage und 180 Sekunden pro Live-Kommando; Offline-Kommandos sind
+auf 120 Sekunden begrenzt. Jeder Auftrag liefert Artefakte, Tests oder einen
+präzisen Blocker im zugeordneten Issue. Ein unabhängiger Review folgt erst
+auf die tatsächlich gelieferte Welle. Historische Quotes, vollständige
+PIT-/Session-Ledger und künftige Validierungsbeobachtungen werden dadurch
+nicht implizit als verfügbar erklärt. Keine Produktivänderungen oder Orders.
 
 ## Vorläufige Synthese und offene Schritte
 
