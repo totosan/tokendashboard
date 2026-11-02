@@ -1,0 +1,191 @@
+{
+  "protocol_id": "issue-22-fixed-panel-walkforward-v2",
+  "amends_protocol_id": "issue-22-fixed-panel-walkforward-v1",
+  "status": "frozen-before-readiness-audit; prospectively amended before any reserved validation data is inspected",
+  "amendment": {
+    "reason": "The original eight-arm primary family omitted three already completed and inspected signal arms in the saved indicator analysis. This amendment includes all eleven completed signal arms without selecting by historical performance.",
+    "prior_version_status": "The v1 eight-arm scope was incomplete as a prospective primary family. It was not a complete preregistration of all completed signal arms, and no past preregistration claim is made.",
+    "selection_basis": "Include the full set of eight completed hypothesis arms plus three completed indicator arms. No arm is excluded or included based on observed performance.",
+    "timing": "This scope correction is frozen before any reserved future validation data is inspected. Previously inspected data remain development/exploration and are not made confirmatory by this amendment."
+  },
+  "frozen_at_utc": "2026-11-02T17:12:37Z",
+  "reference_date_utc": "2026-11-02",
+  "scope": {
+    "estimand": "Exploratory-to-confirmatory fixed-panel OHLCV event-study readiness only; no return estimates or actual validation are produced by this package.",
+    "allowed_claim": "One-bar and prespecified diagnostic-horizon event outcomes on this exact, purposively selected 12-contract panel, conditional on complete future observations and all stated gates.",
+    "panel_status": "Current-survivor selection, not point-in-time membership. The 12 currently selected contracts remain the fixed panel; no broad-universe, listing-survivorship-corrected, or generalizable market claim is allowed.",
+    "excluded_claims": [
+      "Executable fills, bid/ask spread, quote/depth, queue, market impact, measured slippage, or cost-adjusted realized P&L.",
+      "Underlying equity exchange-session, calendar, price, or volume claims from 24/7 perpetual-contract OHLCV.",
+      "Point-in-time universe, delisted-contract, or general crypto/TradFi market claims.",
+      "Portfolio return, leverage, drawdown, risk of ruin, or financial recommendation."
+    ],
+    "missing_evidence_gates": {
+      "quotes_and_depth": "Absent historical executable quotes/depth block execution-cost and fill claims, but do not by themselves prohibit a fixed-panel OHLCV event study.",
+      "calendar": "No verified underlying-equity exchange calendars; blocks exchange-session claims and any session-based TradFi stratification, not a UTC-perpetual fixed-panel event study.",
+      "point_in_time_membership": "No point-in-time constituent/listing history; blocks broad-universe and survivorship-corrected claims, not the named current-survivor panel.",
+      "policy": "No new data acquisition is promised or performed by this package. If required observations/evidence are absent, report NOT_READY rather than impute, forward-fill, zero-fill, or broaden scope."
+    }
+  },
+  "frozen_inputs": {
+    "symbols": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "SOLUSDT",
+      "BNBUSDT",
+      "XRPUSDT",
+      "DOGEUSDT",
+      "ADAUSDT",
+      "LINKUSDT",
+      "TSLAUSDT",
+      "NVDAUSDT",
+      "AAPLUSDT",
+      "COINUSDT"
+    ],
+    "groups": {
+      "btc_eth": ["BTCUSDT", "ETHUSDT"],
+      "alts": ["ADAUSDT", "BNBUSDT", "DOGEUSDT", "LINKUSDT", "SOLUSDT", "XRPUSDT"],
+      "stock_perps": ["AAPLUSDT", "COINUSDT", "NVDAUSDT", "TSLAUSDT"]
+    },
+    "timeframes": {
+      "5m": {
+        "bar_ms": 300000,
+        "snapshot": "research/data/bitget-5m-2026-09-17_2026-11-01.csv.gz",
+        "inspected_range_utc": ["2026-09-17T00:00:00Z", "2026-11-01T00:00:00Z"]
+      },
+      "15m": {
+        "bar_ms": 900000,
+        "snapshot": "research/data/bitget-15m-2026-09-17_2026-11-01.csv.gz",
+        "inspected_range_utc": ["2026-09-17T00:00:00Z", "2026-11-01T00:00:00Z"]
+      }
+    },
+    "source_scope": "Only already saved snapshots, summaries, event exports, and evaluator/protocol source files; no market-data network calls.",
+    "source_version_sha256": {
+      "research/data/bitget-5m-2026-09-17_2026-11-01.csv.gz": "1364e80e62353c853f2bacb4ba5dba59e2f618ca72e80a1b1fb493bb8a57992f",
+      "research/data/bitget-15m-2026-09-17_2026-11-01.csv.gz": "0dc70efe1e2b2ac6367af3e14da4a413482332b40f999f6a6f28b39b12cfd881",
+      "research/results/bitget-5m-2026-09-17_2026-11-01.json": "0c40ae22112387d49e586e7db3021eee353c03fc97fc0a5a8b33b583493ea727",
+      "research/results/bitget-15m-2026-09-17_2026-11-01.json": "3fb68d8b05f72b9e25ecf85ddda46bdd90ef9b947dfe4a923f2c63d29863fc40",
+      "research/results/bitget-5m-2026-09-17_2026-11-01-events.csv.gz": "2eb99704fcc967f2a064ec68adebfc224b6faf7dad6cdf71e1f4875a99ebb534",
+      "research/results/bitget-15m-2026-09-17_2026-11-01-events.csv.gz": "61c75f3b55cd64f37063cec4b8af21d125145ad56ff22619cf123e2b7d06c8b4",
+      "research/intraday_eval.py": "c0826ae176b075b032f78f8c975efa40225298bb32f265e1bcf5c68b291d80ba",
+      "research/hypothesis_eval.py": "aeea2a04cc7e8f8dd1c6937c8514d90ab4d0a725b83f8bbb39e50015be91da60",
+      "research/indicator_eval.py": "2aa03b323a80a4b44072cb9ac39abce5e60c866dae1b9826bd634e38246da2e6",
+      "research/regime_eval.py": "a53f9e85677894d8edc16384101622f2e25368bb439b8f002c03d0b93e02072d",
+      "research/event_uncertainty.py": "f6708e17c5c7c0665c4388d9b1f0dacc769a3e43740282c18f824f421514c02f",
+      "research/results/hypotheses-5m.json": "fa27c59b8c6f66bd74ff63a72ac1628452c33b3d4a3a61651161fcc8cf108595",
+      "research/results/hypotheses-15m.json": "39b810347cb6390074a50521aa811dd574887806952a3781672bb75261508beb",
+      "research/results/indicators-5m.json": "694cffc40d84e01f8615422a9bd2d72b7e267ba5498482db75327695861bf54c",
+      "research/results/indicators-15m.json": "1087484a8cc81e68fbdb5d6d053bd84a29aab7a0514ce218866bd6359825cc19",
+      "research/results/regimes-5m.json": "18d4bbb96db4e37e660c5da09a65bb1b2404fcf883c9a860d43beefed4633deb",
+      "research/results/regimes-15m.json": "c565ff84a435460cdc96f346febf82b2568d6be028a5c7e43b96c5c880e6d0e5",
+      "research/results/uncertainty-5m.json": "df1a1d5b65f042445560634a757dccb78c25e85cb99a8bdd66a862d49c97e36a",
+      "research/results/uncertainty-15m.json": "a279dde7fa8f9ea9b43f1cd40a2e81874e5f5054b9dc5dfba9e625058787666e",
+      "research/results/indicator-protocol.json": "74e7ae7b0dc490ff0dd9700cedf345cef9f7dafad74ac6095367d7717b385df0",
+      "research/results/regime-protocol.json": "36810d0ae60d1207e6cfafbb89151d2078c44b0dbde026320fce593747f92d83"
+    }
+  },
+  "fixed_arm_family": {
+    "freeze_rule": "Exact rules and parameters below are locked. No threshold, arm, lookback, horizon, symbol, group, split, or cost may be tuned on any reserved validation fold. These are separate arms, not cumulative optimizations.",
+    "arms": {
+      "dashboard_breakout": "Three strictly rising oriented impulse candles, one opposing handle, then completed close beyond handle; handle-low retracement 5%-50% of impulse swing, handle low above impulse origin, handle high no more than 0.2% above impulse peak, confirmation quote-volume / handle quote-volume >=1.0; require contiguous base bars.",
+      "three_close_momentum": "Three strictly rising oriented closes for long or strictly falling oriented closes for short; one event at each qualifying close; require contiguous base bars.",
+      "momentum_rvol_1_5": "three_close_momentum plus signal-bar quote_volume / arithmetic mean quote_volume of the immediately preceding 20 bars >=1.5; separate arm.",
+      "momentum_1h_ema20_context": "three_close_momentum plus latest fully completed UTC-aligned 1h close above its EMA20 for long / below for short; EMA seeded by first 20 completed bins' SMA; require complete bins and 20-bin warmup; separate arm.",
+      "momentum_4h_ema20_context": "three_close_momentum plus latest fully completed UTC-aligned 4h close above its EMA20 for long / below for short; EMA seeded by first 20 completed bins' SMA; require complete bins and 20-bin warmup; separate arm.",
+      "ema20_50_cross": "Standalone close-based EMA20/EMA50 crossover: fast crosses above slow for long / below for short; each EMA seeded with its first-period SMA and alpha=2/(period+1); contiguous bars required.",
+      "utc_session_vwap_reclaim": "Standalone UTC-calendar-day HLC3 weighted by base_volume from 00:00 UTC; long when close crosses from below to above VWAP, short above to below; require complete cadence from midnight and positive cumulative base volume; no cross-midnight state.",
+      "box12_breakout_retest": "Standalone: box high/low from exactly the 12 bars preceding a breakout bar; box height / midpoint <=2%; a completed close beyond a box boundary 1-3 bars before signal with intervening closes beyond; retest touches within 0.1% of boundary and closes beyond; use the most recent matching breakout only.",
+      "prior_utc_day_breakout": "At signal close t, use high H and low L of immediately previous UTC calendar day, only if every aligned candle from 00:00 through day's last candle exists exactly once in the current contiguous run. Long: close[t-1] <= H and close[t] > H. Short: close[t-1] >= L and close[t] < L. Both comparisons use the same prior-day level, including at midnight. Equality on current close never signals. Levels are derivative UTC calendar levels, not underlying exchange sessions.",
+      "wilder_rsi14_reclaim": "Close-to-close gains=max(delta,0), losses=max(-delta,0). First RSI at zero-based index 14 uses SMA of first 14 deltas (15 closes). Subsequently gain/loss averages=(13*previous average+current gain/loss)/14. RSI=100-100/(1+avg_gain/avg_loss); no loss with positive gain=100, no gain with positive loss=0, both zero=50. Long previous RSI<=30 and current RSI>30; short previous RSI>=70 and current RSI<70. Need two defined RSI values, earliest signal index 15.",
+      "bollinger20_reentry": "Each completed bar's band uses its own trailing 20 closes including itself: SMA +/- 2*population standard deviation (divisor 20). Earliest band index 19, earliest signal index 20. Long previous close strictly below its own lower band and current close strictly above its own lower band; short previous close strictly above its own upper band and current close strictly below its own upper band. Equality at either comparison never signals. Require positive standard deviation on both compared bars; zero-volatility bands cannot signal."
+    },
+    "indicator_arm_source": {
+      "protocol_path": "research/results/indicator-protocol.json",
+      "protocol_sha256": "74e7ae7b0dc490ff0dd9700cedf345cef9f7dafad74ac6095367d7717b385df0",
+      "rule_text_must_match_source": true
+    },
+    "feature_and_signal_timing": "All signal calculations use only completed base/HTF bars at or before signal close. Signal timestamp is the opening timestamp of that completed signal candle. No future-derived feature, outcome label, or same-bar fill is permitted.",
+    "outcomes": {
+      "primary": {
+        "horizon_base_bars": 1,
+        "entry": "Next contiguous base-timeframe candle OPEN, strictly after signal close.",
+        "exit": "CLOSE of that entry candle; entry and exit are distinct timestamps."
+      },
+      "diagnostic_horizons_base_bars": [1, 2, 3],
+      "diagnostic_entry_exit": "For horizon h, enter at the open of the next contiguous bar after the signal and exit at the close of the h-th held bar. Entry timestamp = signal timestamp + one bar; exit-close timestamp = entry timestamp + h bars. A label is usable only if every held bar is present exactly once and the exit close is no later than its assigned fold end.",
+      "gross_return": "side_sign * (exit_close / entry_open - 1) * 10000 bps. OHLC high/low excursions are descriptive only, not assumed fills.",
+      "missing_outcome": "An incomplete/gapped horizon is excluded and counted as incomplete; never substituted with zero return."
+    },
+    "round_trip_cost_scenarios_bps": {
+      "12": "Two assumed 6 bp taker fees; historical fee constancy is unverified.",
+      "22": "12 bp plus 10 bp assumed round-trip spread/slippage.",
+      "37": "12 bp plus 25 bp assumed round-trip spread/slippage."
+    },
+    "cost_rule": "Subtract fixed scenario cost once per completed round trip for sensitivity only. Costs are not measured; primary inferential target, if eventually permitted, is the fixed 12 bp scenario. No execution claim."
+  },
+  "reserved_forward_folds": {
+    "anchor": "All reserved validation timestamps are strictly after the actual reference date 2026-11-02T00:00:00Z and the inspected snapshot end 2026-11-01T00:00:00Z.",
+    "folds": [
+      {"fold_id": "future-01", "validation_start_utc": "2027-02-01T00:00:00Z", "validation_end_utc_exclusive": "2027-03-01T00:00:00Z"},
+      {"fold_id": "future-02", "validation_start_utc": "2027-03-01T00:00:00Z", "validation_end_utc_exclusive": "2027-03-29T00:00:00Z"},
+      {"fold_id": "future-03", "validation_start_utc": "2027-03-29T00:00:00Z", "validation_end_utc_exclusive": "2027-04-26T00:00:00Z"}
+    ],
+    "fold_minimum": "All three non-overlapping, consecutive 28-calendar-day folds are required; total forward validation is at least 84 calendar days. A shortened, shifted, overlapping, or previously inspected fold invalidates this protocol and requires a newly frozen version before outcomes are examined.",
+    "warmup": {
+      "required_calendar_hours_before_each_fold": 96,
+      "derivation": "At least 80 hours for 20 completed 4h EMA bins, plus the longest base-timeframe lookback (EMA50: 4h10m at 5m or 12h30m at 15m), plus up to one 4h bin for alignment. The 96-hour requirement covers both granularities and all fixed base lookbacks, including the 12-bar box and 20-bar RVOL.",
+      "reinitialization": "Any missing/invalid/duplicate bar breaks continuity; require a fresh 96-hour complete pre-validation history and complete feature-specific warmup after the gap. A calendar gap cannot be bridged by forward-fill."
+    },
+    "split_purge_embargo": {
+      "assignment": "Validation membership is assigned by entry-open timestamp in [fold_start, fold_end), never by signal timestamp.",
+      "split": "Development observations end before fold_start; validation events must have signal, entry, all held bars, and exit-close within the same fold's valid timeline, except that pre-fold bars may supply strictly causal indicator warmup only.",
+      "purge": "Discard any event whose entry/outcome interval overlaps a split/fold boundary, whose outcome begins before the fold, whose exit-close exceeds fold_end, or whose required bar is missing. Do not assign it to either adjacent fold.",
+      "embargo": "Reserve the final three base-bar entry opportunities of each fold as embargo: no event may enter there, ensuring even a three-bar diagnostic exit is observed within-fold. Also embargo the first three base-bar entry opportunities after every boundary; signals there may use preceding causal history, but no event whose label crosses the boundary is admitted. No event outcome is reused across folds.",
+      "distinction": "Signal close, next-bar entry open, and later exit close are separate time points. Record all three; a signal before a split with entry at/after it belongs to no development sample."
+    }
+  },
+  "readiness_and_minimum_evidence": {
+    "raw_data_gates": [
+      "Every row parses; timestamp is UTC-aligned to the selected base cadence; OHLC and both volume fields are finite; prices are positive; high >= max(open, close); low <= min(open, close); volumes are nonnegative.",
+      "No duplicate (symbol, timestamp), missing expected base bar, or unaligned cadence in any of the fixed 12 symbols across each required 96-hour warmup and all 28 validation days.",
+      "Per-symbol/date expected grid is complete; exactly the fixed panel is present. No zero-filled rows, inferred prices, or reused inspected bars as future labels.",
+      "Every retained event has complete, distinct signal/entry/exit timestamps for its horizon; no lookback, HTF bin, or outcome crosses a cadence gap or fold boundary."
+    ],
+    "minimum_future_validation": {
+      "calendar": "Three complete 28-day folds; 84 validation calendar days total.",
+      "per_fold_per_arm_group_side_timeframe_horizon": "At least 30 completed events on at least 10 distinct UTC dates and at least 2 panel symbols. Otherwise that cell is INSUFFICIENT_EVENTS, not a zero-return result.",
+      "pooled_per_arm_group_side_timeframe_horizon": "At least 100 completed events on at least 20 distinct UTC dates and at least 2 panel symbols across all folds. Otherwise pooled cell is INSUFFICIENT_EVENTS.",
+      "interpretation": "These are minimum reporting floors, not independence guarantees or proof of adequate power. If any requested claim fails a floor, report insufficient/not estimable; do not merge groups, sides, arms, horizons, or timeframes after seeing outcomes."
+    },
+    "readiness_states": {
+      "NOT_READY": "Any required future bar, fixed-panel symbol, warmup, cadence, integrity, date/leakage, outcome-completeness, or event-floor gate is absent/failed.",
+      "DATA_READY": "All frozen future raw-data, per-symbol grid, warmup, integrity, and fold/purge gates pass. This does not mean validation was run or any claim is supported.",
+      "VALIDATION_READY": "DATA_READY plus fixed evaluators, event counts, inference calibration, and multiplicity requirements all pass before outcome inspection.",
+      "NOT_RUN": "No empirical event evaluation or inferential analysis has been conducted by this readiness audit."
+    },
+    "empty_cells": "N=0 or below-floor cells have null return summaries and explicit insufficient/not-estimable status, never a zero-return estimate."
+  },
+  "dependence_and_multiplicity": {
+    "analysis_unit": "Events are dependent and overlapping; event count is not independent sample size. Do not compute iid standard errors, iid bootstrap intervals, or iid p-values.",
+    "primary_dependence_plan": "Synchronized moving-block resampling of UTC days in contiguous 5-day blocks, with the same sampled day indices shared across all 12 symbols, arms, sides, groups, timeframes, and outcomes. Resample non-wrapping 5-day blocks with replacement to the original fold's day count; retain all empty days. Report the 1-day synchronized block analysis only as a sensitivity.",
+    "limitations": "Synchronous blocks preserve within-day cross-symbol/arm dependence and some short-range serial dependence, but cannot establish or fully model dependence across distant days, structural breaks, or more persistent regimes. Report this limitation; do not call blocks independent market replications.",
+    "null_and_calibration": "Before any confirmatory p-value, implement and validate a null-centered block-resampling test by simulation for this exact statistic/block scheme; show empirical type-I calibration and coverage under plausible dependence. If this prerequisite is unavailable or fails, report descriptive block sensitivity only and no significance/p-values.",
+    "primary_hypothesis_count": 132,
+    "multiplicity_family": "The 132 prospective primary hypotheses comprise all 11 completed signal arms x 2 timeframes x 3 fixed groups x 2 sides, each testing whether the 12-bp-cost one-bar mean is greater than zero. Apply Holm step-down family-wise adjustment at 0.05 to all 132 valid block-resampling p-values. No dropping/redefining cells after seeing data. This v2 correction was frozen before any reserved validation data is inspected; it is not a claim that the earlier v1 or historical analyses were preregistered.",
+    "secondary_outputs": "Baseline contrasts, 22/37 bp scenarios, diagnostic 2/3-bar horizons, and other summaries are descriptive/sensitivity outputs only; no confirmatory claims or unadjusted p-values."
+  },
+  "inspected_data_disposition": {
+    "inspected_window_utc": ["2026-09-17T00:00:00Z", "2026-11-01T00:00:00Z"],
+    "classification": "All existing 5m/15m windows, saved event studies, and analyses over those dates are development/exploration, including their prior nominal split. None is a fresh holdout.",
+    "prohibition": "Existing inspected rows can validate code/readiness-audit behavior only; they cannot satisfy future-fold, validation-event, or fresh-holdout gates."
+  },
+  "reproduction": {
+    "protocol_json_check": "python -m json.tool research/results/walkforward-protocol.json >/dev/null",
+    "tests": "timeout 120s python -m unittest research.test_walkforward_readiness research.test_event_uncertainty research.test_hypothesis_eval research.test_indicator_eval research.test_regime_eval research.test_intraday_eval -v",
+    "offline_audit": "timeout 120s python -m research.walkforward_readiness --output research/results/walkforward-readiness.json",
+    "expected_audit_exit_when_future_data_absent": 2,
+    "network_market_calls": false,
+    "note": "The CLI writes the complete report before returning nonzero when required future-data gates are unavailable. A zero return result is not produced by this audit."
+  },
+  "protocol_hash_note": "The readiness report records the SHA-256 of this frozen file and its source inputs. Source hashes are populated before the first audit. Changing this protocol after inspection requires a new version and cannot relabel prior data as untouched."
+}

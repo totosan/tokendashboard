@@ -390,6 +390,32 @@ eine vorab definierte Abhängigkeits-/Mehrfachtestbehandlung. Ein
 `NOT_READY`-Beleg ist keine durchgeführte Walk-forward-Validierung.
 Diese begrenzte Vorbereitung autorisiert weder einen Bulkdownload noch
 Portfolio-/Liquidationssimulationen ohne deren Datenvoraussetzungen.
+Der Fachagent hat `research/results/walkforward-protocol.json`,
+`walkforward-readiness.json`, Auditmodul und sechs Tests geliefert. Der
+Gesamt-Testlauf umfasst nach der Korrektur 75 Tests; die gemeldeten 53 beziehen sich auf einen
+Teilsatz ohne die 22 Trade-/Funding-Tests. Bestehende Snapshots bestehen die
+Integritätsprüfung, aber alle drei reservierten 28-Tage-Folds vom
+01.02. bis 26.04.2027 sind mangels künftiger Beobachtungen samt 96h-Warmup
+`NOT_READY`; der Audit beendet sich erwartungsgemäß mit Exitcode 2.
+Ereignisrenditen und Inferenz bleiben `NOT_RUN`. Der unabhängige Kritiker fand
+eine unbegründete Auslassung der drei separat getesteten Indikatorarme in
+der ursprünglichen Acht-Arm-Familie. Protokoll v2 nimmt nun alle elf bereits
+getesteten Signal-Arme auf (132 primäre Hypothesen), pinnt die zusätzlichen
+Regeln an den Indikator-Protokollhash und dokumentiert die v1-Scope-Lücke ohne
+rückwirkende Präregistrierungsbehauptung. Die unabhängige Nachprüfung in #8
+bestätigt die Korrektur ohne verbleibende Befunde: elf Arme, 132 Hypothesen,
+Regeln/Hashes und Report-Replay (bis auf Generierungszeit) stimmen überein;
+sieben gezielte Tests bestanden, tatsächlicher Audit-Exitcode 2.
+Der begrenzte Protokoll-/Readiness-Lieferumfang von #22 ist akzeptiert.
+Die eigentliche Walk-forward-Validierung bleibt `NOT_READY`/`NOT_RUN`.
+
+Die höchste Aufwandsstufe (ausführbares Portfolio-/Margin-/Liquidationsmodell)
+wird nicht durch diese Readiness-Prüfung freigegeben: historische Quotes,
+verifizierte Kontrakt-/Marginregeln sowie vorab fixierte Sizing-/Overlap-
+Annahmen fehlen weiterhin. Ebenso bleiben vollständige Tradeprofile,
+historische Underlying-Sessions und PIT-Universumsvergleiche datenabhängig.
+Diese Aufgaben bleiben in #7/#9/#10/#13/#8 offen; die abgeschlossenen
+Feasibility-Kinder dürfen nicht als Erfüllung dieser Elternkriterien gelten.
 
 | Reihenfolge | Paket / zuständiges Issue | Evidenz-Gate |
 |---|---|---|
