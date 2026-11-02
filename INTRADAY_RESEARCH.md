@@ -347,9 +347,25 @@ meldet keine wesentlichen Befunde und bestätigt das Transaktionsbudget.
 Die Raw-Hashes sind ohne nicht gespeicherte Originalbytes nicht nachrechenbar;
 ausgewählte Belege sind entsprechend gekennzeichnet. Der begrenzte
 Feasibility-Lieferumfang ist akzeptiert; #9 bleibt blockiert.
-Danach ist 1.8.3 [#20](https://github.com/totosan/tokendashboard/issues/20)
-unter #7 als kleines historisches Quote-/Depth-Archiv-Gate vorbereitet,
-nicht als bereits gestarteter Download oder Abdeckungsnachweis.
+1.8.3 [#20](https://github.com/totosan/tokendashboard/issues/20) unter #7
+lieferte anschließend
+[`bitget-archive-feasibility-2026-11-02.json`](research/data/bitget-archive-feasibility-2026-11-02.json):
+zwei frische öffentliche GETs mit 218.184 Responsebytes, ohne Archivsample.
+Der Client nennt einen Listingpfad, aber dessen unterstützter Vertrag/Methode
+und Produkttypcodes bleiben unbestätigt; der GET liefert HTML 404.
+Der frühere 405-Probe beweist keinen notwendigen Nicht-GET-Zugriff.
+Originalbytes der ausgewählten neuen Belege sind nicht gespeichert und deren
+Raw-Hashes deshalb nicht offline nachrechenbar. Der unabhängige Kritiker in
+#8 fand keine verifizierten handlungsrelevanten Befunde und bestätigte
+JSON-Struktur sowie Byte-Summen gegen die zitierten Vorbelege.
+Der begrenzte Feasibility-Lieferumfang ist akzeptiert; #7 bleibt blockiert;
+fehlende Datei bedeutet weder Archiv-Abwesenheit noch Loginpflicht.
+
+Empirische Tradeprofile (#13, Aufwandsposition 7) bleiben mangels vollständiger
+Tradefenster blockiert. Als unabhängiges nächstes Gate ist 1.6.1
+[#21](https://github.com/totosan/tokendashboard/issues/21) unter #10
+vorbereitet: begrenzte offizielle Quellenprüfung für historische
+Universumsmitgliedschaft, keine breite Rekonstruktion aus heutigen Survivors.
 
 | Reihenfolge | Paket / zuständiges Issue | Evidenz-Gate |
 |---|---|---|
