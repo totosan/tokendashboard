@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "story": "#13; related #7; epic #3",
+  "started_utc": "2026-11-02T21:05:32.814272+00:00",
+  "requests": [
+    {
+      "request_number": 1,
+      "page": 1,
+      "method": "GET",
+      "parameters": {
+        "symbol": "AAPLUSDT",
+        "productType": "USDT-FUTURES",
+        "startTime": "1789655400000",
+        "endTime": "1789655460000",
+        "limit": "1000"
+      },
+      "url": "https://api.bitget.com/api/v2/mix/market/fills-history?symbol=AAPLUSDT&productType=USDT-FUTURES&startTime=1789655400000&endTime=1789655460000&limit=1000",
+      "started_utc": "2026-11-02T21:05:32.828813+00:00",
+      "status": "verified",
+      "http_status": 200,
+      "actual_url": "https://api.bitget.com/api/v2/mix/market/fills-history?symbol=AAPLUSDT&productType=USDT-FUTURES&startTime=1789655400000&endTime=1789655460000&limit=1000",
+      "raw_response_base64": "eyJjb2RlIjoiMDAwMDAiLCJtc2ciOiJzdWNjZXNzIiwicmVxdWVzdFRpbWUiOjE3OTM2NTM1MzI5MTgsImRhdGEiOlt7InRyYWRlSWQiOiIxNDg0NDg4MDc2NjQ4MjM1MDA4IiwicHJpY2UiOiIzMzQuMTQiLCJzaXplIjoiMC4wMiIsInNpZGUiOiJCdXkiLCJ0cyI6IjE3ODk2NTU0NTg2MDQiLCJzeW1ib2wiOiJBQVBMVVNEVCJ9LHsidHJhZGVJZCI6IjE0ODQ0ODgwNzA3MTc0ODkxNTIiLCJwcmljZSI6IjMzNC4xMiIsInNpemUiOiIwLjY1Iiwic2lkZSI6IlNlbGwiLCJ0cyI6IjE3ODk2NTU0NTcxOTAiLCJzeW1ib2wiOiJBQVBMVVNEVCJ9LHsidHJhZGVJZCI6IjE0ODQ0ODc5OTY0NzQxMTQwNTAiLCJwcmljZSI6IjMzNC4wNCIsInNpemUiOiIwLjUiLCJzaWRlIjoiQnV5IiwidHMiOiIxNzg5NjU1NDM5NDg5Iiwic3ltYm9sIjoiQUFQTFVTRFQifSx7InRyYWRlSWQiOiIxNDg0NDg3OTk2NDc0MTE0MDQ4IiwicHJpY2UiOiIzMzQuMDMiLCJzaXplIjoiMC41Iiwic2lkZSI6IkJ1eSIsInRzIjoiMTc4OTY1NTQzOTQ4OSIsInN5bWJvbCI6IkFBUExVU0RUIn0seyJ0cmFkZUlkIjoiMTQ4NDQ4Nzk3OTI3NzQ2NzY1MiIsInByaWNlIjoiMzM0LjAyIiwic2l6ZSI6IjAuNSIsInNpZGUiOiJCdXkiLCJ0cyI6IjE3ODk2NTU0MzUzODkiLCJzeW1ib2wiOiJBQVBMVVNEVCJ9LHsidHJhZGVJZCI6IjE0ODQ0ODc5NTQxNDEwMDM3NzgiLCJwcmljZSI6IjMzMy45MiIsInNpemUiOiIwLjA2Iiwic2lkZSI6IkJ1eSIsInRzIjoiMTc4OTY1NTQyOTM5NiIsInN5bWJvbCI6IkFBUExVU0RUIn0seyJ0cmFkZUlkIjoiMTQ4NDQ4Nzk1NDE0MTAwMzc3NiIsInByaWNlIjoiMzMzLjkyIiwic2l6ZSI6IjEuMDUiLCJzaWRlIjoiQnV5IiwidHMiOiIxNzg5NjU1NDI5Mzk2Iiwic3ltYm9sIjoiQUFQTFVTRFQifSx7InRyYWRlSWQiOiIxNDg0NDg3OTUxMTI5NDkzNTA0IiwicHJpY2UiOiIzMzMuOTIiLCJzaXplIjoiMC4wNyIsInNpZGUiOiJCdXkiLCJ0cyI6IjE3ODk2NTU0Mjg2NzgiLCJzeW1ib2wiOiJBQVBMVVNEVCJ9LHsidHJhZGVJZCI6IjE0ODQ0ODc5MTU4Mzg2MTk2NDgiLCJwcmljZSI6IjMzMy43OSIsInNpemUiOiIwLjAyIiwic2lkZSI6IkJ1eSIsInRzIjoiMTc4OTY1NTQyMDI2NCIsInN5bWJvbCI6IkFBUExVU0RUIn0seyJ0cmFkZUlkIjoiMTQ4NDQ4Nzg2MTYwNjI2ODkyOCIsInByaWNlIjoiMzMzLjc0Iiwic2l6ZSI6IjAuMDciLCJzaWRlIjoiQnV5IiwidHMiOiIxNzg5NjU1NDA3MzM0Iiwic3ltYm9sIjoiQUFQTFVTRFQifSx7InRyYWRlSWQiOiIxNDg0NDg3ODYxNjAyMDc0NjI0IiwicHJpY2UiOiIzMzMuNzQiLCJzaXplIjoiMC41OSIsInNpZGUiOiJCdXkiLCJ0cyI6IjE3ODk2NTU0MDczMzMiLCJzeW1ib2wiOiJBQVBMVVNEVCJ9XX0=",
+      "raw_response_sha256": "4d8f8912fbd3bd5d10577017b1392e5daee3c9beffb86e42fba0aa4ad96c8a4f",
+      "raw_response_bytes": 1376,
+      "response_canonical_sha256": "2b092d76f7d51aea639193008ae9985d52615f15b0595768678faedbc5e4fd25",
+      "finished_utc": "2026-11-02T21:05:33.015869+00:00",
+      "elapsed_seconds": 0.187063,
+      "next_idLessThan": "1484487861602074624"
+    },
+    {
+      "request_number": 2,
+      "page": 2,
+      "method": "GET",
+      "parameters": {
+        "symbol": "AAPLUSDT",
+        "productType": "USDT-FUTURES",
+        "startTime": "1789655400000",
+        "endTime": "1789655460000",
+        "limit": "1000",
+        "idLessThan": "1484487861602074624"
+      },
+      "url": "https://api.bitget.com/api/v2/mix/market/fills-history?symbol=AAPLUSDT&productType=USDT-FUTURES&startTime=1789655400000&endTime=1789655460000&limit=1000&idLessThan=1484487861602074624",
+      "started_utc": "2026-11-02T21:05:33.016018+00:00",
+      "status": "verified_empty_terminal",
+      "http_status": 200,
+      "actual_url": "https://api.bitget.com/api/v2/mix/market/fills-history?symbol=AAPLUSDT&productType=USDT-FUTURES&startTime=1789655400000&endTime=1789655460000&limit=1000&idLessThan=1484487861602074624",
+      "raw_response_base64": "eyJjb2RlIjoiMDAwMDAiLCJtc2ciOiJzdWNjZXNzIiwicmVxdWVzdFRpbWUiOjE3OTM2NTM1MzMzMDQsImRhdGEiOltdfQ==",
+      "raw_response_sha256": "ae2167a692cb11d7a62e38051df8028cc7d61a0991f5ba0420fb1b58cb063bc2",
+      "raw_response_bytes": 70,
+      "response_canonical_sha256": "316d048498f743a356d582d257784b4051b997f3d11b913b843d77e3df80905f",
+      "finished_utc": "2026-11-02T21:05:33.389225+00:00",
+      "elapsed_seconds": 0.373216
+    }
+  ],
+  "requested_window_utc": [
+    "2026-09-17T14:30:00Z",
+    "2026-09-17T14:31:00Z"
+  ],
+  "timestamp_policy": "startTime <= ts < endTime",
+  "frozen_profile_rules": {
+    "version": 1,
+    "weight": "base size, not quote notional",
+    "bins": 20,
+    "edges": "observed min/max; equal width; [left,right), final includes max",
+    "flat_price": "all volume in bin 0; all edges equal observed price",
+    "poc_tie": "lowest price bin",
+    "value_area": "Start at POC, expand one adjacent bin with larger volume until >=70% of base volume; ties choose lower bin; include intervening zero bins."
+  },
+  "limits": {
+    "requests_including_retries": 12,
+    "retries": 0,
+    "whole_request_seconds": 10,
+    "response_body_bytes": 2097152
+  },
+  "limitations": "An empty next page proves only endpoint exhaustion under these exact parameters, not completeness of the real exchange trade ledger. IDs need not be consecutive; unavailable exchange prints cannot be independently detected. Descriptive volume only, not trading/efficacy.",
+  "cursor_policy": "exclusive idLessThan = preceding validated page minimum tradeId",
+  "reproduce": "timeout 180s python -m research.trade_profile_window",
+  "hash_scheme": "SHA256 raw bytes and sorted compact UTF-8 JSON, no NaN; payload excludes its own hash",
+  "status": "ENDPOINT_COMPLETE",
+  "endpoint_complete": true,
+  "trade_ledger_complete": false,
+  "profile": {
+    "rules": {
+      "version": 1,
+      "weight": "base size, not quote notional",
+      "bins": 20,
+      "edges": "observed min/max; equal width; [left,right), final includes max",
+      "flat_price": "all volume in bin 0; all edges equal observed price",
+      "poc_tie": "lowest price bin",
+      "value_area": "Start at POC, expand one adjacent bin with larger volume until >=70% of base volume; ties choose lower bin; include intervening zero bins."
+    },
+    "trade_count": 11,
+    "bin_edges": [
+      "333.74",
+      "333.76",
+      "333.78",
+      "333.80",
+      "333.82",
+      "333.84",
+      "333.86",
+      "333.88",
+      "333.90",
+      "333.92",
+      "333.94",
+      "333.96",
+      "333.98",
+      "334.00",
+      "334.02",
+      "334.04",
+      "334.06",
+      "334.08",
+      "334.10",
+      "334.12",
+      "334.14"
+    ],
+    "base_volume": [
+      "0.66",
+      "0",
+      "0.02",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1.18",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1.0",
+      "0.5",
+      "0",
+      "0",
+      "0",
+      "0.67"
+    ],
+    "total_base_volume": "4.03",
+    "poc_bin": 9,
+    "value_area_bins_inclusive": [
+      0,
+      14
+    ],
+    "value_area_price_bounds": [
+      "333.74",
+      "334.04"
+    ],
+    "value_area_base_volume": "2.86"
+  },
+  "verified_unique_trades": 11,
+  "verified_nonempty_pages": 1,
+  "candle_comparison": {
+    "status": "MISSING_EVIDENCE",
+    "reason": "No genuine same-window 1-minute candle supplied or fetched. Existing 5m/15m candles cannot establish this minute's OHLC/base volume. No candle-style profile or comparison fabricated."
+  },
+  "finished_utc": "2026-11-02T21:05:33.389342+00:00",
+  "actual_market_requests": 2,
+  "artifact_payload_sha256": "538b55ca649ab2d50f5d65e23bd4ff62f9394c96329284b9ed0c1a7e291c6c5b"
+}

@@ -463,6 +463,36 @@ auf die tatsächlich gelieferte Welle. Historische Quotes, vollständige
 PIT-/Session-Ledger und künftige Validierungsbeobachtungen werden dadurch
 nicht implizit als verfügbar erklärt. Keine Produktivänderungen oder Orders.
 
+Die vier Recovery-Fachagenten haben geliefert; der unabhängige Wellenkritiker
+in #8 meldet keine handlungsrelevanten Befunde. Er bestätigt 37 gezielte Tests
+und deterministischen Replay unter den dokumentierten Offline-Evidenzgrenzen.
+Die begrenzten Implementierungs-/Diagnoselieferungen sind akzeptiert,
+nicht die historischen Vollständigkeits- oder Inferenz-Gates.
+Gesamt-Teststand: 100 Tests.
+Das AAPL-Minutenfenster wurde mit zwei GETs bis zu einer leeren Terminalseite
+abgefragt (elf eindeutige Trades): Endpunkt-Erschöpfung, keine unabhängige
+Ledger-Vollständigkeit. Ein fixes 20-Bin-Profil liegt vor; der Vergleich mit
+einer echten identischen Minutenkerze wurde mangels Beleg nicht erfunden.
+Gültige rezente Announcement-Abfragen liefern acht Listing- und zwei
+Delisting-Mitteilungen, jedoch kein historisches Opening-Inventar.
+Publikationszeit-Konflikte von acht Stunden bleiben sichtbar.
+
+Der offizielle Download-Helper liefert einen POST-Default und `/v1`-Prefix;
+der Host ist aus dem Seitenursprung abgeleitet, nicht explizit konfiguriert.
+Nach zwölf Quellrequests wurde kein POST mehr gesendet; die Depth-Parameter-
+Zuordnung bleibt offen. Aktuelle BTC-/AAPL-Margintiers sind keine historischen
+Liquidationsregeln.
+
+Die synthetische Block-Nullkalibrierung ist ausdrücklich **FAIL**:
+medianer marginaler Typ-I-Fehler über der fixierten Toleranz in allen vier
+Szenarien; 14 von 120 Sparse-Familien sind ungültig. Mit 199 Bootstrap-Draws
+ist der minimale p-Wert 0,005, gröber als die erste Holm-Schwelle für 132 Tests.
+Null Holm-Rejektionen validieren deshalb keine Familienkontrolle.
+Kein Tuning zum Bestehen, keine Marktdaten und keine Bestätigung der
+zukünftigen Readiness. Inferenz darf mit diesem Ergebnis nicht freigegeben
+werden; die implementierte synthetische Diagnose ist kein erfolgreicher
+Kalibrierungsnachweis.
+
 ## Vorläufige Synthese und offene Schritte
 
 - Keine Produktivänderung und keine Erfolgsbehauptung aus dieser Recherche ableiten.
