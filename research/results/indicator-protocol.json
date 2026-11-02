@@ -1,0 +1,28 @@
+{
+  "story": 17,
+  "initial_protocol_file_recorded_utc": "2026-11-02T16:12:03.521846Z",
+  "status": "Fixed exploratory protocol; recorded before executing indicator evaluation; no parameter optimization.",
+  "arms": {
+    "prior_utc_day_breakout": "At signal close t, use high H and low L of immediately previous UTC calendar day, only if every aligned candle from 00:00 through day's last candle exists exactly once in the current contiguous run. Long: close[t-1] <= H and close[t] > H. Short: close[t-1] >= L and close[t] < L. Both comparisons use the same prior-day level, including at midnight. Equality on current close never signals. Levels are derivative UTC calendar levels, not underlying exchange sessions.",
+    "wilder_rsi14_reclaim": "Close-to-close gains=max(delta,0), losses=max(-delta,0). First RSI at zero-based index 14 uses SMA of first 14 deltas (15 closes). Subsequently gain/loss averages=(13*previous average+current gain/loss)/14. RSI=100-100/(1+avg_gain/avg_loss); no loss with positive gain=100, no gain with positive loss=0, both zero=50. Long previous RSI<=30 and current RSI>30; short previous RSI>=70 and current RSI<70. Need two defined RSI values, earliest signal index 15.",
+    "bollinger20_reentry": "Each completed bar's band uses its own trailing 20 closes including itself: SMA +/- 2*population standard deviation (divisor 20). Earliest band index 19, earliest signal index 20. Long previous close strictly below its own lower band and current close strictly above its own lower band; short previous close strictly above its own upper band and current close strictly below its own upper band. Equality at either comparison never signals. Require positive standard deviation on both compared bars; zero-volatility bands cannot signal."
+  },
+  "cadence": "Per symbol, sort timestamps; split at every missing/duplicate cadence. All indicator state, cross lookback, and daily history reset at every segment. Only aligned timestamps accepted; no cross-gap signal or entry. Daily levels resume only after a full prior day in the new segment. Trailing indicators may warm again within a partial day.",
+  "outcome": "Signal on completed bar; enter only contiguous next candle OPEN, exit that same candle CLOSE. Directional gross bps=sign*(close/open-1)*10000. Long MFE/MAE use next candle high/low versus open; short uses low/high with negative sign. Excursions are descriptive candle extremes, not attainable fills. No use of next-bar prices in signals.",
+  "split": "Entry timestamp <2026-10-17T00:00:00Z is development; equality and later are out_of_sample. Indicator state is not reset at split.",
+  "dimensions": "All 3 arms plus saved dashboard_breakout and three_close_momentum baseline cells; btc_eth/alts/stock_perps x long/short x development/out_of_sample, including empty cells. Baselines copied without recomputation from matching saved hypotheses results, whose snapshot hashes must match.",
+  "metrics": "N, mean/median gross bps, strictly-positive gross win rate, mean MFE/MAE, mean net and strictly-positive net win rate at 12/22/37 bps round-trip cost scenarios. Empty N=0, other metrics null. Reuse hypothesis_eval._stats and segments/read_snapshot and intraday_eval.evaluate_event without changing globals.",
+  "costs": "12bps assumed two 6bps taker fees; 22/37bps add assumed 10/25bps spread/slippage. Not measured execution; historical fees unverified.",
+  "caveats": [
+    "Existing saved 45-day, 12-symbol 5m/15m snapshots only; no market network calls.",
+    "Sample and nominal OOS already inspected: exploratory reuse, not untouched validation.",
+    "Multiple arms, groups, sides, periods, and timeframes create multiplicity; no significance, optimized winner, or confirmatory inference.",
+    "Overlapping event observations are dependent. No profit, portfolio, funding, liquidation, fill, queue or market-impact claim; no financial recommendation.",
+    "This bounded story does not complete parent #11 or epic #3."
+  ],
+  "commands": [
+    "timeout 120s python -m unittest research.test_indicator_eval",
+    "timeout 120s python -m research.indicator_eval --granularity 5m --input research/data/bitget-5m-2026-09-17_2026-11-01.csv.gz --baseline research/results/hypotheses-5m.json --output research/results/indicators-5m.json",
+    "timeout 120s python -m research.indicator_eval --granularity 15m --input research/data/bitget-15m-2026-09-17_2026-11-01.csv.gz --baseline research/results/hypotheses-15m.json --output research/results/indicators-15m.json"
+  ]
+}

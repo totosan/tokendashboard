@@ -279,11 +279,33 @@ Canonical-Hashes wurden nachgerechnet. Der Koordinator bestätigt insgesamt
 Die breiteren Blocker
 von #7/#9/#10 und die explorative Natur der bisherigen Eventtests bleiben bestehen.
 
-Die nächste begrenzte Fachagentenaufgabe ist 1.5.1
+Die folgende begrenzte Fachagentenaufgabe ist 1.5.1
 [#17](https://github.com/totosan/tokendashboard/issues/17), natives Kind von #11:
 feste kausale Prior-UTC-Day-Level-, Wilder-RSI14- und Bollinger20-Reentry-Arme,
-ausschließlich offline auf den vorhandenen Snapshots. Ein unabhängiger Review
-folgt erst nach Lieferung; weder Ergebnis noch Wirksamkeit wird vorweggenommen.
+ausschließlich offline auf den vorhandenen Snapshots. Der Fachagent hat den
+Protokollbeleg `research/results/indicator-protocol.json`, zwei
+`indicators-{5m,15m}.json` und 14 neue Tests geliefert. Je Zeitrahmen stehen
+36 Indikatorzellen und 24 unverändert übernommene Baselinezellen bereit;
+60 Gesamtzellen sind nicht 60 OOS-Zellen. Der Gesamt-Testlauf umfasst nun
+59 Tests. Der unabhängige Kritiker hat in #8 keine verifizierten
+handlungsrelevanten Befunde gemeldet: alle 14 gezielten Tests bestanden,
+beide Ausgaben mit je 60 Zellen exakt reproduziert und Hashes geprüft.
+Der begrenzte Lieferumfang von #17 ist damit akzeptiert; die breitere
+Validierung von #11/#8 bleibt offen.
+
+| Neuer Arm, OOS ereignisgewichtet | 5m N / Ø brutto | 15m N / Ø brutto |
+|---|---:|---:|
+| Vorheriges vollständiges UTC-Tageshoch/-tief, Close-Ausbruch | 769 / +1,84 bp | 454 / -3,49 bp |
+| Wilder RSI14, Reclaim 30/70 | 1.368 / -0,46 bp | 503 / -2,15 bp |
+| Bollinger20, 2 Populations-Standardabweichungen, Reentry | 3.082 / -0,23 bp | 1.025 / -0,73 bp |
+
+Alle 18 Indikator-OOS-Gruppen-/Richtungszellen je Zeitrahmen sind nach
+12 bp Kostenannahme im Mittel negativ; 22/37 bp sind zusätzliche Szenarien.
+Die Protokollregeln fixieren Gleichheiten, Warmup, Lücken und vollständige
+Vortage. UTC-Derivatelevels sind keine Underlying-Börsensessions. Neue
+Fundingdaten werden nicht als Cashflows in diese Ereignisrenditen gemischt.
+Das bereits eingesehene Fenster bleibt explorativ, ohne Mehrfachtestkorrektur
+oder unabhängige Wirksamkeitsbestätigung.
 
 | Reihenfolge | Paket / zuständiges Issue | Evidenz-Gate |
 |---|---|---|
