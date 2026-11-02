@@ -4,6 +4,7 @@ from research.hypothesis_eval import (
     completed_higher_timeframe_context,
     segments,
     box_retest_signal,
+    vwap_by_bar,
 )
 from research.intraday_eval import BAR_MS, momentum_signal
 
@@ -44,6 +45,25 @@ class CausalityAndCadenceTests(unittest.TestCase):
         context = completed_higher_timeframe_context(bars, base_ms, higher_ms)
         # The missing hour invalidates the 40-44h bin and resets the run after it.
         self.assertIsNone(context[79 * base_ms])
+
+    def test_completed_missing_bin_invalidates_previous_warmed_context(self):
+        base_ms, higher_ms = 60 * 60_000, 4 * 60 * 60_000
+        bars = [candle(i * base_ms) for i in range(88) if i != 81]
+        context = completed_higher_timeframe_context(bars, base_ms, higher_ms)
+        self.assertIsNotNone(context[79 * base_ms])
+        self.assertIsNone(context[83 * base_ms])
+        self.assertIsNone(context[84 * base_ms])
+
+    def test_vwap_requires_complete_session_from_midnight(self):
+        import math
+
+        base_ms = 60 * 60_000
+        bars = [candle(i * base_ms) for i in (0, 1, 3, 4, 24, 25)]
+        values = vwap_by_bar(bars, base_ms)
+        self.assertEqual(values[:2], [100, 100])
+        self.assertTrue(all(math.isnan(value) for value in values[2:4]))
+        self.assertEqual(values[4:], [100, 100])
+        self.assertTrue(math.isnan(vwap_by_bar([candle(base_ms)], base_ms)[0]))
 
 
 class RuleDirectionTests(unittest.TestCase):

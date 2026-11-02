@@ -153,7 +153,11 @@ def completed_higher_timeframe_context(
     for row in bars:
         close_time = int(row["timestamp"]) + base_ms
         position = bisect.bisect_right(ends, close_time) - 1
-        result[int(row["timestamp"])] = ema_by_end[ends[position]] if position >= 0 else None
+        latest_end = close_time // higher_ms * higher_ms
+        result[int(row["timestamp"])] = (
+            ema_by_end[ends[position]]
+            if position >= 0 and ends[position] == latest_end else None
+        )
     return result
 
 
@@ -163,19 +167,26 @@ def _store_htf_run(run: list[tuple[int, float]], destination: dict[int, tuple[fl
         destination[end] = (close, average) if average is not None else None
 
 
-def vwap_by_bar(bars: list[dict[str, Any]]) -> list[float]:
+def vwap_by_bar(bars: list[dict[str, Any]], base_ms: int) -> list[float]:
     current_day = None
     notional = volume = 0.0
+    expected_stamp = None
+    complete_session = False
     result = []
     for row in bars:
-        day = int(row["timestamp"]) // 86_400_000
+        stamp = int(row["timestamp"])
+        day = stamp // 86_400_000
         if day != current_day:
             current_day, notional, volume = day, 0.0, 0.0
+            complete_session = stamp % 86_400_000 == 0
+        elif stamp != expected_stamp:
+            complete_session = False
+        expected_stamp = stamp + base_ms
         base_volume = float(row["base_volume"])
         typical = (float(row["high"]) + float(row["low"]) + float(row["close"])) / 3
         notional += typical * base_volume
         volume += base_volume
-        result.append(notional / volume if volume > 0 else math.nan)
+        result.append(notional / volume if complete_session and volume > 0 else math.nan)
     return result
 
 
@@ -223,7 +234,7 @@ def _signal_arms(bars: list[dict[str, Any]], bar_ms: int) -> dict[tuple[int, str
         # at every base-cadence gap to prevent borrowing stale lookback state.
         closes = [float(row["close"]) for row in run]
         fast, slow = ema_series(closes, EMA_FAST), ema_series(closes, EMA_SLOW)
-        session_vwap = vwap_by_bar(run)
+        session_vwap = vwap_by_bar(run, bar_ms)
         for local_index, row in enumerate(run):
             index = global_index[id(row)]
             if index + 1 >= len(bars) or int(bars[index + 1]["timestamp"]) - int(row["timestamp"]) != bar_ms:
@@ -376,7 +387,7 @@ def _payload(events: list[dict[str, Any]], granularity: str, source_path: Path, 
             "higher_timeframes": {"1h": "complete UTC bins only, EMA20; reset after missing bin; 20-bin warmup",
                                   "4h": "complete UTC bins only, EMA20; reset after missing bin; 20-bin warmup"},
             "ema_cross": {"fast": EMA_FAST, "slow": EMA_SLOW, "seed": "first-period simple average", "alpha": "2/(period+1)"},
-            "vwap": "UTC calendar day; cumulative HLC3 * base_volume / cumulative base_volume; no cross-midnight",
+            "vwap": "UTC calendar day; cumulative HLC3 * base_volume / cumulative base_volume; complete cadence from midnight required; no cross-midnight",
             "box": {"lookback_bars": BOX_BARS, "max_height_pct_midpoint": BOX_MAX_HEIGHT_PCT * 100,
                     "retest_tolerance_pct": BOX_RETEST_TOLERANCE_PCT * 100,
                     "retest_window_bars": BOX_MAX_RETEST_BARS},
@@ -387,7 +398,7 @@ def _payload(events: list[dict[str, Any]], granularity: str, source_path: Path, 
             },
         },
         "protocol": (
-            "Fixed rules were declared before evaluation. Variants are separate one-at-a-time arms, "
+            "Rules are fixed for this exploratory follow-up. Variants are separate one-at-a-time arms, "
             "not cumulatively optimized. Signals are event-level and can overlap; no portfolio sizing, "
             "funding, liquidation, execution, spread, queue, or market impact model. OOS timestamps "
             "were already inspected by the parent study; this is exploratory reuse, not untouched validation."

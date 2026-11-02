@@ -77,9 +77,9 @@
     },
     "rvol_prior_bars": 20,
     "rvol_threshold": 1.5,
-    "vwap": "UTC calendar day; cumulative HLC3 * base_volume / cumulative base_volume; no cross-midnight"
+    "vwap": "UTC calendar day; cumulative HLC3 * base_volume / cumulative base_volume; complete cadence from midnight required; no cross-midnight"
   },
-  "protocol": "Fixed rules were declared before evaluation. Variants are separate one-at-a-time arms, not cumulatively optimized. Signals are event-level and can overlap; no portfolio sizing, funding, liquidation, execution, spread, queue, or market impact model. OOS timestamps were already inspected by the parent study; this is exploratory reuse, not untouched validation.",
+  "protocol": "Rules are fixed for this exploratory follow-up. Variants are separate one-at-a-time arms, not cumulatively optimized. Signals are event-level and can overlap; no portfolio sizing, funding, liquidation, execution, spread, queue, or market impact model. OOS timestamps were already inspected by the parent study; this is exploratory reuse, not untouched validation.",
   "range_end_utc_exclusive": "2026-11-01T00:00:00+00:00",
   "range_start_utc": "2026-09-17T00:00:00+00:00",
   "result_count": 96,

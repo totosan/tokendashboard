@@ -3356,7 +3356,7 @@
   "findings": {
     "issue_7": {
       "state_after": "state:blocked",
-      "scoped_block_reason": "Funding recovery and historic trade pagination are feasible and are NOT blocked. The remaining empirical historical execution-price/impact validation requires timestamped bid/ask/depth not yet present in the saved window. The reviewed REST snapshot has no history selector; the linked archive GET route returned 405, so no archive file was recovered within the mandated GET-only boundary. This does not prove that archives require private access.",
+      "scoped_block_reason": "Funding recovery and small historic trade samples were observed. Trade cursor pagination is not verified: saved request pairs repeat the same idLessThan and some returned IDs violate that cursor. The remaining empirical historical execution-price/impact validation requires timestamped bid/ask/depth not yet present in the saved window. The reviewed REST snapshot has no history selector; the linked archive GET route returned 405, so no archive file was recovered within the mandated GET-only boundary. This does not prove that archives require private access.",
       "next_executable_step": "Use saved BTC/AAPL funding rows to join each actual holding interval at settlement (state the exact boundary rule); use fills-history with limit<=1000, <=7-day windows and idLessThan for a preselected minute/day. For historical spread validation, obtain one public Bitget archive file link via a documented supported read-only GET listing or official published direct URL, then GET a small file/range and verify UTC timestamps, symbol and depth semantics before paging further; if the listing truly requires a non-GET method, it is outside this run, not a reason to use credentials."
     },
     "issue_9": {
@@ -3500,10 +3500,11 @@
         "all_timestamps_inside_requested_window": true,
         "unique_trade_ids": 6,
         "ids_strictly_descending_across_pages": true,
-        "idLessThan_boundary_honored": true,
+        "idLessThan_boundary_honored": false,
+        "pagination_verified": false,
         "oldest_returned_utc": "2026-09-17T14:30:59.854000Z",
         "newest_returned_utc": "2026-09-17T14:30:59.928000Z",
-        "interpretation": "Two successfully paged 3-print samples in a minute at the beginning of the saved 45-day window; not a complete minute or complete historical trade archive. Aggressor side and trade price do not recover contemporaneous bid/ask, queue, cancelled orders, or own fills."
+        "interpretation": "Two returned 3-print samples; cursor pagination is not verified because saved request pairs repeat idLessThan and returned IDs violate that cursor. Six unique prints do not establish complete minute or archive coverage. Aggressor side and trade price do not recover contemporaneous bid/ask, queue, cancelled orders, or own fills."
       },
       {
         "symbol": "AAPLUSDT",
@@ -3521,10 +3522,11 @@
         "all_timestamps_inside_requested_window": true,
         "unique_trade_ids": 6,
         "ids_strictly_descending_across_pages": true,
-        "idLessThan_boundary_honored": true,
+        "idLessThan_boundary_honored": false,
+        "pagination_verified": false,
         "oldest_returned_utc": "2026-09-17T14:30:29.396000Z",
         "newest_returned_utc": "2026-09-17T14:30:58.604000Z",
-        "interpretation": "Two successfully paged 3-print samples in a minute at the beginning of the saved 45-day window; not a complete minute or complete historical trade archive. Aggressor side and trade price do not recover contemporaneous bid/ask, queue, cancelled orders, or own fills."
+        "interpretation": "Two returned 3-print samples; cursor pagination is not verified because saved request pairs repeat idLessThan and returned IDs violate that cursor. Six unique prints do not establish complete minute or archive coverage. Aggressor side and trade price do not recover contemporaneous bid/ask, queue, cancelled orders, or own fills."
       }
     ],
     "stock_metadata_mapping": {
@@ -3661,6 +3663,6 @@
     "binance_requests": 0,
     "broad_crawl": false,
     "archive_file_downloaded": false,
-    "notes": "25 total Bitget HTTP GET requests including official docs/client-source reads and 12 market API calls; no redirect left Bitget. Raw body SHA256 always refers to original HTTP bytes. Selected fields/excerpts are explicitly marked; selected decoded responses also carry a reproducible canonical hash where present. No performance or execution-quality claims."
+    "notes": "25 total Bitget HTTP GET requests including official docs/client-source reads and 12 market API calls; no redirect left Bitget. Raw body SHA256 refers to original HTTP bytes, which are not stored here and cannot be independently rehashed from this artifact. Selected fields/excerpts are explicitly marked; selected decoded responses also carry a reproducible canonical hash where present. Trade cursor pagination is not verified; original request/response records are preserved despite their inconsistency. No performance or execution-quality claims."
   }
 }
