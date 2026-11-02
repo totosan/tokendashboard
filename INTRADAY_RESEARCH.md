@@ -260,7 +260,24 @@ keine historische Ausführbarkeit. Der frühere widersprüchliche Beleg bleibt
 unverändert und wird dadurch nicht rückwirkend validiert.
 Reproduktion: `timeout 140s python3 -m research.trade_pagination`;
 Offline-Prüfung: `python3 -m unittest research.test_trade_pagination -v`.
-Der Funding-Fachagent bearbeitet danach 1.8.2 mit eigenem begrenztem Budget.
+1.8.2 hat anschließend mit 25 öffentlichen GETs neue Funding-Antworten für
+alle zwölf Pilotsymbole gespeichert:
+[`bitget-funding-history-2026-11-02T160715.916809Z.json`](research/data/bitget-funding-history-2026-11-02T160715.916809Z.json).
+Die 1.620 Fensterzeilen zeigen keine Lücken gegenüber dem aus aktuellen
+Metadaten abgeleiteten **provisorischen** Settlementraster. Ohne historische
+Schedule-Änderungen ist das kein vollständiger historischer Abdeckungsnachweis.
+Öffentliche Raten sind keine Kontobuchungen. Eine Zuordnung zu hypothetischen
+Halteintervallen `[entry, exit)` wäre eine Szenariokonvention, keine verifizierte
+Bitget-Ownership-Regel; Funding-P&L wird hier nicht berechnet.
+Reproduktion: `timeout 300s python3 research/funding_history.py`;
+zehn Offline-Fälle: `python3 -m unittest research.test_funding_history -v`.
+Der unabhängige Kritiker hat diese neue Datenwelle in #8 ohne verifizierte
+handlungsrelevante Befunde geprüft; 22 gezielte Offline-Tests sowie Raw-/
+Canonical-Hashes wurden nachgerechnet. Der Koordinator bestätigt insgesamt
+45 bestandene Research-Tests. Damit sind die begrenzten Lieferumfänge von
+#15/#16 abgeschlossen, nicht die historischen Vollständigkeitsfragen.
+Die breiteren Blocker
+von #7/#9/#10 und die explorative Natur der bisherigen Eventtests bleiben bestehen.
 
 | Reihenfolge | Paket / zuständiges Issue | Evidenz-Gate |
 |---|---|---|
