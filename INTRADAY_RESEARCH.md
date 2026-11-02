@@ -227,7 +227,7 @@ Alle Quellen belegen allenfalls Befunde in den jeweils untersuchten Daten und ni
 | 1.1 | [#6 Bestandsaufnahme](https://github.com/totosan/tokendashboard/issues/6) | `topic:inventory` · `state:done` · Bericht mit Codezeilen/Abgrenzung eingereicht; geschlossen |
 | 1.2 | [#14 Breakout, Konsolidierung und Pullback](https://github.com/totosan/tokendashboard/issues/14) | `topic:breakout` · `state:review` · fester Box-/Retest-Kandidat plus Treppen-Ausbruch getestet; keine Nettowirksamkeitsbehauptung |
 | 1.3 | [#13 Volumen und Profile](https://github.com/totosan/tokendashboard/issues/13) | `topic:volume-profile` · `state:review` · separater RVOL≥1,5×-Arm getestet; echtes Trade-Profil/Value Area und Langzeit-Historie offen |
-| 1.4 | [#12 Marktregime und MTF](https://github.com/totosan/tokendashboard/issues/12) | `topic:regime-mtf` · `state:in-progress` · vollständige UTC-HTF-Filter getestet; Fachagent bearbeitet kausale Regime/Breakoutdiagnostik in #18 |
+| 1.4 | [#12 Marktregime und MTF](https://github.com/totosan/tokendashboard/issues/12) | `topic:regime-mtf` · `state:review` · UTC-HTF-Filter und kausale Regime/Breakoutdiagnostik explorativ getestet, #18 begrenzt akzeptiert; frische Validierung offen |
 | 1.5 | [#11 Trend, VWAP und Mean Reversion](https://github.com/totosan/tokendashboard/issues/11) | `topic:indicators` · `state:review` · EMA/VWAP sowie Tageslevels/RSI/Bollinger explorativ getestet, #17 begrenzt akzeptiert; frische Validierung offen |
 | 1.6 | [#10 Krypto-Universum](https://github.com/totosan/tokendashboard/issues/10) | `topic:crypto-universe` · `state:blocked` · geprüfte Bitget-Endpunkte lieferten kein vollständiges PIT-Listing-/Delistinguniversum; Pilotpanel ist current-survivor |
 | 1.7 | [#9 TradFi-Übertragbarkeit](https://github.com/totosan/tokendashboard/issues/9) | `topic:tradfi` · `state:blocked` · vier aktuelle Issuer/ISIN-Mappings und AAPL-Fundingproben; Underlying-Kalender/Mapping für Sessiontest fehlt |
@@ -330,8 +330,8 @@ beide Replays/Hashes stimmen exakt; Timingzähler und Verzögerungszuordnung
 gleichen sich aggregiert und in allen 120 Regimezellen ab. Der begrenzte
 Lieferumfang von #18 ist akzeptiert, nicht die breitere Regimevalidierung.
 
-Als nächste Daten-Gate-Aufgabe ist 1.7.1
-[#19](https://github.com/totosan/tokendashboard/issues/19) unter #9 vorbereitet:
+Als nächste Daten-Gate-Aufgabe bearbeitet ein Fachagent 1.7.1
+[#19](https://github.com/totosan/tokendashboard/issues/19) unter #9:
 autoritative Underlying-/Session-Zuordnung für die vier Stock-Perps mit maximal
 zwölf öffentlichen Quellabfragen. Ein ehrlicher Nichtverifizierungsbeleg ist
 ein zulässiges Feasibility-Ergebnis, aber keine Entsperrung von #9.
