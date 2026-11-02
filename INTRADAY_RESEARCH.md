@@ -227,8 +227,8 @@ Alle Quellen belegen allenfalls Befunde in den jeweils untersuchten Daten und ni
 | 1.1 | [#6 Bestandsaufnahme](https://github.com/totosan/tokendashboard/issues/6) | `topic:inventory` · `state:done` · Bericht mit Codezeilen/Abgrenzung eingereicht; geschlossen |
 | 1.2 | [#14 Breakout, Konsolidierung und Pullback](https://github.com/totosan/tokendashboard/issues/14) | `topic:breakout` · `state:review` · fester Box-/Retest-Kandidat plus Treppen-Ausbruch getestet; keine Nettowirksamkeitsbehauptung |
 | 1.3 | [#13 Volumen und Profile](https://github.com/totosan/tokendashboard/issues/13) | `topic:volume-profile` · `state:review` · separater RVOL≥1,5×-Arm getestet; echtes Trade-Profil/Value Area und Langzeit-Historie offen |
-| 1.4 | [#12 Marktregime und MTF](https://github.com/totosan/tokendashboard/issues/12) | `topic:regime-mtf` · `state:review` · 1h-/4h-EMA20-Filter nur nach vollständigen UTC-Bins getestet; kein vollständiger Regime-/Walk-forward-Test |
-| 1.5 | [#11 Trend, VWAP und Mean Reversion](https://github.com/totosan/tokendashboard/issues/11) | `topic:indicators` · `state:in-progress` · EMA20/50-Crossover und UTC-VWAP-Reclaim getestet; neuer Fachagent bearbeitet Tageslevels/RSI/Bollinger in #17 |
+| 1.4 | [#12 Marktregime und MTF](https://github.com/totosan/tokendashboard/issues/12) | `topic:regime-mtf` · `state:in-progress` · vollständige UTC-HTF-Filter getestet; Fachagent bearbeitet kausale Regime/Breakoutdiagnostik in #18 |
+| 1.5 | [#11 Trend, VWAP und Mean Reversion](https://github.com/totosan/tokendashboard/issues/11) | `topic:indicators` · `state:review` · EMA/VWAP sowie Tageslevels/RSI/Bollinger explorativ getestet, #17 begrenzt akzeptiert; frische Validierung offen |
 | 1.6 | [#10 Krypto-Universum](https://github.com/totosan/tokendashboard/issues/10) | `topic:crypto-universe` · `state:blocked` · geprüfte Bitget-Endpunkte lieferten kein vollständiges PIT-Listing-/Delistinguniversum; Pilotpanel ist current-survivor |
 | 1.7 | [#9 TradFi-Übertragbarkeit](https://github.com/totosan/tokendashboard/issues/9) | `topic:tradfi` · `state:blocked` · vier aktuelle Issuer/ISIN-Mappings und AAPL-Fundingproben; Underlying-Kalender/Mapping für Sessiontest fehlt |
 | 1.8 | [#7 Daten, Ausführung und Risiko](https://github.com/totosan/tokendashboard/issues/7) | `topic:execution-risk` · `state:blocked` · Funding- und kleine Trades-Archive-Stichproben abrufbar; historische Quotes/Depth für echte Kosten fehlen |
@@ -306,6 +306,13 @@ Vortage. UTC-Derivatelevels sind keine Underlying-Börsensessions. Neue
 Fundingdaten werden nicht als Cashflows in diese Ereignisrenditen gemischt.
 Das bereits eingesehene Fenster bleibt explorativ, ohne Mehrfachtestkorrektur
 oder unabhängige Wirksamkeitsbestätigung.
+
+Nach Akzeptanz von #17 bearbeitet der Regime-Fachagent 1.4.1
+[#18](https://github.com/totosan/tokendashboard/issues/18), natives Kind von #12
+mit Bezug zu #14. Der Auftrag trennt kausale Volatilitäts-/Trendmerkmale von
+retrospektiven Box-Ausbruch-Fehl-/Verzögerungsdiagnosen. Ergebnisse, Umfang und
+Review sind bis zur Lieferung offen; kein teurer historischer Datencrawl wird
+dadurch implizit gestartet.
 
 | Reihenfolge | Paket / zuständiges Issue | Evidenz-Gate |
 |---|---|---|
