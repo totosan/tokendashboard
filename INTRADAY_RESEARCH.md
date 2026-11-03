@@ -232,7 +232,7 @@ Alle Quellen belegen allenfalls Befunde in den jeweils untersuchten Daten und ni
 | 1.6 | [#10 Krypto-Universum](https://github.com/totosan/tokendashboard/issues/10) | `topic:crypto-universe` · `state:blocked` · geprüfte Bitget-Endpunkte lieferten kein vollständiges PIT-Listing-/Delistinguniversum; Pilotpanel ist current-survivor |
 | 1.7 | [#9 TradFi-Übertragbarkeit](https://github.com/totosan/tokendashboard/issues/9) | `topic:tradfi` · `state:blocked` · vier aktuelle Issuer/ISIN-Mappings und AAPL-Fundingproben; Underlying-Kalender/Mapping für Sessiontest fehlt |
 | 1.8 | [#7 Daten, Ausführung und Risiko](https://github.com/totosan/tokendashboard/issues/7) | `topic:execution-risk` · `state:blocked` · Funding- und kleine Trades-Archive-Stichproben abrufbar; historische Quotes/Depth für echte Kosten fehlen |
-| 1.9 | [#8 Validierung, Synthese und unabhängiger Review](https://github.com/totosan/tokendashboard/issues/8) | `topic:validation` · `state:in-progress` · neue begrenzte Kalibrierungskandidaten-Aufgabe #24 aktiv; bisherige Kalibrierung FAIL, frische Validierung offen |
+| 1.9 | [#8 Validierung, Synthese und unabhängiger Review](https://github.com/totosan/tokendashboard/issues/8) | `topic:validation` · `state:blocked` · Kandidat #24 unabhängig geprüft und als begrenzte Lieferung akzeptiert; neue Inferenz INCONCLUSIVE, bisherige Kalibrierung FAIL, frische Validierung offen |
 
 Die acht Domänenberichte 1.1–1.8 liegen vor. Nach dem ersten unabhängigen Review wurde die Split-Zuordnung korrigiert; anschließend wurden feste Hypothesenarme, Tagesblock-Sensitivität und begrenzte Bitget-Feasibility-Proben ergänzt. Der zweite Review wurde am 02.11.2026 direkt in #8 veröffentlicht und ist nicht mehr ausstehend; er fand insbesondere die unbelegte Trade-Cursor-Paginierung. Die Aussage wurde auf kleine Print-Stichproben eingeschränkt. Zusätzlich wurden veralteter HTF-Kontext nach fehlenden Bins und unvollständige VWAP-Sessions durch Regressionstests abgesichert. #7 bleibt für historische Quotes/Tiefe blockiert; Funding-Raten und kleine Trade-Proben waren abrufbar, die Trade-Paginierung ist nicht verifiziert. #9 ist für einen Börsenkalender/Underlying-Sessionvergleich blockiert, nicht für Perp-only-Daten. #10 ist für ein vollständiges point-in-time Delisting-Universum blockiert; das 12-Symbol-Panel bleibt ein heutiger Survivor-Pilot. #11–#14 haben getrennte Hypothesentests und Resultate; die OOS-Zeitspanne war bereits betrachtet, daher keine unberührte Validierung. #8 bleibt nach Integration des Reviews offen. Die Stati sind genau ein `state:*`-Label pro Issue; keine Gesamtvalidierung wird allein aus erfolgreichen Code-/Testläufen abgeleitet.
 
@@ -506,13 +506,35 @@ expliziten Null-/Abhängigkeitsannahmen und ausreichender p-Wert-Auflösung.
 Vorherige FAIL-Artefakte und das zukünftige Protokoll bleiben unverändert;
 ein Kandidatenresultat ändert keine reservierten Prüfregeln automatisch.
 
-Beide Kinder stehen während ihrer tatsächlichen Ausführung auf
-`state:in-progress`. #7 bleibt für historische ausführbare Abdeckung blockiert;
-#8 ist wegen der aktiven Kalibrierungsvoraussetzung in Arbeit, nicht wegen
-bereits laufender Marktvalidierung. #13 ist für die verbleibenden Daten-Gates
-explizit blockiert statt mehrdeutig in Review. Die akzeptierten Kinder
-#15–#22 bleiben geschlossen. Ein unabhängiger Review folgt den Lieferungen;
-Budgetgrenzen und präzise Blocker ersetzen keine historischen Daten.
+Die Lieferungen beider Kinder wurden wiederhergestellt, unabhängig geprüft
+und für ihren begrenzten Umfang akzeptiert (`state:done`). Beim Archive-Agenten war der alte Laufzeithandle nicht mehr
+verfügbar; es lief kein zu beendender Forschungsprozess. Die gespeicherten
+Dateien und die fehlende Übergabe in #23 wurden ohne neue HTTP-Anfrage
+wiederhergestellt. Der unabhängige Review in #8 bestätigte nach Bereinigung
+gespeicherter Response-Header keine weiteren belastbaren Befunde.
+Regressionen prüfen sowohl neue Captures als auch das gespeicherte Artefakt;
+die vollständige Research-Suite besteht mit 122 Tests.
+#7 bleibt für historische ausführbare Abdeckung blockiert; #8 bleibt wegen
+offener Kalibrierung und fehlender reservierter Beobachtungen blockiert,
+nicht in laufender Marktvalidierung. #13 bleibt für fehlende Daten blockiert. Die akzeptierten
+Kinder #15–#22 bleiben geschlossen.
+
+`research/archive_listing_probe.py` bewahrt zwei offizielle JavaScript-GETs
+mit unveränderten Body-Hashes; Cookie-/Authorization-Header werden vor der
+Speicherung entfernt. Numerische Futures-Depth-Filter, POST-Standard und
+`/v1`-Präfix sind belegt. Die Laufzeit-Interceptors lassen endgültigen Host,
+Payload und anonyme Header-Anforderungen jedoch offen:
+`BLOCKED_ANONYMOUS_WIRE_CONTRACT_UNPROVED`, null POSTs, kein Quote-Sample.
+Der Blocker beweist weder fehlende Archive noch erforderlichen Privat-Zugang.
+
+`research/inference_redesign.py` liefert einen vorher spezifizierten
+Known-Covariance-Gaussian-Oracle, keinen Markt-Schätzer. Analytische p-Werte
+vermeiden die grobe Bootstrap-Auflösung; 600 Panels je Szenario unterschreiten
+aber die vorab verlangten 2.000 vollständigen Familien:
+`INCONCLUSIVE`. Unvollständige Sparse-Familien werden verweigert; absichtlich
+falsche IID-Kovarianz bei AR1 ergibt `FAIL`. Ursprüngliche FAIL-Artefakte und
+das reservierte Walk-forward-Protokoll bleiben unverändert. Budgetgrenzen
+und präzise Blocker ersetzen weder historische Daten noch valide Inferenz.
 
 ## Vorläufige Synthese und offene Schritte
 
