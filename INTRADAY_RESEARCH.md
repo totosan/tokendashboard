@@ -536,6 +536,46 @@ falsche IID-Kovarianz bei AR1 ergibt `FAIL`. Ursprüngliche FAIL-Artefakte und
 das reservierte Walk-forward-Protokoll bleiben unverändert. Budgetgrenzen
 und präzise Blocker ersetzen weder historische Daten noch valide Inferenz.
 
+### Alternative Archivquelle: CryptoHFTData (03.11.2026)
+
+Die verifizierten offiziellen Setup-Anweisungen von
+<https://www.cryptohftdata.com/agent-setup/prompt.md> wurden ausgeführt:
+Agent-Paket 0.2.0 mit SHA-256-Prüfung und sicherer Archivextraktion,
+vollständiger Skill unter `~/.copilot/skills/chd`, SDK `cryptohftdata==0.8.0`
+in einer isolierten Umgebung unter `~/.local/share/cryptohftdata/venv`.
+Projekt-Abhängigkeiten bleiben unverändert. Die aktuelle Skill-Registry erkennt
+die Neuinstallation noch nicht; automatische Aktivierung ist bis zu einer
+neuen Sitzung ausstehend. Die installierten Anweisungen wurden direkt gelesen,
+SDK-/API-Prüfungen funktionierten bereits ohne Schlüssel oder Anmeldung.
+
+Für `bitget_futures` meldete die API je 1.213 registrierte Trade- und
+Orderbook-Symbole, darunter BTCUSDT und AAPLUSDT. Zwei Dateien aus dem
+bisherigen Forschungsfenster wurden tatsächlich geladen und mit PyArrow
+gelesen, nicht nur anhand konstruierter URLs vermutet:
+
+| Objekt unter `bitget_futures/2026-09-17/14/` | Bytes | Zeilen |
+| --- | ---: | ---: |
+| `AAPLUSDT_trades.parquet` | 31.212 | 1.720 |
+| `AAPLUSDT_orderbook.parquet` | 1.666.571 | 318.807 |
+
+Die vollständigen Schemas, Hashes, lokalen Pfade und Abrufbefehle stehen in
+`research/data/chd-setup-verification-2026-11-03.json`. Rohdateien verbleiben
+lokal unter `~/.local/share/cryptohftdata/samples/2026-11-03-bitget/`.
+Für 14:30–14:31 UTC stimmen alle elf Trade-Tupel
+(ID, Zeit, Preis, Menge) mit der zuvor gesicherten offiziellen Bitget-Antwort
+überein; das ist Quellenkonsistenz in einer Minute, kein vollständiger Ledger.
+
+**Der Zugangstransport ist damit für diese zwei Samples gelöst, der
+Gesamtblocker nicht.** CHD ist eine Drittanbieterquelle und umgeht den weiterhin
+ungeklärten offiziellen Bitget-Website-Request. Das Orderbook-Sample enthält
+ausschließlich Updates, keinen initialen Snapshot; von den Sequenzfeldern ist
+nur `final_update_id` befüllt. Vor historischen Spread-/Depth-/Slippage-Werten
+brauchen wir belegte Update-/Reset-/Gap-Semantik und einen passenden Startzustand.
+Danach folgen begrenzte Abdeckungsprüfungen je Symbol und Zeitraum. #7 bleibt
+für diese Datenqualitäts-/Replay-Gates blockiert, nicht wegen fehlenden
+anonymen CHD-Zugangs. Historische Vollständigkeit, Candle-Abgleich, valide
+Inferenz und reservierte künftige Beobachtungen bleiben unbewiesen.
+
 ## Vorläufige Synthese und offene Schritte
 
 - Keine Produktivänderung und keine Erfolgsbehauptung aus dieser Recherche ableiten.

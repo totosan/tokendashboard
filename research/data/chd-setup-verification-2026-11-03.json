@@ -1,0 +1,347 @@
+{
+  "observed_utc": "2026-11-03T15:57:55.146609+00:00",
+  "purpose": "Bounded CryptoHFTData setup and alternative Bitget data-source check",
+  "provider": "CryptoHFTData (third-party collector, not Bitget official archive)",
+  "exchange": "bitget_futures",
+  "authentication": "anonymous; no configured CRYPTOHFTDATA_API_KEY",
+  "setup": {
+    "agent_release": "0.2.0",
+    "archive_sha256": "f2cf8c47e9d6cba65846d288c38087bd8f9dae8ff8d4fb638f646eba1f99d82e",
+    "release_directory": "/root/.local/share/cryptohftdata/agent-0.2.0-f2cf8c47e9d6cba6/chd-agent",
+    "skill_directory": "/root/.copilot/skills/chd",
+    "skill_activation": "PENDING_NEW_SESSION: current skill tool does not discover newly installed chd; installed instructions read directly",
+    "python": "/root/.local/share/cryptohftdata/venv/bin/python",
+    "packages": {
+      "cryptohftdata": "0.8.0",
+      "pyarrow": "26.0.1",
+      "pandas": "3.1.0"
+    },
+    "isolation": "Dedicated user-owned virtual environment; project dependencies unchanged"
+  },
+  "sources": [
+    "https://www.cryptohftdata.com/agent-setup/prompt.md",
+    "https://www.cryptohftdata.com/.well-known/openapi.json",
+    "https://www.cryptohftdata.com/docs/rest-orderbook"
+  ],
+  "discovery": [
+    {
+      "url": "https://api.cryptohftdata.com/v1/symbols?exchange=bitget_futures&data_type=trades",
+      "count": 1213,
+      "source": "registry",
+      "pilot_symbols_present": [
+        "BTCUSDT",
+        "ETHUSDT",
+        "AAPLUSDT",
+        "TSLAUSDT",
+        "NVDAUSDT",
+        "COINUSDT"
+      ],
+      "cli_json_output_path": "/root/.local/share/cryptohftdata/samples/2026-11-03-bitget/trade-symbols.json",
+      "cli_json_output_sha256": "4bef4b5f1a6608f1fabb0e0e9ee0673e3a1d78b1e5a1d0eb94acd74d6d6c40f0",
+      "capture_format": "SDK CLI formatted JSON, not original HTTP response bytes",
+      "limitation": "Registry membership does not establish dated coverage or point-in-time eligibility"
+    },
+    {
+      "url": "https://api.cryptohftdata.com/v1/symbols?exchange=bitget_futures&data_type=orderbook",
+      "count": 1213,
+      "source": "registry",
+      "pilot_symbols_present": [
+        "BTCUSDT",
+        "ETHUSDT",
+        "AAPLUSDT",
+        "TSLAUSDT",
+        "NVDAUSDT",
+        "COINUSDT"
+      ],
+      "cli_json_output_path": "/root/.local/share/cryptohftdata/samples/2026-11-03-bitget/book-symbols.json",
+      "cli_json_output_sha256": "a9a1609871ef5d345088d2794058fdd0e08a2e5d4b588013e781a1cab98770cb",
+      "capture_format": "SDK CLI formatted JSON, not original HTTP response bytes",
+      "limitation": "Registry membership does not establish dated coverage or point-in-time eligibility"
+    }
+  ],
+  "samples": [
+    {
+      "object": "bitget_futures/2026-09-17/14/AAPLUSDT_trades.parquet",
+      "requested_receive_hour_utc": [
+        "2026-09-17T14:00:00Z",
+        "2026-09-17T15:00:00Z"
+      ],
+      "local_path": "/root/.local/share/cryptohftdata/samples/2026-11-03-bitget/AAPLUSDT-2026-09-17-14-trades.parquet",
+      "bytes": 31212,
+      "sha256": "8234c5e765fb83a1990b3db6e02ff114b68ce346322317fa37a4502f293f0138",
+      "rows": 1720,
+      "columns": [
+        {
+          "name": "received_time",
+          "type": "int64",
+          "nullable": false
+        },
+        {
+          "name": "event_time",
+          "type": "int64",
+          "nullable": false
+        },
+        {
+          "name": "symbol",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "trade_id",
+          "type": "int64",
+          "nullable": false
+        },
+        {
+          "name": "price",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "quantity",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "trade_time",
+          "type": "int64",
+          "nullable": false
+        },
+        {
+          "name": "is_buyer_maker",
+          "type": "bool",
+          "nullable": false
+        },
+        {
+          "name": "order_type",
+          "type": "string",
+          "nullable": false
+        }
+      ],
+      "timestamp_and_id_statistics": {
+        "received_time": {
+          "range": {
+            "min": 1789653600206736539,
+            "max": 1789657199288756629
+          },
+          "null_count": 0
+        },
+        "event_time": {
+          "range": {
+            "min": 1789653600075,
+            "max": 1789657199153
+          },
+          "null_count": 0
+        },
+        "trade_id": {
+          "range": {
+            "min": 1484480281412616192,
+            "max": 1484495377039867906
+          },
+          "null_count": 0
+        },
+        "trade_time": {
+          "range": {
+            "min": 1789653600075,
+            "max": 1789657199153
+          },
+          "null_count": 0
+        }
+      },
+      "categories": {
+        "symbol": [
+          {
+            "values": "AAPLUSDT",
+            "counts": 1720
+          }
+        ]
+      },
+      "transport": "SDK CLI"
+    },
+    {
+      "object": "bitget_futures/2026-09-17/14/AAPLUSDT_orderbook.parquet",
+      "requested_receive_hour_utc": [
+        "2026-09-17T14:00:00Z",
+        "2026-09-17T15:00:00Z"
+      ],
+      "local_path": "/root/.local/share/cryptohftdata/samples/2026-11-03-bitget/AAPLUSDT-2026-09-17-14-orderbook.parquet",
+      "bytes": 1666571,
+      "sha256": "bb5f21fae744e0b07250f80bc6cf6092386fc29f32091b9a31495bde30c4731d",
+      "rows": 318807,
+      "columns": [
+        {
+          "name": "received_time",
+          "type": "int64",
+          "nullable": false
+        },
+        {
+          "name": "event_time",
+          "type": "int64",
+          "nullable": false
+        },
+        {
+          "name": "transaction_time",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "symbol",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "event_type",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "first_update_id",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "final_update_id",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "prev_final_update_id",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "last_update_id",
+          "type": "int64",
+          "nullable": true
+        },
+        {
+          "name": "side",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "price",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "quantity",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "order_count",
+          "type": "int64",
+          "nullable": true
+        }
+      ],
+      "timestamp_and_id_statistics": {
+        "received_time": {
+          "range": {
+            "min": 1789653600021427523,
+            "max": 1789657199931638509
+          },
+          "null_count": 0
+        },
+        "event_time": {
+          "range": {
+            "min": 1789653599904,
+            "max": 1789657199812
+          },
+          "null_count": 0
+        },
+        "transaction_time": {
+          "range": {
+            "min": null,
+            "max": null
+          },
+          "null_count": 318807
+        },
+        "first_update_id": {
+          "range": {
+            "min": null,
+            "max": null
+          },
+          "null_count": 318807
+        },
+        "final_update_id": {
+          "range": {
+            "min": 823061146026,
+            "max": 823228649581
+          },
+          "null_count": 0
+        },
+        "prev_final_update_id": {
+          "range": {
+            "min": null,
+            "max": null
+          },
+          "null_count": 318807
+        },
+        "last_update_id": {
+          "range": {
+            "min": null,
+            "max": null
+          },
+          "null_count": 318807
+        }
+      },
+      "categories": {
+        "symbol": [
+          {
+            "values": "AAPLUSDT",
+            "counts": 318807
+          }
+        ],
+        "event_type": [
+          {
+            "values": "update",
+            "counts": 318807
+          }
+        ],
+        "side": [
+          {
+            "values": "ask",
+            "counts": 156227
+          },
+          {
+            "values": "bid",
+            "counts": 162580
+          }
+        ]
+      },
+      "transport": "REST curl GET; HTTP200; 60s timeout;20MiB maximum;HTTPS-only redirects"
+    }
+  ],
+  "same_minute_crosscheck": {
+    "official_artifact": "research/data/recovery-trade-profile-2026-11-02T210532.814248Z.json",
+    "official_artifact_sha256": "df42b2d01b75c73fb304448cdc07b62f4038a813cc1a19cffcfa29bce8eb1c47",
+    "utc": [
+      "2026-09-17T14:30:00Z",
+      "2026-09-17T14:31:00Z"
+    ],
+    "official_unique_trade_tuples": 11,
+    "chd_rows": 11,
+    "chd_unique_trade_tuples": 11,
+    "matching_trade_id_time_price_size_tuples": 11,
+    "official_only": 0,
+    "chd_only": 0,
+    "limitation": "Small-window source consistency check, not independent ledger completeness or candle comparison"
+  },
+  "assessment": {
+    "sample_access": "VERIFIED_TRADES_AND_BOOK_ANONYMOUS",
+    "official_bitget_wire_contract": "UNCHANGED_UNPROVED; this provider bypasses that route",
+    "orderbook_replay": "NOT_VERIFIED: all318807rows are updates, no snapshot; only final_update_id populated among sequence fields",
+    "next_gate": "Document venue/provider update semantics and obtain compatible initial snapshot, then test replay/gaps before spread/depth estimates",
+    "historical_coverage": "NOT_VERIFIED beyond two observed objects; no full-panel or continuity claim",
+    "other_blockers": "Inference, dated universe/session/margin rules and reserved future observations unchanged",
+    "raw_sample_storage": "Local only; no provider Parquet rows redistributed in repository"
+  },
+  "reproduce": [
+    "Use the isolated /root/.local/share/cryptohftdata/venv/bin/cryptohftdata CLI (SDK0.8.0)",
+    "cryptohftdata symbols --exchange bitget_futures --data-type trades",
+    "cryptohftdata symbols --exchange bitget_futures --data-type orderbook",
+    "cryptohftdata download --file bitget_futures/2026-09-17/14/AAPLUSDT_trades.parquet --output NEW_DIRECTORY/trades.parquet",
+    "curl --fail --location --max-redirs 3 --proto '=https' --proto-redir '=https' --max-time 60 --max-filesize 20971520 --get --data-urlencode file=bitget_futures/2026-09-17/14/AAPLUSDT_orderbook.parquet https://api.cryptohftdata.com/v1/download --output NEW_DIRECTORY/orderbook.parquet",
+    "Read metadata/schema and all rows using pyarrow.parquet.ParquetFile; compare observed hashes with this report, do not overwrite existing samples"
+  ]
+}
