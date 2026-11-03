@@ -576,6 +576,19 @@ für diese Datenqualitäts-/Replay-Gates blockiert, nicht wegen fehlenden
 anonymen CHD-Zugangs. Historische Vollständigkeit, Candle-Abgleich, valide
 Inferenz und reservierte künftige Beobachtungen bleiben unbewiesen.
 
+Ein anschließender begrenzter Snapshot-Recovery-Versuch lud die drei
+vorhergehenden AAPLUSDT-Orderbook-Stunden 13, 12 und 11 UTC vom 17.09.2026
+anonym (zusammen 3.837.654 Bytes). Einschließlich der vorhandenen Stunde
+14 wurden 917.717 Zeilen geprüft: ausschließlich Updates, null Snapshot-Zeilen,
+`prev_final_update_id` durchgehend leer. Deshalb wurde **kein Checkpoint
+erzeugt**; ein aus leerem Zustand aufgebautes Buch würde unveränderte Levels
+unterschlagen. Diese begrenzte Suche beweist keine archivweite Abwesenheit.
+`research/data/chd-snapshot-search-2026-11-03.json` hält Pfade, Hashes,
+Zeitgrenzen, Ergebnis und einen noch nicht versandten Support-Entwurf fest.
+Nächster belastbarer Schritt: CHD nach einem konkreten kompatiblen historischen
+Snapshot und verifizierbarer Sequenzkette beziehungsweise einem Replay-Bericht
+fragen; alternativ einen belegten Snapshot-Zeitraum gesondert untersuchen.
+
 ## Vorläufige Synthese und offene Schritte
 
 - Keine Produktivänderung und keine Erfolgsbehauptung aus dieser Recherche ableiten.
