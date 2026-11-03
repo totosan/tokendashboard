@@ -64,6 +64,11 @@ Reproduktion: `python3 research/hypothesis_eval.py --granularity 5m --input rese
 
 ### Statusmatrix der Domänenberichte
 
+Diese Matrix beschreibt den ursprünglichen Berichtsstand. Spätere Lieferungen
+und heutige Issue-Stati stehen in den Fortschreibungen und der Label-Tabelle
+weiter unten; insbesondere Trade-Profile und ein aktueller CHD-Replay sind
+inzwischen als begrenzte Piloten vorhanden.
+
 | Paket | Bericht / belegter Umfang | Empirischer Status |
 |---|---|---|
 | 1.1 Bestand | Codepfade, lokale Grenzen und bestehende Dashboard-Hypothesen in #6 inventarisiert. | Inventar-Akzeptanzkriterium erfüllt; #6 geschlossen. |
@@ -226,12 +231,12 @@ Alle Quellen belegen allenfalls Befunde in den jeweils untersuchten Daten und ni
 |---|---|---|
 | 1.1 | [#6 Bestandsaufnahme](https://github.com/totosan/tokendashboard/issues/6) | `topic:inventory` · `state:done` · Bericht mit Codezeilen/Abgrenzung eingereicht; geschlossen |
 | 1.2 | [#14 Breakout, Konsolidierung und Pullback](https://github.com/totosan/tokendashboard/issues/14) | `topic:breakout` · `state:review` · fester Box-/Retest-Kandidat plus Treppen-Ausbruch getestet; keine Nettowirksamkeitsbehauptung |
-| 1.3 | [#13 Volumen und Profile](https://github.com/totosan/tokendashboard/issues/13) | `topic:volume-profile` · `state:blocked` · begrenztes Endpunkt-Minutenprofil geprüft; echte identische Minutenkerze und breitere Trade-Abdeckung fehlen |
+| 1.3 | [#13 Volumen und Profile](https://github.com/totosan/tokendashboard/issues/13) | `topic:volume-profile` · `state:blocked` · Trade-Minuten-/Stundenprofile und 5m-Candle-Abgleich vorhanden; Open-Differenzen, breitere Ledger-Abdeckung und Validierung offen |
 | 1.4 | [#12 Marktregime und MTF](https://github.com/totosan/tokendashboard/issues/12) | `topic:regime-mtf` · `state:review` · UTC-HTF-Filter und kausale Regime/Breakoutdiagnostik explorativ getestet, #18 begrenzt akzeptiert; frische Validierung offen |
 | 1.5 | [#11 Trend, VWAP und Mean Reversion](https://github.com/totosan/tokendashboard/issues/11) | `topic:indicators` · `state:review` · EMA/VWAP sowie Tageslevels/RSI/Bollinger explorativ getestet, #17 begrenzt akzeptiert; frische Validierung offen |
 | 1.6 | [#10 Krypto-Universum](https://github.com/totosan/tokendashboard/issues/10) | `topic:crypto-universe` · `state:blocked` · geprüfte Bitget-Endpunkte lieferten kein vollständiges PIT-Listing-/Delistinguniversum; Pilotpanel ist current-survivor |
 | 1.7 | [#9 TradFi-Übertragbarkeit](https://github.com/totosan/tokendashboard/issues/9) | `topic:tradfi` · `state:blocked` · vier aktuelle Issuer/ISIN-Mappings und AAPL-Fundingproben; Underlying-Kalender/Mapping für Sessiontest fehlt |
-| 1.8 | [#7 Daten, Ausführung und Risiko](https://github.com/totosan/tokendashboard/issues/7) | `topic:execution-risk` · `state:blocked` · Funding- und kleine Trades-Archive-Stichproben abrufbar; historische Quotes/Depth für echte Kosten fehlen |
+| 1.8 | [#7 Daten, Ausführung und Risiko](https://github.com/totosan/tokendashboard/issues/7) | `topic:execution-risk` · `state:blocked` · CHD-Trades, separater aktueller sequenzkonsistenter Book-Pilot und öffentlicher REST-Sampler vorhanden; ursprüngliche historische Ausführungsabdeckung bleibt offen |
 | 1.9 | [#8 Validierung, Synthese und unabhängiger Review](https://github.com/totosan/tokendashboard/issues/8) | `topic:validation` · `state:blocked` · Kandidat #24 unabhängig geprüft und als begrenzte Lieferung akzeptiert; neue Inferenz INCONCLUSIVE, bisherige Kalibrierung FAIL, frische Validierung offen |
 
 Die acht Domänenberichte 1.1–1.8 liegen vor. Nach dem ersten unabhängigen Review wurde die Split-Zuordnung korrigiert; anschließend wurden feste Hypothesenarme, Tagesblock-Sensitivität und begrenzte Bitget-Feasibility-Proben ergänzt. Der zweite Review wurde am 02.11.2026 direkt in #8 veröffentlicht und ist nicht mehr ausstehend; er fand insbesondere die unbelegte Trade-Cursor-Paginierung. Die Aussage wurde auf kleine Print-Stichproben eingeschränkt. Zusätzlich wurden veralteter HTF-Kontext nach fehlenden Bins und unvollständige VWAP-Sessions durch Regressionstests abgesichert. #7 bleibt für historische Quotes/Tiefe blockiert; Funding-Raten und kleine Trade-Proben waren abrufbar, die Trade-Paginierung ist nicht verifiziert. #9 ist für einen Börsenkalender/Underlying-Sessionvergleich blockiert, nicht für Perp-only-Daten. #10 ist für ein vollständiges point-in-time Delisting-Universum blockiert; das 12-Symbol-Panel bleibt ein heutiger Survivor-Pilot. #11–#14 haben getrennte Hypothesentests und Resultate; die OOS-Zeitspanne war bereits betrachtet, daher keine unberührte Validierung. #8 bleibt nach Integration des Reviews offen. Die Stati sind genau ein `state:*`-Label pro Issue; keine Gesamtvalidierung wird allein aus erfolgreichen Code-/Testläufen abgeleitet.
@@ -588,6 +593,87 @@ Zeitgrenzen, Ergebnis und einen noch nicht versandten Support-Entwurf fest.
 Nächster belastbarer Schritt: CHD nach einem konkreten kompatiblen historischen
 Snapshot und verifizierbarer Sequenzkette beziehungsweise einem Replay-Bericht
 fragen; alternativ einen belegten Snapshot-Zeitraum gesondert untersuchen.
+
+### Umgesetzter Budget-Pfad: Trade-first und getrennte aktuelle Books
+
+Der Umsetzungsplan ist als natives Kind #25 unter #7 verfolgt; #13 ist
+fachlich beteiligt. Reihenfolge nach Aufwand: vorhandene Trades auswerten,
+höchstens zwei aktuelle CHD-Book-Dateien prüfen, anschließend einen begrenzten
+öffentlichen Snapshot-Recorder bauen. Es wurden weder kostenpflichtige Daten
+beschafft noch die alte Stichprobe oder das reservierte Protokoll geändert.
+
+1. **Trade-first umgesetzt:** `research/budget_chd_study.py` erstellt mit
+   Dezimalarithmetik lokale 1m-OHLCV-/VWAP-Bars und das bereits eingefrorene
+   deskriptive 20-Bin-Profil. Der AAPLUSDT-Trade-Stunde vom 17.09.2026
+   14 UTC entsprechen 1.720 beobachtete Trades und 1.316,18 Basiseinheiten.
+   Beim Vergleich aller zwölf 5m-Buckets mit den gespeicherten offiziellen
+   Candles stimmen High, Low, Close, Basis- und Quote-Volumen exakt überein;
+   alle zwölf Open-Werte unterscheiden sich. Diese Differenz bleibt sichtbar
+   und ist vor Interpretation der Candle-Open-Konvention zu klären, kein
+   Anlass, Rohtrades anzupassen. Fehlende Beobachtungen werden nicht als
+   Nullvolumen aufgefüllt. Kosten 12/22/37 bp bleiben Annahmen; keine
+   Strategie-Returns oder Inferenz wurden berechnet. Artefakt:
+   `research/results/budget-trades-2026-11-03.json`.
+2. **Aktueller separater Replay umgesetzt:** Bereits die erste geprüfte CHD-Datei
+   `bitget_futures/2026-11-03/14/AAPLUSDT_orderbook.parquet`
+   (2.962.734 Bytes, 623.967 Zeilen) enthält einen Checkpoint-Snapshot.
+   Alle 39.163 folgenden Update-Nachrichten verketten sich innerhalb dieser
+   Datei über `pseq/seq`; keine Kettenbrüche oder gekreuzten Books wurden
+   beobachtet. Ein abgeleiteter Checkpoint am letzten beobachteten
+   Receive-Zeitpunkt liegt lokal, nicht als Ersatz für September. Dies ist
+   **dateiinterne Sequenzkonsistenz**, keine unabhängige Exchange-/Checksum-
+   Zertifizierung oder Garantie vollständiger Levels. Gap-/Cross-Fälle
+   verwerfen den Zustand bis zum nächsten Snapshot. Readiness und Replay:
+   `research/results/budget-recent-book-2026-11-03.json` und
+   `research/results/budget-recent-replay-2026-11-03.json`. Spread-Zusammenfassungen
+   sind nach Nachrichten gewichtet, nicht nach Zeit und keine Fill-Kosten.
+3. **Vorwärts-Erfassung umgesetzt:** `research/bitget_snapshot_recorder.py`
+   nutzt nur den dokumentierten öffentlichen REST-GET
+   `/api/v3/market/orderbook`, ohne Schlüssel. Jede Beobachtung ist ein
+   eigenständiges aktuelles Top-N-Book; dies ist bewusst **Polling, kein
+   kontinuierlicher WebSocket-/Delta-Recorder**. So sind Snapshot-Start und
+   Replay-Ketten für diese einzelnen Beobachtungen nicht nötig. Grenzen:
+   höchstens eine Stunde pro Aufruf, 3.600 Requests, 1 Request/s,
+   10 Sekunden pro Request, 1 MiB pro Antwort und 20 MiB JSONL.
+   Neue Ausgabeverzeichnisse verhindern Überschreiben. Fehler, veraltete oder
+   gekreuzte Books führen zu expliziten Partial-/Failure-Manifests, nie zu
+   einer Vollständigkeitsbehauptung. Drei echte Top-50-AAPL-Snapshots wurden
+   erfolgreich aufgenommen und rehashiert; der Prozess endete normal.
+   `research/data/budget-recorder-smoke-2026-11-03.json` verweist auf lokale
+   Rohbytes.
+
+Reproduktion im Repository-Root (neue Output-Namen verwenden):
+
+```sh
+CHD_PY="$HOME/.local/share/cryptohftdata/venv/bin/python"
+SAMPLES="$HOME/.local/share/cryptohftdata/samples"
+timeout 90s "$CHD_PY" -m research.budget_chd_study trades \
+  --source "$SAMPLES/2026-11-03-bitget/AAPLUSDT-2026-09-17-14-trades.parquet" \
+  --candles research/data/bitget-5m-2026-09-17_2026-11-01.csv.gz \
+  --output /tmp/aapl-trades-replay.json
+timeout 90s "$CHD_PY" -m research.budget_chd_study replay \
+  --source "$SAMPLES/2026-11-03-budget/AAPLUSDT-2026-11-03-14-orderbook.parquet" \
+  --checkpoint /tmp/aapl-current-derived-checkpoint.json \
+  --output /tmp/aapl-current-book-replay.json
+timeout 60s python3 -m research.bitget_snapshot_recorder \
+  --directory "$SAMPLES/new-aapl-recording" --samples 3 --interval 2 --depth 50
+timeout 120s python3 -m unittest research.test_budget_chd_study \
+  research.test_bitget_snapshot_recorder
+```
+
+**Manuelle Voraussetzung:** Für diese begrenzten Piloten war keine nötig.
+Nur für dauerhaft laufende Erfassung muss der Nutzer später einen stabilen,
+eingeschalteten Rechner/VPS und dessen Speicher-/Betriebsbudget bereitstellen;
+hier läuft kein unbeaufsichtigter Dauerdienst. Kein kostenpflichtiges Abo,
+Support-Kontakt oder API-Key ist Voraussetzung des implementierten Pfads.
+Der aktuelle CHD-Skill konnte inzwischen direkt geladen werden; die zuvor
+ausstehende Aktivierung ist damit für diese Sitzung bestätigt.
+#7 bleibt für die ursprüngliche historische Ausführungsabdeckung offen,
+#13 für umfassendere Profil-/Candle-/Ledger-Validierung; #8 bleibt hinsichtlich
+praktikabler Inferenz und künftiger reservierter Beobachtungen blockiert.
+Ein unabhängiger Code-Review des Budget-Pfads fand keine belastbaren
+Implementierungsfehler; 16 gezielte Tests und der aktuelle Book-Replay wurden
+dabei geprüft. Die vollständige Research-Suite besteht mit 138 Tests.
 
 ## Vorläufige Synthese und offene Schritte
 
