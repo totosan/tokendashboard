@@ -1,0 +1,20 @@
+[Unit]
+Description=Bounded Bitget public market-data recorder run (issue #26)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=pi
+WorkingDirectory=/home/pi/tokendashboard
+ExecStart=/usr/bin/python3 -m research.recorder.recorder --output-dir /var/lib/bitget-recorder --symbols AAPLUSDT,BTCUSDT --max-cycles 50 --interval 5 --duration-seconds 280
+# Hard stop: SIGTERM (graceful), then SIGKILL after 10s
+RuntimeMaxSec=300
+TimeoutStopSec=10
+KillSignal=SIGTERM
+SuccessExitStatus=2
+Nice=10
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/bitget-recorder
+PrivateTmp=true
