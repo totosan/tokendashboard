@@ -1,0 +1,130 @@
+{
+  "protocol_id": "issue-13-g04-common-rolling-profile-comparison-v1",
+  "status": "frozen-before-computing-rolling-profile-comparison",
+  "frozen_at_utc": "2026-11-04T07:39:15Z",
+  "owner": "#13 (direct child of #3); backlog G04",
+  "scope": {
+    "question": "How closely does a dashboard-style OHLCV volume-spreading approximation reproduce a trade-price-bin profile on the same bounded windows?",
+    "evidence_tier": "bounded, exploratory source-consistency/profile-method comparison on already inspected data",
+    "not_a_test_of": [
+      "strategy returns or predictive utility",
+      "statistical significance or profitability",
+      "complete public-trade-ledger coverage",
+      "measured execution costs or fills",
+      "generalization to other symbols, days, regimes or exchanges"
+    ],
+    "production_changes": false,
+    "market_network_requests": 0,
+    "reserved_future_outcomes": "not read or used"
+  },
+  "instrument_and_sources": {
+    "venue_product": "Bitget USDT-FUTURES AAPLUSDT stock-referenced perpetual; derivative trades/candles, not listed-equity trades",
+    "symbol": "AAPLUSDT",
+    "quote_settlement": "USDT (instrument settlement metadata is not revalidated by this comparison)",
+    "trade_source": {
+      "provider": "CryptoHFTData third-party normalized Bitget futures archive",
+      "receive_hour_objects": [
+        "bitget_futures/2026-09-17/13/AAPLUSDT_trades.parquet",
+        "bitget_futures/2026-09-17/14/AAPLUSDT_trades.parquet",
+        "bitget_futures/2026-09-17/15/AAPLUSDT_trades.parquet"
+      ],
+      "target_object_sha256": "8234c5e765fb83a1990b3db6e02ff114b68ce346322317fa37a4502f293f0138",
+      "clock": "trade_time in UTC epoch milliseconds controls event-window inclusion; received_time in nanoseconds is reported separately for availability. event_time is checked against trade_time, not silently substituted.",
+      "coverage_status": "Observed receive-hour objects, not a complete exchange-ledger certificate"
+    },
+    "candle_source": {
+      "provider": "Saved official Bitget 5m USDT-FUTURES candles",
+      "path": "research/data/bitget-5m-2026-09-17_2026-11-01.csv.gz",
+      "sha256": "1364e80e62353c853f2bacb5ba5dba59e2f618ca72e80a1b1fb493bb8a57992f",
+      "base_volume": "saved base_volume column (Bitget candle response field 6)",
+      "quote_volume": "retained but not used to weight the profile",
+      "coverage_status": "12 saved same-hour bars; source agreement for these bars is checked per rolling window"
+    }
+  },
+  "windows": {
+    "overall_observed_interval_utc": ["2026-09-17T14:00:00Z", "2026-09-17T15:00:00Z"],
+    "boundary": "[start,end)",
+    "base_cadence_minutes": 5,
+    "profile_lookback_minutes": 15,
+    "evaluation_end_boundaries_utc": [
+      "2026-09-17T14:15:00Z",
+      "2026-09-17T14:20:00Z",
+      "2026-09-17T14:25:00Z",
+      "2026-09-17T14:30:00Z",
+      "2026-09-17T14:35:00Z",
+      "2026-09-17T14:40:00Z",
+      "2026-09-17T14:45:00Z",
+      "2026-09-17T14:50:00Z",
+      "2026-09-17T14:55:00Z",
+      "2026-09-17T15:00:00Z"
+    ],
+    "window_rule": "At boundary t, use trades with trade_time in [t-15m,t) and exactly the three saved, contiguous 5m candles covering that interval. Windows overlap by 10 minutes.",
+    "causality": "Features use no event-time observation at/after t. Actual provider publication/availability time of saved historical candle responses is unknown; therefore live decision-time causality is not established. Trade-window observed availability is no earlier than the maximum received_time among included rows.",
+    "expected_windows": 10,
+    "missing_or_invalid_window": "Keep a window disposition with source mismatch/insufficient status; never fill missing trades or bars with zero. Do not silently drop it from denominators."
+  },
+  "input_validation": {
+    "trade_rows": "Validate every row in the three named receive-hour objects for AAPLUSDT, integer nonnegative IDs/timestamps, finite positive Decimal price/quantity, and received_time in nanoseconds. Compare event_time with trade_time; any mismatch in the three objects blocks shape comparison for the run and is reported, not silently repaired.",
+    "trade_identity": "Deduplicate only identical repeated trade_id rows with matching event_time, trade_time, received_time, symbol, price, quantity and provider flags. Conflicting repeats block shape comparison for the run. Report duplicate and conflict counts.",
+    "trade_partition_use": "Read all rows from all three receive-hour objects, then select by event-time trade_time; do not use receive-hour partition as an event-time filter. Report selected row counts by receive-hour object and late receive-time observations.",
+    "candles": "Require exactly one AAPLUSDT row at each expected 5m open timestamp in [14:00,15:00), with ordered OHLC, nonnegative base volume, no duplicates, and no missing cadence. Any failure blocks shape metrics for affected windows and remains in the output.",
+    "window_consistency": "For each window, require exactly three contiguous 5m candles, at least one valid observed trade, and exact trade-versus-candle high, low, close and base-volume equality before comparing profile shapes. No rows or bars are synthesized."
+  },
+  "common_profile_definition": {
+    "weight_unit": "base asset quantity (AAPL-perpetual contract quantity as recorded by the provider); no quote-notional weighting",
+    "price_range": "For each window independently, common low=min(trade prices, three candle lows), common high=max(trade prices, three candle highs). Record whether trade extrema equal candle extrema.",
+    "bins": 24,
+    "edges": "Equal-width common range; bins are half-open [edge_i,edge_i+1), except final bin includes the maximum. A flat range is a degenerate window and is non-estimable.",
+    "trade_profile": "Place each observed trade's base quantity entirely in the bin containing its exact trade price. Validate all source numeric values and preserve decimal strings/Decimal arithmetic; do not round prices or quantities before binning.",
+    "candle_approximation": "Aggregate the three completed 5m candles into one 15m OHLCV candle: first 5m open, max high, min low, last close, sum base volume. Spread its base volume uniformly over its high-low price span by overlap with each of the same 24 common bins, matching dist/orderbook.js volumeProfile's range-weighting algorithm. If high=low, put the entire bar volume in the containing bin.",
+    "volume_gate": "For shape comparison, require exact equality of observed trade base quantity and summed candle base_volume and equality of trade-vs-candle high/low/close for each window. If not exact, report the discrepancy and mark profile shape metrics NOT_COMPARABLE for that window; no normalization is used to conceal a coverage mismatch.",
+    "profile_normalization": "For shape metrics only, divide each comparable profile's bins by its own total base quantity after the exact volume gate. Also preserve raw bin quantities and total volumes.",
+    "poc": "Maximum-volume bin; ties choose the lowest-price bin. Report bin center and normalized displacement in basis points of the common-range midpoint.",
+    "value_area": "Start with POC and add one adjacent bin with greater quantity until cumulative quantity is at least 70% of profile total. A tie chooses the lower-price adjacent bin; include intervening bins. Report inclusive bin bounds, price bounds and realized fraction.",
+    "hvn_candidates": "Interior strict local maxima only: central bin exceeds both immediate neighbors and is at least 1.5 times their mean. No smoothing; thresholds are fixed protocol choices, not validated market conventions.",
+    "lvn_candidates": "Interior strict local minima only: central bin is below both immediate neighbors and no more than 0.5 times their mean. No smoothing; thresholds are fixed protocol choices, not validated market conventions.",
+    "node_match": "For cross-source HVN/LVN precision/recall/F1, match node bin indices exactly within the common window. Do not tune a price tolerance after viewing results. If either node set is empty, report both sets and counts but leave precision/recall/F1 undefined rather than assigning a favorable score."
+  },
+  "profile_change_descriptors": {
+    "scope": "All nine adjacent rolling-window transitions only; overlapping windows are highly dependent and are not independent replications. If either window is not comparable, retain the transition with its non-comparable reason.",
+    "poc_move": "Difference in POC bin-center price in bps of the prior window midpoint, computed separately for trade and candle profiles.",
+    "poc_move_agreement": "Report same-sign/zero-sign agreement and absolute difference between the two POC moves; no inferential test.",
+    "normalized_profile_turnover": "For each source separately, one half the sum of absolute changes in normalized 24-bin quantities by bin index between adjacent comparable windows. Since each window's price range may change, this is a coarse descriptor, not a price-aligned or predictive feature result.",
+    "value_area_overlap": "Price-interval intersection length divided by union length for consecutive windows, separately by source.",
+    "node_change": "Counts of newly appearing and disappearing HVN/LVN bin indices between adjacent windows, separately by source; changing ranges mean bin indices are window-relative, so this is a coarse descriptor only."
+  },
+  "comparison_outputs": {
+    "primary_method_fidelity": [
+      "number of planned/comparable/unavailable windows",
+      "trade-versus-candle base-volume differences and OHLC source-consistency status",
+      "exact POC-bin agreement and absolute POC displacement in bps",
+      "normalized 24-bin profile total-variation distance and Pearson correlation when defined",
+      "70% VA price-interval overlap and lower/upper boundary displacement",
+      "HVN/LVN candidate counts and exact-bin precision/recall/F1, with empty-node cases explicit"
+    ],
+    "profile_change": [
+      "all nine adjacent-window transition dispositions",
+      "POC move agreement/error",
+      "normalized profile turnover",
+      "value-area interval overlap",
+      "HVN/LVN node additions/removals"
+    ],
+    "baseline": "The trade-at-price profile is the observed descriptive reference; the candidate estimator is 15m OHLCV uniformly spread across each candle's range. There is no signal, no-return or trading baseline because no outcome is evaluated.",
+    "uncertainty": "No p-values, confidence intervals, bootstrap or significance claims; ten overlapping windows on one symbol/hour are not independent evidence."
+  },
+  "preexisting_inspection_disclosure": "The same AAPL hour was previously used for trade OHLCV/VWAP and an ex-post 20-bin profile; its 12 same-hour 5m candle comparisons and open discrepancy were inspected. The specific rolling 24-bin agreement results and node/turnover metrics had not been computed at freeze time. This is prospectively frozen for a new exploratory diagnostic, not preregistered or fresh holdout evidence.",
+  "reproduction": {
+    "implementation": "research/rolling_profile_comparison.py",
+    "tests": "python3 -m unittest research.test_rolling_profile_comparison -v",
+    "run": "CHD_PY=/path/to/venv/bin/python; $CHD_PY -m research.rolling_profile_comparison --source-dir /path/to/three-receive-hour-cache --manifest /path/to/manifest.json --candles research/data/bitget-5m-2026-09-17_2026-11-01.csv.gz --output /tmp/profile-comparison.json",
+    "raw_files": "Session-local only; no raw Parquet is committed. A fresh bounded acquisition can use research.chd_sample with the three named receive-hour objects."
+  },
+  "limitations": [
+    "A public trade print is an observation; exact source volume agreement on this selected sample is not an independent completeness certificate.",
+    "A 15m bar reconstructed from three saved 5m bars is not a separately fetched native Bitget 15m response. Its OHLCV aggregate is explicitly a 5m-derived proxy for the dashboard's OHLCV approximation.",
+    "Binned trade quantity is not a complete trade-at-price ledger and bin resolution changes the profile.",
+    "One symbol, one hour, one date and ten overlapping windows cannot establish stable profile behavior or predictive value.",
+    "Current Bitget stock-perpetual reference mappings/sessions are not historical equity-market evidence.",
+    "No costs, returns, entry, fills, portfolio, performance or strategy efficacy are evaluated."
+  ]
+}
