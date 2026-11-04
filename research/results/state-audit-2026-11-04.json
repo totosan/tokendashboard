@@ -152,7 +152,9 @@
     "start_sessions": "Seven visible sessions; this continuation running, other project research sessions not running; no input/plan waits",
     "start_processes": "No research/download/test process observed before starting bounded work",
     "old_local_chd_environment": "Unavailable on this execution host; not lost work. Restored source samples by exact anonymous object requests into session storage.",
-    "evaluator_agent": "48f8a235-4ed3-490e-87c6-6ce1a865de47, actually launched for bounded G07 implementation",
+    "evaluator_agent": "48f8a235-4ed3-490e-87c6-6ce1a865de47 actually launched; delivered and idle, 34 new tests and exact development digest accepted",
+    "final_research_processes_observed": 0,
+    "final_visible_session_input_or_plan_waits": 0,
     "lost_agent_finding": "No evidence justifying Lost Repeat; current bounded processes/agent tracked separately from issue state"
   },
   "bounded_deliveries": [
@@ -195,6 +197,35 @@
     "count_unit": "Arm/side/symbol signal times horizon, not independent samples or trades",
     "unresolved_protocol_ambiguity": "Strictly after signal close prose conflicts with adjacent-candle entry formula; development follows entry_open = signal_open + bar_ms and discloses clock equality, no frozen amendment",
     "next_open_limitation": "Sample continuity open may be preceding trade; no executable post-signal entry proved"
+  },
+  "publication": {
+    "pr": "https://github.com/totosan/tokendashboard/pull/5",
+    "target_remote_branch": "revert-4-copilot/epic-intraday-einstiege-krypto-tradfi",
+    "data_delivery_commit": "b5b6f5864b074fa9631ba5ad3e035fa6bbd256a9",
+    "evaluator_and_criterion_delivery_commit": "48bb4f2bcea4ef472616a5cbe7f73c9e31c96a18",
+    "remote_delivery_head_verified_by": "git ls-remote and GitHub REST PR head",
+    "pr_body_refreshed": true,
+    "pr_body_concurrency": "Initial guarded edit refused without writing; merged complete live body and retried with supplied base 05c613c76cf3; success base 80322feadfb4",
+    "issue_comments": {
+      "3": "https://github.com/totosan/tokendashboard/issues/3#issuecomment-6625263162",
+      "7": "https://github.com/totosan/tokendashboard/issues/7#issuecomment-6625234599",
+      "8": "https://github.com/totosan/tokendashboard/issues/8#issuecomment-6625234954",
+      "11": "https://github.com/totosan/tokendashboard/issues/11#issuecomment-6625234719",
+      "12": "https://github.com/totosan/tokendashboard/issues/12#issuecomment-6625235518",
+      "13": "https://github.com/totosan/tokendashboard/issues/13#issuecomment-6625235284",
+      "14": "https://github.com/totosan/tokendashboard/issues/14#issuecomment-6625234609"
+    },
+    "live_issue_states_verified": {
+      "closed_done": [6, 11, 12, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+      "open_blocked": [7, 8, 9, 10, 13, 14],
+      "open_in_progress": [3],
+      "open_pending_separate_idea": [26],
+      "one_topic_and_one_state_label_per_applicable_issue": true
+    },
+    "github_submitted_approvals_observed": 0,
+    "reported_ci_checks_observed": 0,
+    "pr_draft_unmerged": true,
+    "epic_acceptance": "NOT_COMPLETE"
   },
   "remaining_priority": [
     {"id": "G04", "owner": 13, "status": "ready", "effort": "medium", "next": "Freeze a common past-only profile window/bin/VA/node/change comparison and baseline before an exploratory bounded run", "depends_on": [], "note": "New empirical open convention evidence does not establish full ledger coverage"},
