@@ -1,9 +1,9 @@
 {
-  "protocol_id": "issue-13-g04-common-rolling-profile-comparison-v2",
-  "supersedes_protocol_id": "issue-13-g04-common-rolling-profile-comparison-v1",
-  "supersession_reason": "Before any rolling comparison output was computed, clarified that trade observations must have been received before each feature cutoff to qualify as as-of inputs. Version 1 was frozen and committed but never executed.",
+  "protocol_id": "issue-13-g04-common-rolling-profile-comparison-v3",
+  "supersedes_protocol_id": "issue-13-g04-common-rolling-profile-comparison-v2",
+  "supersession_reason": "Before any rolling comparison output was computed, specified how a trade-derived close is evaluated when multiple trades share the final millisecond. Version 2 was frozen and committed but never executed.",
   "status": "frozen-before-computing-rolling-profile-comparison",
-  "frozen_at_utc": "2026-11-04T07:40:37Z",
+  "frozen_at_utc": "2026-11-04T07:41:40Z",
   "owner": "#13 (direct child of #3); backlog G04",
   "scope": {
     "question": "How closely does a dashboard-style OHLCV volume-spreading approximation reproduce a trade-price-bin profile on the same bounded windows?",
@@ -78,6 +78,7 @@
     "bins": 24,
     "edges": "Equal-width common range; bins are half-open [edge_i,edge_i+1), except final bin includes the maximum. A flat range is a degenerate window and is non-estimable.",
     "trade_profile": "Place each as-of-available observed trade's base quantity entirely in the bin containing its exact trade price. Validate all source numeric values and preserve decimal strings/Decimal arithmetic; do not round prices or quantities before binning.",
+    "trade_close_gate": "For the OHLC source-consistency gate, use the price at the greatest included trade_time only if every as-of trade at that millisecond has the same price. If tied maximum-time trades have different prices, report close as ambiguous and mark the window NOT_COMPARABLE; do not invent within-millisecond sequence from trade_id or receive order.",
     "candle_approximation": "Aggregate the three completed 5m candles into one 15m OHLCV candle: first 5m open, max high, min low, last close, sum base volume. Spread its base volume uniformly over its high-low price span by overlap with each of the same 24 common bins, matching dist/orderbook.js volumeProfile's range-weighting algorithm. If high=low, put the entire bar volume in the containing bin.",
     "volume_gate": "For shape comparison, require exact equality of observed trade base quantity and summed candle base_volume and equality of trade-vs-candle high/low/close for each window. If not exact, report the discrepancy and mark profile shape metrics NOT_COMPARABLE for that window; no normalization is used to conceal a coverage mismatch.",
     "profile_normalization": "For shape metrics only, divide each comparable profile's bins by its own total base quantity after the exact volume gate. Also preserve raw bin quantities and total volumes.",
