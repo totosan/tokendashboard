@@ -377,8 +377,8 @@
   ],
   "tracking_corrections": [
     "Completed task descriptions still said critic pending; reconciled without reopening delivered work",
-    "Parent#11/#12 queued comments predated completed#17/#18; add explicit current delivery and remaining acceptance",
-    "PR5 body stale122tests/f91d9c8 and no latestCHD budget implementation; update to138tests/current scope",
+    "Parent#11/#12 queued comments predated completed#17/#18; current delivery and remaining acceptance published to both",
+    "PR5 body was stale at audit start (122 tests/f91d9c8 and no latest CHD budget implementation); refreshed on 2026-11-04 to include 138 tests, bb21d18 and audit outcome",
     "Some closed story body checklists remain unchecked; saved acceptance comments are closure evidence, not proof of missing agents",
     "#22 frozen inference plan is conditional and failed later calibration; closed readiness delivery cannot authorize actual significance"
   ],
@@ -604,5 +604,20 @@
     "No bulk downloads, altered frozen protocols, new significance tests, production dashboard edits or long-running deployment",
     "Local retained raw CHD files checked in this environment; not redistributed or guaranteed restored on another machine",
     "Existing story acceptance retained; broad parents stay open unless own acceptance explicitly met"
-  ]
+  ],
+  "publication": {
+    "published_utc": "2026-11-04T06:56:38.321070+00:00",
+    "audit_commit": "8de00059d6ef114259bd6fd05a7ede6b6fb27ffe",
+    "pr": "https://github.com/totosan/tokendashboard/pull/5",
+    "issue_comments": {
+      "3": "https://github.com/totosan/tokendashboard/issues/3#issuecomment-6624683126",
+      "7": "https://github.com/totosan/tokendashboard/issues/7#issuecomment-6624683107",
+      "8": "https://github.com/totosan/tokendashboard/issues/8#issuecomment-6624683115",
+      "11": "https://github.com/totosan/tokendashboard/issues/11#issuecomment-6624683155",
+      "12": "https://github.com/totosan/tokendashboard/issues/12#issuecomment-6624683123",
+      "13": "https://github.com/totosan/tokendashboard/issues/13#issuecomment-6624683167",
+      "14": "https://github.com/totosan/tokendashboard/issues/14#issuecomment-6624683324"
+    },
+    "pr_body_refreshed": true
+  }
 }
