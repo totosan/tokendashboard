@@ -752,6 +752,18 @@ Teilreviews sind keine auf GitHub eingereichten Approvals, und es wurden keine
 CI-Checks gemeldet. Die bisherigen Budget-Implementierungen sind somit auf
 dem PR-Head, nicht im gemergten Default-Branch.
 
+### Wiederverwendbare Skills
+
+Für künftige Arbeiten liegen drei GitHub-Copilot-Skills unter `.github/skills/`:
+[`market-data-reliability`](.github/skills/market-data-reliability/SKILL.md)
+für API-/Zeit-/Replay-/Prozess- und Reproduzierbarkeitsfehler,
+[`crypto-perpetual-research`](.github/skills/crypto-perpetual-research/SKILL.md)
+für Marktdateninterpretation, Bias, Kosten und Inferenz, sowie
+[`research-epic-orchestration`](.github/skills/research-epic-orchestration/SKILL.md)
+für Agenten-, Issue-, Review- und Recovery-Koordination. Sie verallgemeinern
+die hier beobachteten Fehlerklassen, nicht die persönlichen Annahmen oder
+temporären lokalen Pfade dieses Projekts.
+
 ## Vorläufige Synthese und offene Schritte
 
 - Keine Produktivänderung und keine Erfolgsbehauptung aus dieser Recherche ableiten.
