@@ -1,9 +1,9 @@
 {
-  "protocol_id": "issue-13-g04-common-rolling-profile-comparison-v3",
-  "supersedes_protocol_id": "issue-13-g04-common-rolling-profile-comparison-v2",
-  "supersession_reason": "Before any rolling comparison output was computed, specified how a trade-derived close is evaluated when multiple trades share the final millisecond. Version 2 was frozen and committed but never executed.",
+  "protocol_id": "issue-13-g04-common-rolling-profile-comparison-v4",
+  "supersedes_protocol_id": "issue-13-g04-common-rolling-profile-comparison-v3",
+  "supersession_reason": "Before any rolling comparison output was computed, corrected the candle SHA-256 to match the committed source-snapshot records and verified local file. Version 3 was frozen and committed but its incorrect hash prevented execution.",
   "status": "frozen-before-computing-rolling-profile-comparison",
-  "frozen_at_utc": "2026-11-04T07:41:40Z",
+  "frozen_at_utc": "2026-11-04T07:45:26Z",
   "owner": "#13 (direct child of #3); backlog G04",
   "scope": {
     "question": "How closely does a dashboard-style OHLCV volume-spreading approximation reproduce a trade-price-bin profile on the same bounded windows?",
@@ -37,7 +37,7 @@
     "candle_source": {
       "provider": "Saved official Bitget 5m USDT-FUTURES candles",
       "path": "research/data/bitget-5m-2026-09-17_2026-11-01.csv.gz",
-      "sha256": "1364e80e62353c853f2bacb5ba5dba59e2f618ca72e80a1b1fb493bb8a57992f",
+      "sha256": "1364e80e62353c853f2bacb4ba5dba59e2f618ca72e80a1b1fb493bb8a57992f",
       "base_volume": "saved base_volume column (Bitget candle response field 6)",
       "quote_volume": "retained but not used to weight the profile",
       "coverage_status": "12 saved same-hour bars; source agreement for these bars is checked per rolling window"
