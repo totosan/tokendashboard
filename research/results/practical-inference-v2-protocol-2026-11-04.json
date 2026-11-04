@@ -1,0 +1,75 @@
+{
+  "assumptions": [
+    "Block sums are independent across blocks and symmetric about zero under the null boundary theta = 0; heavy skew or dependence across 4-day blocks violates this.",
+    "Calibration is at the null boundary theta = 0; strictly negative means are expected to be more conservative but are not simulated.",
+    "Only a 28-day fold is covered; other lengths need new calibration."
+  ],
+  "calibration_rules": {
+    "fail": "FAIL if any null scenario FWER Wilson lower bound exceeds .075, or power scenario any-rejection Wilson upper bound is below .30.",
+    "inconclusive": "Anything else (including a FWER upper bound above .075 without a lower bound above it, low power, or refusals > 5%).",
+    "interpretation": "A PASS is a synthetic size/power result for this exact v2 candidate on the declared generators only. It validates no market assumption and supports no efficacy claim. Power is for the declared alternative only.",
+    "intervals": "Two-sided 95% Wilson intervals for each null scenario's any-rejection rate (FWER) and for power; marginal per-cell rates reported as diagnostics.",
+    "pass": "PASS only if every null scenario has FWER Wilson upper bound <= .075, power Wilson lower bound >= .50, and every scenario has refusal rate <= 5%, and no runtime failure.",
+    "runs": "Exactly one run: 2000 independent panels for each of 7 scenarios, seeded per scenario from the frozen seed. No retry, reseed, or parameter change after seeing results.",
+    "runtime": "110s internal monotonic deadline; SIGTERM or exception persists RUNTIME_OR_EXECUTION_FAILURE with partial tallies; no rerun."
+  },
+  "config": {
+    "alpha": 0.05,
+    "block_days": 4,
+    "blocks": 7,
+    "confidence_z": 1.959963984540054,
+    "days_per_panel": 28,
+    "event_counts": "On an active cell-day, 2 + Bernoulli(0.5) events; counts are independent of outcomes.",
+    "hypotheses": 12,
+    "maximum_artifact_bytes": 8388608,
+    "maximum_runtime_seconds": 110,
+    "minimum_events_per_cell": 30,
+    "minimum_nonempty_days_per_cell": 10,
+    "panels_per_scenario": 2000,
+    "seed": 202611042215
+  },
+  "created_at_utc": "2026-11-04",
+  "family": [
+    "three_close_momentum|5m|btc_eth|long",
+    "three_close_momentum|5m|btc_eth|short",
+    "three_close_momentum|5m|alts|long",
+    "three_close_momentum|5m|alts|short",
+    "three_close_momentum|5m|stock_perps|long",
+    "three_close_momentum|5m|stock_perps|short",
+    "three_close_momentum|15m|btc_eth|long",
+    "three_close_momentum|15m|btc_eth|short",
+    "three_close_momentum|15m|alts|long",
+    "three_close_momentum|15m|alts|short",
+    "three_close_momentum|15m|stock_perps|long",
+    "three_close_momentum|15m|stock_perps|short"
+  ],
+  "family_choice": {
+    "justification": "momentum_rvol_1_5, momentum_1h_ema20_context and momentum_4h_ema20_context are filtered subsets of three_close_momentum, so testing the base arm covers the shared signal without multiplying near-duplicate hypotheses; the remaining arms are different signal definitions and stay in the 132 exploratory family. Choice made from the protocol text only, with no outcome data.",
+    "relation_to_132": "Strict subset. The 132 family and its Holm plan are unchanged; v2 is a separate narrowed candidate and does not retroactively relabel any inspected data.",
+    "rule": "Structural, performance-blind: the single base arm three_close_momentum crossed with every frozen timeframe x group x side (1 x 2 x 3 x 2 = 12 of the 132 frozen hypotheses)."
+  },
+  "protocol_id": "issue-22-practical-inference-candidate-v2-narrowed",
+  "scope": "Synthetic calibration of a narrowed 12-hypothesis day-block sign-flip max-T candidate. No market data, no efficacy claim, no change to walkforward-protocol.json or the v1 artifacts.",
+  "source_hashes": {
+    "research/results/practical-inference-protocol-2026-11-04.json": "8f190d090c915d1acf8861b9bdb157b3f222820783240cc93fe23b5d41f7d0a8",
+    "research/results/walkforward-protocol.json": "913cbac63b6c3620dad0f9ba9be51647773707ad48a8e923e55d3869b3a8eba2"
+  },
+  "statistic": {
+    "blocks": "Seven fixed non-overlapping contiguous 4-day blocks (28 = 7 x 4). The frozen walk-forward plan names 5-day blocks for resampling; 4 is used here only so blocks tile the 28-day fold exactly and exact enumeration is possible. This is a declared difference.",
+    "cell_statistic": "B[b][h] = sum of S over block b. T_h = sum_b B[b][h] / sqrt(sum_b B[b][h]^2), a self-normalised block-sum statistic for H0: block sums symmetric about 0 (theta <= 0).",
+    "daily_panel": "28 UTC calendar rows x 12 columns of event-outcome sums S and event counts C; empty days remain.",
+    "eligibility": "Every hypothesis needs >= 30 events, >= 10 nonempty days and positive sum of squared block sums; otherwise the whole panel is refused (counted as no rejection, reported separately).",
+    "multiplicity": "Single-step max-T: adjusted p_h = #{sign vectors with max_j T*_j >= T_h} / 128. Reject h if adjusted p_h <= .05 (at most 6 of 128 vectors).",
+    "reference_distribution": "Exact enumeration of all 2^7 = 128 block sign vectors, one vector shared by all 12 hypotheses; no Monte Carlo resampling error."
+  },
+  "status": "FROZEN_BEFORE_ANY_V2_CALIBRATION",
+  "synthetic_cases": {
+    "iid_heteroskedastic": "Gaussian noise (loadings common/group/noise 0/0/1) with lognormal day volatility.",
+    "long_memory_serial": "Common AR(1) rho .90 and group AR(1) rho .80, loadings .70/.50/.50: dependence extending across block boundaries.",
+    "power_three_of_twelve": "iid_heteroskedastic noise plus +0.5 per-event mean on cells [0, 4, 8] (one false null in 3 of 12 hypotheses; noise sd about 1).",
+    "serial_heteroskedastic": "AR(1) common rho .65 and group AR(1) rho .45, loadings .55/.35/.75.",
+    "shared_cross_cell_heteroskedastic": "iid common day factor, loadings .90/.20/.45.",
+    "skewed_mean_zero": "Per-event noise Exp(1)-1 (mean 0, skewed) with day volatility plus common gaussian loading .5.",
+    "sparse_days": "72% active days, 90% active cells per day, iid noise; no forced empty cell."
+  }
+}
