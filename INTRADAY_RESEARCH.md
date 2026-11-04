@@ -910,11 +910,11 @@ keine parallelen Doppelaufträge erzeugt.
 | G15 / später, ausdrücklich zurückgestellt | #26 | Erst bei Aktivierung Host/Budget wählen; Rotation, Persistenz, Rate-Limits, Neustart/SIGTERM/Disk-full, ARM64-Dauertest und optionales WebSocket-Replay entwickeln. |
 | G16 / separate Produktentscheidung | #3/#26 | Integriertes Analyse-UI und Journal auch für verworfene/nicht gehandelte Signale sind nicht konkret beauftragte Lieferungen. Erst Produktumfang entscheiden, nicht als bereits vorhandene Funktion darstellen. |
 
-**Empfohlener erster Implementierungsschritt:** G01, anschließend G03/G06.
-Das baut auf dem kostenlosen vorhandenen Pfad auf, benötigt keinen
-Hardwarekauf und verringert konkrete Datenunsicherheit. G07 kann unabhängig
-mit vorhandenen/synthetischen Fixtures entwickelt werden; G08 darf nicht
-durch ein erfolgreiches Test-Suite-Ergebnis übersprungen werden.
+**Stand dieses damaligen Abgleichs:** G01, G03/G06 und G07 waren die
+empfohlenen bzw. unabhängigen nächsten Lieferungen. Diese begrenzten Arbeiten
+sind inzwischen umgesetzt; G04 ist unter #13 ebenfalls abgeschlossen. Die
+nachstehenden G04-Ergebnisse ersetzen die damalige Empfehlung, nicht aber die
+weiteren Daten-, Inferenz- oder Epic-Abnahmekriterien.
 
 **Abgleichbelege:** Die Research-Suite besteht erneut mit 138 Tests. Die
 Readiness-Prüfung mit tatsächlichen vorhandenen Inputs liefert erwartungsgemäß
@@ -938,6 +938,54 @@ temporären lokalen Pfade dieses Projekts.
 
 Der Startprompt und die präzisen Grenzen für die nächste frische Epic-Sitzung
 stehen in [`EPIC-3-SESSION-HANDOFF.md`](EPIC-3-SESSION-HANDOFF.md).
+
+## G04: bounded rolling profile comparison (2026-11-04)
+
+Before computing comparison outputs, protocol v4
+([`profile-comparison-protocol-2026-11-04-v4.json`](research/results/profile-comparison-protocol-2026-11-04-v4.json))
+froze the half-open 15-minute window, 24 shared bins, base-quantity weighting,
+70% value-area expansion, strict HVN/LVN candidates, profile-change measures,
+and an as-of trade cutoff requiring collector `received_time < window end`.
+Versions 1–3 were superseded before execution. The comparison is reproducible
+with [`rolling_profile_comparison.py`](research/rolling_profile_comparison.py)
+and its [machine-readable result](research/results/rolling-profile-comparison-2026-11-04.json);
+the raw Parquet inputs and pinned PyArrow 26.0.1 environment remain local.
+
+The bounded sample is Bitget USDT-FUTURES AAPLUSDT, 2026-09-17 14:00–15:00 UTC:
+three observed third-party receive-hour objects contain 7,399 rows, with no
+duplicate IDs, conflicting IDs, or `event_time`/`trade_time` mismatches. The
+12 saved 5m bars have complete cadence. Every target-window event came from
+the 14:00 receive-hour object; no late/unavailable event-time trade was seen
+at any feature cutoff. These observations are not an independently complete
+exchange ledger, and historical candle publication time is unknown.
+
+Of ten planned boundaries (14:15 through 15:00 UTC), eight passed the frozen
+source-consistency gate; two remain explicitly non-comparable because distinct
+prices share the greatest trade timestamp, making a trade-derived close
+ambiguous at millisecond resolution. In the eight comparable windows, trade
+and candle-derived high, low, close, and base volume match exactly. The
+trade-at-price and candle-range-spread profiles nevertheless differ: exact POC
+bin agreement is 0/8, total-variation distance ranges 0.330–0.574, and
+70%-value-area interval IoU ranges 0.333–0.824. The single reconstructed 15m
+candle spans the common range, so uniformly spreading its volume yields 24
+equal bins in every comparable window; consequently its Pearson correlation
+and HVN/LVN node scores are undefined, not zero-quality estimates. Seven of
+nine adjacent transitions are comparable, with same-sign/zero POC-move
+agreement in 5/7. The candle profile's normalized bin turnover is zero by
+construction; the trade profile's is 0.250–0.823.
+
+The seven focused tests and all 194 research tests pass. Two offline runs
+reproduce the same payload digest
+`73d22f893b5e73ad50c9c9a6eec1b82115ce349a38bba846a368fefb8d496af0`;
+the generated timestamp is deliberately excluded from that digest. The
+protocol, result JSON, and code record the inputs and replay command.
+
+This is an exploratory, single-symbol/hour approximation-fidelity diagnostic,
+not evidence of predictive utility, a validated profile convention, a complete
+trade ledger, or live candle availability. No return outcomes, costs, fills,
+portfolio effects, or significance tests were evaluated. #13 remains
+open/blocked for broader history/source coverage and the rest of its criteria;
+this closes only G04's frozen, bounded comparison deliverable.
 
 ## Vorläufige Synthese und offene Schritte
 

@@ -112,9 +112,9 @@
       "issue": 13,
       "status": "blocked",
       "criteria": [
-        {"criterion": "POC/VA/HVN/LVN/profile-change/RVOL definitions and assumptions", "status": "partially satisfied", "source": "#13 original report; trade_profile_window.py; budget_chd_study.py", "demonstrated": "Descriptive 20-bin profile/VA and separate RVOL arm; rolling causal profile/HVN/LVN rule/evaluation incomplete", "next": "G04 prospectively fix past-only windows/bin/VA/node/change rules before outcomes"},
-        {"criterion": "Candle approximation versus exact trade aggregation and source status", "status": "satisfied", "source": "dist/orderbook.js inventory; candle-open-diagnostic-2026-11-04.json", "demonstrated": "12 preserved open differences explained by sampled continuity convention; high/low/close/volumes match; adjacent receive hours checked", "next": "Do not universalize convention or certify full ledger"},
-        {"criterion": "Sources/history/coverage/cost/effort and baseline tests", "status": "partially satisfied", "source": "#13 report; chd_sample.py; bounded acquisition manifest; G04", "demonstrated": "Portable bounded source path and proposed comparison; no predictive rolling profile comparison", "next": "G04 common past-only window and units, then bounded multi-window coverage"},
+        {"criterion": "POC/VA/HVN/LVN/profile-change/RVOL definitions and assumptions", "status": "partially satisfied", "source": "#13 original report; profile-comparison-protocol-2026-11-04-v4.json; rolling_profile_comparison.py; rolling-profile-comparison-2026-11-04.json", "demonstrated": "Frozen as-of 24-bin POC/VA/node/change rules and exploratory comparison; candle estimator is uniform in this single-bar window, so its Pearson and node scores are undefined; RVOL remains separate", "next": "Broaden profile history and availability evidence; no efficacy inferred"},
+        {"criterion": "Candle approximation versus exact trade aggregation and source status", "status": "partially satisfied", "source": "dist/orderbook.js inventory; candle-open-diagnostic-2026-11-04.json; rolling-profile-comparison-2026-11-04.json", "demonstrated": "G01 preserved 12 open differences; G04 found exact high/low/close/base-volume on 8 comparable windows and two millisecond-close ambiguities; no full-ledger certification", "next": "Do not universalize convention or certify full ledger"},
+        {"criterion": "Sources/history/coverage/cost/effort and baseline tests", "status": "partially satisfied", "source": "#13 report; chd_sample.py; bounded acquisition manifest; profile protocol v4/results", "demonstrated": "Pinned bounded source path, explicit one-hour/one-symbol coverage, exact profile baseline and seven targeted tests; no costs or predictive evaluation", "next": "Broader multi-symbol/day profile coverage and candle availability evidence"},
         {"criterion": "Limits and next evidence requirements without performance/production claims", "status": "satisfied", "source": "INTRADAY_RESEARCH.md; current diagnostic limitations", "demonstrated": "Third-party hourly observations are not complete ledger or fills", "next": "Keep broader issue open"}
       ]
     },
@@ -161,6 +161,7 @@
     {"id": "G01", "owner": 13, "status": "satisfied", "evidence": "candle-open-diagnostic-2026-11-04.json", "demonstrated": "12/12 continuity opens, 0/12 first-trade opens, unchanged central hash; adjacent receive-hour check found zero additional target events", "not_demonstrated": "Universal exchange convention, arbitrarily late arrivals, ledger completeness or executable next-open price"},
     {"id": "G02", "owner": 8, "status": "satisfied", "evidence": "criterion_map for #11/#12/#14", "demonstrated": "#11/#12 own research deliverables accepted; #14 remaining scanner parity/1m input explicitly separated", "not_demonstrated": "Fresh efficacy or whole-epic completion"},
     {"id": "G03", "owner": 7, "status": "satisfied", "evidence": "chd_sample.py, requirements-chd.txt, chd-bounded-acquisition-2026-11-04.json and chd-clean-cache-smoke-2026-11-04.json", "demonstrated": "Fresh isolated parser environment, five exact source objects/10 HTTP transactions/5682869 bytes, separate clean-cache smoke with original hash", "not_demonstrated": "Raw data redistribution or guaranteed future provider availability"},
+    {"id": "G04", "owner": 13, "status": "satisfied", "evidence": "profile-comparison-protocol-2026-11-04-v4.json; rolling_profile_comparison.py; rolling-profile-comparison-2026-11-04.json", "demonstrated": "Frozen as-of 15m/24-bin comparison; 10 planned windows, 8 source-comparable, 2 excluded for ambiguous millisecond close; 0/8 exact POC bins and explicit VA/node/change diagnostics", "not_demonstrated": "Full ledger, native-candle live availability, broader symbols/days, predictive utility, costs or significance"},
     {"id": "G06-bounded", "owner": 7, "status": "satisfied", "evidence": "chd_book_chain.py and chd-cross-hour-2026-11-04.json", "demonstrated": "Hash-bound checkpoint import, 39164/39349 messages and exact full-state adjacent-hour snapshot handover", "not_demonstrated": "Multi-symbol/day coverage, September starting state or independent checksum"},
     {"id": "G07-development", "owner": 8, "status": "satisfied", "evidence": "walkforward_eval.py, test_walkforward_eval.py and walkforward-evaluator-development.json", "demonstrated": "All 11 frozen arms, entry-folds/warmup/purge/embargo, horizons/floors/empty cells/cost scenarios; exact 1584-cell inspected development digest and synthetic fixtures", "not_demonstrated": "Reserved future evaluation, executable fills, valid market inference or whole-epic acceptance"}
   ],
@@ -168,18 +169,20 @@
     "baseline_research_tests": {"count": 138, "status": "PASS"},
     "targeted_data_tests": {"count": 26, "status": "PASS"},
     "new_evaluator_tests": {"count": 34, "status": "PASS"},
-    "full_research_tests": {"count": 187, "status": "PASS", "command": "timeout 120s python3 -m unittest discover -s research -p 'test_*.py' -q"},
+    "profile_comparison_tests": {"count": 7, "status": "PASS", "command": "python3 -m unittest research.test_rolling_profile_comparison -v"},
+    "full_research_tests": {"count": 194, "status": "PASS", "command": "python3 -m unittest discover -s research -p 'test_*.py' -q"},
     "independent_bounded_critic": {
       "started": true,
       "completed": true,
       "name": "continuation-critic",
       "findings": "No significant actionable issues",
       "targeted_tests": 49,
-      "checked": "Current continuation code/evidence, exact 1584-cell evaluator digest, frozen hashes and preserved candle/book evidence",
+      "checked": "Earlier continuation/G07 code and evidence, exact 1584-cell evaluator digest, frozen hashes and preserved candle/book evidence; G04 files added after that critic completed",
       "github_submitted_review": false,
       "whole_epic_acceptance": false
     },
-    "exact_replays": ["candle-open-diagnostic-2026-11-04.json", "chd-cross-hour-2026-11-04.json", "walkforward-evaluator-development.json"],
+    "exact_replays": ["candle-open-diagnostic-2026-11-04.json", "chd-cross-hour-2026-11-04.json", "walkforward-evaluator-development.json", "rolling-profile-comparison-2026-11-04.json"],
+    "profile_comparison": {"protocol_id": "issue-13-g04-common-rolling-profile-comparison-v4", "status": "DESCRIPTIVE_APPROXIMATION_COMPARISON", "windows": {"planned": 10, "comparable": 8, "not_comparable": 2}, "transitions": {"planned": 9, "comparable": 7, "poc_move_sign_agreement": "5/7"}, "trade_source_rows": 7399, "unique_trade_ids": 7399, "identical_duplicates": 0, "conflicting_ids": 0, "event_time_trade_time_mismatches": 0, "target_window_late_trades": 0, "receive_hour_partitions_with_target_rows": ["14"], "target_5m_bars": 12, "exact_poc_matches": "0/8", "normalized_profile_tvd_range": [0.3302, 0.5737], "value_area_iou_range": [0.3333, 0.8235], "pearson_defined_windows": 0, "candle_hvn_lvn_candidates": 0, "profile_payload_sha256": "73d22f893b5e73ad50c9c9a6eec1b82115ce349a38bba846a368fefb8d496af0", "report_file_sha256": "bdf5f0833cef6525924d5a136eb616801643cb0d9e532c0eb54850eec4ba19b7", "evidence_tier": "bounded exploratory profile-method comparison; not prediction/performance or full-ledger evidence"},
     "readiness": "NOT_READY",
     "empirical_validation": "NOT_RUN",
     "readiness_exit": 2,
@@ -228,7 +231,6 @@
     "epic_acceptance": "NOT_COMPLETE"
   },
   "remaining_priority": [
-    {"id": "G04", "owner": 13, "status": "ready", "effort": "medium", "next": "Freeze a common past-only profile window/bin/VA/node/change comparison and baseline before an exploratory bounded run", "depends_on": [], "note": "New empirical open convention evidence does not establish full ledger coverage"},
     {"id": "G05", "owner": 14, "related_owner": 9, "status": "blocked", "effort": "medium", "next": "Exact counter-candle/first-new-high parity tests plus appropriate bounded 1m data; separately version exploratory study", "depends_on": ["1m source/coverage and exploratory rule specification"]},
     {"id": "G06", "owner": 7, "status": "partially satisfied", "effort": "medium", "next": "Multi-symbol/day coverage after two adjacent-hour checkpoint imports; retain historical September missing start-state gate", "depends_on": ["declared next sample matrix/budget"]},
     {"id": "G08", "owner": 8, "status": "blocked", "effort": "large", "next": "Specify a practical estimator/null for unknown dependence and sparse 132-cell family, then independently calibrate", "depends_on": ["method specification"]},
