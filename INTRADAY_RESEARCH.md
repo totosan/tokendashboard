@@ -2,7 +2,13 @@
 
 **Status: offen, nicht entscheidungsreif.** Dieser Bericht dokumentiert eine Bestandsaufnahme und ein überprüfbares Forschungsdesign. Er belegt weder profitable Signale noch eine Trefferquote. Es wurden keine produktiven Dashboard-Regeln geändert und keine Orders ausgelöst. Die Akzeptanzkriterien von [Issue #3](https://github.com/totosan/tokendashboard/issues/3) sind nicht erfüllt.
 
-## Was in dieser Sitzung tatsächlich geprüft wurde
+**Aktueller Abgleich: 04.11.2026.** Maßgeblich sind die
+[Fortsetzung unten](#fortsetzung-am-04112026-kriterien-daten-und-evaluator)
+und [`state-audit-2026-11-04.json`](research/results/state-audit-2026-11-04.json).
+Ältere Fortschreibungen bleiben als historische Evidenz erhalten, nicht als
+aktuelle Warteschlange.
+
+## Historischer Ausgangsstand vom 01.11.2026
 
 - Der aktuelle Default-Branch und die Implementierungen, Hilfetexte und TradingView-Dateien wurden geprüft. Die drei eigenständigen Pine-Strategien aus Issue #1 sind vorhanden; ihre Regeln sind Backtest-Annahmen, keine Wirksamkeitsbelege.
 - `node --check` bestand für alle acht `dist/*.js`-Dateien. Das Repository hat keine vorhandene Test-/Build-Konfiguration oder Backtest-Datensätze; die inzwischen 21 Unit-Tests decken Signalsyntax, HTF-Zeitkausalität, Lückentrennung, Splitzuordnung und Bootstrap-Fälle ab. Sie prüfen keine realen Signaleffekte.
@@ -230,10 +236,10 @@ Alle Quellen belegen allenfalls Befunde in den jeweils untersuchten Daten und ni
 | Nummer | Arbeitspaket / direktes Child-Issue | Topic / tatsächlicher Status |
 |---|---|---|
 | 1.1 | [#6 Bestandsaufnahme](https://github.com/totosan/tokendashboard/issues/6) | `topic:inventory` · `state:done` · Bericht mit Codezeilen/Abgrenzung eingereicht; geschlossen |
-| 1.2 | [#14 Breakout, Konsolidierung und Pullback](https://github.com/totosan/tokendashboard/issues/14) | `topic:breakout` · `state:review` · fester Box-/Retest-Kandidat plus Treppen-Ausbruch getestet; keine Nettowirksamkeitsbehauptung |
+| 1.2 | [#14 Breakout, Konsolidierung und Pullback](https://github.com/totosan/tokendashboard/issues/14) | `topic:breakout` · `state:blocked` · Box-/Treppen-Diagnostik geliefert; Gegenkerzen-Parität und passende 1m-Daten fehlen, kein laufender Review |
 | 1.3 | [#13 Volumen und Profile](https://github.com/totosan/tokendashboard/issues/13) | `topic:volume-profile` · `state:blocked` · Trade-Minuten-/Stundenprofile und 5m-Candle-Abgleich vorhanden; Open-Differenzen, breitere Ledger-Abdeckung und Validierung offen |
-| 1.4 | [#12 Marktregime und MTF](https://github.com/totosan/tokendashboard/issues/12) | `topic:regime-mtf` · `state:review` · UTC-HTF-Filter und kausale Regime/Breakoutdiagnostik explorativ getestet, #18 begrenzt akzeptiert; frische Validierung offen |
-| 1.5 | [#11 Trend, VWAP und Mean Reversion](https://github.com/totosan/tokendashboard/issues/11) | `topic:indicators` · `state:review` · EMA/VWAP sowie Tageslevels/RSI/Bollinger explorativ getestet, #17 begrenzt akzeptiert; frische Validierung offen |
+| 1.4 | [#12 Marktregime und MTF](https://github.com/totosan/tokendashboard/issues/12) | `topic:regime-mtf` · `state:done` · eigene Regel-/Testplan-/Statuslieferung akzeptiert; frische Wirksamkeitsvalidierung bleibt unter #8 offen |
+| 1.5 | [#11 Trend, VWAP und Mean Reversion](https://github.com/totosan/tokendashboard/issues/11) | `topic:indicators` · `state:done` · eigene Hypothesen-/Vergleichs-/Quellenlieferung akzeptiert; keine Wirksamkeitsfreigabe, #8 bleibt offen |
 | 1.6 | [#10 Krypto-Universum](https://github.com/totosan/tokendashboard/issues/10) | `topic:crypto-universe` · `state:blocked` · geprüfte Bitget-Endpunkte lieferten kein vollständiges PIT-Listing-/Delistinguniversum; Pilotpanel ist current-survivor |
 | 1.7 | [#9 TradFi-Übertragbarkeit](https://github.com/totosan/tokendashboard/issues/9) | `topic:tradfi` · `state:blocked` · vier aktuelle Issuer/ISIN-Mappings und AAPL-Fundingproben; Underlying-Kalender/Mapping für Sessiontest fehlt |
 | 1.8 | [#7 Daten, Ausführung und Risiko](https://github.com/totosan/tokendashboard/issues/7) | `topic:execution-risk` · `state:blocked` · CHD-Trades, separater aktueller sequenzkonsistenter Book-Pilot und öffentlicher REST-Sampler vorhanden; ursprüngliche historische Ausführungsabdeckung bleibt offen |
@@ -675,10 +681,176 @@ Ein unabhängiger Code-Review des Budget-Pfads fand keine belastbaren
 Implementierungsfehler; 16 gezielte Tests und der aktuelle Book-Replay wurden
 dabei geprüft. Die vollständige Research-Suite besteht mit 138 Tests.
 
-## Vollständiger Zustands- und Lückenabgleich vom 2026-11-03
+## Fortsetzung am 04.11.2026: Kriterien, Daten und Evaluator
 
-Maßgeblich für den jetzigen Stand ist dieser Abgleich, nicht frühere
-Warteschlangen-Kommentare. Die maschinenlesbare Bestandsaufnahme
+Start-HEAD, Remote-HEAD von PR #5 und Merge-Base waren identisch:
+`8070d19ce3a09d8f97ef1e898e5928ece6a9c104`; die Arbeitskopie war sauber.
+Alle neun direkten nativen Kinder, #15–#25 und die separate Idee #26 wurden
+gegen eigene Lieferkriterien, Akzeptanzkommentare und Artefakte abgeglichen.
+Die neue [Kriterienmatrix](research/results/state-audit-2026-11-04.json)
+trennt nachgewiesene Lieferung, Teilabdeckung und konkrete Voraussetzungen.
+Das vorherige Audit bleibt unverändert erhalten.
+
+**Elternakzeptanz G02:** #11 verlangt erklärbare Regeln, Fehlerbilder,
+Baselines/Kosten, eingeordnete Quellen und tatsächlichen Teststatus, nicht
+einen positiven oder frischen Wirksamkeitsnachweis. Diese Lieferungen sind
+mit EMA/VWAP und #17 vollständig vorhanden. Ebenso sind die eigenen
+kausalen Definitionen, MTF-/Walk-forward-Pläne, Verzögerungs-/Abdeckungsgrenzen
+und Teststatus von #12 durch #18 und die HTF-Vergleiche erfüllt. Beide
+Fachpakete werden für diese eigenen Kriterien akzeptiert; frische Validierung
+bleibt unter #8 offen. #14 bleibt dagegen unvollständig: die Auswertung
+deckt Treppen/Box ab, nicht die vollständige Gegenkerzen-Erkennung aus
+`dist/pattern.js`. Der klare Daten-/Paritätsblocker ersetzt dort eine
+unbestimmte Review-Warteschlange. #6 und #15–#25 bleiben akzeptiert; #26
+bleibt außerhalb der Epic-Hierarchie.
+
+**G01: Open-Differenz eingegrenzt und reproduziert.**
+[`candle-open-diagnostic-2026-11-04.json`](research/results/candle-open-diagnostic-2026-11-04.json)
+verwendet unveränderte offizielle 5m-Candles und neu abgerufene CHD-
+Empfangsstunden 13/14/15 UTC vom 17.09.2026. Die mittlere Datei hat exakt
+den ursprünglichen SHA-256 `8234c5e7…f0138`. Für alle zwölf Buckets gilt:
+gespeichertes Open = vorheriger offizieller Close = letzter beobachteter
+Trade **vor** der Bucketgrenze; keines entspricht dem ersten Trade
+**innerhalb** des Buckets. High/Low/Close und beide Volumenfelder bleiben
+exakt gleich. In den angrenzenden Empfangsstunden wurden keine zusätzlichen
+Event-Time-Trades für die Zielstunde gefunden; bei ihren 1.720 Trades sind
+`event_time` und `trade_time` identisch, die beobachtete Empfangsverzögerung
+liegt bei rund 117–392 ms.
+
+Das ist konkrete Evidenz für ein fortgeschriebenes Open in dieser Stichprobe,
+keine universell dokumentierte Bitget-Konvention oder Ledger-Zertifizierung.
+Die geprüften aktuellen Bitget-Detailseiten lieferten Weiterleitungen,
+404 bzw. einen Dokumentationsrahmen, keine belastbare Definition der
+Open-Bildung. Daher wird die empirische Beobachtung nicht zur offiziellen
+Garantie aufgewertet. Rohwerte und frühere Differenzberichte bleiben erhalten.
+Insbesondere belegt ein solches nächstes Candle-Open **keinen erst nach dem
+Signal ausführbaren Preis**. Das eingefrorene Protokoll wird nicht
+rückwirkend geändert; seine Open-Renditen bleiben hypothetische
+OHLCV-Ereignisdeskriptoren.
+
+**G03 und begrenztes G06:** Die alte lokale CHD-Umgebung existierte auf
+diesem Ausführungshost nicht. Der neue GET-only-Sampler
+`research/chd_sample.py` nutzt den aktuellen offiziellen
+[CHD-OpenAPI-Vertrag](https://www.cryptohftdata.com/.well-known/openapi.json),
+nicht einen geratenen SDK-Aufruf. Eine frische isolierte Umgebung mit
+`research/requirements-chd.txt` (`pyarrow==26.0.1`) genügt; SDK, Anmeldung
+und Schlüssel sind nicht erforderlich. Neue Cacheverzeichnisse,
+exakte Objektnamen/Hashes, HTTP-Status, Byte-/Zeilen-/Schema-/Clock-Metadaten
+und ein vor dem Request gespeichertes In-progress-Manifest machen fehlende,
+leere, fehlerhafte und unterbrochene Proben unterscheidbar. Grenzen:
+sechs Objekte, zwölf HTTP-Transaktionen inklusive Redirects, 20 MiB je Objekt,
+40 MiB insgesamt, zwei Millionen Zeilen je Objekt, 10 s Socket-Timeout,
+120 s geprüfter Download-Zeitbudgetrahmen, keine Retries; bei 429 wird
+gestoppt und `Retry-After` gespeichert. Die CLI ist auf das bereits
+untersuchte Entwicklungsintervall begrenzt, nicht auf reservierte Outcomes.
+
+Die fünf tatsächlich erworbenen Objekte benötigten zehn HTTP-Transaktionen
+und 5.682.869 Bodybytes:
+[`chd-bounded-acquisition-2026-11-04.json`](research/data/chd-bounded-acquisition-2026-11-04.json).
+Ein zusätzlicher frischer Cache-Smoke-Test erwarb dasselbe ursprüngliche
+Tradeobjekt mit gleichem Hash:
+[`chd-clean-cache-smoke-2026-11-04.json`](research/data/chd-clean-cache-smoke-2026-11-04.json).
+Parquet-Rohdateien und venv bleiben lokal; portable sind Code, Manifest,
+Versionen und Wiederbeschaffungsweg, nicht eine Garantie künftiger
+Provider-Verfügbarkeit.
+
+`research/chd_book_chain.py` importiert jetzt schema-/symbol-/quellhashgebundene
+Checkpoints und prüft monotone Empfangszeit sowie PSEQ oder identische
+Sequenz **und vollständigen Levelzustand** am Snapshot-Handover. Ein bloßer
+Snapshot-Reset gilt nicht als kontinuierliche Übergabe. Die zwei separaten
+AAPL-Book-Stunden vom 03.11.2026, 14/15 UTC, ergeben 39.164 bzw. 39.349
+Nachrichten und einen exakt identischen Grenz-Snapshot ohne beobachtete
+Kettenbrüche:
+[`chd-cross-hour-2026-11-04.json`](research/results/chd-cross-hour-2026-11-04.json).
+Das ist interne Zwei-Dateien-Konsistenz, keine unabhängige Exchange-Checksum,
+Mehrsymbol-/Mehrtageabdeckung oder Heilung des September-Startzustands.
+G06 bleibt für diese breitere Abdeckung offen.
+
+**G07 als Entwicklungs-Evaluator geliefert:** `research/walkforward_eval.py`
+ist vom Readiness-Checker getrennt und verwendet unveränderte Implementierungen
+aller elf eingefrorenen Arme. Er prüft Entry-Fold-Zuordnung, 96h-Warmup und
+Neustart nach Lücken, Purge/Embargo, 1/2/3-Bar-Outcomes samt MFE/MAE,
+vollständige leere Zellen und die Ereignis-/Datums-/Symbol-Mindestzahlen.
+Unterhalb der Mindestzahlen bleiben Schätzer `null`; 12/22/37 bp werden
+einmal je hypothetischem Roundtrip abgezogen. Es gibt keine p-Werte,
+Konfidenzintervalle oder Freigabe der gescheiterten Inferenz.
+
+Die CLI akzeptiert bewusst nur synthetische oder exakt gehashte, bereits
+inspizierte Inputs. Ihre drei ausdrücklich **nicht reservierten**
+Entwicklungsfolds sind 21.09.–05.10., 05.10.–19.10. und 19.10.–01.11.2026
+(Enden exklusiv); sie ersetzen keinen künftigen Fold. Der kleine
+[Entwicklungs-Digest](research/results/walkforward-evaluator-development.json)
+mit 1.584 vollständigen Ergebniszellen wurde exakt reproduziert.
+555.732 bzw. 195.645 abgeschlossene Labels zählen Signal-Arm/Richtung/Symbol
+**mal Horizont** über 5m bzw. 15m, nicht unabhängige Trades oder
+Stichprobengrößen. Ein vollständiger Ergebnisexport ist optional; der
+committete Digest enthält dessen Zellenhash und Dispositionszähler.
+
+Eine Protokoll-Unklarheit bleibt ausdrücklich dokumentiert: „strictly after
+signal close“ widerspricht der angegebenen Formel, nach der Signal-Close
+und nächstes Bar-Open denselben Grenzzeitpunkt haben. Der Entwicklungscode
+verwendet die explizite Formel `entry = signal_open + bar_ms`, nie das Open
+der Signalkerze. Keine Protokolländerung oder Behauptung eines tatsächlich
+späteren Fills wird daraus abgeleitet.
+
+### Reproduktion der Datenfortsetzung
+
+Neue lokale Pfade einsetzen; vorhandene Ausgaben werden nicht überschrieben.
+Die erste Abfrage bleibt auf fünf benannte Objekte begrenzt. Keine
+Stunden-/Tageshelper verwenden, die unbemerkt ganze Tage herunterladen.
+
+```sh
+python3 -m venv /tmp/epic3-chd-venv
+/tmp/epic3-chd-venv/bin/pip install -r research/requirements-chd.txt
+timeout 135s /tmp/epic3-chd-venv/bin/python -m research.chd_sample \
+  --directory /tmp/epic3-chd-cache \
+  --object bitget_futures/2026-09-17/13/AAPLUSDT_trades.parquet \
+  --object bitget_futures/2026-09-17/14/AAPLUSDT_trades.parquet \
+  --object bitget_futures/2026-09-17/15/AAPLUSDT_trades.parquet \
+  --object bitget_futures/2026-11-03/14/AAPLUSDT_orderbook.parquet \
+  --object bitget_futures/2026-11-03/15/AAPLUSDT_orderbook.parquet
+timeout 90s /tmp/epic3-chd-venv/bin/python -m research.candle_open_diagnostic \
+  --directory /tmp/epic3-chd-cache \
+  --candles research/data/bitget-5m-2026-09-17_2026-11-01.csv.gz \
+  --output /tmp/epic3-open-diagnostic.json
+timeout 120s /tmp/epic3-chd-venv/bin/python -m research.chd_book_chain \
+  --directory /tmp/epic3-chd-cache --checkpoints /tmp/epic3-checkpoints \
+  --output /tmp/epic3-book-chain.json
+python3 -m unittest research.test_chd_sample research.test_candle_open_diagnostic \
+  research.test_chd_book_chain research.test_budget_chd_study -q
+timeout 120s python3 -m research.walkforward_eval --source synthetic \
+  --output /tmp/epic3-synthetic-cells.json
+timeout 120s python3 -m research.walkforward_eval --source inspected \
+  --evidence-output /tmp/epic3-evaluator-digest.json
+timeout 120s python3 -m unittest discover -s research -p 'test_*.py' -q
+```
+
+**Prüfstatus:** 187 Research-Tests bestanden, davon 26 gezielte
+Daten-/Replaytests und 34 neue Evaluatortests. Der tatsächlich gestartete
+unabhängige Fortsetzungs-Kritiker fand keine wesentlichen Fehler, prüfte
+49 gezielte Fälle, den exakten Evaluator-Digest und die gepinnten Hashes.
+Dies ist eine begrenzte Agentenkritik, keine eingereichte GitHub-Approval
+oder Gesamtakzeptanz. Der tatsächliche Readiness-Lauf endet weiterhin mit
+Exit 2, `NOT_READY` / `NOT_RUN`, bei unveränderten eingefrorenen Quellen.
+Die endlichen Downloads/Replays sind beendet; kein Recorder oder
+verlorener Research-Agent benötigt eine Aktion.
+
+**Verbleibend:** Als nächster begrenzter Fachschritt eignet sich G04 unter
+#13: zuerst gemeinsame vergangenheitsbasierte Fenster, Bins, VA-/HVN-/LVN-/
+Profilwechselregeln und Baseline einfrieren, dann getrennt explorativ messen.
+Das ist kein nachträglicher Arm der eingefrorenen Familie. G05/weitere
+G06-Abdeckung bleiben eigene offene Arbeiten. G08 benötigt einen
+praktikablen kalibrierten Abhängigkeitsschätzer; G09 die noch nicht
+existierenden reservierten Beobachtungen. G10/G11 benötigen historische
+Referenzledger, G12/G13 passende Ausführungs-/Margin-/Portfoliomodelle.
+Mehr Oracle-Simulationen oder bestandene Codetests ersetzen diese Gates
+nicht. Ursprüngliches `FAIL`, Oracle-`INCONCLUSIVE` und tatsächliches
+`NOT_READY` / `NOT_RUN` bleiben unverändert.
+
+## Historischer Zustands- und Lückenabgleich vom 2026-11-03
+
+Dieser frühere Abgleich ist durch die Fortsetzung vom 04.11.2026 ergänzt;
+seine damalige maschinenlesbare Bestandsaufnahme
 [`research/results/state-audit-2026-11-03.json`](research/results/state-audit-2026-11-03.json)
 enthält alle 23 Issues, die native Hierarchie, Evidenz-Hashes und die folgenden
 16 Restarbeiten mit Zuständigkeit und Abhängigkeiten. Geprüfter Implementierungsstand:

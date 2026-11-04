@@ -1,5 +1,15 @@
 # Fresh-session handoff: Epic #3
 
+> Continuation update, 2026-11-04: this handoff has been executed from verified
+> base `8070d19`. Read `research/results/state-audit-2026-11-04.json` and the
+> 04.11.2026 continuation section in `INTRADAY_RESEARCH.md` before reusing the
+> historical queue below. G01/G02/G03 and a bounded two-hour G06 import/replay
+> are delivered; G07 has a development-only frozen-arm evaluator. #11/#12's
+> own research deliverables are accepted; #14 has an explicit parity/input
+> gate. Future validation remains NOT_READY/NOT_RUN. The next bounded action
+> is G04 under #13, not redoing these delivered tasks. The original mission
+> and scope restrictions below remain applicable.
+
 ## Mission
 
 Continue the existing **Epic #3, “Intraday-Einstiege für Krypto und TradFi recherchieren und evaluieren,”** from its issue-defined scope. Reconcile the main issue and every direct child against the live implementation, evidence, and acceptance criteria; maintain truthful issue states; then execute confirmed, in-scope unfinished work. The end goal is a coherent, reproducible repository and an honest issue tree with no stale, duplicate, or unexplained work—not a claim of market efficacy.
