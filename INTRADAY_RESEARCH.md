@@ -2,11 +2,91 @@
 
 **Status: offen, nicht entscheidungsreif.** Dieser Bericht dokumentiert eine Bestandsaufnahme und ein überprüfbares Forschungsdesign. Er belegt weder profitable Signale noch eine Trefferquote. Es wurden keine produktiven Dashboard-Regeln geändert und keine Orders ausgelöst. Die Akzeptanzkriterien von [Issue #3](https://github.com/totosan/tokendashboard/issues/3) sind nicht erfüllt.
 
-**Aktueller Abgleich: 04.11.2026.** Maßgeblich sind die
-[Fortsetzung unten](#fortsetzung-am-04112026-kriterien-daten-und-evaluator)
-und [`state-audit-2026-11-04.json`](research/results/state-audit-2026-11-04.json).
+**Aktueller Abgleich: 04.11.2026.** Massgeblich sind der
+[Abschlussplan unten](#abschlussplan-und-aktive-orchestrierung-am-04112026)
+und [`completion-plan-2026-11-04.json`](research/results/completion-plan-2026-11-04.json).
+Die [fruehere Fortsetzung](#fortsetzung-am-04112026-kriterien-daten-und-evaluator)
+und [`state-audit-2026-11-04.json`](research/results/state-audit-2026-11-04.json)
+bleiben eingefrorene Evidenz; ihre Live-Issue-Zustaende sind nicht mehr aktuell.
 Ältere Fortschreibungen bleiben als historische Evidenz erhalten, nicht als
 aktuelle Warteschlange.
+
+## Abschlussplan und aktive Orchestrierung am 04.11.2026
+
+Der Nutzer hat den Orchestrator mit der koordinierten Fertigstellung beauftragt.
+Die vollstaendige Abhaengigkeitsstruktur, Persona-Zuordnung, Lieferobjekte und
+eigenen Akzeptanzgates stehen im maschinenlesbaren
+[`completion-plan-2026-11-04.json`](research/results/completion-plan-2026-11-04.json).
+Ausgangspunkt ist Draft-PR #5 bei `be666b139d04febd75aec133d294cc635a9b7c89`;
+das untersuchte `main` bei `c6e2ed0` enthaelt diese Forschungsimplementierung
+noch nicht. Der Plan ist keine Gesamtakzeptanz und keine Zusage, heute noch
+nicht existierende Daten in dieser Sitzung auszuwerten.
+
+### Abhaengigkeiten und Arbeitsteilung
+
+| Welle | Verantwortliches Issue / Paket | Messbares Ergebnis und Freigabe |
+|---|---|---|
+| 1, parallel/offline | #22/#8, G08; Statistik-Methodiker | Ein vorab festgehaltener praktikabler Inferenzkandidat mit geschaetzter statt bekannter Kovarianz, voller 132er-Familie und endlicher synthetischer Kalibrierung. FAIL/INCONCLUSIVE bleiben moegliche Ergebnisse; kein Tune-to-pass. |
+| 1, parallel/offline | #14, G05; Scanner-Paritaetsingenieur | Unveraenderte Original-JavaScript-Scanner ueber endliche Subprozesse pruefen; Grenzfaelle, Richtung, erlaubte Cadences, Kausalitaet und vorhandene 1m-Abdeckung getrennt ausweisen. Keine heimliche Erweiterung der eingefrorenen elf Arme. |
+| 1, parallel/offline | #7, G12-Vertrag; Ausfuehrungsdaten-Ingenieur | Fail-closed Pruefung historischer Zeit-/Quellen-/Instrumentausrichtung und synthetischer Quote-/Fee-/Funding-Grenzen. Ein funktionierendes Gate ist keine historische Ausfuehrung und kein PnL. |
+| 2, inputabhaengig | #13, G04-Abdeckung; #7, G06-Abdeckung | Vor Akquisition endliche Symbol-/Tag-/Fenstermatrix, dokumentierte Quellobjekte und Request-/Bytebudget festhalten. G04 ist bereits geliefert; breitere Profil- und Book-Abdeckung sowie fehlender September-Startzustand bleiben separate Fragen. |
+| 2, quellenabhaengig | #10, G10; #9, G11 | Autoritatives historisches Anfangsinventar und Lifecycle-/Identitaetsledger beziehungsweise historisches Underlying-/Referenzvenue-/MIC-/Timezone-/Session-/Halt-Mapping beschaffen. Aktuelle Metadaten und Einzelmeldungen ersetzen keine Vollstaendigkeit. |
+| 3, nach Gates | #7, G12/G13 | Erst zeitlich passende Quotes/Depth, Latenz, Fees und Funding; danach vorab definierte Overlap-/Sizing-/Cashflow-/historische Margin-/Liquidationsmodelle. Kostenannahmen bleiben als solche markiert. |
+| 3, kalenderabhaengig | #8, G09 | Erst nach G07/G08 und real vorliegenden reservierten Folds 01.02.-26.04.2027 samt 96h-Warmup; keine Terminverschiebung, kein Reuse inspizierter Daten, kein Erfinden fehlender Outcomes. |
+| 4, Abschluss | #8/#3, G14 | Synchronisierte Vergleichsmatrix, negative/unklare Resultate, verstaendliche Empfehlungen, unabhaengiger Gesamt-Kritiker und kriteriumsweiser Schliessungsabgleich. |
+
+Die drei gestarteten Spezialisten besitzen ausschliesslich neue Paketdateien.
+Gemeinsame Evaluatoren, eingefrorene Protokolle, alte Resultate und `dist/`
+bleiben unveraendert. Der Orchestrator besitzt Plan, Synthese, Integration,
+Commits/Push und Labels. Jeder Spezialist liefert im zugeordneten Issue
+Quellen, exakte Befehle, Testresultate, Grenzen und naechste Voraussetzung.
+Nach allen tatsaechlichen Lieferungen folgt ein unabhaengiger Kritiker;
+dessen Ergebnis ist keine eingereichte GitHub-Approval.
+
+### Endliche Befehle und Wiederaufnahme
+
+Keine Webserver, Watcher, interaktiven Prompts, detachierten Dienste oder
+unbegrenzten Warteschleifen starten. Jeder potenziell blockierende Befehl
+erhaelt `timeout --signal=TERM --kill-after=5s`, maximal 120 Sekunden; innere
+Python-/Node-Subprozesse bekommen eigene endliche Timeouts. Netzbefehle brauchen
+zusaetzlich Connect-/Read-/Gesamtdeadline und Request-/Byte-/Retrybudget.
+Die erste Welle braucht keinen Marktdaten-Netzabruf oder Paketinstallationen.
+Der Inferenzdiagnostiklauf hat maximal 90 Sekunden interne Laufzeit und eine
+festgelegte endliche Replikatzahl; bei Abbruch partielle Fehlerevidenz
+persistieren, statt neu zu starten oder Parameter fuer PASS zu veraendern.
+
+Nur nach einer tatsaechlich unbeantworteten Statusanfrage mindestens 60 Sekunden
+warten, einmal erneut fragen und nach einer zweiten unbeantworteten Wartephase
+Artefakte und eigene Prozesse pruefen. Erst dann echte Nichtantwort dokumentieren
+und `Lost Repeat` verwenden. Ein gemeldeter Datenblocker, ein noch laufender
+endlicher Auftrag oder ein nie gestarteter Agent ist kein Lost-Agent.
+Nach Timeout zuerst Nebenwirkungen und konkrete PID/Shell pruefen, nicht blind
+denselben Download, Schreibvorgang oder Prozess erneut starten.
+
+### Statusbasis und Abschlussregeln
+
+Der neunfach beauftragte Domain-Audit und anschliessende Kritiker hatten alle
+Antworten geliefert; es gab keinen begruendeten Lost-Repeat-Fall. Sechs veraltete
+Checklisten wurden in #15/#16/#17/#18/#20/#21 mit ihrer bereits akzeptierten
+engen Evidenz abgeglichen. #22 wurde dagegen wieder geoeffnet: Sein eigenes
+viertes Kriterium verlangt einen validen Inferenz-/Multiplikitaetsplan, nicht
+bloss einen geschriebenen Kandidaten. Dieses Kriterium bleibt unerledigt,
+solange die methodische Evidenz fehlt. Die anderen vier Vorbereitungskriterien
+bleiben akzeptiert.
+
+Zu Beginn dieser Welle sind #3/#7/#8/#14/#22 nur waehrend tatsaechlicher Arbeit
+`state:in-progress`; #9/#10/#13 bleiben fuer ihre Inputgates offen/blockiert.
+Nach Ende der aktiven Arbeit werden unerfuellte Gates wieder explizit blockiert.
+Die dreizehn akzeptierten Nachfahren #6/#11/#12/#15-#21/#23-#25 bleiben fuer
+ihren eigenen begrenzten Scope geschlossen; keine pauschale Parent-Akzeptanz.
+#26 bleibt separat zurueckgestellt, kein Epic-Blocker oder aktivierter Dienst.
+
+Urspruengliche Inferenz **FAIL**, Oracle **INCONCLUSIVE**, empirische Readiness
+**NOT_READY / NOT_RUN** und die negativen Profilvergleiche bleiben sichtbar.
+194 bestehende Engineering-Tests sind der Ausgangsstand, kein Marktnachweis.
+Ein grober Nuetzlichkeitsmassstab von 55 Prozent erlaubt weder unvalide
+Inferenz noch Profit-/Trefferquotenversprechen. Keine Produktionsaenderung,
+Orders, bezahlten Daten, integrierte UI oder Hardwarebereitstellung ableiten.
 
 ## Historischer Ausgangsstand vom 01.11.2026
 

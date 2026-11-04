@@ -1,14 +1,20 @@
 # Fresh-session handoff: Epic #3
 
-> Continuation update, 2026-11-04: this handoff has been executed from verified
-> base `8070d19`. Read `research/results/state-audit-2026-11-04.json` and the
-> 04.11.2026 continuation section in `INTRADAY_RESEARCH.md` before reusing the
-> historical queue below. G01/G02/G03 and a bounded two-hour G06 import/replay
-> are delivered; G07 has a development-only frozen-arm evaluator. #11/#12's
-> own research deliverables are accepted; #14 has an explicit parity/input
-> gate. Future validation remains NOT_READY/NOT_RUN. The next bounded action
-> is G04 under #13, not redoing these delivered tasks. The original mission
-> and scope restrictions below remain applicable.
+> Completion-plan update, 2026-11-04: the historical queue below is superseded
+> by `research/results/completion-plan-2026-11-04.json` and the completion-plan
+> section at the top of `INTRADAY_RESEARCH.md`. New work starts from verified
+> PR #5 head `be666b139d04febd75aec133d294cc635a9b7c89`, not `main`.
+> G01/G02/G03/G04 and a bounded two-hour G06 replay are delivered; G07 is a
+> development-only evaluator. Do not restart G04. #22 was reopened because
+> its own inference-validity criterion remains unmet. The active parallel
+> wave assigns G08 to #22/#8, actual-scanner parity G05 to #14 and an execution
+> input/interval contract to #7. Current-survivor, historical input and future
+> calendar gates remain; empirical validation is NOT_READY/NOT_RUN.
+> Every potentially blocking command needs TERM timeout plus kill grace and
+> finite inner subprocess/network deadlines; never launch a waiting server.
+> Check the current plan's delivery/review/publication state before resuming,
+> because an assignment here is not evidence that an agent is still running.
+> The original mission and scope restrictions below remain applicable.
 
 ## Mission
 
