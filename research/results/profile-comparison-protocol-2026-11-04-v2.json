@@ -1,7 +1,9 @@
 {
-  "protocol_id": "issue-13-g04-common-rolling-profile-comparison-v1",
+  "protocol_id": "issue-13-g04-common-rolling-profile-comparison-v2",
+  "supersedes_protocol_id": "issue-13-g04-common-rolling-profile-comparison-v1",
+  "supersession_reason": "Before any rolling comparison output was computed, clarified that trade observations must have been received before each feature cutoff to qualify as as-of inputs. Version 1 was frozen and committed but never executed.",
   "status": "frozen-before-computing-rolling-profile-comparison",
-  "frozen_at_utc": "2026-11-04T07:39:15Z",
+  "frozen_at_utc": "2026-11-04T07:40:37Z",
   "owner": "#13 (direct child of #3); backlog G04",
   "scope": {
     "question": "How closely does a dashboard-style OHLCV volume-spreading approximation reproduce a trade-price-bin profile on the same bounded windows?",
@@ -58,24 +60,24 @@
       "2026-09-17T14:55:00Z",
       "2026-09-17T15:00:00Z"
     ],
-    "window_rule": "At boundary t, use trades with trade_time in [t-15m,t) and exactly the three saved, contiguous 5m candles covering that interval. Windows overlap by 10 minutes.",
-    "causality": "Features use no event-time observation at/after t. Actual provider publication/availability time of saved historical candle responses is unknown; therefore live decision-time causality is not established. Trade-window observed availability is no earlier than the maximum received_time among included rows.",
+    "window_rule": "At boundary t, the as-of trade profile uses trades with trade_time in [t-15m,t) AND received_time < t*1,000,000 ns, plus exactly the three saved, contiguous 5m candles covering that interval for the candidate candle estimate. Trades in the event-time interval received at or after t are counted as late/unavailable and excluded from the as-of trade profile; any such row makes that window NOT_COMPARABLE. Windows overlap by 10 minutes.",
+    "causality": "Trade features use only event-time observations strictly before t that the third-party collector records as received strictly before t. Saved historical candle publication/availability time is unknown; therefore candle-side and end-to-end live decision-time causality are not established. The comparison is an as-of trade-source diagnostic with a retrospective completed-candle approximation.",
     "expected_windows": 10,
     "missing_or_invalid_window": "Keep a window disposition with source mismatch/insufficient status; never fill missing trades or bars with zero. Do not silently drop it from denominators."
   },
   "input_validation": {
     "trade_rows": "Validate every row in the three named receive-hour objects for AAPLUSDT, integer nonnegative IDs/timestamps, finite positive Decimal price/quantity, and received_time in nanoseconds. Compare event_time with trade_time; any mismatch in the three objects blocks shape comparison for the run and is reported, not silently repaired.",
     "trade_identity": "Deduplicate only identical repeated trade_id rows with matching event_time, trade_time, received_time, symbol, price, quantity and provider flags. Conflicting repeats block shape comparison for the run. Report duplicate and conflict counts.",
-    "trade_partition_use": "Read all rows from all three receive-hour objects, then select by event-time trade_time; do not use receive-hour partition as an event-time filter. Report selected row counts by receive-hour object and late receive-time observations.",
+    "trade_partition_use": "Read all rows from all three receive-hour objects, then select by event-time trade_time; do not use receive-hour partition as an event-time filter. Report selected as-of and late/unavailable row counts by receive-hour object.",
     "candles": "Require exactly one AAPLUSDT row at each expected 5m open timestamp in [14:00,15:00), with ordered OHLC, nonnegative base volume, no duplicates, and no missing cadence. Any failure blocks shape metrics for affected windows and remains in the output.",
-    "window_consistency": "For each window, require exactly three contiguous 5m candles, at least one valid observed trade, and exact trade-versus-candle high, low, close and base-volume equality before comparing profile shapes. No rows or bars are synthesized."
+    "window_consistency": "For each window, require exactly three contiguous 5m candles, at least one as-of trade, zero late/unavailable event-time trades, and exact as-of trade-versus-candle high, low, close and base-volume equality before comparing profile shapes. Any failure blocks shape metrics for affected windows and remains in the output; no rows or bars are synthesized."
   },
   "common_profile_definition": {
     "weight_unit": "base asset quantity (AAPL-perpetual contract quantity as recorded by the provider); no quote-notional weighting",
     "price_range": "For each window independently, common low=min(trade prices, three candle lows), common high=max(trade prices, three candle highs). Record whether trade extrema equal candle extrema.",
     "bins": 24,
     "edges": "Equal-width common range; bins are half-open [edge_i,edge_i+1), except final bin includes the maximum. A flat range is a degenerate window and is non-estimable.",
-    "trade_profile": "Place each observed trade's base quantity entirely in the bin containing its exact trade price. Validate all source numeric values and preserve decimal strings/Decimal arithmetic; do not round prices or quantities before binning.",
+    "trade_profile": "Place each as-of-available observed trade's base quantity entirely in the bin containing its exact trade price. Validate all source numeric values and preserve decimal strings/Decimal arithmetic; do not round prices or quantities before binning.",
     "candle_approximation": "Aggregate the three completed 5m candles into one 15m OHLCV candle: first 5m open, max high, min low, last close, sum base volume. Spread its base volume uniformly over its high-low price span by overlap with each of the same 24 common bins, matching dist/orderbook.js volumeProfile's range-weighting algorithm. If high=low, put the entire bar volume in the containing bin.",
     "volume_gate": "For shape comparison, require exact equality of observed trade base quantity and summed candle base_volume and equality of trade-vs-candle high/low/close for each window. If not exact, report the discrepancy and mark profile shape metrics NOT_COMPARABLE for that window; no normalization is used to conceal a coverage mismatch.",
     "profile_normalization": "For shape metrics only, divide each comparable profile's bins by its own total base quantity after the exact volume gate. Also preserve raw bin quantities and total volumes.",
@@ -96,6 +98,7 @@
   "comparison_outputs": {
     "primary_method_fidelity": [
       "number of planned/comparable/unavailable windows",
+      "late/unavailable event-time trade counts by window and receive-hour object",
       "trade-versus-candle base-volume differences and OHLC source-consistency status",
       "exact POC-bin agreement and absolute POC displacement in bps",
       "normalized 24-bin profile total-variation distance and Pearson correlation when defined",
