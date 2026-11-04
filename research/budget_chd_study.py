@@ -5,6 +5,7 @@ import csv
 import gzip
 import hashlib
 import json
+import re
 from collections import defaultdict
 from datetime import datetime
 from decimal import Decimal
@@ -174,7 +175,29 @@ def book_readiness(rows, symbol):
     }
 
 
-def replay_book(rows, symbol):
+def checkpoint_book(checkpoint, symbol):
+    if (checkpoint.get("schema") != "chd-bitget-derived-checkpoint-v1"
+            or checkpoint.get("exchange") != "bitget_futures"
+            or checkpoint.get("symbol") != symbol
+            or not re.fullmatch(r"[a-f0-9]{64}", checkpoint.get("source_sha256", ""))):
+        raise ValueError("Incompatible checkpoint provenance/schema/symbol")
+    integer(checkpoint["received_ns"])
+    integer(checkpoint["final_update_id"])
+    book = {"bid": {}, "ask": {}}
+    for side, key in (("bid", "bids"), ("ask", "asks")):
+        for price, size in checkpoint[key]:
+            price, size = number(price), number(size)
+            if price in book[side]:
+                raise ValueError("Duplicate checkpoint level")
+            book[side][price] = size
+    if sum(map(len, book.values())) > 10000:
+        raise ValueError("Checkpoint exceeds level budget")
+    if book["bid"] and book["ask"] and max(book["bid"]) >= min(book["ask"]):
+        raise ValueError("Locked or crossed checkpoint")
+    return book
+
+
+def replay_book(rows, symbol, initial_checkpoint=None):
     """Conservative message-level seq/pseq replay; never bridge an unproved gap."""
     book = {"bid": {}, "ask": {}}
     previous_seq, previous_receive = None, None
@@ -183,6 +206,13 @@ def replay_book(rows, symbol):
     last_summary = None
     spread_sum, spread_min, spread_max = Decimal(0), None, None
     last_stamp = None
+    handover = "NO_IMPORTED_STATE"
+    if initial_checkpoint is not None:
+        book = checkpoint_book(initial_checkpoint, symbol)
+        previous_seq = initial_checkpoint["final_update_id"]
+        previous_receive = initial_checkpoint["received_ns"]
+        valid = True
+        handover = "PENDING"
     for key, iterator in groupby(rows, key=lambda r: (
         r["received_time"], r["event_type"], r["final_update_id"],
     )):
@@ -209,6 +239,8 @@ def replay_book(rows, symbol):
                 raise ValueError("Inconsistent metadata within message")
         messages += 1
         if event == "snapshot":
+            prior_book = book
+            prior_seq = previous_seq
             snapshots += 1
             book = {"bid": {}, "ask": {}}
             valid = True
@@ -223,6 +255,8 @@ def replay_book(rows, symbol):
             valid = False
             book = {"bid": {}, "ask": {}}
             discarded += 1
+            if messages == 1 and initial_checkpoint is not None:
+                handover = "UNVERIFIED_GAP"
             continue
         levels = set()
         for row in message:
@@ -243,6 +277,14 @@ def replay_book(rows, symbol):
                 book[side].pop(price, None)
             else:
                 book[side][price] = size
+        if messages == 1 and initial_checkpoint is not None:
+            if event == "snapshot":
+                handover = (
+                    "EXACT_SNAPSHOT_HANDOVER"
+                    if seq == prior_seq and book == prior_book else "RESET_WITHOUT_CONTINUITY"
+                )
+            else:
+                handover = "PSEQ_LINKED_HANDOVER"
         if sum(map(len, book.values())) > 10000:
             raise ValueError("Replayed state exceeds 10000-level budget")
         previous_seq, last_stamp = seq, received
@@ -268,16 +310,19 @@ def replay_book(rows, symbol):
     checkpoint = None
     if valid:
         checkpoint = {
+            "schema": "chd-bitget-derived-checkpoint-v1", "exchange": "bitget_futures",
             "symbol": symbol, "received_ns": last_stamp, "final_update_id": previous_seq,
-            "semantics": "Derived from this file only; not a checkpoint for a different date/source",
+            "semantics": "Derived observed state; import requires verified source/hash and boundary continuity",
             "bids": [[str(p), str(q)] for p, q in sorted(book["bid"].items(), reverse=True)],
             "asks": [[str(p), str(q)] for p, q in sorted(book["ask"].items())],
         }
     return {
         "symbol": symbol,
         "status": "SEQUENCE_CONSISTENT_SAMPLE" if checkpoint and quoted and gaps == 0 and discarded == 0
+        and handover in ("NO_IMPORTED_STATE", "EXACT_SNAPSHOT_HANDOVER", "PSEQ_LINKED_HANDOVER")
         else "REPLAY_HAS_UNVERIFIED_INTERVALS",
         "messages": messages, "snapshots": snapshots, "gap_or_cross_events": gaps,
+        "imported_state_handover": handover,
         "discarded_before_valid_snapshot_or_after_gap": discarded,
         "quoted_message_states": quoted, "final_state_sequence_consistent": valid,
         "last_valid_quote": last_summary if valid else None,
