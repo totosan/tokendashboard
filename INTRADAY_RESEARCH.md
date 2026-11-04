@@ -225,7 +225,7 @@ Alle Quellen belegen allenfalls Befunde in den jeweils untersuchten Daten und ni
 
 ## Orchestrierung und Status
 
-**Stand 2026-11-02:** Issue [#3](https://github.com/totosan/tokendashboard/issues/3) ist offen, mit `topic:research` und `state:in-progress`. Die folgenden nativen GitHub-Child-Issues wurden mit direktem Parent #3 erstellt:
+**Abgeglichen am 2026-11-03:** Issue [#3](https://github.com/totosan/tokendashboard/issues/3) ist offen, mit `topic:research` und `state:in-progress`. Die folgenden nativen GitHub-Child-Issues wurden mit direktem Parent #3 erstellt:
 
 | Nummer | Arbeitspaket / direktes Child-Issue | Topic / tatsächlicher Status |
 |---|---|---|
@@ -239,7 +239,7 @@ Alle Quellen belegen allenfalls Befunde in den jeweils untersuchten Daten und ni
 | 1.8 | [#7 Daten, Ausführung und Risiko](https://github.com/totosan/tokendashboard/issues/7) | `topic:execution-risk` · `state:blocked` · CHD-Trades, separater aktueller sequenzkonsistenter Book-Pilot und öffentlicher REST-Sampler vorhanden; ursprüngliche historische Ausführungsabdeckung bleibt offen |
 | 1.9 | [#8 Validierung, Synthese und unabhängiger Review](https://github.com/totosan/tokendashboard/issues/8) | `topic:validation` · `state:blocked` · Kandidat #24 unabhängig geprüft und als begrenzte Lieferung akzeptiert; neue Inferenz INCONCLUSIVE, bisherige Kalibrierung FAIL, frische Validierung offen |
 
-Die acht Domänenberichte 1.1–1.8 liegen vor. Nach dem ersten unabhängigen Review wurde die Split-Zuordnung korrigiert; anschließend wurden feste Hypothesenarme, Tagesblock-Sensitivität und begrenzte Bitget-Feasibility-Proben ergänzt. Der zweite Review wurde am 02.11.2026 direkt in #8 veröffentlicht und ist nicht mehr ausstehend; er fand insbesondere die unbelegte Trade-Cursor-Paginierung. Die Aussage wurde auf kleine Print-Stichproben eingeschränkt. Zusätzlich wurden veralteter HTF-Kontext nach fehlenden Bins und unvollständige VWAP-Sessions durch Regressionstests abgesichert. #7 bleibt für historische Quotes/Tiefe blockiert; Funding-Raten und kleine Trade-Proben waren abrufbar, die Trade-Paginierung ist nicht verifiziert. #9 ist für einen Börsenkalender/Underlying-Sessionvergleich blockiert, nicht für Perp-only-Daten. #10 ist für ein vollständiges point-in-time Delisting-Universum blockiert; das 12-Symbol-Panel bleibt ein heutiger Survivor-Pilot. #11–#14 haben getrennte Hypothesentests und Resultate; die OOS-Zeitspanne war bereits betrachtet, daher keine unberührte Validierung. #8 bleibt nach Integration des Reviews offen. Die Stati sind genau ein `state:*`-Label pro Issue; keine Gesamtvalidierung wird allein aus erfolgreichen Code-/Testläufen abgeleitet.
+Die acht Domänenberichte 1.1–1.8 liegen vor. Nach dem ersten unabhängigen Review wurde die Split-Zuordnung korrigiert; anschließend wurden feste Hypothesenarme, Tagesblock-Sensitivität und begrenzte Bitget-Feasibility-Proben ergänzt. Der zweite Review wurde am 02.11.2026 direkt in #8 veröffentlicht und ist nicht mehr ausstehend; er fand insbesondere die damals unbelegte Trade-Cursor-Paginierung. Die Aussage wurde zunächst auf kleine Print-Stichproben eingeschränkt. Inzwischen akzeptiert #15 einen begrenzten Zwei-Seiten-/Cursor-Test, nicht die Vollständigkeit des Ledgers; #25 ergänzt CHD-Handelsdaten und einen separaten aktuellen Book-Replay. Zusätzlich wurden veralteter HTF-Kontext nach fehlenden Bins und unvollständige VWAP-Sessions durch Regressionstests abgesichert. #7 bleibt für die ursprünglich benötigte historische Quotes-/Tiefenabdeckung und das Ausführungsmodell blockiert. #9 ist für einen Börsenkalender/Underlying-Sessionvergleich blockiert, nicht für Perp-only-Daten. #10 ist für ein vollständiges point-in-time Delisting-Universum blockiert; das 12-Symbol-Panel bleibt ein heutiger Survivor-Pilot. #11–#14 haben getrennte Hypothesentests und Resultate; die OOS-Zeitspanne war bereits betrachtet, daher keine unberührte Validierung. #8 bleibt nach Integration der begrenzten Reviews offen. Die Stati sind genau ein `state:*`-Label pro Issue; keine Gesamtvalidierung wird allein aus erfolgreichen Code-/Testläufen abgeleitet.
 
 **Tatsächlich erstellte Labels:** Topics `topic:research`, `topic:inventory`, `topic:breakout`, `topic:volume-profile`, `topic:regime-mtf`, `topic:indicators`, `topic:crypto-universe`, `topic:tradfi`, `topic:execution-risk`, `topic:validation`; States `state:pending`, `state:in-progress`, `state:blocked`, `state:review`, `state:done`. Die Konvention ist ein `topic:*`-Label für den Arbeitsbereich plus genau ein `state:*`-Label für den aktuellen Status. Statusangaben hier sind der zuletzt verifizierte GitHub-Snapshot, keine Erfolgsaussage.
 
@@ -674,6 +674,83 @@ praktikabler Inferenz und künftiger reservierter Beobachtungen blockiert.
 Ein unabhängiger Code-Review des Budget-Pfads fand keine belastbaren
 Implementierungsfehler; 16 gezielte Tests und der aktuelle Book-Replay wurden
 dabei geprüft. Die vollständige Research-Suite besteht mit 138 Tests.
+
+## Vollständiger Zustands- und Lückenabgleich vom 2026-11-03
+
+Maßgeblich für den jetzigen Stand ist dieser Abgleich, nicht frühere
+Warteschlangen-Kommentare. Die maschinenlesbare Bestandsaufnahme
+[`research/results/state-audit-2026-11-03.json`](research/results/state-audit-2026-11-03.json)
+enthält alle 23 Issues, die native Hierarchie, Evidenz-Hashes und die folgenden
+16 Restarbeiten mit Zuständigkeit und Abhängigkeiten. Geprüfter Implementierungsstand:
+`bb21d18`; die Audit-Dokumentation selbst implementiert keine dieser Restarbeiten.
+
+**Agenten und Übergaben:** Es war kein Research-Shell-/Download-/Recorder-Prozess
+aktiv und keine sichtbare Sitzung wartete auf Eingabe oder Planfreigabe. Der
+einzige sichtbare Child-Agent war der bereits fertig ausgelieferte, ruhende
+Budget-Reviewer; sein Ergebnis ist integriert. Ältere nicht mehr erreichbare
+Handles sind kein Beleg für verlorene Arbeit. Die früher geborgenen Lieferungen
+sind über Commits und Akzeptanzkommentare nachvollziehbar. Kein aktueller
+`Lost Repeat`-Fall und kein fehlender bereits beauftragter Review wurde gefunden;
+dies ist keine Zusicherung über unsichtbare historische Prozesse.
+
+| Bereich | Tatsächliche Lieferung | Was noch nicht erledigt ist |
+|---|---|---|
+| #1, getrennte frühere Arbeit | Drei Pine-Skripte/README über den gemergten PR #2 vorhanden; #1 geschlossen. | TradingView-Kompilierung/Strategy-Tester-Lauf ausdrücklich nicht verifiziert; optionaler manueller Provider-Runtime-Check, kein verlorener Agent. |
+| #3 / #6 | Inventar akzeptiert; alle neun Domänen nativ zugeordnet; #6 geschlossen. | Gesamtakzeptanz des Research-Epics nicht erreicht. |
+| #7 | #15/#16/#20/#23/#25 begrenzt akzeptiert; Funding-/Trade-Evidenz, CHD-Pilot, aktueller Replay und REST-Sampler vorhanden. | Vollständige historische Ausführungsabdeckung, übergreifende Replay-/Abdeckungsprüfung, historische Kosten-/Risiko- und Portfoliomodelle. |
+| #8 | #22/#24 Vorbereitung/Diagnostik und mehrere unabhängige Teilreviews geliefert. | Echter Future-Evaluator, praktikable kalibrierte Inferenz, frische Daten und abschließender Gesamt-Review. |
+| #9 / #10 | #19/#21 Feasibility sowie aktuelle Referenzen und neuere Bekanntmachungen geliefert. | Historische Session-/Underlying-Referenzkette bzw. vollständiges PIT-Universum; Eltern bleiben blockiert. |
+| #11 / #12 | #17 Tageslevels/RSI/Bollinger und #18 kausale Regime/Fehlausbruch-Timing akzeptiert; EMA/VWAP/HTF-Vergleiche vorhanden. | Explizite Eltern-Akzeptanz/Synthese und frische Wirksamkeitsvalidierung, nicht erstmalige Implementierung. |
+| #13 | Trade-Minuten-/Stundenprofile und zwölf offizielle 5m-Vergleiche vorhanden. | Alle zwölf Opens weichen ab; kausale rollierende Profile/VAH/VAL/HVN/LVN und breitere Abdeckung nicht fertig. |
+| #14 | Treppen-Arm, feste Box-/Retest-/Fehlausbruch-/Verzögerungsdiagnostik vorhanden. | Vollständige Abdeckung weiterer Originalscanner und Eltern-Akzeptanz; keine frische Wirksamkeitsevidenz. |
+| #26, separat | Ausgearbeitete, zurückgestellte Idee. | Kein Pi-Dienst, Dauerbetrieb, WebSocket-Recorder oder Analyse-Frontend implementiert/beauftragt. Kein Blocker für #3. |
+
+`state:review` bei #11/#12/#14 bedeutet hier **offene Eltern-Akzeptanz**, nicht
+einen aktuell laufenden Agenten. Geschlossene #15–#25 gelten nur für die in
+ihren Akzeptanzkommentaren genannten begrenzten Lieferungen; ältere ungepflegte
+Checkboxen sind kein Gegenbeleg zu diesen Lieferungen. Insbesondere macht die
+Schließung der Vorbereitung #22 den später gescheiterten Inferenzplan nicht
+gültig: ursprüngliche Kalibrierung `FAIL`, synthetischer Oracle-Kandidat
+`INCONCLUSIVE`, empirische Validierung `NOT_RUN`.
+
+### Gesammelte Restarbeit, nach relativem Aufwand
+
+Die IDs sind dauerhaft zitierbare Einträge dieses Backlogs, keine neuen
+Issue-Nummern. Die jeweiligen offenen Eltern besitzen die Arbeit; es werden
+keine parallelen Doppelaufträge erzeugt.
+
+| ID / Aufwand | Zuständig | Konkreter nächster Schritt / Abhängigkeit |
+|---|---|---|
+| G01 / klein, jetzt möglich | #13 | Die zwölf 5m-Open-Abweichungen anhand unveränderter Rohdaten erklären; Candle-Konvention und benachbarte Empfangsstunden/Ereigniszeit prüfen, Regression ergänzen. |
+| G02 / klein, jetzt möglich | #11/#12/#14, #8 | Elternkriterien explizit gegen akzeptierte Lieferungen prüfen; verbleibende Fachanforderungen von der Gesamtvalidierung trennen. Keine laufenden Reviewer unterstellen. |
+| G03 / mittel, jetzt möglich | #7 | Reproduzierbaren begrenzten CHD-Download-/Cache-/Manifest- und Umgebungsablauf erstellen, auf frischer Umgebung prüfen. Lokale Rohdateien und venv sind nicht portabel gesichert; es gibt keine CI. |
+| G04 / mittel | #13 | Nach G01/G03 kausale rollierende POC/VAH/VAL/HVN/LVN-/Profilwechselregeln und fairen Baselinevergleich festlegen. 20-Bin-Trade- und 24-Bin-Kerzenprofile sind noch kein solcher Vergleich. |
+| G05 / mittel | #14/#9 | Originale Gegenkerzen-/First-new-high-Regeln aus `dist/pattern.js`/`dist/tradfi.js` mit Paritätstests und nötigen 1m-Daten als gesonderte explorative Studie abdecken. Nicht still in die eingefrorenen elf Arme aufnehmen. |
+| G06 / mittel | #7 | Nach G03 weitere Symbole/Tage, Empfangsgrenzen und Mehrdatei-Replay prüfen; validierten Checkpoint-Import ergänzen. Aktuell wird nur ein Checkpoint exportiert und eine Datei replayt. |
+| G07 / mittel, jetzt möglich | #8 | Tatsächlichen Frozen-Protocol-Evaluator auf synthetischen/bereits inspizierten Fixtures bauen: elf Arme, Entry-Folds, 96h-Warmup, Purge/Embargo, 1/2/3-Bar-Horizonte und Mindestereignisse. Readiness ist kein Return-Evaluator. |
+| G08 / groß, methodisch blockiert | #8 | Praktikablen Schätzer/Nullhypothese für abhängige Daten, Sparse-Cells und 132-fache Testfamilie spezifizieren und kalibrieren. Mehr Oracle-Simulationen allein lösen das nicht. |
+| G09 / kalenderabhängig | #8 | Nach G07/G08 reservierte Folds 01.02.–26.04.2027 exklusiv samt Warmup beschaffen und auswerten. Diese Beobachtungen existieren noch nicht; Termine nicht nachträglich verschieben. |
+| G10 / groß, Quellenblocker | #10 | Historisches Anfangsinventar und effektives Listing-/Delisting-/Halt-/Identitätsledger beschaffen, Zeitkonflikte auflösen; danach PIT-Vergleich. |
+| G11 / groß, Quellenblocker | #9 | Historische Underlying-/Referenzvenue-/Zeitzonen-/Kalender-/Halt-Zuordnung belegen; heutige ISINs und Feednamen reichen nicht. |
+| G12 / groß, Daten/Modell | #7 | Nach G06 zeitlich passende Spread-/Tiefe-, Latenz-, Gebühren- und Fundingannahmen belegen. Separate aktuelle Buchstunde und 12/22/37-bp-Szenarien sind keine September-Fills. |
+| G13 / höchster Aufwand | #7/#8 | Nach G12/G08 Overlap, Sizing, Allokation, historische Margin-/Liquidationsregeln und Account-Cashflows modellieren, bevor Drawdown-/Hebelzahlen berichtet werden. |
+| G14 / mittel, nach Voraussetzungen | #8/#3 | Nach Fachakzeptanz und Validierung bzw. explizit eingegrenztem Endumfang Gesamtvergleich/Review durchführen und Integration von Draft-PR #5 entscheiden. |
+| G15 / später, ausdrücklich zurückgestellt | #26 | Erst bei Aktivierung Host/Budget wählen; Rotation, Persistenz, Rate-Limits, Neustart/SIGTERM/Disk-full, ARM64-Dauertest und optionales WebSocket-Replay entwickeln. |
+| G16 / separate Produktentscheidung | #3/#26 | Integriertes Analyse-UI und Journal auch für verworfene/nicht gehandelte Signale sind nicht konkret beauftragte Lieferungen. Erst Produktumfang entscheiden, nicht als bereits vorhandene Funktion darstellen. |
+
+**Empfohlener erster Implementierungsschritt:** G01, anschließend G03/G06.
+Das baut auf dem kostenlosen vorhandenen Pfad auf, benötigt keinen
+Hardwarekauf und verringert konkrete Datenunsicherheit. G07 kann unabhängig
+mit vorhandenen/synthetischen Fixtures entwickelt werden; G08 darf nicht
+durch ein erfolgreiches Test-Suite-Ergebnis übersprungen werden.
+
+**Abgleichbelege:** Die Research-Suite besteht erneut mit 138 Tests. Die
+Readiness-Prüfung mit tatsächlichen vorhandenen Inputs liefert erwartungsgemäß
+Exit 2, `NOT_READY` / `NOT_RUN`, bei passenden eingefrorenen Source-Versionen.
+Lokale CHD-Rohdateien und Hashes wurden geprüft. PR #5 bleibt offen und Draft;
+Teilreviews sind keine auf GitHub eingereichten Approvals, und es wurden keine
+CI-Checks gemeldet. Die bisherigen Budget-Implementierungen sind somit auf
+dem PR-Head, nicht im gemergten Default-Branch.
 
 ## Vorläufige Synthese und offene Schritte
 
