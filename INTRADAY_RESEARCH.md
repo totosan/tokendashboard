@@ -764,6 +764,9 @@ für Agenten-, Issue-, Review- und Recovery-Koordination. Sie verallgemeinern
 die hier beobachteten Fehlerklassen, nicht die persönlichen Annahmen oder
 temporären lokalen Pfade dieses Projekts.
 
+Der Startprompt und die präzisen Grenzen für die nächste frische Epic-Sitzung
+stehen in [`EPIC-3-SESSION-HANDOFF.md`](EPIC-3-SESSION-HANDOFF.md).
+
 ## Vorläufige Synthese und offene Schritte
 
 - Keine Produktivänderung und keine Erfolgsbehauptung aus dieser Recherche ableiten.
