@@ -1,5 +1,8 @@
+import contextlib
 import gzip
+import io
 import json
+import os
 import tempfile
 import threading
 import time
@@ -38,7 +41,8 @@ def good_fetch(calls):
 def run(root, **kw):
     symbols = kw.pop("symbols", ["AAPLUSDT", "BTCUSDT"])
     args = dict(cycles=2, interval=0, duration=60, wait=lambda s: None,
-                now_ns=lambda: NOW_NS, min_gap=0, fetcher=good_fetch([]))
+                now_ns=lambda: NOW_NS, min_gap=0, fetcher=good_fetch([]),
+                clock_status=lambda: {"ntp_synchronized": True, "source": "test"})
     args.update(kw)
     return recorder.run(root, symbols, args.pop("cycles"), args.pop("interval"),
                         args.pop("duration"), **args)
@@ -195,6 +199,145 @@ class RecorderTests(unittest.TestCase):
         src = Path(recorder.__file__).read_text().lower()
         for word in ("access-key", "api_key", "secret", "passphrase"):
             self.assertNotIn(word, src)
+
+
+class CrashSafetyTests(unittest.TestCase):
+    def setUp(self):
+        recorder.STOP.clear()
+        self.tmp = tempfile.TemporaryDirectory()
+        self.root = Path(self.tmp.name)
+        self.addCleanup(self.tmp.cleanup)
+        self.part = self.root / "2023/11/14/22/records.jsonl.gz"
+
+    def events(self):
+        path = self.root / "_meta" / "events.jsonl"
+        return [json.loads(x) for x in path.read_text().splitlines()]
+
+    def test_torn_trailing_member_is_quarantined_and_truncated(self):
+        run(self.root, cycles=1, symbols=["BTCUSDT"])
+        good = self.part.read_bytes()
+        torn = gzip.compress(b'{"x": 1}\n')[:-5]
+        self.part.write_bytes(good + torn)
+        (self.root / "_meta" / "clean_shutdown.json").unlink()  # simulate crash
+        s = run(self.root, cycles=1, symbols=["BTCUSDT"], now_ns=lambda: NOW_NS + 10**9)
+        self.assertEqual(s["previous_shutdown"], "unclean")
+        self.assertEqual(s["recovered_partitions"][0]["quarantined_bytes"], len(torn))
+        self.assertTrue(self.part.read_bytes().startswith(good))
+        quarantined = Path(s["recovered_partitions"][0]["quarantine_file"])
+        self.assertEqual(quarantined.read_bytes(), torn)
+        self.assertTrue(integrity_report.scan(self.root, 60)["ok"])
+
+    def test_torn_garbage_and_incomplete_line_handled(self):
+        recorder.append_member(self.part, ["{}\n"])
+        good = self.part.read_bytes()
+        for tail in (b"\x00\x01garbage", gzip.compress(b'{"partial"')):
+            self.part.write_bytes(good + tail)
+            info = recorder.recover_partition(self.part, self.root, 1)
+            self.assertEqual(info["kept_bytes"], len(good))
+            self.assertEqual(self.part.read_bytes(), good)
+        self.assertIsNone(recorder.recover_partition(self.part, self.root, 1))
+
+    def test_marker_logic(self):
+        marker = self.root / "_meta" / "clean_shutdown.json"
+        s = run(self.root, cycles=1, symbols=["BTCUSDT"])
+        self.assertEqual(s["previous_shutdown"], "first_run")
+        self.assertTrue(marker.exists())
+        self.assertEqual(run(self.root, cycles=1, symbols=["BTCUSDT"])["previous_shutdown"], "clean")
+        # crash mid-run: marker consumed at start, never rewritten
+        recorder.begin_run(self.root, "crashed", NOW_MS, {})
+        self.assertFalse(marker.exists())
+        s = run(self.root, cycles=1, symbols=["BTCUSDT"])
+        self.assertEqual(s["previous_shutdown"], "unclean")
+        startup = [e for e in self.events() if e["event"] == "startup"][-1]
+        self.assertTrue(startup["unclean_shutdown_detected"])
+        self.assertEqual(startup["clock_sync"]["source"], "test")
+        rep = integrity_report.scan(self.root, 60)
+        self.assertEqual(len(rep["unclean_startups"]), 1)
+
+    def test_marker_written_on_sigterm_stop_not_on_exception(self):
+        marker = self.root / "_meta" / "clean_shutdown.json"
+
+        def fetch(url, timeout):
+            recorder.STOP.set()
+            return json.dumps(body(url)).encode()
+
+        run(self.root, fetcher=fetch, cycles=5, symbols=["BTCUSDT"])
+        self.assertEqual(json.loads(marker.read_text())["stop_reason"], "SIGNAL")
+        marker.unlink()
+
+        def boom(url, timeout):
+            raise KeyboardInterrupt
+
+        recorder.STOP.clear()
+        with self.assertRaises(KeyboardInterrupt):
+            run(self.root, fetcher=boom, cycles=1, symbols=["BTCUSDT"])
+        self.assertFalse(marker.exists())
+
+    def test_clock_sync_stored_in_records_and_probe(self):
+        run(self.root, cycles=1, symbols=["BTCUSDT"])
+        rec = json.loads(gzip.decompress(self.part.read_bytes()).decode().splitlines()[0])
+        self.assertTrue(rec["clock_sync"]["ntp_synchronized"])
+        Out = type("Out", (), {})
+
+        def runner(cmd, **kw):
+            out = Out()
+            out.stdout, out.returncode = "no\n", 0
+            return out
+
+        self.assertEqual(recorder.read_clock_sync(runner),
+                         {"ntp_synchronized": False, "source": "timedatectl"})
+
+        def missing(cmd, **kw):
+            raise FileNotFoundError
+
+        self.assertIsNone(recorder.read_clock_sync(missing)["ntp_synchronized"])
+
+    def test_fsync_called_per_write(self):
+        calls = []
+        real = os.fsync
+        os.fsync = lambda fd: (calls.append(fd), real(fd))[1]
+        try:
+            s = run(self.root, cycles=1, symbols=["BTCUSDT"])
+        finally:
+            os.fsync = real
+        self.assertGreaterEqual(len(calls), s["records"])
+
+
+class CoverageTests(unittest.TestCase):
+    def points(self, times_s):
+        return [(t * 1000, t * 1000) for t in times_s]
+
+    def test_full_and_partial_coverage_with_gap_exclusion(self):
+        base = 1_700_000_000 // 3600 * 3600
+        times = list(range(base, base + 1800, 10)) + list(range(base + 2400, base + 3600, 10))
+        cov = integrity_report.coverage(self.points(times), 60, 95.0)
+        hour = cov["hour"][0]
+        self.assertTrue(hour["below_threshold"])
+        self.assertAlmostEqual(hour["coverage_pct"], 83.01, places=1)
+
+    def test_complete_hour_meets_threshold_and_days(self):
+        base = 1_700_000_000 // 86400 * 86400
+        times = list(range(base, base + 7200 + 1, 30))
+        cov = integrity_report.coverage(self.points(times), 60, 95.0)
+        self.assertTrue(all(r["coverage_pct"] == 100 for r in cov["hour"]))
+        self.assertEqual(cov["day"][0]["coverage_pct"], 100)
+
+    def test_scan_flags_gap_and_threshold(self):
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        root = Path(tmp.name)
+        recorder.STOP.clear()
+        run(root, cycles=1, symbols=["BTCUSDT"], now_ns=lambda: NOW_NS)
+        run(root, cycles=1, symbols=["BTCUSDT"], now_ns=lambda: NOW_NS + 600 * 10**9)
+        rep = integrity_report.scan(root, 60, min_coverage_pct=50)
+        self.assertEqual(rep["gaps"][0]["action"], "EXCLUDE")
+        self.assertIn("never interpolate", rep["policy"])
+        self.assertFalse(rep["coverage_ok"])
+        self.assertEqual(rep["low_coverage_buckets"][0]["coverage_pct"], 0)
+        with contextlib.redirect_stdout(io.StringIO()):
+            code = integrity_report.main([str(root), "--min-coverage-pct", "50"])
+        self.assertEqual(code, 3)
+        self.assertTrue(integrity_report.scan(root, 1000)["coverage_ok"])
 
 
 if __name__ == "__main__":

@@ -26,8 +26,8 @@ fees are the account-independent public contract rates, not an account's VIP tie
 
 `<output-dir>/YYYY/MM/DD/HH/records.jsonl.gz` (UTC hour of `available_ms`). Each write appends one
 complete gzip member with `O_APPEND` + `fsync`; existing bytes are never rewritten (concatenated
-members are valid gzip). A crash can at worst leave a truncated final member, which the integrity
-report flags. Data is never committed: point `--output-dir` outside the repo (e.g.
+members are valid gzip). A crash can at worst leave a truncated final member, which is quarantined and truncated on the
+next start (see power-loss behaviour) and otherwise flagged by the integrity report. Data is never committed: point `--output-dir` outside the repo (e.g.
 `/var/lib/bitget-recorder`).
 
 **Estimate** (2 symbols, 5 s interval, 50 levels): ~1.5 KB raw book + ~0.6 KB ticker per symbol per
@@ -52,20 +52,53 @@ failures, 1 = nothing recorded. A JSON run summary is printed.
 ## Raspberry Pi setup
 
 ```
-sudo apt install python3 git
-git clone https://github.com/totosan/tokendashboard /home/pi/tokendashboard
-cd /home/pi/tokendashboard && git checkout revert-4-copilot/epic-intraday-einstiege-krypto-tradfi
-sudo install -d -o pi -g pi /var/lib/bitget-recorder
-sudo cp research/recorder/systemd/bitget-recorder.{service,timer} /etc/systemd/system/
-sudo systemctl daemon-reload && sudo systemctl enable --now bitget-recorder.timer
-systemctl list-timers bitget-recorder.timer; journalctl -u bitget-recorder -n 30
+sudo apt install python3 python3-venv git
+git clone https://github.com/totosan/tokendashboard && cd tokendashboard
+git checkout revert-4-copilot/epic-intraday-einstiege-krypto-tradfi
+sudo bash research/recorder/install_pi.sh
 ```
 
+`install_pi.sh` is idempotent (safe to re-run to update code). It creates the non-root system user
+`bitget-recorder`, copies the code root-owned to `/opt/bitget-recorder/app`, builds a venv (stdlib
+only, nothing to download), installs the service + timer, runs a bounded smoke test
+(`timeout 60`, 1 cycle, scratch dir that is deleted afterwards) and only then enables the timer. It
+uses no secrets and opens no listening sockets (outbound public HTTPS only). Data goes to
+`/var/lib/bitget-recorder`.
+
 The service is a bounded `Type=oneshot` run (≈280 s, `RuntimeMaxSec=300`); the timer starts one every
-5 minutes, so the Pi never runs an unbounded daemon. Gaps of a few seconds between runs are
-expected and show up in the gap report. Use an SD-card-friendly location (or USB SSD) and a
-reliable clock (`timedatectl` shows NTP synchronized; `clock_skew_ms` records drift).
-Python 3.9+ and only the standard library are required.
+5 minutes, so the Pi never runs an unbounded daemon. Gaps of ~20 s between runs are expected; they
+stay below the default 60 s gap limit and do not reduce coverage.
+
+## Hardware and operations
+
+- **SSD vs SD card:** the recorder fsyncs every write (~0.5 writes/s per stream). SD cards wear out
+  and corrupt under sustained small writes; use a USB SSD (mount it at `/var/lib/bitget-recorder`)
+  for anything beyond a trial. On SD, expect a shorter life and keep backups.
+- **UPS:** a small UPS/HAT lets the Pi shut down cleanly. Without one, power loss is survivable
+  but costs data (see below).
+- **NTP:** `available_ms` is the Pi clock. Keep `timedatectl` at `NTP synchronized: yes`; the Pi has
+  no RTC, so after boot the clock is wrong until NTP syncs. Every record stores `clock_sync`
+  (`ntp_synchronized` true/false/null from `timedatectl`, null = unknown) and `clock_skew_ms`.
+  The report counts records written while unsynchronized (`ntp_unsynchronized_records`); treat
+  those windows with suspicion or exclude them.
+- **Power-loss behaviour:** each record is one gzip member written with `O_APPEND` and `fsync`
+  (plus directory fsync on file creation), so at most the in-flight record is lost. A crash can
+  leave a torn trailing member. On the next start the recorder: looks for the clean-shutdown marker
+  (`_meta/clean_shutdown.json`, written **only** on normal finish or graceful SIGTERM/SIGINT stop;
+  deleted at start), and if it is missing treats the previous run as unclean, scans the newest two
+  partitions, copies the torn tail to `_meta/quarantine/` and truncates the partition to the last
+  valid member, logs everything, and records a `startup` event (`previous_shutdown`:
+  `clean`/`unclean`/`first_run`, `recovered_partitions`, `clock_sync`) in `_meta/events.jsonl`.
+  The unfinished window is a gap, not repaired data. SIGKILL and power loss are "unclean".
+
+## How to verify
+
+```
+systemctl list-timers bitget-recorder.timer; journalctl -u bitget-recorder -n 30 --no-pager
+timedatectl show -p NTPSynchronized --value
+cd /opt/bitget-recorder/app && /opt/bitget-recorder/venv/bin/python -m research.recorder.integrity_report /var/lib/bitget-recorder
+tail -n 5 /var/lib/bitget-recorder/_meta/events.jsonl
+```
 
 ## Integrity and gap report
 
@@ -77,6 +110,18 @@ Read-only. Verifies every gzip partition decompresses, `record_sha256` and `raw_
 match, reports duplicates, backward exchange timestamps, per-stream counts, and gaps larger than
 `--max-gap-seconds` between consecutive orderbook/ticker samples. Exit 1 on corruption.
 
+### Coverage and gaps
+
+For each stream the report computes `coverage_pct` per UTC hour and per UTC day: time between
+consecutive samples counts as covered only if the gap is `<= --max-gap-seconds`; the denominator is
+the stream's observed span within the bucket (partial first/last buckets are not penalised).
+Buckets below `--min-coverage-pct` (default 95) land in `low_coverage_buckets`; gaps are listed with
+`action: EXCLUDE`. Exit codes: 0 ok, 1 corruption, 3 coverage below threshold. It also reports
+unclean startups and recovered partitions from `_meta/events.jsonl`.
+
+**Gap windows (and low-coverage buckets) must be excluded from analysis, not interpolated or
+forward-filled.** Missing market data stays missing.
+
 ## Tests
 
-`python3 -m unittest research.recorder.test_recorder` (mocked HTTP only, no network).
+`python3 -m unittest research.recorder.test_recorder` (mocked HTTP only, no network; includes torn-file recovery, marker and coverage tests).

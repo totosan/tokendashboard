@@ -12,8 +12,10 @@ import json
 import os
 import re
 import signal
+import subprocess
 import threading
 import time
+import zlib
 from datetime import datetime, timezone
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
@@ -27,6 +29,10 @@ PRODUCT = "USDT-FUTURES"
 MAX_RESPONSE = 1024 * 1024
 SCHEMA_VERSION = 1
 SYMBOL_RE = re.compile(r"[A-Z0-9]{2,30}")
+META_DIR = "_meta"
+CLEAN_MARKER = "clean_shutdown.json"
+RUN_STATE = "run_state.json"
+CLOCK_REFRESH_SECONDS = 60
 STOP = threading.Event()
 
 
@@ -128,6 +134,7 @@ def append_member(path, lines):
     """One complete gzip member per write: O_APPEND + fsync, never rewrites old bytes."""
     path.parent.mkdir(parents=True, exist_ok=True)
     blob = gzip.compress(("".join(lines)).encode(), mtime=0)
+    created = not path.exists()
     fd = os.open(path, os.O_WRONLY | os.O_APPEND | os.O_CREAT, 0o644)
     try:
         view = memoryview(blob)
@@ -136,9 +143,141 @@ def append_member(path, lines):
         os.fsync(fd)
     finally:
         os.close(fd)
+    if created:
+        fsync_dir(path.parent)
 
 
-def make_record(kind, symbol, url, raw, received_ns, started_ns, cycle, run_id, depth):
+def fsync_dir(directory):
+    try:
+        fd = os.open(directory, os.O_RDONLY)
+    except OSError:
+        return
+    try:
+        os.fsync(fd)
+    except OSError:
+        pass
+    finally:
+        os.close(fd)
+
+
+def valid_prefix_length(data):
+    """Byte length of the leading run of complete gzip members whose payload is whole JSONL."""
+    pos = 0
+    while pos < len(data):
+        decoder = zlib.decompressobj(31)
+        try:
+            out = decoder.decompress(data[pos:])
+        except zlib.error:
+            break
+        if not decoder.eof or not out.endswith(b"\n"):
+            break
+        pos = len(data) - len(decoder.unused_data)
+    return pos
+
+
+def recover_partition(path, root, now_ms):
+    """Truncate a torn trailing member to the last valid one; keep the removed bytes in _quarantine."""
+    path = Path(path)
+    data = path.read_bytes()
+    good = valid_prefix_length(data)
+    if good == len(data):
+        return None
+    quarantine = Path(root) / META_DIR / "quarantine" / (
+        "%s.%d.torn" % ("_".join(path.relative_to(root).parts), now_ms))
+    quarantine.parent.mkdir(parents=True, exist_ok=True)
+    with open(quarantine, "wb") as handle:
+        handle.write(data[good:])
+        handle.flush()
+        os.fsync(handle.fileno())
+    fd = os.open(path, os.O_WRONLY)
+    try:
+        os.ftruncate(fd, good)
+        os.fsync(fd)
+    finally:
+        os.close(fd)
+    return {"path": str(path), "kept_bytes": good, "quarantined_bytes": len(data) - good,
+            "quarantine_file": str(quarantine)}
+
+
+def recover_torn_partitions(root, now_ms, newest=2):
+    """After an unclean shutdown only the most recent partitions can hold a torn write."""
+    root = Path(root)
+    found = sorted(root.glob("*/*/*/*/records.jsonl.gz"))[-newest:]
+    return [r for r in (recover_partition(p, root, now_ms) for p in found) if r]
+
+
+def write_durable(path, data):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "wb") as handle:
+        handle.write(data)
+        handle.flush()
+        os.fsync(handle.fileno())
+    fsync_dir(path.parent)
+
+
+def log_event(root, event):
+    """Append-only JSONL audit log of lifecycle events, fsynced."""
+    path = Path(root) / META_DIR / "events.jsonl"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd = os.open(path, os.O_WRONLY | os.O_APPEND | os.O_CREAT, 0o644)
+    try:
+        os.write(fd, (json.dumps(event, sort_keys=True) + "\n").encode())
+        os.fsync(fd)
+    finally:
+        os.close(fd)
+
+
+def begin_run(root, run_id, now_ms, clock_sync):
+    """Detect unclean shutdown, repair torn files, log startup, then arm the running state.
+
+    The clean marker is consumed here; it is only written again by finish_run, so a crash,
+    power loss or SIGKILL leaves no marker and is detected on the next start.
+    """
+    root = Path(root)
+    meta = root / META_DIR
+    clean, started = meta / CLEAN_MARKER, meta / RUN_STATE
+    if clean.exists():
+        previous = "clean"
+    elif started.exists():
+        previous = "unclean"
+    else:
+        previous = "first_run"
+    recovered = recover_torn_partitions(root, now_ms) if previous == "unclean" else []
+    event = {"event": "startup", "run_id": run_id, "ts_ms": now_ms,
+             "previous_shutdown": previous, "unclean_shutdown_detected": previous == "unclean",
+             "recovered_partitions": recovered, "clock_sync": clock_sync}
+    log_event(root, event)
+    if clean.exists():
+        clean.unlink()
+        fsync_dir(meta)
+    write_durable(started, json.dumps({"run_id": run_id, "ts_ms": now_ms}).encode())
+    return event
+
+
+def finish_run(root, run_id, now_ms, stop_reason):
+    """Clean-shutdown marker: only reached on normal finish or graceful SIGTERM/SIGINT stop."""
+    meta = Path(root) / META_DIR
+    log_event(root, {"event": "shutdown", "run_id": run_id, "ts_ms": now_ms,
+                     "stop_reason": stop_reason})
+    write_durable(meta / CLEAN_MARKER, json.dumps(
+        {"run_id": run_id, "ts_ms": now_ms, "stop_reason": stop_reason}).encode())
+
+
+def read_clock_sync(runner=subprocess.run):
+    """NTP status from timedatectl when available; None means unknown, never assumed good."""
+    try:
+        out = runner(["timedatectl", "show", "-p", "NTPSynchronized", "--value"],
+                     capture_output=True, text=True, timeout=5, check=False)
+        value = out.stdout.strip().lower()
+        if out.returncode == 0 and value in ("yes", "no"):
+            return {"ntp_synchronized": value == "yes", "source": "timedatectl"}
+    except (OSError, subprocess.SubprocessError, AttributeError):
+        pass
+    return {"ntp_synchronized": None, "source": "unavailable"}
+
+
+def make_record(kind, symbol, url, raw, received_ns, started_ns, cycle, run_id, depth,
+                clock_sync=None):
     fields = normalize(kind, json.loads(raw), depth)
     exchange_ms = fields.pop("exchange_ms")
     received_ms = received_ns // 10**6
@@ -151,6 +290,7 @@ def make_record(kind, symbol, url, raw, received_ns, started_ns, cycle, run_id, 
         "request_started_ns": started_ns, "received_ns": received_ns,
         "clock_skew_ms": received_ms - exchange_ms,
         "url": url, "fields": fields,
+        "clock_sync": clock_sync or {"ntp_synchronized": None, "source": "unavailable"},
         "raw_response": raw.decode("utf-8"),
         "raw_response_sha256": hashlib.sha256(raw).hexdigest(),
         "raw_response_bytes": len(raw),
@@ -193,7 +333,7 @@ def get_with_retries(fetcher, url, timeout, retries, backoff, wait):
 
 def run(root, symbols, cycles, interval, duration, depth=50, slow_every=30, min_gap=0.25,
         retries=2, backoff=1.0, timeout=10, fetcher=fetch, wait=None, now_ns=time.time_ns,
-        monotonic=time.monotonic):
+        monotonic=time.monotonic, clock_status=read_clock_sync):
     wait = wait or STOP.wait
     if not symbols or not all(SYMBOL_RE.fullmatch(s) for s in symbols):
         raise ValueError("Expected uppercase Bitget symbols")
@@ -204,7 +344,11 @@ def run(root, symbols, cycles, interval, duration, depth=50, slow_every=30, min_
     run_id = "%s-%d" % (datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"), os.getpid())
     limiter = RateLimiter(min_gap, monotonic, wait)
     end = monotonic() + duration
-    summary = {"run_id": run_id, "records": 0, "failures": [], "cycles_completed": 0,
+    clock_sync, clock_at = clock_status(), monotonic()
+    startup = begin_run(root, run_id, now_ns() // 10**6, clock_sync)
+    summary = {"run_id": run_id, "previous_shutdown": startup["previous_shutdown"],
+               "recovered_partitions": startup["recovered_partitions"],
+               "clock_sync": clock_sync, "records": 0, "failures": [], "cycles_completed": 0,
                "stop_reason": "MAX_CYCLES"}
     for cycle in range(1, cycles + 1):
         if STOP.is_set():
@@ -227,8 +371,10 @@ def run(root, symbols, cycles, interval, duration, depth=50, slow_every=30, min_
                     raw = get_with_retries(fetcher, url, min(timeout, max(1, end - monotonic())),
                                            retries, backoff, wait)
                     received = now_ns()
+                    if monotonic() - clock_at >= CLOCK_REFRESH_SECONDS:
+                        clock_sync, clock_at = clock_status(), monotonic()
                     record = make_record(kind, symbol, url, raw, received, started, cycle,
-                                         run_id, depth)
+                                         run_id, depth, clock_sync)
                     append_member(partition_path(root, record["available_ms"]),
                                   [json.dumps(record, sort_keys=True) + "\n"])
                     summary["records"] += 1
@@ -245,6 +391,7 @@ def run(root, symbols, cycles, interval, duration, depth=50, slow_every=30, min_
                 wait(remaining)
     if STOP.is_set():
         summary["stop_reason"] = "SIGNAL"
+    finish_run(root, run_id, now_ns() // 10**6, summary["stop_reason"])
     summary["exit_status"] = 0 if summary["records"] and not summary["failures"] else (
         2 if summary["records"] else 1)
     return summary
