@@ -206,16 +206,17 @@
     "target_remote_branch": "revert-4-copilot/epic-intraday-einstiege-krypto-tradfi",
     "data_delivery_commit": "b5b6f5864b074fa9631ba5ad3e035fa6bbd256a9",
     "evaluator_and_criterion_delivery_commit": "48bb4f2bcea4ef472616a5cbe7f73c9e31c96a18",
-    "remote_delivery_head_verified_by": "git ls-remote and GitHub REST PR head",
+    "profile_delivery_commit": "2c37216a73be79007e5e9825bb8145efcdf0c8e6",
+    "remote_delivery_head_verified_by": "git ls-remote and GitHub REST PR head; G04 delivery 2c37216 verified",
     "pr_body_refreshed": true,
-    "pr_body_concurrency": "Initial guarded edit refused without writing; merged complete live body and retried with supplied base 05c613c76cf3; success base 80322feadfb4",
+    "pr_body_concurrency": "G04 narrative merged into the re-read live body with the supplied prior base SHA 80322feadfb4; guarded update succeeded with base SHA be580a49daf1",
     "issue_comments": {
       "3": "https://github.com/totosan/tokendashboard/issues/3#issuecomment-6625263162",
       "7": "https://github.com/totosan/tokendashboard/issues/7#issuecomment-6625234599",
       "8": "https://github.com/totosan/tokendashboard/issues/8#issuecomment-6625234954",
       "11": "https://github.com/totosan/tokendashboard/issues/11#issuecomment-6625234719",
       "12": "https://github.com/totosan/tokendashboard/issues/12#issuecomment-6625235518",
-      "13": "https://github.com/totosan/tokendashboard/issues/13#issuecomment-6625235284",
+      "13": "https://github.com/totosan/tokendashboard/issues/13#issuecomment-6625667137",
       "14": "https://github.com/totosan/tokendashboard/issues/14#issuecomment-6625234609"
     },
     "live_issue_states_verified": {
