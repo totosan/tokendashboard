@@ -1,0 +1,89 @@
+{
+  "id": "scanner-parity-2026-11-04",
+  "issue": "https://github.com/totosan/tokendashboard/issues/14",
+  "parent_issue": "https://github.com/totosan/tokendashboard/issues/3",
+  "baseline_commit": "be666b139d04febd75aec133d294cc635a9b7c89",
+  "purpose": "Research-only fixture parity check for the unchanged dashboard pattern and tradfi scanners; not an empirical market evaluation.",
+  "scope": {
+    "pattern": {
+      "source": "dist/pattern.js",
+      "supported_minutes": [1, 5],
+      "supported_directions": ["long", "short"],
+      "supported_pullback_bars": [2, 3, 4],
+      "defaults": {
+        "pullbackBars": 3,
+        "minImpulsePct": 1,
+        "minQuoteVolumeRatio": 1.5,
+        "maxRetracement": 0.5,
+        "requireQuietPullback": true
+      },
+      "observable_statuses": ["pullback", "confirmed"],
+      "boundary_notes": [
+        "Input rows are 1m candles; 5m mode aggregates only complete aligned groups of exactly five valid minute rows.",
+        "A bar is closed only when its timestamp plus one minute is no later than end; result end is the last fully closed target-cadence boundary.",
+        "A pullback has 2-4 consecutive bearish oriented closes, strictly decreasing closes, and needs at least 12 prior target-cadence bars before pullback.",
+        "Each candidate impulse length is 2-6 bars; ten immediately preceding bars form the baseline and the entire baseline-through-end segment must be contiguous.",
+        "Pullback status is emitted without a later confirmation bar; confirmed additionally requires a bullish close above trigger and a low strictly above pullback low.",
+        "Retracement bounds include 5% and configured maximum (default 50%); impulse quote-volume ratio must meet its threshold, while a quiet pullback requires pullback mean volume strictly below impulse mean volume."
+      ],
+      "not_supported": [
+        "2m, 3m, 4m, 15m, or arbitrary scanner cadences",
+        "A directional argument or directions other than the built-in long/short scan",
+        "Frozen 11-arm family parity or a claim that this implementation covers all scanner outputs"
+      ]
+    },
+    "tradfi": {
+      "source": "dist/tradfi.js",
+      "supported_minutes": [1],
+      "supported_directions": ["long"],
+      "observable_statuses": ["watch", "triggered"],
+      "boundary_notes": [
+        "Consumes raw 1m-like rows, sorts timestamps, drops timestamps at or after end, and requires the last remaining candle timestamp to equal end minus 60,000ms.",
+        "Pullback lengths are tested in order 1-3 and impulse lengths 2-6; at least two rows precede impulse; impulse through final row must have exactly 60,000ms spacing.",
+        "Pullback bars must close below open; impulse bars must close above open in at least ceil(2/3 of bars).",
+        "Impulse percent uses close of last impulse relative to first impulse open; retracement includes 0% and 50%, while pullback low must be strictly above impulse origin.",
+        "Triggered means last candle high is strictly above pullback trigger and low strictly above pullback low; close above trigger is reported separately and is not required.",
+        "Impulse must meet the configured minImpulse threshold; volume ratio is pullback mean quote volume divided by impulse mean quote volume."
+      ],
+      "not_supported": [
+        "Short direction, any requested direction parameter, 5m/15m or other cadences",
+        "A full input-candle schema/quality validator; this parity fixture uses valid synthetic rows"
+      ]
+    },
+    "research_acceptance_guard": {
+      "rule": "Before accepting a candidate, require every target-cadence candle from ten bars before impulse start through signal end to exist in the full-valid aggregate. A missing bar rejects; do not bridge gaps.",
+      "status": "Research-only check, independent of production scanner behavior."
+    }
+  },
+  "fixture_design": {
+    "count": 18,
+    "source": "Deterministic synthetic OHLCV generated in research/scanner_parity.py; no exchange data.",
+    "cases": [
+      "pattern 1m pullback and confirmation",
+      "pattern 5m aggregation and mirrored short",
+      "pattern gap rejection and unsupported cadence/options",
+      "pattern future-row invariance",
+      "tradfi watch, high-triggered-but-close-below, inclusive 50% and rejected over-50% retracement, exact minimum-impulse threshold",
+      "tradfi gap rejection, unsupported 5m and mirrored-short inputs, future-row invariance"
+    ],
+    "limitations": [
+      "Finite hand-designed fixtures do not establish exhaustive equivalence for arbitrary rows, malformed inputs, option combinations, duplicate timestamp semantics, numeric edge cases, or all combinations of long/short outputs.",
+      "No performance, predictive, execution, or trading claim."
+    ]
+  },
+  "saved_1m_data_inventory": {
+    "inspection": "Offline git-index inventory of committed files; no acquisition or untracked/local file scan.",
+    "result": "No committed path named for 1m was found. The committed candle CSV.GZ snapshots are explicitly named 5m and 15m, with corresponding 5m and 15m event files.",
+    "policy": "No 5m/15m upsampling or other synthetic historical data was treated as 1m."
+  },
+  "commands": [
+    "timeout --signal=TERM --kill-after=5s 120s python -m unittest research.test_scanner_parity",
+    "timeout --signal=TERM --kill-after=5s 120s python -m research.scanner_parity --write-results research/results/scanner-parity-2026-11-04.json"
+  ],
+  "empirical_gaps_not_tested": [
+    "No saved committed 1m dataset is available; actual historical scanner parity and event counts were not tested.",
+    "No validation of live application call sites, UI filtering, scanner version drift, or every option combination.",
+    "No 15m scanner parity: pattern.js accepts only 1m inputs and 1m/5m aggregate settings; tradfiPattern is fixed to 1m.",
+    "No empirical comparison against breakout.js or frozen 11-arm scanner family; outside this bounded deliverable."
+  ]
+}

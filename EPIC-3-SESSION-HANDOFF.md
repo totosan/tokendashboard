@@ -6,9 +6,15 @@
 > PR #5 head `be666b139d04febd75aec133d294cc635a9b7c89`, not `main`.
 > G01/G02/G03/G04 and a bounded two-hour G06 replay are delivered; G07 is a
 > development-only evaluator. Do not restart G04. #22 was reopened because
-> its own inference-validity criterion remains unmet. The active parallel
-> wave assigns G08 to #22/#8, actual-scanner parity G05 to #14 and an execution
-> input/interval contract to #7. Current-survivor, historical input and future
+> its own inference-validity criterion remains unmet. The parallel wave has
+> delivered G08's candidate, G05's actual-scanner fixtures and G12's execution
+> input/interval contract. All agents returned; no task-owned process remains.
+> The independent critic's three inference findings were corrected and
+> independently rechecked; 234 integrated tests pass. The original practical
+> calibration remains FAIL with an immutable generator-deviation disclosure;
+> corrected code has not been recalibrated or authorized for market inference.
+> Eight unfinished hierarchy issues remain open/blocked. Current-survivor,
+> historical input and future
 > calendar gates remain; empirical validation is NOT_READY/NOT_RUN.
 > Every potentially blocking command needs TERM timeout plus kill grace and
 > finite inner subprocess/network deadlines; never launch a waiting server.

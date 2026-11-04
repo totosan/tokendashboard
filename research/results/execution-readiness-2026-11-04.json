@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "status": "NOT_READY",
+  "authorizes_execution": false,
+  "mode": "EXISTING_EVIDENCE",
+  "instrument": {
+    "venue": "bitget",
+    "product": "USDT-FUTURES",
+    "symbol": "AAPLUSDT",
+    "quote_currency": "USDT",
+    "settlement_currency": "USDT",
+    "contract_multiplier": "1"
+  },
+  "window": {
+    "start_ms": 1789653600000,
+    "end_ms": 1789657200000
+  },
+  "policy_assumptions": {
+    "max_quote_age_ms": 1000,
+    "max_total_latency_ms": 60000
+  },
+  "reasons": [
+    "ACCOUNT_OWNERSHIP_UNKNOWN",
+    "BOOK_TIME_WINDOW_MISMATCH",
+    "FUNDING_COVERAGE_UNVERIFIED",
+    "FUNDING_HISTORICAL_SCHEDULE_SOURCE_UNVERIFIED",
+    "HISTORICAL_DEPTH_AND_FEE_METADATA_SOURCE_UNVERIFIED",
+    "HISTORICAL_DEPTH_COVERAGE_UNVERIFIED",
+    "MISSING_FEES",
+    "MISSING_FUNDING",
+    "MISSING_HOLDINGS",
+    "MISSING_QUOTES",
+    "MISSING_SIGNALS",
+    "SCAN_MANUAL_LATENCY_SOURCE_UNVERIFIED",
+    "SOURCE_UNVERIFIED"
+  ],
+  "manifest_evidence": [
+    {
+      "path": "research/data/execution-inputs-2026-11-02.json",
+      "sha256": "54f9afca1563cc14854551c76638dccbdf3802b2fb23b4e7c4c72b466af17c76",
+      "role": "execution_metadata",
+      "observed_sha256": "54f9afca1563cc14854551c76638dccbdf3802b2fb23b4e7c4c72b466af17c76",
+      "bytes": 15917,
+      "status": "HASH_MATCH",
+      "saved_status": "BLOCKED_FOR_EXECUTABLE_HISTORICAL_PRICE_MODEL"
+    },
+    {
+      "path": "research/data/bitget-funding-history-2026-11-02T160715.916809Z.json",
+      "sha256": "03cc6f2341c0f46e02392b273954a707271dcbba24a6c7b2278b92c4a522f7e4",
+      "role": "funding_history",
+      "observed_sha256": "03cc6f2341c0f46e02392b273954a707271dcbba24a6c7b2278b92c4a522f7e4",
+      "bytes": 3147907,
+      "status": "HASH_MATCH",
+      "saved_status": "validated_provisional_grid_only",
+      "symbol_rows_reported": 135,
+      "historical_completeness": "unverified: historical schedule changes unavailable"
+    },
+    {
+      "path": "research/data/chd-bounded-acquisition-2026-11-04.json",
+      "sha256": "f93e49a85fcd7834199b83e6687ccfd4a300ddb549ac080a5df6f1df1178d3a6",
+      "role": "acquisition",
+      "observed_sha256": "f93e49a85fcd7834199b83e6687ccfd4a300ddb549ac080a5df6f1df1178d3a6",
+      "bytes": 9658,
+      "status": "HASH_MATCH",
+      "saved_status": "BOUNDED_SAMPLE_OBSERVED",
+      "book_objects": [
+        {
+          "object": "bitget_futures/2026-11-03/14/AAPLUSDT_orderbook.parquet",
+          "event_time_ms": [
+            1793714399820,
+            1793717999812
+          ],
+          "receive_time_ns": [
+            1793714400000000000,
+            1793717999937920291
+          ],
+          "requested_window_relation": "MISMATCH",
+          "reported_raw_sha256": "244ab4d37ae89a4140435104b31d05f35f4ccea69f85beccd2e81dda316dd250"
+        },
+        {
+          "object": "bitget_futures/2026-11-03/15/AAPLUSDT_orderbook.parquet",
+          "event_time_ms": [
+            1793717999812,
+            1793721599803
+          ],
+          "receive_time_ns": [
+            1793718000000000000,
+            1793721599940277435
+          ],
+          "requested_window_relation": "MISMATCH",
+          "reported_raw_sha256": "3d0b0c357d76ae971ee6d8fd4d63681f7857c87ed0171122bfacdcad59faf290"
+        }
+      ]
+    },
+    {
+      "path": "research/results/budget-recent-replay-2026-11-03.json",
+      "sha256": "af85419ac300100048fd36d5a25ab00f5efbe103afd1016ef9588ddada1e9212",
+      "role": "recent_replay",
+      "observed_sha256": "af85419ac300100048fd36d5a25ab00f5efbe103afd1016ef9588ddada1e9212",
+      "bytes": 1573,
+      "status": "HASH_MATCH",
+      "saved_status": "SEQUENCE_CONSISTENT_SAMPLE",
+      "use": "Internal replay consistency only; no historical fill authorization."
+    },
+    {
+      "path": "research/results/chd-cross-hour-2026-11-04.json",
+      "sha256": "72e4277c822e04c78fa5cb8daa623aef5cce2b9c0745cc9aad763a2c2ef1c655",
+      "role": "cross_hour_replay",
+      "observed_sha256": "72e4277c822e04c78fa5cb8daa623aef5cce2b9c0745cc9aad763a2c2ef1c655",
+      "bytes": 7273,
+      "status": "HASH_MATCH",
+      "saved_status": "ADJACENT_SAMPLE_CONSISTENT",
+      "use": "Internal replay consistency only; no historical fill authorization."
+    }
+  ],
+  "candidate_counts": {
+    "signals": 0,
+    "quotes": 0,
+    "fees": 0,
+    "funding": 0,
+    "holdings": 0
+  },
+  "asof_joins": [],
+  "scenario_funding_counts": [],
+  "actual_exchange_account_ownership": "UNKNOWN",
+  "limitations": [
+    "Hashes bind saved bytes, not provider truth, completeness or source applicability.",
+    "Instrument identity/multiplier and policy are requested declarations, not historical contract evidence.",
+    "No historical source verifier is implemented; non-synthetic candidates remain NOT_READY.",
+    "As-of quotes/visible quantities are not depth continuity, executable fills or impact.",
+    "Latency/staleness limits are declared policy, not measured scan/manual latency.",
+    "Funding [entry,exit) is a scenario convention; actual exchange/account ownership UNKNOWN.",
+    "Sparse funding pages/provisional current settlement grid do not prove historical coverage.",
+    "12/22/37 bps are assumptions, not measured historical execution costs.",
+    "Current margin tiers are not historical rules; G13 portfolio/margin/liquidation is outside scope.",
+    "No orders, account cashflows, PnL or empirical execution validation."
+  ],
+  "next_gates": {
+    "G06": "Historical same-symbol/day depth initial state, clocks, gaps and cross-file continuity.",
+    "G12": "Source-verified historical quotes/depth, measured latency, effective account fees, settlement schedules and ownership.",
+    "G13": "After G12 and #8 inference: predeclared sizing/overlap and historical margin/liquidation/account rules; outside this package."
+  },
+  "contract": {
+    "path": "research/results/execution-input-contract-2026-11-04.json",
+    "sha256": "3fb59ec0991b7a8d3ae8f0f05d76ed61901f1767febb7db8c6fc6faef855c505"
+  }
+}

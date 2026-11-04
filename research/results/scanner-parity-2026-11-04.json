@@ -1,0 +1,791 @@
+{
+  "comparison": [
+    {
+      "name": "pattern-1m-pullback",
+      "output": [
+        {
+          "candles": [
+            [
+              360000,
+              100,
+              100.2,
+              99.8,
+              100,
+              100,
+              100
+            ],
+            [
+              420000,
+              100,
+              100.2,
+              99.8,
+              100,
+              100,
+              100
+            ],
+            [
+              480000,
+              100,
+              100.2,
+              99.8,
+              100,
+              100,
+              100
+            ],
+            [
+              540000,
+              100,
+              100.2,
+              99.8,
+              100,
+              100,
+              100
+            ],
+            [
+              600000,
+              100,
+              101.2,
+              100,
+              101,
+              300,
+              300
+            ],
+            [
+              660000,
+              101,
+              103,
+              101,
+              102,
+              300,
+              300
+            ],
+            [
+              720000,
+              102,
+              104,
+              102,
+              103.5,
+              300,
+              300
+            ],
+            [
+              780000,
+              103.5,
+              103.7,
+              102.7,
+              102.8,
+              100,
+              100
+            ],
+            [
+              840000,
+              102.8,
+              103,
+              102.5,
+              102.6,
+              100,
+              100
+            ]
+          ],
+          "end": 900000,
+          "impulseBars": 3,
+          "impulseExtreme": 104,
+          "impulsePct": 3.5000000000000004,
+          "invalidation": 102.5,
+          "minutes": 1,
+          "pullbackBars": 2,
+          "pullbackEnd": 900000,
+          "pullbackStart": 780000,
+          "pullbackVolumeRatio": 0.3333333333333333,
+          "rangeLevel": 100.2,
+          "retracement": 0.375,
+          "setupMinutes": 5,
+          "side": "long",
+          "start": 600000,
+          "status": "pullback",
+          "trigger": 103,
+          "volumeRatio": 3
+        }
+      ],
+      "reference_matched": true,
+      "scanner": "pattern"
+    },
+    {
+      "name": "pattern-1m-confirmed",
+      "output": [
+        {
+          "candles": [
+            [
+              360000,
+              100,
+              100.2,
+              99.8,
+              100,
+              100,
+              100
+            ],
+            [
+              420000,
+              100,
+              100.2,
+              99.8,
+              100,
+              100,
+              100
+            ],
+            [
+              480000,
+              100,
+              100.2,
+              99.8,
+              100,
+              100,
+              100
+            ],
+            [
+              540000,
+              100,
+              100.2,
+              99.8,
+              100,
+              100,
+              100
+            ],
+            [
+              600000,
+              100,
+              101.2,
+              100,
+              101,
+              300,
+              300
+            ],
+            [
+              660000,
+              101,
+              103,
+              101,
+              102,
+              300,
+              300
+            ],
+            [
+              720000,
+              102,
+              104,
+              102,
+              103.5,
+              300,
+              300
+            ],
+            [
+              780000,
+              103.5,
+              103.7,
+              102.7,
+              102.8,
+              100,
+              100
+            ],
+            [
+              840000,
+              102.8,
+              103,
+              102.5,
+              102.6,
+              100,
+              100
+            ],
+            [
+              900000,
+              102.6,
+              104.1,
+              102.6,
+              104,
+              150,
+              150
+            ]
+          ],
+          "end": 960000,
+          "impulseBars": 3,
+          "impulseExtreme": 104,
+          "impulsePct": 3.5000000000000004,
+          "invalidation": 102.5,
+          "minutes": 1,
+          "pullbackBars": 2,
+          "pullbackEnd": 900000,
+          "pullbackStart": 780000,
+          "pullbackVolumeRatio": 0.3333333333333333,
+          "rangeLevel": 100.2,
+          "retracement": 0.375,
+          "setupMinutes": 6,
+          "side": "long",
+          "start": 600000,
+          "status": "confirmed",
+          "trigger": 103,
+          "volumeRatio": 3
+        }
+      ],
+      "reference_matched": true,
+      "scanner": "pattern"
+    },
+    {
+      "name": "pattern-5m-confirmed",
+      "output": [
+        {
+          "candles": [
+            [
+              1800000,
+              100,
+              100.2,
+              99.8,
+              100,
+              100,
+              100
+            ],
+            [
+              2100000,
+              100,
+              100.2,
+              99.8,
+              100,
+              100,
+              100
+            ],
+            [
+              2400000,
+              100,
+              100.2,
+              99.8,
+              100,
+              100,
+              100
+            ],
+            [
+              2700000,
+              100,
+              100.2,
+              99.8,
+              100,
+              100,
+              100
+            ],
+            [
+              3000000,
+              100,
+              101.2,
+              100,
+              101,
+              300,
+              300
+            ],
+            [
+              3300000,
+              101,
+              103,
+              101,
+              102,
+              300,
+              300
+            ],
+            [
+              3600000,
+              102,
+              104,
+              102,
+              103.5,
+              300,
+              300
+            ],
+            [
+              3900000,
+              103.5,
+              103.7,
+              102.7,
+              102.8,
+              100,
+              100
+            ],
+            [
+              4200000,
+              102.8,
+              103,
+              102.5,
+              102.6,
+              100,
+              100
+            ],
+            [
+              4500000,
+              102.6,
+              104.1,
+              102.6,
+              104,
+              150,
+              150
+            ]
+          ],
+          "end": 4800000,
+          "impulseBars": 3,
+          "impulseExtreme": 104,
+          "impulsePct": 3.5000000000000004,
+          "invalidation": 102.5,
+          "minutes": 5,
+          "pullbackBars": 2,
+          "pullbackEnd": 4500000,
+          "pullbackStart": 3900000,
+          "pullbackVolumeRatio": 0.3333333333333333,
+          "rangeLevel": 100.2,
+          "retracement": 0.375,
+          "setupMinutes": 30,
+          "side": "long",
+          "start": 3000000,
+          "status": "confirmed",
+          "trigger": 103,
+          "volumeRatio": 3
+        }
+      ],
+      "reference_matched": true,
+      "scanner": "pattern"
+    },
+    {
+      "name": "pattern-short-confirmed",
+      "output": [
+        {
+          "candles": [
+            [
+              360000,
+              100,
+              100.2,
+              99.8,
+              100,
+              100,
+              100
+            ],
+            [
+              420000,
+              100,
+              100.2,
+              99.8,
+              100,
+              100,
+              100
+            ],
+            [
+              480000,
+              100,
+              100.2,
+              99.8,
+              100,
+              100,
+              100
+            ],
+            [
+              540000,
+              100,
+              100.2,
+              99.8,
+              100,
+              100,
+              100
+            ],
+            [
+              600000,
+              100,
+              100,
+              98.8,
+              99,
+              300,
+              300
+            ],
+            [
+              660000,
+              99,
+              99,
+              97,
+              98,
+              300,
+              300
+            ],
+            [
+              720000,
+              98,
+              98,
+              96,
+              96.5,
+              300,
+              300
+            ],
+            [
+              780000,
+              96.5,
+              97.3,
+              96.3,
+              97.2,
+              100,
+              100
+            ],
+            [
+              840000,
+              97.2,
+              97.5,
+              97,
+              97.4,
+              100,
+              100
+            ],
+            [
+              900000,
+              97.4,
+              97.4,
+              95.9,
+              96,
+              150,
+              150
+            ]
+          ],
+          "end": 960000,
+          "impulseBars": 3,
+          "impulseExtreme": 96,
+          "impulsePct": -3.5000000000000004,
+          "invalidation": 97.5,
+          "minutes": 1,
+          "pullbackBars": 2,
+          "pullbackEnd": 900000,
+          "pullbackStart": 780000,
+          "pullbackVolumeRatio": 0.3333333333333333,
+          "rangeLevel": 99.8,
+          "retracement": 0.375,
+          "setupMinutes": 6,
+          "side": "short",
+          "start": 600000,
+          "status": "confirmed",
+          "trigger": 97,
+          "volumeRatio": 3
+        }
+      ],
+      "reference_matched": true,
+      "scanner": "pattern"
+    },
+    {
+      "name": "pattern-gap",
+      "output": [],
+      "reference_matched": true,
+      "scanner": "pattern"
+    },
+    {
+      "name": "pattern-unsupported-2m",
+      "output": [],
+      "reference_matched": true,
+      "scanner": "pattern"
+    },
+    {
+      "name": "pattern-unsupported-pullback",
+      "output": [],
+      "reference_matched": true,
+      "scanner": "pattern"
+    },
+    {
+      "name": "pattern-future-invariance",
+      "output": [
+        {
+          "candles": [
+            [
+              360000,
+              100,
+              100.2,
+              99.8,
+              100,
+              100,
+              100
+            ],
+            [
+              420000,
+              100,
+              100.2,
+              99.8,
+              100,
+              100,
+              100
+            ],
+            [
+              480000,
+              100,
+              100.2,
+              99.8,
+              100,
+              100,
+              100
+            ],
+            [
+              540000,
+              100,
+              100.2,
+              99.8,
+              100,
+              100,
+              100
+            ],
+            [
+              600000,
+              100,
+              101.2,
+              100,
+              101,
+              300,
+              300
+            ],
+            [
+              660000,
+              101,
+              103,
+              101,
+              102,
+              300,
+              300
+            ],
+            [
+              720000,
+              102,
+              104,
+              102,
+              103.5,
+              300,
+              300
+            ],
+            [
+              780000,
+              103.5,
+              103.7,
+              102.7,
+              102.8,
+              100,
+              100
+            ],
+            [
+              840000,
+              102.8,
+              103,
+              102.5,
+              102.6,
+              100,
+              100
+            ],
+            [
+              900000,
+              102.6,
+              104.1,
+              102.6,
+              104,
+              150,
+              150
+            ]
+          ],
+          "end": 960000,
+          "impulseBars": 3,
+          "impulseExtreme": 104,
+          "impulsePct": 3.5000000000000004,
+          "invalidation": 102.5,
+          "minutes": 1,
+          "pullbackBars": 2,
+          "pullbackEnd": 900000,
+          "pullbackStart": 780000,
+          "pullbackVolumeRatio": 0.3333333333333333,
+          "rangeLevel": 100.2,
+          "retracement": 0.375,
+          "setupMinutes": 6,
+          "side": "long",
+          "start": 600000,
+          "status": "confirmed",
+          "trigger": 103,
+          "volumeRatio": 3
+        }
+      ],
+      "reference_matched": true,
+      "scanner": "pattern"
+    },
+    {
+      "name": "tradfi-watch",
+      "output": {
+        "candles": [
+          100,
+          100,
+          101,
+          102,
+          103.5,
+          102.8,
+          102.6
+        ],
+        "closeAbove": false,
+        "closedAt": 420000,
+        "impulse": 3.499999999999992,
+        "low": 102,
+        "pullbackBars": 2,
+        "ratio": 0.3333333333333333,
+        "retrace": 0.5,
+        "status": "watch",
+        "trigger": 103
+      },
+      "reference_matched": true,
+      "scanner": "tradfi"
+    },
+    {
+      "name": "tradfi-triggered",
+      "output": {
+        "candles": [
+          100,
+          100,
+          101,
+          102,
+          103.5,
+          102.8,
+          102.6,
+          103.3
+        ],
+        "closeAbove": true,
+        "closedAt": 480000,
+        "impulse": 3.499999999999992,
+        "low": 102,
+        "pullbackBars": 2,
+        "ratio": 0.3333333333333333,
+        "retrace": 0.5,
+        "status": "triggered",
+        "trigger": 103
+      },
+      "reference_matched": true,
+      "scanner": "tradfi"
+    },
+    {
+      "name": "tradfi-high-with-close-below",
+      "output": {
+        "candles": [
+          100,
+          100,
+          101,
+          102,
+          103.5,
+          102.8,
+          102.6,
+          102.9
+        ],
+        "closeAbove": false,
+        "closedAt": 480000,
+        "impulse": 3.499999999999992,
+        "low": 102,
+        "pullbackBars": 2,
+        "ratio": 0.3333333333333333,
+        "retrace": 0.5,
+        "status": "triggered",
+        "trigger": 103
+      },
+      "reference_matched": true,
+      "scanner": "tradfi"
+    },
+    {
+      "name": "tradfi-retrace-half-inclusive",
+      "output": {
+        "candles": [
+          100,
+          100,
+          101,
+          102,
+          103.5,
+          102.8,
+          102.6
+        ],
+        "closeAbove": false,
+        "closedAt": 420000,
+        "impulse": 3.499999999999992,
+        "low": 102,
+        "pullbackBars": 2,
+        "ratio": 0.3333333333333333,
+        "retrace": 0.5,
+        "status": "watch",
+        "trigger": 103
+      },
+      "reference_matched": true,
+      "scanner": "tradfi"
+    },
+    {
+      "name": "tradfi-reject-over-retrace",
+      "output": null,
+      "reference_matched": true,
+      "scanner": "tradfi"
+    },
+    {
+      "name": "tradfi-gap",
+      "output": null,
+      "reference_matched": true,
+      "scanner": "tradfi"
+    },
+    {
+      "name": "tradfi-future-invariance",
+      "output": {
+        "candles": [
+          100,
+          100,
+          101,
+          102,
+          103.5,
+          102.8,
+          102.6
+        ],
+        "closeAbove": false,
+        "closedAt": 420000,
+        "impulse": 3.499999999999992,
+        "low": 102,
+        "pullbackBars": 2,
+        "ratio": 0.3333333333333333,
+        "retrace": 0.5,
+        "status": "watch",
+        "trigger": 103
+      },
+      "reference_matched": true,
+      "scanner": "tradfi"
+    },
+    {
+      "name": "tradfi-short-unsupported",
+      "output": null,
+      "reference_matched": true,
+      "scanner": "tradfi"
+    },
+    {
+      "name": "tradfi-exact-min-impulse",
+      "output": {
+        "candles": [
+          100,
+          100,
+          101,
+          102,
+          103,
+          102.8,
+          102.6
+        ],
+        "closeAbove": false,
+        "closedAt": 420000,
+        "impulse": 3.0000000000000027,
+        "low": 102,
+        "pullbackBars": 2,
+        "ratio": 0.3333333333333333,
+        "retrace": 0.5,
+        "status": "watch",
+        "trigger": 103
+      },
+      "reference_matched": true,
+      "scanner": "tradfi"
+    },
+    {
+      "name": "tradfi-5m-unsupported",
+      "output": null,
+      "reference_matched": true,
+      "scanner": "tradfi"
+    }
+  ],
+  "fixture_count": 18,
+  "source_sha256": {
+    "dist/pattern.js": "a3019c8efcf60c31636cee76b499212d2ddebffef67f3f7481f9f81569c56d1c",
+    "dist/tradfi.js": "81193b1c5f0943429745af66f4fb8fa2424988fdd0f479a5d4103fdf250fbfe3",
+    "research/scanner_parity_bridge.js": "03b124d9ead9c90e31edc9470c1f47254e8a329779a8ac35c7f80b30e451387a"
+  },
+  "suite": "finite synthetic fixtures; no market-data acquisition"
+}

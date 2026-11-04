@@ -1,0 +1,71 @@
+{
+  "artifact_id": "issue-22-practical-inference-execution-deviation-v1",
+  "recorded_at_utc": "2026-11-04",
+  "scope": "Correction record only. This file does not amend the frozen design or rerun/rewrite the saved calibration.",
+  "frozen_protocol": {
+    "path": "research/results/practical-inference-protocol-2026-11-04.json",
+    "sha256_before_correction": "8f190d090c915d1acf8861b9bdb157b3f222820783240cc93fe23b5d41f7d0a8",
+    "sha256_after_correction": "8f190d090c915d1acf8861b9bdb157b3f222820783240cc93fe23b5d41f7d0a8",
+    "declared_event_count": "On an active cell-day, 2 + Bernoulli(0.5) events; counts are independent of outcomes."
+  },
+  "saved_calibration": {
+    "path": "research/results/practical-inference-calibration-2026-11-04.json",
+    "sha256_before_correction": "dd08d215de302a9cb0548cc8fbd7f7e0b72ec3a8c3f326bd7f038445a137ef10",
+    "sha256_after_correction": "dd08d215de302a9cb0548cc8fbd7f7e0b72ec3a8c3f326bd7f038445a137ef10",
+    "status": "COMPLETE_SYNTHETIC_ONLY",
+    "calibration_gate": "FAIL",
+    "compatibility": "This saved FAIL is the result of the implementation with source SHA-256 7b57c92b9782341cd79a7ec2de72c15927a36b0b118f28ec15260d2b2de3a66c, not the corrected source. It is not a calibration of the complete intended event-count design and must not be attributed to the corrected source.",
+    "actual_generator_count_distribution": {
+      "iid_heteroskedastic": "On active cell-days: 1 + Bernoulli(0.35) + Bernoulli(0.10), yielding counts 1, 2, or 3.",
+      "serial_heteroskedastic": "On active cell-days: 1 + Bernoulli(0.35) + Bernoulli(0.10), yielding counts 1, 2, or 3.",
+      "shared_cross_cell_heteroskedastic": "On active cell-days: 1 + Bernoulli(0.35) + Bernoulli(0.10), yielding counts 1, 2, or 3.",
+      "sparse_and_empty_cells": "On active cell-days: 2 + Bernoulli(0.5), yielding counts 2 or 3; empty dates/cells remain zero."
+    },
+    "observed_diagnostic_summary_not_recomputed": {
+      "iid_heteroskedastic": {
+        "familywise_error_rate": 0.333,
+        "wilson_95": [0.3044779033483562, 0.3628002339858192],
+        "refused_families": 0
+      },
+      "serial_heteroskedastic": {
+        "familywise_error_rate": 0.283,
+        "wilson_95": [0.25595244098823255, 0.3117083721944983],
+        "refused_families": 0
+      },
+      "shared_cross_cell_heteroskedastic": {
+        "familywise_error_rate": null,
+        "wilson_95": null,
+        "refused_families": 1
+      },
+      "sparse_and_empty_cells": {
+        "familywise_error_rate": null,
+        "wilson_95": null,
+        "refused_families": 1000
+      }
+    }
+  },
+  "source_sha256": {
+    "research/practical_inference.py": {
+      "before_correction": "7b57c92b9782341cd79a7ec2de72c15927a36b0b118f28ec15260d2b2de3a66c",
+      "after_correction": "af76b051b942ce4fe3422950967566169bbd808d6370eb4ade05f2c93e536152"
+    },
+    "research/test_practical_inference.py": {
+      "before_correction": "347daea8a2d4d642d69e705a57749befb4002d10a49c8d3bdba09c604457a3b7",
+      "after_correction": "7da24142885a098d76cb394b3d619cdaa41ffa45a9be1bbd27702e8f41f66925"
+    }
+  },
+  "corrections": [
+    "Future synthetic panels now use 2 + Bernoulli(0.5) on every active cell-day, matching the frozen count design. Deterministic tests check support, approximate declared Bernoulli frequency and same-seed output.",
+    "The calibration gate now reads required_independent_panels_per_scenario. A regression fixture verifies 1000 complete panels with [0.02, 0.06] Wilson intervals remain INCONCLUSIVE against the 2000-panel floor.",
+    "Simulation and final-artifact exception paths retain any already established FAIL gate while separately recording execution_status=RUNTIME_OR_EXECUTION_FAILURE; mocked regressions cover both paths."
+  ],
+  "verification": {
+    "command": "timeout --signal=TERM --kill-after=5s 120s python -B -m unittest research.test_practical_inference -v",
+    "result": "11 tests passed. run() error-path fixtures mock write_json; the final-write-failure fixture uses an in-memory capture path. The default calibration path printed in fixture output was not written.",
+    "calibration_rerun": false,
+    "protocol_overwritten": false,
+    "calibration_overwritten": false,
+    "no_market_or_future_data": true
+  },
+  "status": "IMPLEMENTATION_CORRECTED; PRIOR_CALIBRATION_REMAINS_FAIL_AND_IS_NOT_COMPLIANT_WITH_THE_DECLARED_COUNT_DESIGN"
+}

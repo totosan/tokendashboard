@@ -63,6 +63,43 @@ endlicher Auftrag oder ein nie gestarteter Agent ist kein Lost-Agent.
 Nach Timeout zuerst Nebenwirkungen und konkrete PID/Shell pruefen, nicht blind
 denselben Download, Schreibvorgang oder Prozess erneut starten.
 
+### Ergebnisse der ersten parallelen Lieferwelle
+
+Alle drei tatsaechlich gestarteten Agenten haben im jeweiligen Issue geliefert
+und keine eigenen weiterlaufenden Prozesse gemeldet. Die Ergebnisse sind
+bewusst unterschiedliche Evidenzstufen, keine Fertigstellung der Parent-Epics:
+
+| Paket | Geliefertes Ergebnis | Verbleibendes Gate |
+|---|---|---|
+| G08, #22/#8 | Ein HAC/Student-t-Kandidat mit geschaetzter Kovarianz, vorab gespeichertem synthetischem Protokoll und einmaligem endlichem Kalibrierungslauf. Beobachtetes Ergebnis **FAIL**; im IID-Szenario lag die Familywise-Fehlerrate bei 0,333. Sparse Familien wurden vollstaendig verweigert, nicht als Nullergebnisse gewertet. | Der Kritiker fand eine Abweichung des tatsaechlichen Eventcount-Generators vom eingefrorenen Protokoll. Deshalb belegt der gespeicherte Lauf den Fehler der ausgefuehrten Implementierung, nicht eine protokollgetreue Pruefung des beabsichtigten Designs. Kein gueltiger Inferenznachweis, kein Tune-to-pass und kein erneuter Kalibrierungslauf; Kriterium 4 bleibt offen. |
+| G05, #14 | Fuenf gezielte Tests, 18 synthetische Fixtures und ein endlicher Node-Bridge-Aufruf der unveraenderten Original-JavaScript-Module. Gespeicherte Ausgaben und Sourcehashes wurden vom Kritiker gegen echte Ausfuehrung geprueft. | Keine geeignete gespeicherte 1m-Historie, keine empirische Forward-Return-/MFE-/MAE-Auswertung dieser Originalscanner und kein vollstaendiger 15m-Vergleich. Fixture-Paritaet ist kein Performancebeleg. |
+| G12-Vertrag, #7 | 24 neue Tests, historischer Zeit-/Quellen-/Instrumentvertrag und Offline-Audit. Fuenf Manifesthashes stimmen; der Audit meldet mit Exit 2 ausdruecklich **NOT_READY**, 13 Gruende und unbekannte Account-Ownership. | Fehlende September-Quotes/Depth, Fees, Holdings, Signals und belegte Scan-/Manual-Latenz; Funding-Schedule/Ownership bleiben ungesichert. November-Books sind keine September-Fills, synthetische Intervalle keine Kontobuchungen. |
+
+Der unabhaengige Wellenkritiker pruefte alle drei Implementierungen und
+Resultate, bestaetigte Scanner-/Audit-Replays und meldete drei konkrete
+Inferenzbefunde: Generator/Protokoll-Abweichung, einen falschen Config-Key im
+INCONCLUSIVE-Gate und eine Fehlerbehandlung, die ein bereits festgestelltes FAIL
+zu INCONCLUSIVE herabstufen konnte. Die letzten beiden verlangen
+Implementierungs-/Regressionstestkorrekturen; die erste verlangt zusaetzlich
+unveraenderte Originalartefakte und eine separate, nachvollziehbare
+Abweichungserklaerung. Gruene Tests allein hatten diese Befunde nicht entdeckt.
+Die Korrekturen und die separate Sourcehash-gebundene
+[`Abweichungserklaerung`](research/results/practical-inference-deviation-2026-11-04.json)
+wurden anschliessend unabhaengig nachgeprueft: elf gezielte Tests bestanden,
+Originalprotokoll und gespeicherter FAIL sind bytegleich erhalten. Kein weiterer
+Kalibrierungslauf wurde ausgefuehrt. Der enge Software-Lieferumfang ist damit
+akzeptiert, G08 und #22 Kriterium 4 sind ausdruecklich nicht freigegeben.
+
+Die drei Paketquellen, Protokolle und Ergebnisdateien stehen unter
+`research/` mit den Praefixen `practical_inference`, `scanner_parity` und
+`execution_readiness`; genaue Pfade und Befehle werden im Abschlusszustand des
+maschinellen Plans festgehalten. Integriert bestehen 234 Tests, davon 40 neu;
+`dist/`, eingefrorenes Walk-forward-Protokoll und alte Inferenzartefakte sind
+unveraendert. Alle acht unerledigten Hierarchie-Issues bleiben nach dieser
+beendeten Lieferwelle offen/blockiert. Der alte FAIL-/Oracle-/Future-Status bleibt
+unveraendert. Die fehlenden wissenschaftlichen und historischen Inputs
+werden nicht durch weitere identische Agentenversuche ersetzt.
+
 ### Statusbasis und Abschlussregeln
 
 Der neunfach beauftragte Domain-Audit und anschliessende Kritiker hatten alle
@@ -74,9 +111,9 @@ bloss einen geschriebenen Kandidaten. Dieses Kriterium bleibt unerledigt,
 solange die methodische Evidenz fehlt. Die anderen vier Vorbereitungskriterien
 bleiben akzeptiert.
 
-Zu Beginn dieser Welle sind #3/#7/#8/#14/#22 nur waehrend tatsaechlicher Arbeit
-`state:in-progress`; #9/#10/#13 bleiben fuer ihre Inputgates offen/blockiert.
-Nach Ende der aktiven Arbeit werden unerfuellte Gates wieder explizit blockiert.
+Zu Beginn dieser Welle waren #3/#7/#8/#14/#22 nur waehrend tatsaechlicher Arbeit
+`state:in-progress`; #9/#10/#13 blieben fuer ihre Inputgates offen/blockiert.
+Nach Ende der aktiven Arbeit werden alle unerfuellten Gates explizit blockiert.
 Die dreizehn akzeptierten Nachfahren #6/#11/#12/#15-#21/#23-#25 bleiben fuer
 ihren eigenen begrenzten Scope geschlossen; keine pauschale Parent-Akzeptanz.
 #26 bleibt separat zurueckgestellt, kein Epic-Blocker oder aktivierter Dienst.

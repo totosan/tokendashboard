@@ -69,7 +69,7 @@
           "owner_issue": 22,
           "parent_issue": 8,
           "persona": "Dependence-aware statistical-methodology engineer",
-          "status": "assigned",
+          "status": "candidate_failed_methodology_still_blocked",
           "effort": "large",
           "depends_on": [],
           "deliverables": [
@@ -84,7 +84,7 @@
           "owner_issue": 14,
           "related_issue": 9,
           "persona": "Causal scanner-parity and fixture engineer",
-          "status": "assigned",
+          "status": "fixture_deliverable_reviewed_empirical_coverage_blocked",
           "effort": "medium",
           "depends_on": [],
           "deliverables": [
@@ -98,7 +98,7 @@
           "id": "G12-contract",
           "owner_issue": 7,
           "persona": "Historical execution-input and interval-join engineer",
-          "status": "assigned",
+          "status": "contract_deliverable_reviewed_historical_inputs_blocked",
           "effort": "medium",
           "depends_on": [],
           "deliverables": [
@@ -249,7 +249,118 @@
     "oracle_redesign": "INCONCLUSIVE",
     "empirical_readiness": "NOT_READY",
     "empirical_validation": "NOT_RUN",
-    "baseline_research_tests": 194
+    "baseline_research_tests": 194,
+    "practical_candidate_observed_run": "FAIL",
+    "practical_candidate_design_compliance": "DEVIATION_IDENTIFIED_BY_CRITIC_NOT_A_COMPLIANT_TEST_OF_INTENDED_DESIGN"
+  },
+  "agent_deliveries": [
+    {
+      "package": "G08",
+      "agent": "practical-inference",
+      "issue": 22,
+      "comment": "https://github.com/totosan/tokendashboard/issues/22#issuecomment-6631878785",
+      "initial_targeted_tests": 7,
+      "diagnostic_runtime_seconds": 24.23,
+      "observed_run_result": "FAIL",
+      "criterion_4_satisfied": false,
+      "run_count": 1,
+      "no_calibration_rerun": true,
+      "source_files": ["research/practical_inference.py", "research/test_practical_inference.py"],
+      "artifacts": [
+        "research/results/practical-inference-protocol-2026-11-04.json",
+        "research/results/practical-inference-calibration-2026-11-04.json",
+        "research/results/practical-inference-deviation-2026-11-04.json"
+      ],
+      "limitations": "The original protocol and observed FAIL are immutable. Critic identified actual event counts differed from frozen design; deviation record distinguishes original executed source from corrected source. No claim that this run validates intended design or permits market inference.",
+      "task_owned_processes_reported": "NONE"
+    },
+    {
+      "package": "G05",
+      "agent": "scanner-parity",
+      "issue": 14,
+      "comment": "https://github.com/totosan/tokendashboard/issues/14#issuecomment-6631882711",
+      "targeted_tests": 5,
+      "synthetic_cases": 18,
+      "critic_actual_js_replay": "MATCH",
+      "source_files": ["research/scanner_parity.py", "research/scanner_parity_bridge.js", "research/test_scanner_parity.py"],
+      "artifacts": ["research/results/scanner-parity-protocol-2026-11-04.json", "research/results/scanner-parity-2026-11-04.json"],
+      "remaining": "No suitable committed 1m data; empirical original-scanner forward returns/MFE/MAE and full requested timeframe comparison remain open. No extension of frozen eleven-arm family.",
+      "task_owned_processes_reported": "NONE"
+    },
+    {
+      "package": "G12-contract",
+      "agent": "execution-contract",
+      "issue": 7,
+      "comment": "https://github.com/totosan/tokendashboard/issues/7#issuecomment-6631896278",
+      "new_tests": 24,
+      "targeted_tests_including_existing_helpers": 39,
+      "actual_evidence_readiness": "NOT_READY",
+      "intentional_audit_exit": 2,
+      "missing_or_unverified_reason_count": 13,
+      "manifest_hashes_match": 5,
+      "account_ownership": "UNKNOWN",
+      "critic_offline_report_replay": "MATCH",
+      "source_files": ["research/execution_readiness.py", "research/test_execution_readiness.py"],
+      "artifacts": ["research/results/execution-input-contract-2026-11-04.json", "research/results/execution-readiness-2026-11-04.json"],
+      "authorizes_execution": false,
+      "task_owned_processes_reported": "NONE"
+    }
+  ],
+  "independent_wave_review": {
+    "actually_started": true,
+    "initial_added_tests_passed": 36,
+    "actual_scanner_fixture_replay": "MATCH_ALL_18",
+    "actual_execution_audit_replay": "MATCH_13_REASONS_5_HASHES",
+    "findings": [
+      {
+        "id": "C1",
+        "severity": "medium",
+        "finding": "Practical inference event-count generator contradicted frozen protocol.",
+        "required_correction": "Preserve original run/protocol; record separate source-hash-bound deviation; correct future source and test generator invariant without rerunning calibration."
+      },
+      {
+        "id": "C2",
+        "severity": "medium",
+        "finding": "Non-failing calibration gate read a nonexistent replicate-floor config key.",
+        "required_correction": "Use required_independent_panels_per_scenario; direct regression for INCONCLUSIVE when precision floor unmet."
+      },
+      {
+        "id": "C3",
+        "severity": "medium",
+        "finding": "Execution exception could downgrade retained FAIL to INCONCLUSIVE.",
+        "required_correction": "Retain observed FAIL precedence and separate runtime failure in both exception paths; regression tests."
+      }
+    ],
+    "correction_comment": "https://github.com/totosan/tokendashboard/issues/22#issuecomment-6632241381",
+    "correction_review": {
+      "actually_started": true,
+      "scope": "C1 generator/source-deviation disclosure, C2 precision key, C3 retained FAIL precedence",
+      "targeted_tests_passed": 11,
+      "result": "VERIFIED_NO_REMAINING_HIGH_CONFIDENCE_BLOCKER_WITHIN_FIX_SCOPE",
+      "immutable_protocol_and_calibration_hashes_verified": true,
+      "calibration_rerun": false,
+      "criterion_4_satisfied": false
+    },
+    "submitted_github_approval": false,
+    "whole_epic_acceptance": false
+  },
+  "execution_result": {
+    "status": "BOUNDED_DELIVERIES_REVIEWED_PARENT_GATES_BLOCKED",
+    "integrated_command": "timeout --signal=TERM --kill-after=5s 120s python3 -m unittest discover -s research -p 'test_*.py' -q",
+    "integrated_tests_passed": 234,
+    "new_tests": 40,
+    "production_directory_changed": false,
+    "frozen_walkforward_protocol_changed": false,
+    "original_failed_and_oracle_artifacts_changed": false,
+    "practical_original_protocol_and_calibration_changed_after_review": false,
+    "actually_lost_agents": 0,
+    "task_owned_processes_reported_after_delivery": "NONE",
+    "open_blocked_at_end": [3, 7, 8, 9, 10, 13, 14, 22],
+    "separate_pending": [26],
+    "closed_accepted_own_scope": [6, 11, 12, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25],
+    "next_methodological_action": "A genuinely new justified prospective dependence-aware design, not an identical rerun or tuning of the saved failed implementation. Corrected source has no calibration authorization.",
+    "parallel_next_actions": "Use documented exact source objects and declared finite budgets for G05 empirical inputs, G04 profile coverage and G06 book coverage; G10/G11 remain authoritative-source gated.",
+    "publication": "Commit and push package/results to existing draft PR 5, then verify remote head, body, open inventory and label invariants; main remains unchanged."
   },
   "deferred": {"issue": 26, "status": "pending_separate_idea_not_activated"},
   "completion_definition": "Every issue closes only on its own evidenced acceptance. Source/calendar blockers and failed methodology remain open; >55% rough usefulness is never a substitute for valid inference, economic evidence or truthfulness."
