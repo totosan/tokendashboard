@@ -1,0 +1,598 @@
+{
+  "provider": "CryptoHFTData; third-party collector, not official Bitget archive",
+  "started_utc": "2026-11-05T12:31:22.169130+00:00",
+  "pyarrow_version": "26.0.1",
+  "api": "https://api.cryptohftdata.com/v1/download",
+  "authentication": "anonymous; no credentials loaded",
+  "requested_objects": [
+    "bitget_futures/2026-09-17/13/AAPLUSDT_trades.parquet",
+    "bitget_futures/2026-09-17/14/AAPLUSDT_trades.parquet",
+    "bitget_futures/2026-09-17/15/AAPLUSDT_trades.parquet",
+    "bitget_futures/2026-09-17/16/AAPLUSDT_trades.parquet",
+    "bitget_futures/2026-09-17/13/BTCUSDT_trades.parquet",
+    "bitget_futures/2026-09-17/14/BTCUSDT_trades.parquet",
+    "bitget_futures/2026-09-17/15/BTCUSDT_trades.parquet",
+    "bitget_futures/2026-09-17/16/BTCUSDT_trades.parquet"
+  ],
+  "budgets": {
+    "objects": 8,
+    "http_transactions": 16,
+    "bytes_per_object": 16777216,
+    "total_bytes": 16777216,
+    "rows_per_object": 2000000,
+    "socket_timeout_seconds": 10,
+    "wall_budget_seconds": 120,
+    "retries": 0
+  },
+  "objects": [
+    {
+      "object": "bitget_futures/2026-09-17/13/AAPLUSDT_trades.parquet",
+      "request": {
+        "file": "bitget_futures/2026-09-17/13/AAPLUSDT_trades.parquet"
+      },
+      "retrieved_utc": "2026-11-05T12:31:22.169147+00:00",
+      "status": "OBSERVED",
+      "http_status": 200,
+      "bytes": 72648,
+      "sha256": "bdcb2e627b866e5f5eabe946da36f95f7651ff17d05f9fd4046662f4743e5cd8",
+      "local_file": "00-AAPLUSDT_trades.parquet",
+      "rows": 4566,
+      "schema": [
+        {
+          "name": "received_time",
+          "type": "int64"
+        },
+        {
+          "name": "event_time",
+          "type": "int64"
+        },
+        {
+          "name": "symbol",
+          "type": "string"
+        },
+        {
+          "name": "trade_id",
+          "type": "int64"
+        },
+        {
+          "name": "price",
+          "type": "string"
+        },
+        {
+          "name": "quantity",
+          "type": "string"
+        },
+        {
+          "name": "trade_time",
+          "type": "int64"
+        },
+        {
+          "name": "is_buyer_maker",
+          "type": "bool"
+        },
+        {
+          "name": "order_type",
+          "type": "string"
+        }
+      ],
+      "clock_ranges": {
+        "received_time": [
+          1789650000440723240,
+          1789653599237328853
+        ],
+        "event_time": [
+          1789650000295,
+          1789653599115
+        ],
+        "trade_time": [
+          1789650000295,
+          1789653599115
+        ]
+      },
+      "clock_units": {
+        "received_time": "ns",
+        "event_time": "ms",
+        "trade_time": "ms"
+      }
+    },
+    {
+      "object": "bitget_futures/2026-09-17/14/AAPLUSDT_trades.parquet",
+      "request": {
+        "file": "bitget_futures/2026-09-17/14/AAPLUSDT_trades.parquet"
+      },
+      "retrieved_utc": "2026-11-05T12:31:23.934867+00:00",
+      "status": "OBSERVED",
+      "http_status": 200,
+      "bytes": 31212,
+      "sha256": "8234c5e765fb83a1990b3db6e02ff114b68ce346322317fa37a4502f293f0138",
+      "local_file": "01-AAPLUSDT_trades.parquet",
+      "rows": 1720,
+      "schema": [
+        {
+          "name": "received_time",
+          "type": "int64"
+        },
+        {
+          "name": "event_time",
+          "type": "int64"
+        },
+        {
+          "name": "symbol",
+          "type": "string"
+        },
+        {
+          "name": "trade_id",
+          "type": "int64"
+        },
+        {
+          "name": "price",
+          "type": "string"
+        },
+        {
+          "name": "quantity",
+          "type": "string"
+        },
+        {
+          "name": "trade_time",
+          "type": "int64"
+        },
+        {
+          "name": "is_buyer_maker",
+          "type": "bool"
+        },
+        {
+          "name": "order_type",
+          "type": "string"
+        }
+      ],
+      "clock_ranges": {
+        "received_time": [
+          1789653600206736539,
+          1789657199288756629
+        ],
+        "event_time": [
+          1789653600075,
+          1789657199153
+        ],
+        "trade_time": [
+          1789653600075,
+          1789657199153
+        ]
+      },
+      "clock_units": {
+        "received_time": "ns",
+        "event_time": "ms",
+        "trade_time": "ms"
+      }
+    },
+    {
+      "object": "bitget_futures/2026-09-17/15/AAPLUSDT_trades.parquet",
+      "request": {
+        "file": "bitget_futures/2026-09-17/15/AAPLUSDT_trades.parquet"
+      },
+      "retrieved_utc": "2026-11-05T12:31:25.420647+00:00",
+      "status": "OBSERVED",
+      "http_status": 200,
+      "bytes": 21649,
+      "sha256": "8f82696d479b625ae38978f0276f138ac28c0b35704fefc137d431fc87d5e653",
+      "local_file": "02-AAPLUSDT_trades.parquet",
+      "rows": 1113,
+      "schema": [
+        {
+          "name": "received_time",
+          "type": "int64"
+        },
+        {
+          "name": "event_time",
+          "type": "int64"
+        },
+        {
+          "name": "symbol",
+          "type": "string"
+        },
+        {
+          "name": "trade_id",
+          "type": "int64"
+        },
+        {
+          "name": "price",
+          "type": "string"
+        },
+        {
+          "name": "quantity",
+          "type": "string"
+        },
+        {
+          "name": "trade_time",
+          "type": "int64"
+        },
+        {
+          "name": "is_buyer_maker",
+          "type": "bool"
+        },
+        {
+          "name": "order_type",
+          "type": "string"
+        }
+      ],
+      "clock_ranges": {
+        "received_time": [
+          1789657200149666593,
+          1789660790674240416
+        ],
+        "event_time": [
+          1789657200030,
+          1789660790556
+        ],
+        "trade_time": [
+          1789657200030,
+          1789660790556
+        ]
+      },
+      "clock_units": {
+        "received_time": "ns",
+        "event_time": "ms",
+        "trade_time": "ms"
+      }
+    },
+    {
+      "object": "bitget_futures/2026-09-17/16/AAPLUSDT_trades.parquet",
+      "request": {
+        "file": "bitget_futures/2026-09-17/16/AAPLUSDT_trades.parquet"
+      },
+      "retrieved_utc": "2026-11-05T12:31:27.024630+00:00",
+      "status": "OBSERVED",
+      "http_status": 200,
+      "bytes": 21123,
+      "sha256": "3d80b09e99b204c687db88008ebb1a79629fc5c6d96d234c5a702b8d82a2c008",
+      "local_file": "03-AAPLUSDT_trades.parquet",
+      "rows": 1150,
+      "schema": [
+        {
+          "name": "received_time",
+          "type": "int64"
+        },
+        {
+          "name": "event_time",
+          "type": "int64"
+        },
+        {
+          "name": "symbol",
+          "type": "string"
+        },
+        {
+          "name": "trade_id",
+          "type": "int64"
+        },
+        {
+          "name": "price",
+          "type": "string"
+        },
+        {
+          "name": "quantity",
+          "type": "string"
+        },
+        {
+          "name": "trade_time",
+          "type": "int64"
+        },
+        {
+          "name": "is_buyer_maker",
+          "type": "bool"
+        },
+        {
+          "name": "order_type",
+          "type": "string"
+        }
+      ],
+      "clock_ranges": {
+        "received_time": [
+          1789660800207931061,
+          1789664380599147570
+        ],
+        "event_time": [
+          1789660800083,
+          1789664380477
+        ],
+        "trade_time": [
+          1789660800083,
+          1789664380477
+        ]
+      },
+      "clock_units": {
+        "received_time": "ns",
+        "event_time": "ms",
+        "trade_time": "ms"
+      }
+    },
+    {
+      "object": "bitget_futures/2026-09-17/13/BTCUSDT_trades.parquet",
+      "request": {
+        "file": "bitget_futures/2026-09-17/13/BTCUSDT_trades.parquet"
+      },
+      "retrieved_utc": "2026-11-05T12:31:28.420853+00:00",
+      "status": "OBSERVED",
+      "http_status": 200,
+      "bytes": 1027084,
+      "sha256": "1f2374c1cb11963c36d80d3bc1c9caeaadd1351d4107f102a564235a4ca91359",
+      "local_file": "04-BTCUSDT_trades.parquet",
+      "rows": 81015,
+      "schema": [
+        {
+          "name": "received_time",
+          "type": "int64"
+        },
+        {
+          "name": "event_time",
+          "type": "int64"
+        },
+        {
+          "name": "symbol",
+          "type": "string"
+        },
+        {
+          "name": "trade_id",
+          "type": "int64"
+        },
+        {
+          "name": "price",
+          "type": "string"
+        },
+        {
+          "name": "quantity",
+          "type": "string"
+        },
+        {
+          "name": "trade_time",
+          "type": "int64"
+        },
+        {
+          "name": "is_buyer_maker",
+          "type": "bool"
+        },
+        {
+          "name": "order_type",
+          "type": "string"
+        }
+      ],
+      "clock_ranges": {
+        "received_time": [
+          1789650000426333292,
+          1789653599816025695
+        ],
+        "event_time": [
+          1789650000294,
+          1789653599697
+        ],
+        "trade_time": [
+          1789650000294,
+          1789653599697
+        ]
+      },
+      "clock_units": {
+        "received_time": "ns",
+        "event_time": "ms",
+        "trade_time": "ms"
+      }
+    },
+    {
+      "object": "bitget_futures/2026-09-17/14/BTCUSDT_trades.parquet",
+      "request": {
+        "file": "bitget_futures/2026-09-17/14/BTCUSDT_trades.parquet"
+      },
+      "retrieved_utc": "2026-11-05T12:31:30.621496+00:00",
+      "status": "OBSERVED",
+      "http_status": 200,
+      "bytes": 923524,
+      "sha256": "301a83c49dd44576bdb62eede6937645c52282a92066147e018d1a17ccd52724",
+      "local_file": "05-BTCUSDT_trades.parquet",
+      "rows": 72020,
+      "schema": [
+        {
+          "name": "received_time",
+          "type": "int64"
+        },
+        {
+          "name": "event_time",
+          "type": "int64"
+        },
+        {
+          "name": "symbol",
+          "type": "string"
+        },
+        {
+          "name": "trade_id",
+          "type": "int64"
+        },
+        {
+          "name": "price",
+          "type": "string"
+        },
+        {
+          "name": "quantity",
+          "type": "string"
+        },
+        {
+          "name": "trade_time",
+          "type": "int64"
+        },
+        {
+          "name": "is_buyer_maker",
+          "type": "bool"
+        },
+        {
+          "name": "order_type",
+          "type": "string"
+        }
+      ],
+      "clock_ranges": {
+        "received_time": [
+          1789653600396265953,
+          1789657199945216966
+        ],
+        "event_time": [
+          1789653600278,
+          1789657199813
+        ],
+        "trade_time": [
+          1789653600278,
+          1789657199813
+        ]
+      },
+      "clock_units": {
+        "received_time": "ns",
+        "event_time": "ms",
+        "trade_time": "ms"
+      }
+    },
+    {
+      "object": "bitget_futures/2026-09-17/15/BTCUSDT_trades.parquet",
+      "request": {
+        "file": "bitget_futures/2026-09-17/15/BTCUSDT_trades.parquet"
+      },
+      "retrieved_utc": "2026-11-05T12:31:32.522782+00:00",
+      "status": "OBSERVED",
+      "http_status": 200,
+      "bytes": 590297,
+      "sha256": "b190f73d0f5a2499619510cd5f3b500bc4f54b97346f4756b2f27ab748b9adf1",
+      "local_file": "06-BTCUSDT_trades.parquet",
+      "rows": 47052,
+      "schema": [
+        {
+          "name": "received_time",
+          "type": "int64"
+        },
+        {
+          "name": "event_time",
+          "type": "int64"
+        },
+        {
+          "name": "symbol",
+          "type": "string"
+        },
+        {
+          "name": "trade_id",
+          "type": "int64"
+        },
+        {
+          "name": "price",
+          "type": "string"
+        },
+        {
+          "name": "quantity",
+          "type": "string"
+        },
+        {
+          "name": "trade_time",
+          "type": "int64"
+        },
+        {
+          "name": "is_buyer_maker",
+          "type": "bool"
+        },
+        {
+          "name": "order_type",
+          "type": "string"
+        }
+      ],
+      "clock_ranges": {
+        "received_time": [
+          1789657200098424018,
+          1789660798778631859
+        ],
+        "event_time": [
+          1789657199905,
+          1789660798655
+        ],
+        "trade_time": [
+          1789657199905,
+          1789660798655
+        ]
+      },
+      "clock_units": {
+        "received_time": "ns",
+        "event_time": "ms",
+        "trade_time": "ms"
+      }
+    },
+    {
+      "object": "bitget_futures/2026-09-17/16/BTCUSDT_trades.parquet",
+      "request": {
+        "file": "bitget_futures/2026-09-17/16/BTCUSDT_trades.parquet"
+      },
+      "retrieved_utc": "2026-11-05T12:31:34.464664+00:00",
+      "status": "OBSERVED",
+      "http_status": 200,
+      "bytes": 341727,
+      "sha256": "729d717f3e24564f007ca85f8867bfa01df28732c0a76914d5981582126df3ad",
+      "local_file": "07-BTCUSDT_trades.parquet",
+      "rows": 27279,
+      "schema": [
+        {
+          "name": "received_time",
+          "type": "int64"
+        },
+        {
+          "name": "event_time",
+          "type": "int64"
+        },
+        {
+          "name": "symbol",
+          "type": "string"
+        },
+        {
+          "name": "trade_id",
+          "type": "int64"
+        },
+        {
+          "name": "price",
+          "type": "string"
+        },
+        {
+          "name": "quantity",
+          "type": "string"
+        },
+        {
+          "name": "trade_time",
+          "type": "int64"
+        },
+        {
+          "name": "is_buyer_maker",
+          "type": "bool"
+        },
+        {
+          "name": "order_type",
+          "type": "string"
+        }
+      ],
+      "clock_ranges": {
+        "received_time": [
+          1789660800260156113,
+          1789664399815809868
+        ],
+        "event_time": [
+          1789660800141,
+          1789664399691
+        ],
+        "trade_time": [
+          1789660800141,
+          1789664399691
+        ]
+      },
+      "clock_units": {
+        "received_time": "ns",
+        "event_time": "ms",
+        "trade_time": "ms"
+      }
+    }
+  ],
+  "limitations": [
+    "Receive-hour storage partitions are not event-time completeness certificates",
+    "No retries; stop on rate limit and honor Retry-After before a separate invocation",
+    "Signed redirect URLs, response cookies and authentication headers are not persisted",
+    "Raw files stay local; reacquisition may change availability or hashes"
+  ],
+  "status": "BOUNDED_SAMPLE_OBSERVED",
+  "http_transactions": 16,
+  "bytes_received": 3029264
+}
