@@ -1,0 +1,279 @@
+{
+ "claim": "source-venue (Binance) screen only; no Bitget execution claim; test size control not validated",
+ "rules": [
+  {
+   "confirmation": {
+    "block_days": 5,
+    "day_blocks": 113,
+    "level": 0.7,
+    "neighbour_gross_bp": {
+     "0.65": 0.4544698372171442,
+     "0.75": 1.562809752534059
+    },
+    "p_raw": 1.0,
+    "prior_status": "narrative_default",
+    "rule": "R1_crowded_long_squeeze",
+    "scenarios": {
+     "12": {
+      "gross_mean_bp": 0.9443611430876375,
+      "n": 7874,
+      "net_mean_bp": -11.055638856912363
+     },
+     "22": {
+      "gross_mean_bp": 0.9443611430876375,
+      "n": 7874,
+      "net_mean_bp": -21.055638856912363
+     },
+     "37": {
+      "gross_mean_bp": 0.9443611430876375,
+      "n": 7874,
+      "net_mean_bp": -36.05563885691236
+     }
+    }
+   },
+   "failed_criteria": [
+    "not a discovery candidate: best discovery net mean <= 0 at 22bp"
+   ],
+   "label": "not_proven",
+   "level": 0.7,
+   "p_holm_descriptive": 1.0,
+   "rule": "R1_crowded_long_squeeze"
+  },
+  {
+   "confirmation": {
+    "block_days": 5,
+    "day_blocks": 0,
+    "level": 0.7,
+    "neighbour_gross_bp": {
+     "0.65": 0.0,
+     "0.75": 0.0
+    },
+    "p_raw": null,
+    "prior_status": "narrative_default",
+    "rule": "R2_crowded_short_squeeze",
+    "scenarios": {
+     "12": {
+      "gross_mean_bp": 0.0,
+      "n": 0,
+      "net_mean_bp": -12.0
+     },
+     "22": {
+      "gross_mean_bp": 0.0,
+      "n": 0,
+      "net_mean_bp": -22.0
+     },
+     "37": {
+      "gross_mean_bp": 0.0,
+      "n": 0,
+      "net_mean_bp": -37.0
+     }
+    }
+   },
+   "failed_criteria": [
+    "not a discovery candidate: best discovery net mean <= 0 at 22bp"
+   ],
+   "label": "not_proven",
+   "level": 0.7,
+   "p_holm_descriptive": 1.0,
+   "rule": "R2_crowded_short_squeeze"
+  },
+  {
+   "confirmation": {
+    "block_days": 5,
+    "day_blocks": 10,
+    "level": 0.05,
+    "neighbour_gross_bp": {
+     "0.03": 3.2106211175646524
+    },
+    "p_raw": null,
+    "prior_status": "candidate",
+    "rule": "R3_healthy_trend_rising_oi",
+    "scenarios": {
+     "12": {
+      "gross_mean_bp": 9.801395598665026,
+      "n": 11,
+      "net_mean_bp": -2.1986044013349737
+     },
+     "22": {
+      "gross_mean_bp": 9.801395598665026,
+      "n": 11,
+      "net_mean_bp": -12.198604401334974
+     },
+     "37": {
+      "gross_mean_bp": 9.801395598665026,
+      "n": 11,
+      "net_mean_bp": -27.198604401334975
+     }
+    }
+   },
+   "failed_criteria": [
+    "events<30",
+    "net_mean<5bp",
+    "insufficient_blocks"
+   ],
+   "label": "not_proven",
+   "level": 0.05,
+   "p_holm_descriptive": 1.0,
+   "rule": "R3_healthy_trend_rising_oi"
+  },
+  {
+   "confirmation": {
+    "block_days": 5,
+    "day_blocks": 96,
+    "level": 0.02,
+    "neighbour_gross_bp": {
+     "0.01": -3.813135888404923,
+     "0.03": 28.003427400193257
+    },
+    "p_raw": 0.975801209939503,
+    "prior_status": "narrative_default",
+    "rule": "R4_oi_flush_after_squeeze",
+    "scenarios": {
+     "12": {
+      "gross_mean_bp": 6.375714781099247,
+      "n": 190,
+      "net_mean_bp": -5.624285218900753
+     },
+     "22": {
+      "gross_mean_bp": 6.375714781099247,
+      "n": 190,
+      "net_mean_bp": -15.624285218900752
+     },
+     "37": {
+      "gross_mean_bp": 6.375714781099247,
+      "n": 190,
+      "net_mean_bp": -30.624285218900752
+     }
+    }
+   },
+   "failed_criteria": [
+    "not a discovery candidate: best discovery net mean <= 0 at 22bp"
+   ],
+   "label": "not_proven",
+   "level": 0.02,
+   "p_holm_descriptive": 1.0,
+   "rule": "R4_oi_flush_after_squeeze"
+  },
+  {
+   "confirmation": {
+    "block_days": 5,
+    "day_blocks": 76,
+    "level": 0.02,
+    "neighbour_gross_bp": {
+     "0.01": 0.28098409075098996,
+     "0.03": -12.131230305960374
+    },
+    "p_raw": 0.7768611569421529,
+    "prior_status": "narrative_default",
+    "rule": "R5_exhaustion",
+    "scenarios": {
+     "12": {
+      "gross_mean_bp": 4.759200803478288,
+      "n": 152,
+      "net_mean_bp": -7.240799196521712
+     },
+     "22": {
+      "gross_mean_bp": 4.759200803478288,
+      "n": 152,
+      "net_mean_bp": -17.240799196521714
+     },
+     "37": {
+      "gross_mean_bp": 4.759200803478288,
+      "n": 152,
+      "net_mean_bp": -32.240799196521714
+     }
+    }
+   },
+   "failed_criteria": [
+    "not a discovery candidate: best discovery net mean <= 0 at 22bp"
+   ],
+   "label": "not_proven",
+   "level": 0.02,
+   "p_holm_descriptive": 1.0,
+   "rule": "R5_exhaustion"
+  },
+  {
+   "confirmation": {
+    "block_days": 5,
+    "day_blocks": 0,
+    "level": 0.0005,
+    "neighbour_gross_bp": {
+     "0.0003": 16.13684250305732,
+     "0.001": 0.0
+    },
+    "p_raw": null,
+    "prior_status": "narrative_default",
+    "rule": "R6_funding_extreme_contrarian",
+    "scenarios": {
+     "12": {
+      "gross_mean_bp": 0.0,
+      "n": 0,
+      "net_mean_bp": -12.0
+     },
+     "22": {
+      "gross_mean_bp": 0.0,
+      "n": 0,
+      "net_mean_bp": -22.0
+     },
+     "37": {
+      "gross_mean_bp": 0.0,
+      "n": 0,
+      "net_mean_bp": -37.0
+     }
+    }
+   },
+   "failed_criteria": [
+    "not a discovery candidate: best discovery net mean <= 0 at 22bp"
+   ],
+   "label": "not_proven",
+   "level": 0.0005,
+   "p_holm_descriptive": 1.0,
+   "rule": "R6_funding_extreme_contrarian"
+  },
+  {
+   "confirmation": {
+    "block_days": 5,
+    "day_blocks": 74,
+    "level": 0.02,
+    "neighbour_gross_bp": {
+     "0.01": -5.484936713054196,
+     "0.03": -18.071303969638407
+    },
+    "p_raw": 0.99990000499975,
+    "prior_status": "narrative_default",
+    "rule": "R8_oi_price_divergence",
+    "scenarios": {
+     "12": {
+      "gross_mean_bp": -16.401462788106837,
+      "n": 137,
+      "net_mean_bp": -28.401462788106837
+     },
+     "22": {
+      "gross_mean_bp": -16.401462788106837,
+      "n": 137,
+      "net_mean_bp": -38.40146278810684
+     },
+     "37": {
+      "gross_mean_bp": -16.401462788106837,
+      "n": 137,
+      "net_mean_bp": -53.40146278810684
+     }
+    }
+   },
+   "failed_criteria": [
+    "not a discovery candidate: best discovery net mean <= 0 at 22bp"
+   ],
+   "label": "not_proven",
+   "level": 0.02,
+   "p_holm_descriptive": 1.0,
+   "rule": "R8_oi_price_divergence"
+  }
+ ],
+ "rules_skipped_data_gate": [
+  "R7_top_vs_crowd_divergence"
+ ],
+ "stage": "binance_history",
+ "symbol": "ETHUSDT",
+ "transfer_to_bitget": "transfer_pending",
+ "verdict": "COMPLETE_DESCRIPTIVE"
+}
