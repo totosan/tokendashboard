@@ -1,0 +1,66 @@
+{
+  "assumptions": [
+    "Block sums approximately independent and symmetric about 0 at the null boundary; lag-1 autocorrelation is only a proxy for long-memory dependence.",
+    "Event counts independent of outcomes.",
+    "A 28-day fold has few blocks; when rho_hat > 0.6 the rule gives L >= 6, K <= 4 and the design refuses rather than tests.",
+    "Only 28-day folds and the declared generators are covered."
+  ],
+  "calibration_rules": {
+    "expected_honest_outcome": "Refusals under serial/long-memory scenarios are by design and count against the unchanged 5% refusal limit, so a PASS requires the dependence rule to keep size controlled without refusing more than 5% in any scenario. If it does not, the finding is that no tested valid method with so few days resolves persistent dependence.",
+    "runs": "Exactly one run: 2000 panels per scenario for the same 7 scenarios and seeds as v2. No retry, reseed or parameter change.",
+    "runtime": "110s deadline; failure persisted as RUNTIME_OR_EXECUTION_FAILURE; no rerun.",
+    "thresholds": "Unchanged from v2: FAIL if any null FWER Wilson lower bound > .075 or power Wilson upper bound < .30; PASS only if all null FWER Wilson upper bounds <= .075, power Wilson lower bound >= .50, every scenario refusal rate <= 5%, and no runtime failure; otherwise INCONCLUSIVE."
+  },
+  "config": {
+    "alpha": 0.05,
+    "block_rule_numerator": 2.0,
+    "days_per_panel": 28,
+    "hypotheses": 12,
+    "maximum_artifact_bytes": 8388608,
+    "maximum_runtime_seconds": 110,
+    "minimum_block_days": 4,
+    "minimum_blocks": 5,
+    "minimum_eligible_cells": 6,
+    "minimum_events_per_cell": 30,
+    "minimum_nonempty_days_per_cell": 10,
+    "panels_per_scenario": 2000,
+    "rho_cap": 0.95,
+    "scenario_generators_and_seeds": "Identical to v2 (same panels).",
+    "seed": 202611042215
+  },
+  "created_at_utc": "2026-11-05",
+  "family": [
+    "three_close_momentum|5m|btc_eth|long",
+    "three_close_momentum|5m|btc_eth|short",
+    "three_close_momentum|5m|alts|long",
+    "three_close_momentum|5m|alts|short",
+    "three_close_momentum|5m|stock_perps|long",
+    "three_close_momentum|5m|stock_perps|short",
+    "three_close_momentum|15m|btc_eth|long",
+    "three_close_momentum|15m|btc_eth|short",
+    "three_close_momentum|15m|alts|long",
+    "three_close_momentum|15m|alts|short",
+    "three_close_momentum|15m|stock_perps|long",
+    "three_close_momentum|15m|stock_perps|short"
+  ],
+  "family_choice": "Identical to v2: base arm three_close_momentum x 2 timeframes x 3 groups x 2 sides (12 of the 132 frozen hypotheses).",
+  "protocol_id": "issue-22-practical-inference-candidate-v3-adaptive-blocks",
+  "scope": "Synthetic calibration of a 12-hypothesis adaptive-block sign-flip max-T candidate. No market data, no efficacy claim, no change to walkforward-protocol.json, dist/, or v1/v2 artifacts.",
+  "source_hashes": {
+    "research/results/practical-inference-v2-calibration-2026-11-04.json": "ececbab97a4a5c987c37f2f3ad55169fa09f6dff87bdbbe1e54cb8756a3b1729",
+    "research/results/practical-inference-v2-protocol-2026-11-04.json": "4c383ad1511baaece7b1419db556bc7481e39ec85317500348771e753efbf5dd",
+    "research/results/walkforward-protocol.json": "913cbac63b6c3620dad0f9ba9be51647773707ad48a8e923e55d3869b3a8eba2"
+  },
+  "statistic": {
+    "block_rule": "rho = clip(rho_hat, 0, 0.95); L = max(4, ceil(2/(1-rho))); K = floor(28/L) non-overlapping contiguous blocks of L days taken from the end of the fold (the earliest 28-K*L days are dropped). Theory: AR(1) correlation time is about 1/(1-rho) days, so blocks of about twice that length leave residual between-block correlation of order rho^L, which is small only when K is not tiny.",
+    "cell_eligibility": "A cell is eligible if >= 30 events and >= 10 nonempty days. Ineligible cells are dropped from the tested family (eligibility uses counts only, which are independent of outcomes by declared assumption; the retained family is still tested with single-step max-T so FWER is controlled for it). The panel is refused (too_few_eligible_cells) only if fewer than 6 of 12 cells are eligible. Replaces v2's whole-panel refusal on any ineligible cell.",
+    "cell_statistic": "B[b][h] = block sum of S; T_h = sum_b B[b][h] / sqrt(sum_b B[b][h]^2).",
+    "dependence_estimate": "Daily series D_t = mean over eligible cells of S_th / sqrt(max(C_th,1)); rho_hat = lag-1 sample autocorrelation of D_t (a declared dependence proxy; sign-flip validity needs near-independent blocks).",
+    "multiplicity": "Single-step max-T over eligible cells: adjusted p_h = #{vectors with max_j T*_j >= T_h} / 2^K; reject if <= .05.",
+    "other_refusals": "degenerate_daily_series, degenerate_cell.",
+    "reference_distribution": "Exact enumeration of all 2^K block sign vectors, shared across eligible cells.",
+    "resolution_refusal": "If K < 5 the panel is refused as INCONCLUSIVE (insufficient_blocks_under_dependence). Reason: with K blocks the smallest attainable sign-flip p-value is 2^-K; K=5 gives 1/32 and K<=4 gives >= 1/16 > .05, so no rejection is possible and size cannot be controlled at this resolution. This is a refusal, never a pass."
+  },
+  "status": "FROZEN_BEFORE_ANY_V3_CALIBRATION",
+  "v2_result_motivating_v3": "v2 FAIL: size inflated under serial_heteroskedastic (any-rejection 0.097) and long_memory_serial (0.248) with fixed 4-day blocks; sparse_days refusal 6.35% > 5%. Defects fixed here from theory only; no v2 rate was used to select a constant."
+}

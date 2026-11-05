@@ -15,11 +15,18 @@ import sys
 import time
 from pathlib import Path
 
-import practical_inference_v2 as v2
-from practical_inference_v2 import (
-    ALPHA, CHOSEN_ARM, DAYS, MAX_ARTIFACT_BYTES, MAX_PROTOCOL_BYTES, MAX_RUNTIME,
-    MIN_ACTIVE_DAYS, MIN_EVENTS, PANELS, SCENARIOS, Tally, decide, synthetic_panel,
-    validate_panel, write_json, _frozen, _scenario_seed, _sha,
+try:
+    from research import practical_inference_v2 as v2
+except ImportError:
+    import practical_inference_v2 as v2
+
+(ALPHA, DAYS, MAX_ARTIFACT_BYTES, MAX_PROTOCOL_BYTES, MAX_RUNTIME, MIN_ACTIVE_DAYS,
+ MIN_EVENTS, PANELS, POWER_SCENARIO, SCENARIOS, Tally, decide, synthetic_panel,
+ validate_panel, write_json, _frozen, _scenario_seed, _sha) = (
+    v2.ALPHA, v2.DAYS, v2.MAX_ARTIFACT_BYTES, v2.MAX_PROTOCOL_BYTES, v2.MAX_RUNTIME,
+    v2.MIN_ACTIVE_DAYS, v2.MIN_EVENTS, v2.PANELS, v2.POWER_SCENARIO, v2.SCENARIOS,
+    v2.Tally, v2.decide, v2.synthetic_panel, v2.validate_panel, v2.write_json,
+    v2._frozen, v2._scenario_seed, v2._sha,
 )
 
 ROOT = Path(__file__).parent

@@ -1,7 +1,7 @@
 import random
 import unittest
 
-import practical_inference_v3 as v3
+from research import practical_inference_v3 as v3
 
 
 def flat_panel(value=1.0, count=3):
