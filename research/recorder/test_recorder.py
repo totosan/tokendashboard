@@ -15,6 +15,11 @@ NOW_NS = 1_700_000_000_000_000_000  # 2023-11-14T22:13:20Z
 NOW_MS = NOW_NS // 10**6
 
 
+def series(row):
+    old = dict(row, ts=str(NOW_MS - 600000))
+    return {"code": "00000", "requestTime": NOW_MS, "data": [dict(row, ts=str(NOW_MS - 300000)), old]}
+
+
 def body(url):
     if "orderbook" in url:
         return {"code": "00000", "data": {"ts": str(NOW_MS - 5), "b": [["10", "2"], ["9", "1"]],
@@ -27,6 +32,19 @@ def body(url):
         return {"code": "00000", "requestTime": NOW_MS, "data": [
             {"symbol": "X", "fundingRate": "0.0001", "fundingRateInterval": "8",
              "nextUpdate": str(NOW_MS + 1000)}]}
+    if "open-interest" in url:
+        return {"code": "00000", "requestTime": NOW_MS, "data": {
+            "openInterestList": [{"symbol": "X", "size": "123.5"}], "ts": str(NOW_MS)}}
+    if "account-long-short" in url:
+        return series({"longAccountRatio": "0.6", "shortAccountRatio": "0.4",
+                       "longShortAccountRatio": "1.5"})
+    if "position-long-short" in url:
+        return series({"longPositionRatio": "0.5", "shortPositionRatio": "0.5",
+                       "longShortPositionRatio": "1.0"})
+    if "long-short" in url:
+        return series({"longRatio": "0.7", "shortRatio": "0.3", "longShortRatio": "2.3333"})
+    if "taker-buy-sell" in url:
+        return series({"buyVolume": "5", "sellVolume": "4"})
     return {"code": "00000", "requestTime": NOW_MS, "data": [
         {"makerFeeRate": "0.0002", "takerFeeRate": "0.0006", "sizeMultiplier": "1"}]}
 
@@ -68,8 +86,8 @@ class RecorderTests(unittest.TestCase):
         calls = []
         s = run(self.root, fetcher=good_fetch(calls), symbols=["AAPLUSDT", "BTCUSDT"])
         self.assertEqual(s["exit_status"], 0)
-        # cycle1: 4 kinds x 2 symbols; cycle2: 2 kinds x 2 symbols
-        self.assertEqual(s["records"], 12)
+        # cycle1: 9 kinds x 2 symbols; cycle2: 2 kinds x 2 symbols
+        self.assertEqual(s["records"], 22)
         self.assertTrue((self.root / "2023/11/14/22/records.jsonl.gz").exists())
         recs = self.records()
         book = next(r for r in recs if r["kind"] == "orderbook")
@@ -79,7 +97,7 @@ class RecorderTests(unittest.TestCase):
         self.assertEqual(book["instrument"]["product"], "USDT-FUTURES")
         fee = next(r for r in recs if r["kind"] == "contract")
         self.assertEqual(fee["fields"]["taker_fee_rate"], "0.0006")
-        self.assertEqual(len(calls), 12)
+        self.assertEqual(len(calls), 22)
 
     def test_append_only_and_integrity_report_ok(self):
         run(self.root, cycles=1)
@@ -89,7 +107,7 @@ class RecorderTests(unittest.TestCase):
         self.assertTrue(path.read_bytes().startswith(first))
         rep = integrity_report.scan(self.root, 60)
         self.assertTrue(rep["ok"])
-        self.assertEqual(rep["records"], 16)
+        self.assertEqual(rep["records"], 36)
         self.assertEqual(rep["duplicate_records"], 0)
 
     def test_integrity_detects_tamper_and_truncation(self):
@@ -120,10 +138,10 @@ class RecorderTests(unittest.TestCase):
             raise OSError("boom")
 
         s = run(self.root, fetcher=bad, cycles=1, retries=2, symbols=["BTCUSDT"])
-        self.assertEqual(len(calls), 3 * 4)
+        self.assertEqual(len(calls), 3 * 9)
         self.assertEqual(s["exit_status"], 1)
         self.assertEqual(s["records"], 0)
-        self.assertEqual(len(s["failures"]), 4)
+        self.assertEqual(len(s["failures"]), 9)
 
     def test_retry_recovers_and_invalid_payload_not_written(self):
         state = {"n": 0}
@@ -138,8 +156,47 @@ class RecorderTests(unittest.TestCase):
 
         s = run(self.root, fetcher=flaky, cycles=1, symbols=["BTCUSDT"])
         self.assertEqual(s["exit_status"], 2)
-        self.assertEqual({r["kind"] for r in self.records()}, {"orderbook", "funding", "contract"})
+        self.assertEqual({r["kind"] for r in self.records()}, {"orderbook", "funding", "contract", *recorder.SENTIMENT})
         self.assertEqual(s["failures"][0]["kind"], "ticker")
+
+    def test_sentiment_fields_normalized_and_latest_bucket_used(self):
+        run(self.root, cycles=1, symbols=["BTCUSDT"])
+        by = {r["kind"]: r for r in self.records()}
+        self.assertEqual(by["open_interest"]["fields"]["open_interest"], "123.5")
+        ls = by["long_short"]
+        self.assertEqual(ls["event_ms"], NOW_MS - 300000)
+        self.assertEqual(ls["fields"]["long_short_ratio"], "2.3333")
+        self.assertEqual(ls["fields"]["points"], 2)
+        self.assertEqual(by["account_long_short"]["fields"]["long_account_ratio"], "0.6")
+        self.assertEqual(by["position_long_short"]["fields"]["short_position_ratio"], "0.5")
+        self.assertEqual(by["taker_buy_sell"]["fields"]["buy_volume"], "5")
+        self.assertEqual(len(ls["raw_response_sha256"]), 64)
+        self.assertIn("period=5m", ls["url"])
+
+    def test_no_data_40054_noted_once_no_retry_exit_ok(self):
+        calls = []
+
+        def empty(url, timeout):
+            calls.append(url)
+            if "long-short" in url and "AAPL" in url:
+                return json.dumps({"code": "40054", "msg": "empty", "requestTime": NOW_MS,
+                                   "data": None}).encode()
+            return json.dumps(body(url)).encode()
+
+        s = run(self.root, fetcher=empty, cycles=3, slow_every=1, symbols=["AAPLUSDT"],
+                retries=2)
+        self.assertEqual(s["exit_status"], 0)
+        self.assertEqual(s["failures"], [])
+        self.assertEqual(len(s["no_data"]), 3)
+        nd = [r for r in self.records() if r["fields"].get("no_data")]
+        self.assertEqual(len(nd), 3)
+        self.assertEqual(nd[0]["fields"]["code"], "40054")
+        self.assertEqual(len([u for u in calls if "/long-short" in u]), 1)
+
+    def test_fetch_accepts_400_only_for_no_data_code(self):
+        self.assertTrue(recorder.is_no_data(b'{"code":"40054","data":null}'))
+        self.assertFalse(recorder.is_no_data(b'{"code":"40001"}'))
+        self.assertFalse(recorder.is_no_data(b"not json"))
 
     def test_crossed_book_rejected(self):
         def crossed(url, timeout):
@@ -154,7 +211,7 @@ class RecorderTests(unittest.TestCase):
     def test_max_cycles_and_duration_cap(self):
         calls = []
         s = run(self.root, fetcher=good_fetch(calls), cycles=3, slow_every=100, symbols=["BTCUSDT"])
-        self.assertEqual((s["cycles_completed"], len(calls)), (3, 4 + 2 + 2))
+        self.assertEqual((s["cycles_completed"], len(calls)), (3, 9 + 2 + 2))
         ticks = iter(x * 100 for x in range(1000))
         s = run(self.root, cycles=50, duration=150, monotonic=lambda: next(ticks),
                 symbols=["BTCUSDT"])

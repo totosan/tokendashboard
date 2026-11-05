@@ -46,11 +46,25 @@ def endpoints(symbol, depth):
                     {"symbol": symbol, "productType": PRODUCT}),
         "contract": (BASE + "/api/v2/mix/market/contracts",
                      {"symbol": symbol, "productType": PRODUCT}),
+        "open_interest": (BASE + "/api/v2/mix/market/open-interest",
+                          {"symbol": symbol, "productType": PRODUCT}),
+        "long_short": (BASE + "/api/v2/mix/market/long-short",
+                       {"symbol": symbol, "period": SENTIMENT_PERIOD}),
+        "account_long_short": (BASE + "/api/v2/mix/market/account-long-short",
+                               {"symbol": symbol, "period": SENTIMENT_PERIOD}),
+        "position_long_short": (BASE + "/api/v2/mix/market/position-long-short",
+                                {"symbol": symbol, "period": SENTIMENT_PERIOD}),
+        "taker_buy_sell": (BASE + "/api/v2/mix/market/taker-buy-sell",
+                           {"symbol": symbol, "period": SENTIMENT_PERIOD}),
     }
 
 
 FAST = ("orderbook", "ticker")
-SLOW = ("funding", "contract")
+SENTIMENT = ("open_interest", "long_short", "account_long_short", "position_long_short",
+             "taker_buy_sell")
+SLOW = ("funding", "contract") + SENTIMENT
+SENTIMENT_PERIOD = "5m"
+NO_DATA_CODE = "40054"  # Bitget answers HTTP 400 + this code when a symbol has no such data
 
 
 def build_url(base, params):
@@ -93,10 +107,20 @@ def fetch(url, timeout):
     except BaseException:
         _close_connection()
         raise
+    if status == 400 and len(raw) <= MAX_RESPONSE and is_no_data(raw):
+        return raw
     if status != 200 or len(raw) > MAX_RESPONSE:
         _close_connection()
         raise ValueError("Non-200 or oversized public response")
     return raw
+
+
+def is_no_data(raw):
+    try:
+        payload = json.loads(raw)
+    except ValueError:
+        return False
+    return isinstance(payload, dict) and payload.get("code") == NO_DATA_CODE
 
 
 def decimal(value):
@@ -111,6 +135,10 @@ def decimal(value):
 
 def normalize(kind, payload, depth):
     """Validate the envelope and extract contract-aligned fields (exchange_ms + values)."""
+    if (kind in SENTIMENT and isinstance(payload, dict)
+            and payload.get("code") == NO_DATA_CODE):
+        return {"exchange_ms": int(payload["requestTime"]), "no_data": "true",
+                "code": NO_DATA_CODE}
     if not isinstance(payload, dict) or payload.get("code") != "00000":
         raise ValueError("Bitget API error or invalid envelope")
     data = payload["data"]
@@ -136,6 +164,28 @@ def normalize(kind, payload, depth):
             statuses[status] = statuses.get(status, 0) + 1
         return {"exchange_ms": int(payload["requestTime"]), "symbol_count": len(data),
                 "status_counts": statuses}
+    if kind == "open_interest":
+        items = data["openInterestList"]
+        if not isinstance(items, list) or not items:
+            raise ValueError("Empty open interest")
+        return {"exchange_ms": int(data["ts"]), "open_interest": str(decimal(items[0]["size"]))}
+    if kind in SENTIMENT:
+        if not isinstance(data, list) or not data:
+            raise ValueError("Empty sentiment series")
+        row = max(data, key=lambda item: int(item["ts"]))  # latest 5m bucket; raw keeps series
+        out = {"exchange_ms": int(row["ts"]), "period": SENTIMENT_PERIOD, "points": len(data)}
+        names = {"long_short": (("longRatio", "long_ratio"), ("shortRatio", "short_ratio"),
+                                ("longShortRatio", "long_short_ratio")),
+                 "account_long_short": (("longAccountRatio", "long_account_ratio"),
+                                        ("shortAccountRatio", "short_account_ratio"),
+                                        ("longShortAccountRatio", "long_short_account_ratio")),
+                 "position_long_short": (("longPositionRatio", "long_position_ratio"),
+                                         ("shortPositionRatio", "short_position_ratio"),
+                                         ("longShortPositionRatio", "long_short_position_ratio")),
+                 "taker_buy_sell": (("buyVolume", "buy_volume"), ("sellVolume", "sell_volume"))}
+        for key, name in names[kind]:
+            out[name] = str(decimal(row[key]))
+        return out
     row = data[0] if isinstance(data, list) else data
     if kind == "ticker":
         out = {"exchange_ms": int(row.get("ts") or payload["requestTime"])}
@@ -427,7 +477,8 @@ def run(root, symbols, cycles, interval, duration, depth=50, slow_every=30, min_
     summary = {"run_id": run_id, "previous_shutdown": startup["previous_shutdown"],
                "recovered_partitions": startup["recovered_partitions"],
                "clock_sync": clock_sync, "records": 0, "failures": [], "cycles_completed": 0,
-               "stop_reason": "MAX_CYCLES"}
+               "stop_reason": "MAX_CYCLES", "no_data": []}
+    no_data = set()
     for cycle in range(1, cycles + 1):
         if STOP.is_set():
             summary["stop_reason"] = "SIGNAL"
@@ -455,6 +506,8 @@ def run(root, symbols, cycles, interval, duration, depth=50, slow_every=30, min_
             for kind in kinds:
                 if STOP.is_set() or monotonic() >= end:
                     break
+                if (symbol, kind) in no_data:
+                    continue
                 url = build_url(*urls[kind])
                 try:
                     limiter.acquire()
@@ -469,6 +522,9 @@ def run(root, symbols, cycles, interval, duration, depth=50, slow_every=30, min_
                     append_member(partition_path(root, record["available_ms"]),
                                   [json.dumps(record, sort_keys=True) + "\n"])
                     summary["records"] += 1
+                    if record["fields"].get("no_data"):
+                        no_data.add((symbol, kind))
+                        summary["no_data"].append({"symbol": symbol, "kind": kind})
                 except InterruptedError:
                     break
                 except (OSError, ValueError, KeyError, TypeError, IndexError,
@@ -501,7 +557,7 @@ def main(argv=None):
     parser.add_argument("--duration-seconds", type=int, default=300, help="Hard wall-clock cap")
     parser.add_argument("--depth", type=int, default=50)
     parser.add_argument("--slow-every", type=int, default=30,
-                        help="Funding/contract-fee config every N cycles (always cycle 1)")
+                        help="Funding/contract-fee/sentiment kinds every N cycles (always cycle 1)")
     parser.add_argument("--min-request-gap", type=float, default=0.25)
     parser.add_argument("--retries", type=int, default=2)
     args = parser.parse_args(argv)

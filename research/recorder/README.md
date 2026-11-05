@@ -42,6 +42,25 @@ file (sha256 of the file) plus a `path:line` locator; Bitget `sizeMultiplier` (e
 AAPLUSDT) is the exchange value and must be reconciled with the contract's `contract_multiplier`;
 fees are the account-independent public contract rates, not an account's VIP tier.
 
+## Sentiment / open-interest kinds (slow schedule)
+
+Recorded every `--slow-every` cycles (default 30, always cycle 1) next to `funding`/`contract`,
+public GET only: `open_interest` (`open-interest`), `long_short`, `account_long_short`,
+`position_long_short`, `taker_buy_sell` (`/api/v2/mix/market/...`, `period=5m`). Normalized
+`fields`: `open_interest`; `long_ratio`/`short_ratio`/`long_short_ratio` (and the `*_account_*`,
+`*_position_*` variants); `buy_volume`/`sell_volume`; plus `period` and `points`. For series kinds
+`event_ms` is the latest 5m bucket; the full series stays in `raw_response` (sha256 as usual).
+
+Bitget answers HTTP 400 + code `40054` ("data is empty") for symbols without this data (e.g.
+AAPLUSDT long/short). That is an expected outcome, not a failure: one compact record with
+`fields.no_data = "true"` is stored per run and symbol/kind, the pair is not requested again in
+that run, there are no retries, and the exit status is unaffected (`summary.no_data` lists them).
+
+**Caveats:** these are exchange-reported aggregates at 5m granularity, sampled every few minutes,
+not tick data; the exchange's population and method are not documented. Narrative rules such as
+"long/short > 70% => squeeze" are **UNTESTED** and must be evaluated under a pre-registered
+protocol before any use.
+
 ## Storage
 
 `<output-dir>/YYYY/MM/DD/HH/records.jsonl.gz` (UTC hour of `available_ms`). Each write appends one
