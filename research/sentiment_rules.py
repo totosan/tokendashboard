@@ -46,8 +46,17 @@ RULES = {
     "R3_healthy_trend_rising_oi": {"side": 1, "default": 0.02, "grid": (0.01, 0.02, 0.03, 0.05)},
     "R4_oi_flush_after_squeeze": {"side": 1, "default": 0.02, "grid": (0.01, 0.02, 0.03, 0.05)},
     "R5_exhaustion": {"side": -1, "default": 0.02, "grid": (0.01, 0.02, 0.03, 0.04)},
+    # v1.2 community priors (recalled, unverified); side 0 => direction taken per bar by side_for()
+    "R6_funding_extreme_contrarian": {"side": 0, "default": 0.0005,
+                                      "grid": (0.0002, 0.0003, 0.0005, 0.0010),
+                                      "source": "community_prior (recalled, unverified)"},
+    "R7_top_vs_crowd_divergence": {"side": 0, "default": 0.10, "grid": (0.05, 0.10, 0.15, 0.20),
+                                   "source": "community_prior (recalled, unverified)"},
+    "R8_oi_price_divergence": {"side": 1, "default": 0.02, "grid": (0.01, 0.02, 0.03, 0.05),
+                               "source": "community_prior (recalled, unverified)"},
 }
-assert len(RULES) <= 6
+assert len(RULES) <= 8
+FUNDING_MAX_AGE_BARS = 96  # 8h funding interval; older values are not carried forward
 GRID_TOTAL = sum(len(r["grid"]) for r in RULES.values())
 TREND_MIN_RET = 0.005
 
@@ -65,9 +74,24 @@ def signal_fires(rule, level, f):
             return f["oi_chg"] <= -level + 1e-12 and f["ret"] <= 0
         if rule == "R5_exhaustion":
             return f["ret"] >= level - 1e-12 and f["taker_buy_share"] <= 0.5
+        if rule == "R6_funding_extreme_contrarian":
+            return abs(f["funding"]) >= level - 1e-12
+        if rule == "R7_top_vs_crowd_divergence":
+            return abs(f["top_long_ratio"] - f["long_ratio"]) >= level - 1e-12
+        if rule == "R8_oi_price_divergence":
+            return f["oi_chg"] >= level - 1e-12 and f["ret"] <= 0
     except (KeyError, TypeError):
         return False
     raise ValueError("unknown rule " + rule)
+
+
+def side_for(rule, f):
+    """Trade side for a fired signal. R6 contrarian to funding sign; R7 follows top traders vs crowd."""
+    if rule == "R6_funding_extreme_contrarian":
+        return -1 if f["funding"] > 0 else 1
+    if rule == "R7_top_vs_crowd_divergence":
+        return 1 if f["top_long_ratio"] > f["long_ratio"] else -1
+    return RULES[rule]["side"]
 
 
 def build_table(rows):
@@ -87,13 +111,19 @@ def build_table(rows):
         shares = [rows.get(j, {}).get("taker_buy_share") for j in range(i - H + 1, i + 1)]
         if all(s is not None for s in shares):
             f["taker_buy_share"] = sum(shares) / H
+        if r.get("top_long_ratio") is not None:
+            f["top_long_ratio"] = r["top_long_ratio"]
+        for j in range(i, i - FUNDING_MAX_AGE_BARS, -1):  # latest settled funding, past bars only
+            fv = rows.get(j, {}).get("funding")
+            if fv is not None:
+                f["funding"] = fv
+                break
         table.append(f)
     return table
 
 
 def events(rule, level, table, closes, lo_bar, hi_bar):
     """Non-overlapping events with signal bar in [lo_bar, hi_bar); returns [(bar, gross_return)]."""
-    side = RULES[rule]["side"]
     out, free_at = [], -1
     for f in table:
         b = f["bar"]
@@ -104,7 +134,7 @@ def events(rule, level, table, closes, lo_bar, hi_bar):
         entry, exit_ = closes.get(b + 1), closes.get(b + 1 + H)
         if not entry or not exit_:
             continue
-        out.append((b, side * (exit_ / entry - 1)))
+        out.append((b, side_for(rule, f) * (exit_ / entry - 1)))
         free_at = b + 1 + H
     return out
 
@@ -394,6 +424,7 @@ def parse_metrics_csv(data, rows):
         except (ValueError, KeyError, TypeError):
             pass
         for key, field, conv in (("long_ratio", "count_long_short_ratio", _ratio_share),
+                                 ("top_long_ratio", "sum_toptrader_long_short_ratio", _ratio_share),
                                  ("taker_buy_share", "sum_taker_long_short_vol_ratio", _ratio_share)):
             try:
                 v = conv(rec[field])
@@ -402,6 +433,22 @@ def parse_metrics_csv(data, rows):
             except (ValueError, KeyError, TypeError):
                 pass
         n += 1
+    return n
+
+
+def parse_funding_csv(data, rows):
+    """Binance fundingRate CSV (calc_time, funding_interval_hours, last_funding_rate) -> rows[bar]['funding'].
+
+    Bar = settlement-time bucket; the value is only used from that bar onward (no look-ahead).
+    """
+    n = 0
+    for rec in csv.DictReader(io.StringIO(_csv_text(data))):
+        try:
+            bar = _ts_ms(rec["calc_time"]) // BAR_MS
+            rows.setdefault(bar, {})["funding"] = float(rec["last_funding_rate"])
+            n += 1
+        except (ValueError, KeyError, TypeError, AttributeError):
+            continue
     return n
 
 
@@ -422,8 +469,13 @@ def parse_klines_csv(data, rows):
     return n
 
 
-def load_binance(metrics_dir, klines_dir, symbol):
+def load_binance(metrics_dir, klines_dir, symbol, funding_dir=None):
     rows = {}
+    for p in sorted((Path(funding_dir) / symbol).glob("*.zip")) if funding_dir else []:
+        try:
+            parse_funding_csv(p.read_bytes(), rows)
+        except (zipfile.BadZipFile, OSError, KeyError, UnicodeDecodeError):
+            continue
     for p in sorted((Path(metrics_dir) / symbol).glob("*.zip")) if metrics_dir else []:
         try:
             parse_metrics_csv(p.read_bytes(), rows)
@@ -459,9 +511,27 @@ def binance_gate(rows, start=None, end=None):
     return failed, pct
 
 
-def run_binance(metrics_dir, klines_dir, symbol="BTCUSDT"):
+V12_FIELD_NEEDS = {"R6_funding_extreme_contrarian": "funding", "R7_top_vs_crowd_divergence": "top_long_ratio"}
+V12_MIN_FIELD_DAY_PCT = 95.0
+
+
+def rule_data_ok(rule, rows, start=None, end=None):
+    """v1.2 per-rule data gate: >=95% of declared days carry the extra field (funding: >=2 settlements)."""
+    field = V12_FIELD_NEEDS.get(rule)
+    if field is None:
+        return True
+    start, end = start or BINANCE_START, end or BINANCE_END
+    per_day, b0, total = DAY_MS // BAR_MS, _day_bar(start), (end - start).days + 1
+    need = 2 if field == "funding" else math.ceil(per_day * 0.95)
+    good = sum(1 for d in range(total)
+               if sum(1 for b in range(b0 + d * per_day, b0 + (d + 1) * per_day)
+                      if rows.get(b, {}).get(field) is not None) >= need)
+    return 100.0 * good / total >= V12_MIN_FIELD_DAY_PCT
+
+
+def run_binance(metrics_dir, klines_dir, symbol="BTCUSDT", funding_dir=None):
     """Binance-history stage (source venue). Gate failure => NOT_READY exit 2, nothing evaluated."""
-    rows = load_binance(metrics_dir, klines_dir, symbol)
+    rows = load_binance(metrics_dir, klines_dir, symbol, funding_dir)
     if not rows:
         return {"stage": "binance_history", "verdict": "NOT_READY", "label": "INCONCLUSIVE",
                 "failed_gates": ["no_binance_data"], "claim": "none"}, 2
@@ -472,8 +542,11 @@ def run_binance(metrics_dir, klines_dir, symbol="BTCUSDT"):
     table = build_table(rows)
     closes = {b: r["close"] for b, r in rows.items() if r.get("close")}
     disc, conf = binance_segments()
-    ledger, results, ps = {}, [], []
+    ledger, results, ps, skipped = {}, [], [], []
     for rule in RULES:
+        if not rule_data_ok(rule, rows):
+            skipped.append(rule)  # Holm family size stays GRID_TOTAL (conservative)
+            continue
         frozen = select_level(rule, table, closes, disc)
         res = confirm_once(frozen, table, closes, conf, ledger, BINANCE_BLOCK_DAYS)
         results.append((frozen, res))
@@ -486,7 +559,8 @@ def run_binance(metrics_dir, klines_dir, symbol="BTCUSDT"):
                     "failed_criteria": fails, "p_holm_descriptive": p, "confirmation": res})
     return {"stage": "binance_history", "symbol": symbol, "verdict": "COMPLETE_DESCRIPTIVE",
             "claim": "source-venue (Binance) screen only; no Bitget execution claim; test size control not validated",
-            "transfer_to_bitget": "transfer_pending", "rules": out}, 0
+            "transfer_to_bitget": "transfer_pending", "rules_skipped_data_gate": skipped,
+            "rules": out}, 0
 
 
 def main(argv=None):
@@ -494,11 +568,12 @@ def main(argv=None):
     ap.add_argument("root", type=Path, nargs="?", help="Bitget recorder dir (transfer stage)")
     ap.add_argument("--binance-metrics", type=Path, help="Binance history stage: metrics zip dir")
     ap.add_argument("--binance-klines", type=Path, help="Binance history stage: 5m kline zip dir")
+    ap.add_argument("--binance-funding", type=Path, help="v1.2: fundingRate zip dir (monthly)")
     ap.add_argument("--symbol", default="BTCUSDT")
     args = ap.parse_args(argv)
     signal.alarm(MAX_RUNTIME)
     if args.binance_metrics:
-        result, code = run_binance(args.binance_metrics, args.binance_klines, args.symbol)
+        result, code = run_binance(args.binance_metrics, args.binance_klines, args.symbol, args.binance_funding)
     elif args.root:
         result, code = run(args.root)
     else:

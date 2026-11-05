@@ -28,8 +28,9 @@ def spike_every(period, level):
 
 class Rules(unittest.TestCase):
     def test_limits(self):
-        self.assertLessEqual(len(sr.RULES), 6)
-        self.assertEqual(sr.GRID_TOTAL, 24)
+        self.assertLessEqual(len(sr.RULES), 8)
+        self.assertEqual(sr.GRID_TOTAL, 36)
+        self.assertEqual(sum(1 for r in sr.RULES.values() if 'source' in r), 3)
         for r in sr.RULES.values():
             self.assertIn(r["default"], r["grid"])
 
@@ -143,9 +144,9 @@ class BinanceLoader(unittest.TestCase):
             rows = {}
             self.assertEqual(sr.parse_metrics_csv(data, rows), 3)
             b0 = sr._ts_ms("2022-01-05 00:05:00") // sr.BAR_MS
-            self.assertEqual(rows[b0], {"oi": 100.5, "long_ratio": 0.75, "taker_buy_share": 0.5})
+            self.assertEqual(rows[b0], {"oi": 100.5, "long_ratio": 0.75, "top_long_ratio": 0.5, "taker_buy_share": 0.5})
             self.assertEqual(rows[b0 + 1]["taker_buy_share"], 0.75)
-            self.assertEqual(rows[b0 + 2], {"taker_buy_share": 0.5})  # bad fields skipped, not filled
+            self.assertEqual(rows[b0 + 2], {"top_long_ratio": 0.5, "taker_buy_share": 0.5})  # bad fields skipped, not filled
 
     def test_klines_close_bucket_no_lookahead(self):
         t = sr._ts_ms("2022-01-05 00:00:00")
@@ -193,3 +194,69 @@ class BinanceLoader(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class CommunityPriors(unittest.TestCase):
+    def test_funding_contrarian_sides(self):
+        r = "R6_funding_extreme_contrarian"
+        self.assertTrue(sr.signal_fires(r, 0.0005, {"funding": 0.0006}))
+        self.assertTrue(sr.signal_fires(r, 0.0005, {"funding": -0.0006}))
+        self.assertFalse(sr.signal_fires(r, 0.0005, {"funding": 0.0001}))
+        self.assertFalse(sr.signal_fires(r, 0.0005, {}))
+        self.assertEqual(sr.side_for(r, {"funding": 0.001}), -1)
+        self.assertEqual(sr.side_for(r, {"funding": -0.001}), 1)
+
+    def test_top_vs_crowd_follows_top(self):
+        r = "R7_top_vs_crowd_divergence"
+        f = {"top_long_ratio": 0.60, "long_ratio": 0.45}
+        self.assertTrue(sr.signal_fires(r, 0.10, f))
+        self.assertEqual(sr.side_for(r, f), 1)
+        g = {"top_long_ratio": 0.40, "long_ratio": 0.55}
+        self.assertEqual(sr.side_for(r, g), -1)
+        self.assertFalse(sr.signal_fires(r, 0.10, {"top_long_ratio": 0.5, "long_ratio": 0.45}))
+        self.assertFalse(sr.signal_fires(r, 0.10, {"long_ratio": 0.9}))
+
+    def test_oi_price_divergence(self):
+        r = "R8_oi_price_divergence"
+        self.assertTrue(sr.signal_fires(r, 0.02, {"oi_chg": 0.03, "ret": -0.001}))
+        self.assertFalse(sr.signal_fires(r, 0.02, {"oi_chg": 0.03, "ret": 0.01}))
+        self.assertFalse(sr.signal_fires(r, 0.02, {"oi_chg": 0.01, "ret": -0.01}))
+
+    def test_funding_no_lookahead_and_expiry(self):
+        rows = {i: {"close": 100.0} for i in range(300)}
+        rows[100]["funding"] = 0.001
+        t = {f["bar"]: f for f in sr.build_table(rows)}
+        self.assertNotIn("funding", t[99])
+        self.assertEqual(t[100]["funding"], 0.001)
+        self.assertEqual(t[195]["funding"], 0.001)
+        self.assertNotIn("funding", t[196])
+
+    def test_funding_contrarian_event_sign(self):
+        rows = {i: {"close": 100.0 * (0.9995 ** i)} for i in range(200)}
+        rows[10]["funding"] = 0.002
+        table, closes = prep(rows)
+        evs = sr.events("R6_funding_extreme_contrarian", 0.001, table, closes, 0, 100)
+        self.assertTrue(evs and all(g > 0 for _, g in evs))  # short a falling price
+
+    def test_parse_funding_and_top_ratio(self):
+        rows = {}
+        n = sr.parse_funding_csv(b"calc_time,funding_interval_hours,last_funding_rate\n"
+                                 b"1640995200000,8,0.00010000\n", rows)
+        self.assertEqual(n, 1)
+        self.assertEqual(rows[1640995200000 // sr.BAR_MS]["funding"], 0.0001)
+        m = {}
+        sr.parse_metrics_csv(b"create_time,symbol,sum_open_interest,sum_open_interest_value,count_toptrader_long_short_ratio,"
+                             b"sum_toptrader_long_short_ratio,count_long_short_ratio,sum_taker_long_short_vol_ratio\n"
+                             b"2022-01-01 00:05:00,BTCUSDT,10,1,1,3.0,1.0,1.0\n", m)
+        self.assertAlmostEqual(list(m.values())[0]["top_long_ratio"], 0.75)
+
+    def test_rule_data_gate(self):
+        from datetime import date
+        self.assertTrue(sr.rule_data_ok("R8_oi_price_divergence", {}))
+        self.assertFalse(sr.rule_data_ok("R6_funding_extreme_contrarian", {}, date(2022, 1, 1), date(2022, 1, 3)))
+        rows = {}
+        b0 = sr._day_bar(date(2022, 1, 1))
+        for d in range(3):
+            for k in (0, 96):
+                rows[b0 + d * PER_DAY + k] = {"funding": 0.0001}
+        self.assertTrue(sr.rule_data_ok("R6_funding_extreme_contrarian", rows, date(2022, 1, 1), date(2022, 1, 3)))
