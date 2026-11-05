@@ -1,0 +1,355 @@
+{
+ "endpoint": "https://api.bitget.com/api/v2/mix/market/history-candles",
+ "authentication": "none (public, read-only GET)",
+ "started_utc": "2026-11-05T07:18:27.928941+00:00",
+ "granularity": "1m",
+ "productType": "USDT-FUTURES",
+ "symbols": [
+  "AAPLUSDT",
+  "ADAUSDT",
+  "BNBUSDT",
+  "BTCUSDT",
+  "COINUSDT",
+  "DOGEUSDT",
+  "ETHUSDT",
+  "LINKUSDT",
+  "NVDAUSDT",
+  "SOLUSDT",
+  "TSLAUSDT",
+  "XRPUSDT"
+ ],
+ "caps": {
+  "symbols": 12,
+  "pages_per_symbol": 48,
+  "max_requests": 600,
+  "page_limit": 200,
+  "timeout_s": 10,
+  "wall_s": 105,
+  "retries": 0,
+  "min_interval_s_used_in_run": 0.12,
+  "min_interval_s_default_now": 1.0
+ },
+ "pages": [
+  {
+   "symbol": "AAPLUSDT",
+   "endTime": 1793863107928,
+   "limit": 200,
+   "http_status": 200,
+   "bytes": 14292,
+   "sha256": "8ef9b249ddb1bf429bce1f87775daf5eb93322b8445b4f26c407101422a03c21",
+   "api_code": "00000",
+   "status": "OK",
+   "file": "AAPLUSDT-0000.json",
+   "rows": 200,
+   "first_open": 1793851080000,
+   "last_open": 1793863020000
+  },
+  {
+   "symbol": "ADAUSDT",
+   "endTime": 1793863107928,
+   "limit": 200,
+   "http_status": 200,
+   "bytes": 14427,
+   "sha256": "f6e3e36830fe107fa6a39047a27d5f2a08cf7df8604810975d21cb1e13c6ba3f",
+   "api_code": "00000",
+   "status": "OK",
+   "file": "ADAUSDT-0000.json",
+   "rows": 200,
+   "first_open": 1793851080000,
+   "last_open": 1793863020000
+  },
+  {
+   "symbol": "BNBUSDT",
+   "endTime": 1793863107928,
+   "limit": 200,
+   "http_status": 200,
+   "bytes": 14245,
+   "sha256": "7d0c547f4dad454a76f3afeef2a0b7c02dc818ad6bc739cbffc8e242fe71ec9a",
+   "api_code": "00000",
+   "status": "OK",
+   "file": "BNBUSDT-0000.json",
+   "rows": 200,
+   "first_open": 1793851080000,
+   "last_open": 1793863020000
+  },
+  {
+   "symbol": "BTCUSDT",
+   "endTime": 1793863107928,
+   "limit": 200,
+   "http_status": 200,
+   "bytes": 16163,
+   "sha256": "b5cfae874f7d7d15e71c3b16e2c987d55b9dd76aba87444da8ce52b1b031daf0",
+   "api_code": "00000",
+   "status": "OK",
+   "file": "BTCUSDT-0000.json",
+   "rows": 200,
+   "first_open": 1793851080000,
+   "last_open": 1793863020000
+  },
+  {
+   "symbol": "COINUSDT",
+   "endTime": 1793863107928,
+   "limit": 200,
+   "http_status": 200,
+   "bytes": 14147,
+   "sha256": "f2ea641261b8aebac612931033e02f638a166c95ec76447d4a1667a51d06229a",
+   "api_code": "00000",
+   "status": "OK",
+   "file": "COINUSDT-0000.json",
+   "rows": 200,
+   "first_open": 1793851080000,
+   "last_open": 1793863020000
+  },
+  {
+   "symbol": "DOGEUSDT",
+   "endTime": 1793863107928,
+   "limit": 200,
+   "http_status": 200,
+   "bytes": 15524,
+   "sha256": "d615520cc97a01b441a2fd8795ddd6a4eb701da43d6776a5073560a2bb6fa95b",
+   "api_code": "00000",
+   "status": "OK",
+   "file": "DOGEUSDT-0000.json",
+   "rows": 200,
+   "first_open": 1793851080000,
+   "last_open": 1793863020000
+  },
+  {
+   "symbol": "ETHUSDT",
+   "endTime": 1793863107928,
+   "limit": 200,
+   "http_status": 200,
+   "bytes": 15917,
+   "sha256": "80c1493228d903b7f89b10743842891768bdb4fcbb7f015f49890216f69c1003",
+   "api_code": "00000",
+   "status": "OK",
+   "file": "ETHUSDT-0000.json",
+   "rows": 200,
+   "first_open": 1793851080000,
+   "last_open": 1793863020000
+  },
+  {
+   "symbol": "LINKUSDT",
+   "endTime": 1793863107928,
+   "limit": 200,
+   "http_status": 200,
+   "bytes": 13963,
+   "sha256": "139ebd4fdb68f4c0b49f17918306e75b30ce83492f8ba879e78d98cd18b15a01",
+   "api_code": "00000",
+   "status": "OK",
+   "file": "LINKUSDT-0000.json",
+   "rows": 200,
+   "first_open": 1793851080000,
+   "last_open": 1793863020000
+  },
+  {
+   "symbol": "NVDAUSDT",
+   "endTime": 1793863107928,
+   "limit": 200,
+   "http_status": 200,
+   "bytes": 14719,
+   "sha256": "3b6078b2756e96d5b5472f7912b881d910dccb10c4046bd8a2b9676e9d9dd312",
+   "api_code": "00000",
+   "status": "OK",
+   "file": "NVDAUSDT-0000.json",
+   "rows": 200,
+   "first_open": 1793851080000,
+   "last_open": 1793863020000
+  },
+  {
+   "symbol": "SOLUSDT",
+   "endTime": 1793863107928,
+   "limit": 200,
+   "http_status": 200,
+   "bytes": 14854,
+   "sha256": "e082bb5be5c16b95a737649dd5ef59950a3e78412f73ed46ef57f739ebf963b2",
+   "api_code": "00000",
+   "status": "OK",
+   "file": "SOLUSDT-0000.json",
+   "rows": 200,
+   "first_open": 1793851080000,
+   "last_open": 1793863020000
+  },
+  {
+   "symbol": "TSLAUSDT",
+   "endTime": 1793863107928,
+   "limit": 200,
+   "http_status": 200,
+   "bytes": 14536,
+   "sha256": "f0961a3a52ba2dc219178df503ab2d6f0040d0ecb55b19e7e7de0f5a0548b583",
+   "api_code": "00000",
+   "status": "OK",
+   "file": "TSLAUSDT-0000.json",
+   "rows": 200,
+   "first_open": 1793851080000,
+   "last_open": 1793863020000
+  },
+  {
+   "symbol": "XRPUSDT",
+   "endTime": 1793863107928,
+   "limit": 200,
+   "http_status": 200,
+   "bytes": 14887,
+   "sha256": "e6a00c30400c753736d3d67f97576e07b6f3546aac1666349e516d46041cef45",
+   "api_code": "00000",
+   "status": "OK",
+   "file": "XRPUSDT-0000.json",
+   "rows": 200,
+   "first_open": 1793851080000,
+   "last_open": 1793863020000
+  },
+  {
+   "symbol": "AAPLUSDT",
+   "endTime": 1793851079999,
+   "limit": 200,
+   "http_status": 200,
+   "bytes": 14313,
+   "sha256": "18eaa8a94da3d4188e87c192adfc666363296de365ef89d37780aafe4ac6ce66",
+   "api_code": "00000",
+   "status": "OK",
+   "file": "AAPLUSDT-0001.json",
+   "rows": 200,
+   "first_open": 1793839020000,
+   "last_open": 1793850960000
+  },
+  {
+   "symbol": "ADAUSDT",
+   "endTime": 1793851079999,
+   "limit": 200,
+   "http_status": 429,
+   "status": "HTTP_ERROR"
+  }
+ ],
+ "stop_reason": "http_error_429",
+ "http_requests": 14,
+ "elapsed_s": 4.2,
+ "coverage_by_symbol": {
+  "AAPLUSDT": {
+   "bars": 400,
+   "first_open_utc": "2026-11-05T00:37:00+00:00",
+   "last_open_utc": "2026-11-05T07:17:00+00:00",
+   "expected_bars_first_to_last": 401,
+   "gap_count": 1,
+   "missing_bars": 1,
+   "gaps_utc": [
+    [
+     "2026-11-05T03:57:00+00:00",
+     "2026-11-05T03:58:00+00:00"
+    ]
+   ]
+  },
+  "ADAUSDT": {
+   "bars": 200,
+   "first_open_utc": "2026-11-05T03:58:00+00:00",
+   "last_open_utc": "2026-11-05T07:17:00+00:00",
+   "expected_bars_first_to_last": 200,
+   "gap_count": 0,
+   "missing_bars": 0,
+   "gaps_utc": []
+  },
+  "BNBUSDT": {
+   "bars": 200,
+   "first_open_utc": "2026-11-05T03:58:00+00:00",
+   "last_open_utc": "2026-11-05T07:17:00+00:00",
+   "expected_bars_first_to_last": 200,
+   "gap_count": 0,
+   "missing_bars": 0,
+   "gaps_utc": []
+  },
+  "BTCUSDT": {
+   "bars": 200,
+   "first_open_utc": "2026-11-05T03:58:00+00:00",
+   "last_open_utc": "2026-11-05T07:17:00+00:00",
+   "expected_bars_first_to_last": 200,
+   "gap_count": 0,
+   "missing_bars": 0,
+   "gaps_utc": []
+  },
+  "COINUSDT": {
+   "bars": 200,
+   "first_open_utc": "2026-11-05T03:58:00+00:00",
+   "last_open_utc": "2026-11-05T07:17:00+00:00",
+   "expected_bars_first_to_last": 200,
+   "gap_count": 0,
+   "missing_bars": 0,
+   "gaps_utc": []
+  },
+  "DOGEUSDT": {
+   "bars": 200,
+   "first_open_utc": "2026-11-05T03:58:00+00:00",
+   "last_open_utc": "2026-11-05T07:17:00+00:00",
+   "expected_bars_first_to_last": 200,
+   "gap_count": 0,
+   "missing_bars": 0,
+   "gaps_utc": []
+  },
+  "ETHUSDT": {
+   "bars": 200,
+   "first_open_utc": "2026-11-05T03:58:00+00:00",
+   "last_open_utc": "2026-11-05T07:17:00+00:00",
+   "expected_bars_first_to_last": 200,
+   "gap_count": 0,
+   "missing_bars": 0,
+   "gaps_utc": []
+  },
+  "LINKUSDT": {
+   "bars": 200,
+   "first_open_utc": "2026-11-05T03:58:00+00:00",
+   "last_open_utc": "2026-11-05T07:17:00+00:00",
+   "expected_bars_first_to_last": 200,
+   "gap_count": 0,
+   "missing_bars": 0,
+   "gaps_utc": []
+  },
+  "NVDAUSDT": {
+   "bars": 200,
+   "first_open_utc": "2026-11-05T03:58:00+00:00",
+   "last_open_utc": "2026-11-05T07:17:00+00:00",
+   "expected_bars_first_to_last": 200,
+   "gap_count": 0,
+   "missing_bars": 0,
+   "gaps_utc": []
+  },
+  "SOLUSDT": {
+   "bars": 200,
+   "first_open_utc": "2026-11-05T03:58:00+00:00",
+   "last_open_utc": "2026-11-05T07:17:00+00:00",
+   "expected_bars_first_to_last": 200,
+   "gap_count": 0,
+   "missing_bars": 0,
+   "gaps_utc": []
+  },
+  "TSLAUSDT": {
+   "bars": 200,
+   "first_open_utc": "2026-11-05T03:58:00+00:00",
+   "last_open_utc": "2026-11-05T07:17:00+00:00",
+   "expected_bars_first_to_last": 200,
+   "gap_count": 0,
+   "missing_bars": 0,
+   "gaps_utc": []
+  },
+  "XRPUSDT": {
+   "bars": 200,
+   "first_open_utc": "2026-11-05T03:58:00+00:00",
+   "last_open_utc": "2026-11-05T07:17:00+00:00",
+   "expected_bars_first_to_last": 200,
+   "gap_count": 0,
+   "missing_bars": 0,
+   "gaps_utc": []
+  }
+ },
+ "history_exhausted_symbols": [],
+ "limitations": [
+  "Raw pages are local only; reacquisition may differ (rolling window, revisions)",
+  "Depth is bounded by caps, not necessarily by provider history",
+  "Completeness beyond observed bars is not certified; gaps are reported, not filled"
+ ],
+ "job": "Issue 14 / G05 input-coverage acquisition: 12-symbol fixed panel, 1m, one run",
+ "summary": {
+  "outcome": "HALTED_BY_HTTP_429_AFTER_14_REQUESTS (no retry, per budget rules)",
+  "earliest_obtained_open_utc": "2026-11-05T00:37:00+00:00 (AAPLUSDT, 2 pages); all other symbols 2026-11-05T03:58:00+00:00 (1 page = 200 bars)",
+  "provider_depth_established": false,
+  "note": "Public history depth was NOT determined: run stopped at ~3.3 req/s. Obtained ~3.3-6.7 h per symbol, far short of the 2026-09-17..2026-10-31 window of the saved 5m snapshot. Raw pages are local only (not committed). No efficacy claim; no scanner run (insufficient history).",
+  "claims": "none; descriptive coverage only"
+ }
+}
