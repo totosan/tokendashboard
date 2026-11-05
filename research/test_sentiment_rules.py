@@ -158,8 +158,8 @@ class BinanceLoader(unittest.TestCase):
 
     def test_split_frozen(self):
         disc, conf = sr.binance_segments()
-        self.assertEqual((sr.BINANCE_END - sr.BINANCE_START).days + 1, 1765)
-        self.assertEqual((disc[1] - disc[0]) // PER_DAY, 1059)
+        self.assertEqual((sr.BINANCE_END - sr.BINANCE_START).days + 1, 1614)
+        self.assertEqual((disc[1] - disc[0]) // PER_DAY, 908)
         self.assertEqual(conf[0] - disc[1], PER_DAY)
         self.assertEqual((conf[1] - conf[0]) // PER_DAY, 705)
 

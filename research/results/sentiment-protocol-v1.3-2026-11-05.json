@@ -1,0 +1,16 @@
+{
+ "protocol": "sentiment-v1.3",
+ "amends": "sentiment-protocol-v1.2-2026-11-05.json",
+ "amends_sha256": "abf91a5265c0ca8d443e0ba50d430a2d6e9f73727338990c2c1faa8ed1b15254",
+ "made_before_any_sentiment_evaluation": true,
+ "reason": "The frozen day-coverage gate (95%) failed on the Binance archive (BTCUSDT 92.2%, ETHUSDT 92.5%); no rule was evaluated. Coverage-only diagnosis (no returns or outcomes examined) shows the archive has no long-ratio/taker fields for 2022-01-01..~2022-05-11; all other months are ~99% complete (a few isolated gap days in 2024-02, 2024-07, 2026-10).",
+ "change": {
+  "period_start": {"from": "2022-01-01", "to": "2022-06-01"},
+  "discovery": "2022-06-01..2024-11-24 (908 days)",
+  "embargo": "2024-11-25",
+  "confirmation": "2024-11-26..2026-10-31 (705 days, unchanged)",
+  "period_days": 1614
+ },
+ "unchanged": ["rules R1-R8", "threshold grids", "Holm family 36 per symbol (72 BTC+ETH)", "5-day blocks", "95% gates", "claim ladder", "Binance result is source-venue only"],
+ "note": "Gate was not loosened; the period was moved to where the data exists. Chosen from field availability only."
+}

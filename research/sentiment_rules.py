@@ -362,7 +362,7 @@ def run(root):
 
 
 # ---- Binance USD-M archive stage (protocol v1.1): source-venue study, never a Bitget claim ----
-BINANCE_START = date(2022, 1, 1)
+BINANCE_START = date(2022, 6, 1)  # v1.3: archive lacks long-ratio/taker fields before mid-May 2022
 BINANCE_END = date(2026, 10, 31)
 BINANCE_DISC_END = date(2024, 11, 24)
 BINANCE_EMBARGO = date(2024, 11, 25)
