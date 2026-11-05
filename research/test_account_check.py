@@ -39,6 +39,11 @@ class FakeConn:
 
 def router(url):
     ok = lambda d: FakeResp({"code": "00000", "data": d})
+    if "v3/account/fee-rate" in url:
+        return ok({"makerFeeRate": "0.0002", "takerFeeRate": "0.0006"})
+    if "v3/account/settings" in url:
+        return ok({"assetMode": "multi_assets", "holdMode": "hedge_mode", "uid": "999",
+                   "symbolConfigList": []})
     if "trade-rate" in url:
         return ok({"makerFeeRate": "0.0002", "takerFeeRate": "0.0006"})
     if "mix/account/accounts" in url:
@@ -90,7 +95,7 @@ class Tests(unittest.TestCase):
     def test_run_output_clean(self):
         c = make_client()
         res = ac.run(c)
-        self.assertEqual(res["requestCount"], 5)
+        self.assertEqual(res["requestCount"], 6)
         self.assertEqual(res["fees"]["AAPLUSDT"]["takerFeeRate"], "0.0006")
         self.assertEqual(res["fundingBills"]["fundingEntries7d"], 2)
         self.assertTrue(res["warnings"])

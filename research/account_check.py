@@ -29,6 +29,8 @@ ALLOWED_PATHS = frozenset({
     "/api/v2/mix/account/accounts",
     "/api/v2/mix/account/bill",
     "/api/v2/spot/account/info",
+    "/api/v3/account/settings",
+    "/api/v3/account/fee-rate",
 })
 MAX_REQUESTS = 8
 MIN_INTERVAL = 0.3
@@ -110,9 +112,29 @@ def first(data):
 def check_fees(client):
     out = {}
     for sym in SYMBOLS:
-        d = first(client.get("/api/v2/common/trade-rate", {"symbol": sym, "businessType": "mix"}))
+        try:
+            d = first(client.get("/api/v3/account/fee-rate",
+                                 {"symbol": sym, "category": "USDT-FUTURES"}))
+        except RuntimeError:
+            d = first(client.get("/api/v2/common/trade-rate",
+                                 {"symbol": sym, "businessType": "mix"}))
         out[sym] = {"makerFeeRate": d.get("makerFeeRate"), "takerFeeRate": d.get("takerFeeRate")}
     return out
+
+
+def safe(fn, *args):
+    """Classic v2 account endpoints are rejected (40085) on Unified Trading Accounts."""
+    try:
+        return fn(*args)
+    except RuntimeError as exc:
+        return {"unavailable": str(exc)[:60], "warnings": []}
+
+
+def check_uta_settings(client):
+    d = first(client.get("/api/v3/account/settings"))
+    return {"assetMode": d.get("assetMode"), "holdMode": d.get("holdMode"),
+            "accountMode": d.get("accountMode"), "accountLevel": d.get("accountLevel"),
+            "symbolConfigCount": len(d.get("symbolConfigList") or [])}
 
 
 def check_mix_account(client):
@@ -155,12 +177,13 @@ def run(client, now=None):
         "generatedAt": now.isoformat(),
         "endpointsUnverified": True,
         "fees": check_fees(client),
-        "mixAccount": check_mix_account(client),
-        "fundingBills": check_bills(client, now_ms),
-        "permissions": check_permissions(client),
+        "utaSettings": safe(check_uta_settings, client),
+        "mixAccount": safe(check_mix_account, client),
+        "fundingBills": safe(check_bills, client, now_ms),
+        "permissions": safe(check_permissions, client),
     }
     result["requestCount"] = client.count
-    result["warnings"] = result["permissions"]["warnings"]
+    result["warnings"] = result["permissions"].get("warnings", [])
     body = json.dumps(result, sort_keys=True)
     result["contentSha256"] = hashlib.sha256(body.encode()).hexdigest()
     return result
