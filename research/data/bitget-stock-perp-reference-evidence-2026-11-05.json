@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "issue": 9,
+  "date_utc": "2026-11-05",
+  "tier": "inconclusive: no authoritative Bitget-documented reference market found; mapping stays 'assumed (unofficial)'",
+  "budget": {
+    "max_gets": 10,
+    "gets_used": 7,
+    "credentials": false,
+    "raw_pages_stored": false
+  },
+  "requests": [
+    {
+      "id": 1,
+      "url": "https://api.bitget.com/api/v2/public/annoucements?language=en_US&annType=latest_news",
+      "status": 200,
+      "bytes": 3071,
+      "result": "10 items; stock-perp items are only cash-dividend settlement notices and a Delta Neutral rToken note; none states a reference exchange/hours"
+    },
+    {
+      "id": 2,
+      "url": "https://api.bitget.com/api/v2/public/annoucements?language=en_US&annType=coin_listings",
+      "status": 200,
+      "bytes": 2939,
+      "result": "10 items; no stock-perp/NYSE/Nasdaq/hours titles"
+    },
+    {
+      "id": 3,
+      "url": "https://www.bitget.com/en/support/articles/12560603899616",
+      "status": 301,
+      "result": "redirect to /support/articles/12560603899616 (not followed automatically)"
+    },
+    {
+      "id": 4,
+      "url": "https://www.bitget.com/en/support/articles/12560603899616",
+      "status": 301,
+      "result": "repeat to read Location header"
+    },
+    {
+      "id": 5,
+      "url": "https://www.bitget.com/support/articles/12560603899616",
+      "status": 200,
+      "bytes": 116011,
+      "raw_sha256": "40c6300886a82242516d544f42ea0380d5e44d37c98e0c3b1fbbae0f7cb285f5",
+      "result": "LNGUSDT dividend notice; no named exchange, no trading-hours statement"
+    },
+    {
+      "id": 6,
+      "url": "https://archive.org/wayback/available?url=bitget.com/futures/stock",
+      "status": 200,
+      "result": "no archived snapshots"
+    },
+    {
+      "id": 7,
+      "url": "https://archive.org/wayback/available?url=bitget.com/rwa",
+      "status": 200,
+      "result": "no archived snapshots"
+    }
+  ],
+  "findings": [
+    {
+      "source": "https://www.bitget.com/support/articles/12560603899616",
+      "title": "[Important] Bitget Announcement on Cash Dividend Settlement for LNGUSDT Stock Perps",
+      "excerpt": "In accordance with the dividend schedule of the underlying company, the LNGUSDT stock perps will soon undergo cash dividend settlement.",
+      "supports": "stock perps track an underlying company; dividends settled as funding fee"
+    },
+    {
+      "source": "same",
+      "excerpt": "Ex-Dividend Date (ET)",
+      "supports": "dividend dates are given in US Eastern time, consistent with US-listed underlyings but not naming NYSE/Nasdaq"
+    }
+  ],
+  "conclusion": "No Bitget-authored statement of the reference market (NYSE/Nasdaq), market hours or session mapping for AAPL/TSLA/NVDA/COIN perps was found. Wayback guesses (2 URLs) had no snapshots; the search was bounded and not exhaustive. The exchange mapping remains 'assumed (unofficial)'.",
+  "not_done": [
+    "Search of Bitget support section pages for stock-perp introduction/rules",
+    "Wayback CDX search",
+    "Authenticated or app-only documentation"
+  ]
+}
