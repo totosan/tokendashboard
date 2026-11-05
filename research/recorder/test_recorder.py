@@ -297,6 +297,12 @@ class CrashSafetyTests(unittest.TestCase):
             self.assertEqual(recorder.read_clock_sync(missing),
                              {"ntp_synchronized": True, "source": "timesyncd_marker"})
 
+    def test_fetch_rejects_foreign_host(self):
+        with self.assertRaises(ValueError):
+            recorder.fetch("https://example.com/x?a=1", 5)
+        with self.assertRaises(ValueError):
+            recorder.fetch("http://api.bitget.com/x?a=1", 5)
+
     def test_fsync_called_per_write(self):
         calls = []
         real = os.fsync

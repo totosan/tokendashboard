@@ -7,6 +7,7 @@ Sampled REST snapshots, NOT a continuous L2 feed and NOT historical backfill.
 
 import argparse
 import gzip
+import http.client
 import hashlib
 import json
 import os
@@ -20,9 +21,7 @@ from datetime import datetime, timezone
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from urllib.parse import urlencode
-from urllib.request import Request, build_opener
-
-from research.trade_pagination import NoRedirect
+from urllib.parse import urlsplit
 
 BASE = "https://api.bitget.com"
 PRODUCT = "USDT-FUTURES"
@@ -57,14 +56,46 @@ def build_url(base, params):
     return base + "?" + urlencode(params)
 
 
+_CONN = {}
+
+
+def _close_connection():
+    conn = _CONN.pop("conn", None)
+    if conn is not None:
+        try:
+            conn.close()
+        except OSError:
+            pass
+
+
 def fetch(url, timeout):
-    request = Request(url, headers={"User-Agent": "tokendashboard-recorder/1.0",
-                                    "Cache-Control": "no-cache"}, method="GET")
-    with build_opener(NoRedirect).open(request, timeout=timeout) as response:
+    """Public GET over one reused keep-alive HTTPS connection (a TLS handshake per request
+    dominated Pi CPU). Any error drops the connection so the retry reconnects; no redirects."""
+    parts = urlsplit(url)
+    if parts.scheme != "https" or parts.netloc != urlsplit(BASE).netloc:
+        raise ValueError("Only the Bitget public HTTPS host is allowed")
+    conn = _CONN.get("conn")
+    if conn is None:
+        conn = _CONN["conn"] = http.client.HTTPSConnection(parts.netloc, timeout=timeout)
+    conn.timeout = timeout
+    if conn.sock is not None:
+        conn.sock.settimeout(timeout)
+    try:
+        conn.request("GET", parts.path + "?" + parts.query, headers={
+            "User-Agent": "tokendashboard-recorder/1.0", "Cache-Control": "no-cache"})
+        response = conn.getresponse()
         raw = response.read(MAX_RESPONSE + 1)
-        if response.status != 200 or len(raw) > MAX_RESPONSE:
-            raise ValueError("Non-200 or oversized public response")
-        return raw
+        status = response.status
+    except http.client.HTTPException as exc:
+        _close_connection()
+        raise OSError("HTTP protocol error: %s" % type(exc).__name__) from exc
+    except BaseException:
+        _close_connection()
+        raise
+    if status != 200 or len(raw) > MAX_RESPONSE:
+        _close_connection()
+        raise ValueError("Non-200 or oversized public response")
+    return raw
 
 
 def decimal(value):
@@ -425,6 +456,7 @@ def main(argv=None):
                       args.slow_every, args.min_request_gap, args.retries)
     except ValueError as exc:
         parser.error(str(exc))
+    _close_connection()
     print(json.dumps(summary, indent=2))
     return summary["exit_status"]
 
