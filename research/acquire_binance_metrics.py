@@ -29,7 +29,7 @@ MIN_INTERVAL = 0.2
 WALL = 80
 HARD_MAX_FILES = 6000
 HARD_MAX_MIB = 200.0
-EST_BYTES = {"metrics": 11_000, "klines5m": 300_000}
+EST_BYTES = {"metrics": 11_000, "klines5m": 300_000, "funding": 3_000}
 
 
 class NoRedirect(HTTPRedirectHandler):
@@ -58,6 +58,13 @@ def plan(dataset, symbols, start, end):
                 name = "%s-5m-%04d-%02d.zip" % (sym, y, m)
                 items.append((sym, "%04d-%02d" % (y, m), "%s/monthly/klines/%s/5m/%s" % (BASE, sym, name),
                               "klines5m/%s/%s" % (sym, name)))
+                y, m = (y + 1, 1) if m == 12 else (y, m + 1)
+        elif dataset == "funding":
+            y, m = start.year, start.month
+            while (y, m) <= (end.year, end.month):
+                name = "%s-fundingRate-%04d-%02d.zip" % (sym, y, m)
+                items.append((sym, "%04d-%02d" % (y, m), "%s/monthly/fundingRate/%s/%s" % (BASE, sym, name),
+                              "funding/%s/%s" % (sym, name)))
                 y, m = (y + 1, 1) if m == 12 else (y, m + 1)
         else:
             raise ValueError("unknown dataset " + dataset)
