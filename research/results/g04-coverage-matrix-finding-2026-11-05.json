@@ -1,0 +1,17 @@
+{
+ "issue": 13,
+ "package": "G04-coverage",
+ "date_utc": "2026-11-05",
+ "matrix": {"symbols": ["AAPLUSDT", "BTCUSDT"], "event_window_utc": ["2026-09-17T14:00:00Z", "2026-09-17T16:00:00Z"], "receive_partitions": ["13", "14", "15", "16"], "objects": 8},
+ "status": "BLOCKED_OBJECT_SIZES_NOT_CONFIRMABLE_NO_ACQUISITION_RUN",
+ "http_transactions_made": 0,
+ "bytes_downloaded": 0,
+ "findings": [
+  "The repository's CHD path (research/chd_sample.py, anonymous /v1/download?file=) has no listing or size-declaring operation; sizes are only observed after download. No documented bounded listing endpoint was found, and a HEAD/Range probe would be an undocumented contract guess (market-data-reliability rule), so none was sent.",
+  "Prior observed sizes exist only for AAPLUSDT trades 2026-09-17 hours 13/14/15 (72648, 31212, 21649 bytes; chd-bounded-acquisition-2026-11-04.json). Hour 16 AAPLUSDT and all four BTCUSDT objects have no observed identity or size.",
+  "chd_sample.acquire caps one run at 6 objects; the planned matrix needs 8, so it cannot run in one invocation without changing the frozen budget design.",
+  "pyarrow is not installed in this environment (required by chd_sample.inspect_parquet).",
+  "Per plan: a cell whose object id/size is not confirmed stays blocked rather than being replaced by a convenient result. Preserved: 0/8 POC agreement, missing ledger/availability facts."
+ ],
+ "next": "Either obtain documented provider listing/size metadata, or explicitly approve a revised sampler (8 objects, 16 transactions, 16 MiB total) that enforces the byte cap while streaming; then run the matrix. No profile comparison was run; no claim made."
+}
