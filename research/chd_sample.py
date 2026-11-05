@@ -12,8 +12,10 @@ from urllib.parse import urlencode, urlsplit
 from urllib.request import HTTPRedirectHandler, Request, build_opener
 
 API = "https://api.cryptohftdata.com/v1/download"
-MAX_BYTES = 20 * 1024 * 1024
-TOTAL_BYTES = 40 * 1024 * 1024
+MAX_OBJECTS = 8
+MAX_TRANSACTIONS = 16
+TOTAL_BYTES = 16 * 1024 * 1024
+MAX_BYTES = TOTAL_BYTES
 MAX_ROWS = 2_000_000
 PATTERN = re.compile(
     r"bitget_futures/(\d{4}-\d{2}-\d{2})/([01]\d|2[0-3])/([A-Z0-9]+)_(trades|orderbook)\.parquet"
@@ -36,7 +38,7 @@ class BudgetRedirects(HTTPRedirectHandler):
         self.transactions = 0
 
     def redirect_request(self, req, fp, code, msg, headers, newurl):
-        if self.transactions >= 12 or urlsplit(newurl).scheme != "https":
+        if self.transactions >= MAX_TRANSACTIONS or urlsplit(newurl).scheme != "https":
             raise ValueError("Redirect request budget or HTTPS requirement violated")
         self.transactions += 1
         return super().redirect_request(req, fp, code, msg, headers, newurl)
@@ -84,8 +86,8 @@ def inspect_parquet(path, object_name):
 
 
 def acquire(objects, directory):
-    if not 1 <= len(objects) <= 6 or len(set(objects)) != len(objects):
-        raise ValueError("Request one to six unique objects")
+    if not 1 <= len(objects) <= MAX_OBJECTS or len(set(objects)) != len(objects):
+        raise ValueError("Request one to eight unique objects")
     for value in objects:
         validate_object(value)
     import pyarrow
@@ -99,7 +101,7 @@ def acquire(objects, directory):
         "pyarrow_version": pyarrow.__version__,
         "api": API, "authentication": "anonymous; no credentials loaded",
         "requested_objects": objects,
-        "budgets": {"objects": 6, "http_transactions": 12, "bytes_per_object": MAX_BYTES,
+        "budgets": {"objects": MAX_OBJECTS, "http_transactions": MAX_TRANSACTIONS, "bytes_per_object": MAX_BYTES,
                     "total_bytes": TOTAL_BYTES, "rows_per_object": MAX_ROWS,
                     "socket_timeout_seconds": 10, "wall_budget_seconds": 120, "retries": 0},
         "objects": [],
@@ -119,7 +121,7 @@ def acquire(objects, directory):
         manifest["objects"].append(record)
         manifest["status"] = "IN_PROGRESS"
         (directory / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
-        if (halted or consumed >= TOTAL_BYTES or redirects.transactions >= 12
+        if (halted or consumed >= TOTAL_BYTES or redirects.transactions >= MAX_TRANSACTIONS
                 or time.monotonic() - started >= 120):
             record["status"] = "NOT_REQUESTED_BUDGET_OR_RATE_LIMIT"
         else:

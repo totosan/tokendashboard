@@ -75,12 +75,23 @@ class SampleTests(unittest.TestCase):
                 self.assertRaises(FileExistsError):
             acquire([OBJECT], Path(root))
 
+    def test_eight_objects_allowed_nine_refused_and_budgets_recorded(self):
+        names = [OBJECT.replace("/14/", f"/{h}/").replace("AAPL", s)
+                 for s in ("AAPL", "BTC") for h in ("13", "14", "15", "16")]
+        report, calls = self.run_acquisition([Response(b"d") for _ in names], names)
+        self.assertEqual(len(calls), 8)
+        self.assertEqual(report["budgets"]["objects"], 8)
+        self.assertEqual(report["budgets"]["http_transactions"], 16)
+        self.assertEqual(report["budgets"]["total_bytes"], 16 * 1024 * 1024)
+        with self.assertRaises(ValueError):
+            acquire(names + [OBJECT.replace("/14/", "/12/")], Path("not-created"))
+
     def test_redirect_budget_and_plain_http_refused(self):
         redirect = BudgetRedirects()
         request = Request("https://api.cryptohftdata.com/")
         with self.assertRaises(ValueError):
             redirect.redirect_request(request, None, 302, "", {}, "http://example.test")
-        redirect.transactions = 12
+        redirect.transactions = 16
         with self.assertRaises(ValueError):
             redirect.redirect_request(request, None, 302, "", {}, "https://example.test")
 
