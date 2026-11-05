@@ -1,4 +1,4 @@
-"""Pre-registered sentiment-v1 rules, discovery/confirmation selection and gates (pure, no network).
+"""Pre-registered sentiment-v1 (+ v1.1 Binance-history stage) rules, discovery/confirmation selection and gates (pure, no network).
 
 Protocol: research/results/sentiment-protocol-2026-11-05.json. Descriptive only: the day-block
 sign-flip test is NOT validated (v1-v3 failed size control under serial dependence). No efficacy
@@ -8,12 +8,16 @@ claim, no trading advice.
 from __future__ import annotations
 
 import argparse
+import csv
 import gzip
 import hashlib
 import json
 import math
+import io
 import signal
 import sys
+import zipfile
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 BAR_MS = 300_000
@@ -197,7 +201,7 @@ def holm(pvalues, m):
     return adj
 
 
-def confirm_once(frozen, table, closes, conf, ledger):
+def confirm_once(frozen, table, closes, conf, ledger, block_days=1):
     """Evaluate the FROZEN level once on confirmation. No re-selection, no other levels chosen."""
     rule, level = frozen["rule"], frozen["selected_level"]
     spec = RULES[rule]
@@ -213,9 +217,10 @@ def confirm_once(frozen, table, closes, conf, ledger):
            "scenarios": {str(c): summarize(evs, c) for c in COSTS_BP}}
     blocks = {}
     for b, g in evs:
-        blocks.setdefault(b // (DAY_MS // BAR_MS), []).append(g * 1e4 - PRIMARY_COST_BP)
+        blocks.setdefault(b // (block_days * DAY_MS // BAR_MS), []).append(g * 1e4 - PRIMARY_COST_BP)
     means = [sum(v) / len(v) for _, v in sorted(blocks.items())]
     out["day_blocks"] = len(means)
+    out["block_days"] = block_days
     out["p_raw"] = sign_flip_p(means)
     out["neighbour_gross_bp"] = {str(nb): summarize(events(rule, nb, table, closes, *conf))["gross_mean_bp"]
                                  for nb in neighbours(level, spec["grid"])}
@@ -326,12 +331,178 @@ def run(root):
             "rules": out}, 0
 
 
+# ---- Binance USD-M archive stage (protocol v1.1): source-venue study, never a Bitget claim ----
+BINANCE_START = date(2022, 1, 1)
+BINANCE_END = date(2026, 10, 31)
+BINANCE_DISC_END = date(2024, 11, 24)
+BINANCE_EMBARGO = date(2024, 11, 25)
+BINANCE_CONF_START = date(2024, 11, 26)
+BINANCE_BLOCK_DAYS = 5
+BINANCE_MIN_DAY_COVERAGE_PCT = 95.0
+BINANCE_MIN_BARS_PER_DAY_PCT = 95.0
+
+
+def _day_bar(d):
+    return int(datetime(d.year, d.month, d.day, tzinfo=timezone.utc).timestamp() * 1000) // BAR_MS
+
+
+def binance_segments():
+    """Frozen declared split: discovery [start, 2024-11-24], embargo 2024-11-25, confirmation after."""
+    return ((_day_bar(BINANCE_START), _day_bar(BINANCE_DISC_END) + DAY_MS // BAR_MS),
+            (_day_bar(BINANCE_CONF_START), _day_bar(BINANCE_END) + DAY_MS // BAR_MS))
+
+
+def _ts_ms(v):
+    v = v.strip()
+    if v.isdigit():
+        n = int(v)
+        return n // 1000 if n > 10 ** 14 else n
+    dt = datetime.strptime(v, "%Y-%m-%d %H:%M:%S").replace(tzinfo=timezone.utc)
+    return int(dt.timestamp() * 1000)
+
+
+def _csv_text(data):
+    if data[:2] == b"PK":
+        with zipfile.ZipFile(io.BytesIO(data)) as z:
+            return z.read(z.namelist()[0]).decode()
+    return data.decode()
+
+
+def _ratio_share(v):
+    r = float(v)
+    return r / (1 + r) if r >= 0 else None
+
+
+def parse_metrics_csv(data, rows):
+    """Binance metrics CSV (bytes of csv or zip) -> rows[bar]: oi, long_ratio, taker_buy_share.
+
+    long_ratio = share of accounts long from count_long_short_ratio (global accounts ratio L/S);
+    taker_buy_share = buy/(buy+sell) from sum_taker_long_short_vol_ratio. Rows with unparsable
+    fields are skipped per field, never filled.
+    """
+    n = 0
+    for rec in csv.DictReader(io.StringIO(_csv_text(data))):
+        try:
+            bar = _ts_ms(rec["create_time"]) // BAR_MS
+        except (ValueError, KeyError, AttributeError):
+            continue
+        row = rows.setdefault(bar, {})
+        try:
+            oi = float(rec["sum_open_interest"])
+            if oi > 0:
+                row["oi"] = oi
+        except (ValueError, KeyError, TypeError):
+            pass
+        for key, field, conv in (("long_ratio", "count_long_short_ratio", _ratio_share),
+                                 ("taker_buy_share", "sum_taker_long_short_vol_ratio", _ratio_share)):
+            try:
+                v = conv(rec[field])
+                if v is not None:
+                    row[key] = v
+            except (ValueError, KeyError, TypeError):
+                pass
+        n += 1
+    return n
+
+
+def parse_klines_csv(data, rows):
+    """Binance 5m kline CSV -> rows[bar]['close']; bar = close-time bucket (open + 5m), no look-ahead."""
+    n = 0
+    for line in csv.reader(io.StringIO(_csv_text(data))):
+        if len(line) < 5 or not line[0].strip().isdigit():
+            continue
+        try:
+            bar = _ts_ms(line[0]) // BAR_MS + 1
+            c = float(line[4])
+        except ValueError:
+            continue
+        if c > 0:
+            rows.setdefault(bar, {})["close"] = c
+            n += 1
+    return n
+
+
+def load_binance(metrics_dir, klines_dir, symbol):
+    rows = {}
+    for p in sorted((Path(metrics_dir) / symbol).glob("*.zip")) if metrics_dir else []:
+        try:
+            parse_metrics_csv(p.read_bytes(), rows)
+        except (zipfile.BadZipFile, OSError, KeyError, UnicodeDecodeError):
+            continue
+    for p in sorted((Path(klines_dir) / symbol).glob("*.zip")) if klines_dir else []:
+        try:
+            parse_klines_csv(p.read_bytes(), rows)
+        except (zipfile.BadZipFile, OSError, KeyError, UnicodeDecodeError):
+            continue
+    return rows
+
+
+def binance_gate(rows, start=None, end=None):
+    """Day coverage: a day counts only if >=95% of its 288 bars have oi+long_ratio+taker and a close."""
+    start = start or BINANCE_START
+    end = end or BINANCE_END
+    per_day = DAY_MS // BAR_MS
+    need = math.ceil(per_day * BINANCE_MIN_BARS_PER_DAY_PCT / 100)
+    b0, total = _day_bar(start), (end - start).days + 1
+    good = 0
+    for d in range(total):
+        cnt = sum(1 for b in range(b0 + d * per_day, b0 + (d + 1) * per_day)
+                  if all(k in rows.get(b, {}) for k in ("oi", "long_ratio", "taker_buy_share", "close")))
+        good += cnt >= need
+    pct = 100.0 * good / total
+    failed = []
+    if pct < BINANCE_MIN_DAY_COVERAGE_PCT:
+        failed.append("day_coverage %.1f%% < %g%%" % (pct, BINANCE_MIN_DAY_COVERAGE_PCT))
+    conf_days = (BINANCE_END - BINANCE_CONF_START).days + 1
+    if conf_days // BINANCE_BLOCK_DAYS < MIN_CONF_BLOCKS:
+        failed.append("confirmation_blocks<%d" % MIN_CONF_BLOCKS)
+    return failed, pct
+
+
+def run_binance(metrics_dir, klines_dir, symbol="BTCUSDT"):
+    """Binance-history stage (source venue). Gate failure => NOT_READY exit 2, nothing evaluated."""
+    rows = load_binance(metrics_dir, klines_dir, symbol)
+    if not rows:
+        return {"stage": "binance_history", "verdict": "NOT_READY", "label": "INCONCLUSIVE",
+                "failed_gates": ["no_binance_data"], "claim": "none"}, 2
+    failed, pct = binance_gate(rows)
+    if failed:
+        return {"stage": "binance_history", "verdict": "NOT_READY", "label": "INCONCLUSIVE",
+                "failed_gates": failed, "day_coverage_pct": pct, "claim": "none"}, 2
+    table = build_table(rows)
+    closes = {b: r["close"] for b, r in rows.items() if r.get("close")}
+    disc, conf = binance_segments()
+    ledger, results, ps = {}, [], []
+    for rule in RULES:
+        frozen = select_level(rule, table, closes, disc)
+        res = confirm_once(frozen, table, closes, conf, ledger, BINANCE_BLOCK_DAYS)
+        results.append((frozen, res))
+        ps.append(res["p_raw"] if res["p_raw"] is not None else 1.0)
+    adj = holm(ps, GRID_TOTAL)
+    out = []
+    for (frozen, res), p in zip(results, adj):
+        label, fails = verdict(frozen, res, p)
+        out.append({"rule": frozen["rule"], "level": frozen["selected_level"], "label": label,
+                    "failed_criteria": fails, "p_holm_descriptive": p, "confirmation": res})
+    return {"stage": "binance_history", "symbol": symbol, "verdict": "COMPLETE_DESCRIPTIVE",
+            "claim": "source-venue (Binance) screen only; no Bitget execution claim; test size control not validated",
+            "transfer_to_bitget": "transfer_pending", "rules": out}, 0
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("root", type=Path)
+    ap.add_argument("root", type=Path, nargs="?", help="Bitget recorder dir (transfer stage)")
+    ap.add_argument("--binance-metrics", type=Path, help="Binance history stage: metrics zip dir")
+    ap.add_argument("--binance-klines", type=Path, help="Binance history stage: 5m kline zip dir")
+    ap.add_argument("--symbol", default="BTCUSDT")
     args = ap.parse_args(argv)
     signal.alarm(MAX_RUNTIME)
-    result, code = run(args.root)
+    if args.binance_metrics:
+        result, code = run_binance(args.binance_metrics, args.binance_klines, args.symbol)
+    elif args.root:
+        result, code = run(args.root)
+    else:
+        ap.error("give a recorder dir or --binance-metrics")
     print(json.dumps(result, indent=1, sort_keys=True))
     return code
 

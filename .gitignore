@@ -3,3 +3,6 @@
 .env.*
 node_modules/
 __pycache__/
+
+# raw Binance archive zips (local only, never commit)
+research/data/binance_raw/

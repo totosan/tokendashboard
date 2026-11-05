@@ -1,4 +1,6 @@
+import io
 import tempfile
+import zipfile
 import unittest
 
 from research import sentiment_rules as sr
@@ -119,6 +121,74 @@ class Rules(unittest.TestCase):
         self.assertEqual(code, 2)
         self.assertEqual(result["verdict"], "NOT_READY")
         self.assertEqual(result["claim"], "none")
+
+
+def zipped(text):
+    b = io.BytesIO()
+    with zipfile.ZipFile(b, "w") as z:
+        z.writestr("x.csv", text)
+    return b.getvalue()
+
+
+METRICS = ("create_time,symbol,sum_open_interest,sum_open_interest_value,count_toptrader_long_short_ratio,"
+           "sum_toptrader_long_short_ratio,count_long_short_ratio,sum_taker_long_short_vol_ratio\n"
+           "2022-01-05 00:05:00,BTCUSDT,100.5,1,1,1,3.0,1.0\n"
+           "1641341400000,BTCUSDT,101,1,1,1,1.0,3.0\n"
+           "2022-01-05 00:15:00,BTCUSDT,,1,1,1,bad,1.0\n")
+
+
+class BinanceLoader(unittest.TestCase):
+    def test_metrics_zip_and_csv(self):
+        for data in (zipped(METRICS), METRICS.encode()):
+            rows = {}
+            self.assertEqual(sr.parse_metrics_csv(data, rows), 3)
+            b0 = sr._ts_ms("2022-01-05 00:05:00") // sr.BAR_MS
+            self.assertEqual(rows[b0], {"oi": 100.5, "long_ratio": 0.75, "taker_buy_share": 0.5})
+            self.assertEqual(rows[b0 + 1]["taker_buy_share"], 0.75)
+            self.assertEqual(rows[b0 + 2], {"taker_buy_share": 0.5})  # bad fields skipped, not filled
+
+    def test_klines_close_bucket_no_lookahead(self):
+        t = sr._ts_ms("2022-01-05 00:00:00")
+        rows = {}
+        text = "open_time,open,high,low,close,volume\n%d,1,2,0.5,1.5,9,%d,0,0,0,0,0\n" % (t, t + 299999)
+        self.assertEqual(sr.parse_klines_csv(zipped(text), rows), 1)
+        self.assertEqual(rows[t // sr.BAR_MS + 1]["close"], 1.5)
+        self.assertNotIn(t // sr.BAR_MS, rows)
+
+    def test_split_frozen(self):
+        disc, conf = sr.binance_segments()
+        self.assertEqual((sr.BINANCE_END - sr.BINANCE_START).days + 1, 1765)
+        self.assertEqual((disc[1] - disc[0]) // PER_DAY, 1059)
+        self.assertEqual(conf[0] - disc[1], PER_DAY)
+        self.assertEqual((conf[1] - conf[0]) // PER_DAY, 705)
+
+    def test_gate_and_not_ready(self):
+        failed, pct = sr.binance_gate({})
+        self.assertTrue(failed)
+        self.assertEqual(pct, 0.0)
+        with tempfile.TemporaryDirectory(dir=".") as d:
+            result, code = sr.run_binance(d, d)
+        self.assertEqual((code, result["verdict"], result["claim"]), (2, "NOT_READY", "none"))
+
+    def test_full_synthetic_coverage_passes_gate(self):
+        b0 = sr._day_bar(sr.BINANCE_START)
+        n = ((sr.BINANCE_END - sr.BINANCE_START).days + 1) * PER_DAY
+        rows = {b0 + i: {"oi": 1.0, "long_ratio": .5, "taker_buy_share": .5, "close": 1.0}
+                for i in range(n)}
+        self.assertEqual(sr.binance_gate(rows), ([], 100.0))
+        for b in list(rows)[:: 2]:
+            del rows[b]
+        self.assertTrue(sr.binance_gate(rows)[0])
+
+    def test_block_days(self):
+        days = 100
+        disc, conf = sr.segment_bounds(0, days * PER_DAY - 1)
+        table, closes = prep(synth(days, spike_every(40, 0.82), lambda i: 0.0))
+        frozen = sr.select_level("R1_crowded_long_squeeze", table, closes, disc)
+        r1 = sr.confirm_once(frozen, table, closes, conf, {}, 1)
+        r5 = sr.confirm_once(frozen, table, closes, conf, {}, 5)
+        self.assertEqual(r5["block_days"], 5)
+        self.assertLess(r5["day_blocks"], r1["day_blocks"])
 
 
 if __name__ == "__main__":
