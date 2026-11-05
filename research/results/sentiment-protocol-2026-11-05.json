@@ -1,0 +1,44 @@
+{
+  "protocol_id": "sentiment-v1-2026-11-05",
+  "status": "PRE_REGISTERED_NOT_RUN",
+  "family": "sentiment-v1 (separate from, and does not alter, the frozen 132-family in walkforward-protocol.json)",
+  "purpose": "Test whether narrative sentiment/open-interest rules show a net-of-cost directional effect on BTCUSDT, and whether any adjustable threshold level can honestly be labelled 'proven'. No efficacy claim; not trading advice.",
+  "data": {
+    "source": "research/recorder partitions (forward-only, public Bitget USDT-FUTURES, sampled REST, 5m series)",
+    "symbols": {"BTCUSDT": "long_short rules and OI/price/volume rules", "AAPLUSDT": "only open_interest is recorded (no long/short series, no_data 40054): stock-like contracts may only use OI and price/volume rules (R3, R4, R5 price part); no long/short rule is run on them and no AAPLUSDT run is part of this protocol version"},
+    "grid_5m": "recorder records bucketed by available_ms (local receive clock, no look-ahead); last value per 5m bucket; buckets lacking any required series are dropped, never forward-filled",
+    "ratio_units": "long_ratio/short_ratio normalised to fractions (values > 1 are read as percent)"
+  },
+  "horizon": {"bars_5m": 12, "entry": "close of the bar after the signal bar", "exit": "entry + 12 bars", "event_spacing": "non-overlapping: next event only after the previous exit"},
+  "rules": {
+    "R1_crowded_long_squeeze": {"signal": "long_ratio >= T", "direction": "SHORT", "narrative_default": 0.70, "grid": [0.60, 0.65, 0.70, 0.75, 0.80, 0.85], "needs": ["long_short"]},
+    "R2_crowded_short_squeeze": {"signal": "long_ratio <= 1 - T", "direction": "LONG", "narrative_default": 0.70, "grid": [0.60, 0.65, 0.70, 0.75, 0.80, 0.85], "needs": ["long_short"]},
+    "R3_healthy_trend_rising_oi": {"signal": "12-bar price return >= +0.5% AND 12-bar OI change >= T", "direction": "LONG", "narrative_default": 0.02, "grid": [0.01, 0.02, 0.03, 0.05], "needs": ["open_interest", "price"]},
+    "R4_oi_flush_after_squeeze": {"signal": "12-bar OI change <= -T AND 12-bar price return <= 0", "direction": "LONG", "narrative_default": 0.02, "grid": [0.01, 0.02, 0.03, 0.05], "needs": ["open_interest", "price"]},
+    "R5_exhaustion": {"signal": "12-bar price return >= +T AND 12-bar mean taker buy share <= 0.50", "direction": "SHORT", "narrative_default": 0.02, "grid": [0.01, 0.02, 0.03, 0.04], "needs": ["taker_buy_sell", "price"]}
+  },
+  "multiplicity": {"rules": 5, "grid_points_total": 24, "holm": "Holm step-down over all 24 (rule, level) hypotheses at alpha 0.05, even though only 5 selected levels are confirmed (deliberately conservative: the grid counts)"},
+  "gates_before_any_run": {
+    "min_days_btcusdt_sentiment": 60,
+    "min_coverage_pct_per_integrity_report": 95.0,
+    "max_gap_seconds": 60.0,
+    "integrity_ok_required": true,
+    "min_confirmation_day_blocks": 20,
+    "min_events_per_segment_per_level": 30,
+    "otherwise": "runner prints verdict NOT_READY (INCONCLUSIVE) and exits 2; nothing is selected or evaluated"
+  },
+  "split": {"discovery_fraction_of_days": 0.60, "embargo_days": 1, "confirmation": "all later days, untouched until selection is frozen", "selection": "only on discovery: level with highest mean net return at 22bp among levels with >= 30 events; ties -> lower grid index; if its net mean <= 0 the rule stays narrative_default (no candidate)", "freeze": "selected level + sha256 recorded before confirmation data is read", "no_reselection": "confirmation evaluates the frozen level exactly once per rule (ledger); a repeat is refused; failure is final for this data"},
+  "costs_bp_round_trip": {"scenarios": [12, 22, 37], "primary": 22, "note": "assumptions, not measured execution costs; measured recorder spreads/fees may only be reported alongside"},
+  "status_ladder": {
+    "narrative_default": "declared level, untested",
+    "candidate": "selected on discovery with positive net mean at primary cost and discovery plateau",
+    "proven": "ONLY if all hold on confirmation of the frozen level: >= 30 non-overlapping events; mean net return at 22bp >= 5bp; same sign gross effect for every adjacent grid level (plateau, not a spike; discovery neighbours also retain >= 50% of the selected gross effect); Holm-adjusted p < 0.05 over 24; >= 20 day blocks",
+    "not_proven": "any criterion fails: explicit final outcome"
+  },
+  "inference": {
+    "method": "day-block sign-flip permutation on block means of net signed returns, non-overlapping events, exact enumeration refused above/below declared block limits (refuse INCONCLUSIVE if < 20 blocks)",
+    "validity_caveat": "The repo's day-block sign-flip tests (practical-inference v1-v3) FAILED size control under serial dependence. This test is NOT validated; p-values are descriptive. A 'proven' label means the pre-declared screen was passed, not that the effect is real, stable or tradable, until a calibration passes on this data type."
+  },
+  "reporting": "outcomes only as narrative_default/candidate/proven/not_proven; no efficacy claim, no trading advice",
+  "reproduction": "python3 -m research.sentiment_rules RECORDER_DIR   (dry, finite; exits 2 while gates unmet)"
+}
