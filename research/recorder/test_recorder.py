@@ -290,7 +290,12 @@ class CrashSafetyTests(unittest.TestCase):
         def missing(cmd, **kw):
             raise FileNotFoundError
 
-        self.assertIsNone(recorder.read_clock_sync(missing)["ntp_synchronized"])
+        from unittest import mock
+        with mock.patch("os.path.exists", return_value=False):
+            self.assertIsNone(recorder.read_clock_sync(missing)["ntp_synchronized"])
+        with mock.patch("os.path.exists", return_value=True):
+            self.assertEqual(recorder.read_clock_sync(missing),
+                             {"ntp_synchronized": True, "source": "timesyncd_marker"})
 
     def test_fsync_called_per_write(self):
         calls = []

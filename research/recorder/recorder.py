@@ -273,6 +273,9 @@ def read_clock_sync(runner=subprocess.run):
             return {"ntp_synchronized": value == "yes", "source": "timedatectl"}
     except (OSError, subprocess.SubprocessError, AttributeError):
         pass
+    # systemd-timesyncd touches this file once the clock has synchronized
+    if os.path.exists("/run/systemd/timesync/synchronized"):
+        return {"ntp_synchronized": True, "source": "timesyncd_marker"}
     return {"ntp_synchronized": None, "source": "unavailable"}
 
 
