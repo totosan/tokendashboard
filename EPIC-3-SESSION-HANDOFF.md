@@ -31,7 +31,7 @@ Work autonomously without interactive approval for ordinary implementation choic
 ## Start from current truth
 
 1. Inspect `git status`, current branch/remote HEAD, and PR #5 before editing. The handoff was prepared on the existing PR branch `revert-4-copilot/epic-intraday-einstiege-krypto-tradfi`; use its latest remote head as the starting point. Do not reset, discard, or overwrite concurrent changes.
-2. Read the live issue #3 body and all direct native children #6–#14, their current labels/comments, and native child relationships. Also check the bounded descendants #15–#25 and the separate deferred #26. Remote issue state may have changed since this handoff.
+2. Read the live issue #3 body and all direct native children #6–#14, their current labels/comments, and native child relationships. Also check the bounded descendants #15–#25 and #26 (active Raspberry Pi recorder, part of the epic). Remote issue state may have changed since this handoff.
 3. Read the current `INTRADAY_RESEARCH.md`, `research/results/state-audit-2026-11-03.json`, and the three `.github/skills/*/SKILL.md` files. Treat the audit as a verified starting snapshot, not a substitute for rechecking live state.
 4. Check current sessions, agents, and research processes before calling anything lost or stuck. An old unavailable handle, an issue labelled `review`, an unchecked closed-story box, or an incomplete summary is not by itself evidence of a lost task.
 5. Re-run the existing research tests and fail-closed readiness audit when appropriate. Keep `NOT_READY`, `NOT_RUN`, `FAIL`, and `INCONCLUSIVE` distinct. Do not access or repurpose reserved future outcomes.
@@ -63,7 +63,7 @@ Every action must directly support a stated #3 criterion or a direct child’s a
 
 In particular:
 
-- Do not build an integrated analytics UI, field-journal product, automatic trader, Raspberry Pi service, or continuous WebSocket recorder under #3. #26 remains deferred; these require separate activation/scope.
+- Do not build an integrated analytics UI, field-journal product, automatic trader, or continuous WebSocket recorder under #3; these are out of scope. #26 (Raspberry Pi recorder) is ACTIVE and part of the epic as the forward-data source for #7 and #10, including the daily full contract inventory for point-in-time universe membership.
 - Do not buy or introduce a paid data source merely to make the epic appear complete.
 - Do not silently add exploratory signal arms to the frozen 11-arm/132-hypothesis protocol. Any protocol amendment must be versioned prospectively and must not inspect reserved outcomes first.
 - Do not create a large fleet of agents or issues. Delegate only independent, bounded work that saves meaningful time; preserve one clear owner per gap.
@@ -78,7 +78,7 @@ Start with the cheapest relevant gaps, subject to the live criterion audit:
 3. **G03/G06 / #7:** where available from the current local CHD installation, make the bounded sample/acquisition/replay workflow reproducible and validate additional cross-hour/file behavior. Record missing or unavailable inputs honestly; do not treat local-only raw files as portable.
 4. **G07 / #8:** the existing readiness checker is not a return evaluator. If it is within the live #8 criteria and safe to proceed, implement the frozen-protocol evaluator using synthetic or already-inspected fixtures only. Do not read reserved future observations.
 5. Keep G08–G13 as explicit methodology/data/model gates until their needed estimator, effective-dated references, data, and assumptions are established. Do not manufacture a substitute.
-6. G15–G16 remain deferred/separate product scope unless the user creates a separate request.
+6. G15–G16 are out of scope / not part of the epic unless the user creates a separate request.
 
 These are not unconditional instructions to implement every G-item. Recheck ownership, criteria, current evidence, and dependencies first. Prefer finishing or documenting a bounded item over starting many parallel partial tasks.
 

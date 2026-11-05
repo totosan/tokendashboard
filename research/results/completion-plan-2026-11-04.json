@@ -3,13 +3,13 @@
   "date_utc": "2026-11-04",
   "epic": 3,
   "baseline_head": "be666b139d04febd75aec133d294cc635a9b7c89",
-  "implementation_scope": "Research only on draft PR 5; no production dashboard, orders, paid data, always-on services, new product UI or activation of deferred issue 26.",
+  "implementation_scope": "Research only on draft PR 5; no production dashboard, orders, paid data, always-on services, new product UI or a new product UI; issue 26 (Raspberry Pi recorder) is active.",
   "overall_acceptance": "NOT_COMPLETE",
   "initial_issue_disposition": {
     "open_active_during_wave": [3, 7, 8, 14, 22],
     "open_input_blocked": [9, 10, 13],
     "closed_accepted_own_scope": [6, 11, 12, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25],
-    "separate_deferred": [26],
+    "out_of_scope": [], "active_recorder": [26],
     "rule": "Active is a temporary execution state, not acceptance. Reconcile all active labels after actual deliveries and critic; any own unmet criterion remains open."
   },
   "root_acceptance_trace": [
@@ -362,6 +362,6 @@
     "parallel_next_actions": "Use documented exact source objects and declared finite budgets for G05 empirical inputs, G04 profile coverage and G06 book coverage; G10/G11 remain authoritative-source gated.",
     "publication": "Commit and push package/results to existing draft PR 5, then verify remote head, body, open inventory and label invariants; main remains unchanged."
   },
-  "deferred": {"issue": 26, "status": "pending_separate_idea_not_activated"},
+  "active_recorder": {"issue": 26, "status": "active", "feeds": [7, 10], "note": "owner decision 2026-11-05: deferred state removed; forward data source incl. daily contract inventory"},
   "completion_definition": "Every issue closes only on its own evidenced acceptance. Source/calendar blockers and failed methodology remain open; >55% rough usefulness is never a substitute for valid inference, economic evidence or truthfulness."
 }

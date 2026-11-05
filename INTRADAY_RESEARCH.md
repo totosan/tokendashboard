@@ -116,7 +116,7 @@ Zu Beginn dieser Welle waren #3/#7/#8/#14/#22 nur waehrend tatsaechlicher Arbeit
 Nach Ende der aktiven Arbeit werden alle unerfuellten Gates explizit blockiert.
 Die dreizehn akzeptierten Nachfahren #6/#11/#12/#15-#21/#23-#25 bleiben fuer
 ihren eigenen begrenzten Scope geschlossen; keine pauschale Parent-Akzeptanz.
-#26 bleibt separat zurueckgestellt, kein Epic-Blocker oder aktivierter Dienst.
+#26 (Raspberry-Pi-Recorder) ist aktiv und Teil des Epics als Forward-Datenquelle fuer #7 und #10 (inkl. taegliches Contract-Inventar fuer die PIT-Universe).
 
 Urspruengliche Inferenz **FAIL**, Oracle **INCONCLUSIVE**, empirische Readiness
 **NOT_READY / NOT_RUN** und die negativen Profilvergleiche bleiben sichtbar.
@@ -992,7 +992,7 @@ dies ist keine Zusicherung über unsichtbare historische Prozesse.
 | #11 / #12 | #17 Tageslevels/RSI/Bollinger und #18 kausale Regime/Fehlausbruch-Timing akzeptiert; EMA/VWAP/HTF-Vergleiche vorhanden. | Explizite Eltern-Akzeptanz/Synthese und frische Wirksamkeitsvalidierung, nicht erstmalige Implementierung. |
 | #13 | Trade-Minuten-/Stundenprofile und zwölf offizielle 5m-Vergleiche vorhanden. | Alle zwölf Opens weichen ab; kausale rollierende Profile/VAH/VAL/HVN/LVN und breitere Abdeckung nicht fertig. |
 | #14 | Treppen-Arm, feste Box-/Retest-/Fehlausbruch-/Verzögerungsdiagnostik vorhanden. | Vollständige Abdeckung weiterer Originalscanner und Eltern-Akzeptanz; keine frische Wirksamkeitsevidenz. |
-| #26, separat | Ausgearbeitete, zurückgestellte Idee. | Kein Pi-Dienst, Dauerbetrieb, WebSocket-Recorder oder Analyse-Frontend implementiert/beauftragt. Kein Blocker für #3. |
+| #26 | Aktiv (Owner-Entscheidung 2026-11-05): Forward-Recorder fuer #7/#10. | Kein WebSocket-Recorder oder Analyse-Frontend beauftragt (ausser Scope). |
 
 `state:review` bei #11/#12/#14 bedeutet hier **offene Eltern-Akzeptanz**, nicht
 einen aktuell laufenden Agenten. Geschlossene #15–#25 gelten nur für die in
@@ -1024,7 +1024,7 @@ keine parallelen Doppelaufträge erzeugt.
 | G12 / groß, Daten/Modell | #7 | Nach G06 zeitlich passende Spread-/Tiefe-, Latenz-, Gebühren- und Fundingannahmen belegen. Separate aktuelle Buchstunde und 12/22/37-bp-Szenarien sind keine September-Fills. |
 | G13 / höchster Aufwand | #7/#8 | Nach G12/G08 Overlap, Sizing, Allokation, historische Margin-/Liquidationsregeln und Account-Cashflows modellieren, bevor Drawdown-/Hebelzahlen berichtet werden. |
 | G14 / mittel, nach Voraussetzungen | #8/#3 | Nach Fachakzeptanz und Validierung bzw. explizit eingegrenztem Endumfang Gesamtvergleich/Review durchführen und Integration von Draft-PR #5 entscheiden. |
-| G15 / später, ausdrücklich zurückgestellt | #26 | Erst bei Aktivierung Host/Budget wählen; Rotation, Persistenz, Rate-Limits, Neustart/SIGTERM/Disk-full, ARM64-Dauertest und optionales WebSocket-Replay entwickeln. |
+| G15 / ausser Scope (nur Erweiterungen) | #26 | Pi-Recorder selbst ist aktiv; ausser Scope bleiben: Rotation, Persistenz, Rate-Limits, Neustart/SIGTERM/Disk-full, ARM64-Dauertest und optionales WebSocket-Replay entwickeln. |
 | G16 / separate Produktentscheidung | #3/#26 | Integriertes Analyse-UI und Journal auch für verworfene/nicht gehandelte Signale sind nicht konkret beauftragte Lieferungen. Erst Produktumfang entscheiden, nicht als bereits vorhandene Funktion darstellen. |
 
 **Stand dieses damaligen Abgleichs:** G01, G03/G06 und G07 waren die

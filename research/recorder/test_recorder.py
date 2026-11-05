@@ -41,7 +41,7 @@ def good_fetch(calls):
 def run(root, **kw):
     symbols = kw.pop("symbols", ["AAPLUSDT", "BTCUSDT"])
     args = dict(cycles=2, interval=0, duration=60, wait=lambda s: None,
-                now_ns=lambda: NOW_NS, min_gap=0, fetcher=good_fetch([]),
+                now_ns=lambda: NOW_NS, min_gap=0, inventory=False, fetcher=good_fetch([]),
                 clock_status=lambda: {"ntp_synchronized": True, "source": "test"})
     args.update(kw)
     return recorder.run(root, symbols, args.pop("cycles"), args.pop("interval"),

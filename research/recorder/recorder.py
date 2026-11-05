@@ -25,10 +25,11 @@ from urllib.parse import urlsplit
 
 BASE = "https://api.bitget.com"
 PRODUCT = "USDT-FUTURES"
-MAX_RESPONSE = 1024 * 1024
+MAX_RESPONSE = 4 * 1024 * 1024  # full contract inventory is several hundred KB
 SCHEMA_VERSION = 1
 SYMBOL_RE = re.compile(r"[A-Z0-9]{2,30}")
 META_DIR = "_meta"
+INVENTORY_STATE = "inventory_state.json"
 CLEAN_MARKER = "clean_shutdown.json"
 RUN_STATE = "run_state.json"
 CLOCK_REFRESH_SECONDS = 60
@@ -126,6 +127,15 @@ def normalize(kind, payload, depth):
         return {"exchange_ms": int(data["ts"]), "bid": str(bids[0][0]), "ask": str(asks[0][0]),
                 "bid_quantity": str(bids[0][1]), "ask_quantity": str(asks[0][1]),
                 "bid_levels": len(bids), "ask_levels": len(asks)}
+    if kind == "inventory":
+        if not isinstance(data, list) or not data:
+            raise ValueError("Empty contract inventory")
+        statuses = {}
+        for item in data:
+            status = str(item.get("symbolStatus", ""))
+            statuses[status] = statuses.get(status, 0) + 1
+        return {"exchange_ms": int(payload["requestTime"]), "symbol_count": len(data),
+                "status_counts": statuses}
     row = data[0] if isinstance(data, list) else data
     if kind == "ticker":
         out = {"exchange_ms": int(row.get("ts") or payload["requestTime"])}
@@ -154,6 +164,40 @@ def normalize(kind, payload, depth):
                 out[name] = str(row[key])
         return out
     raise ValueError("Unknown kind")
+
+
+def inventory_url():
+    return build_url(BASE + "/api/v2/mix/market/contracts", {"productType": PRODUCT})
+
+
+def inventory_due(root, now_ms):
+    """True unless an inventory snapshot was already stored for the current UTC day."""
+    try:
+        state = json.loads((Path(root) / META_DIR / INVENTORY_STATE).read_text())
+        return state.get("utc_date") != utc_date(now_ms)
+    except (OSError, ValueError, AttributeError):
+        return True
+
+
+def utc_date(ms):
+    return datetime.fromtimestamp(ms / 1000, timezone.utc).strftime("%Y-%m-%d")
+
+
+def record_inventory(root, fetcher, limiter, now_ns, run_id, cycle, clock_sync, timeout,
+                     retries, backoff, wait):
+    url = inventory_url()
+    limiter.acquire()
+    started = now_ns()
+    raw = get_with_retries(fetcher, url, timeout, retries, backoff, wait)
+    received = now_ns()
+    record = make_record("inventory", "ALL", url, raw, received, started, cycle, run_id, 1,
+                         clock_sync)
+    append_member(partition_path(root, record["available_ms"]),
+                  [json.dumps(record, sort_keys=True) + "\n"])
+    write_durable(Path(root) / META_DIR / INVENTORY_STATE, json.dumps(
+        {"utc_date": utc_date(record["available_ms"]), "available_ms": record["available_ms"],
+         "raw_response_sha256": record["raw_response_sha256"]}).encode())
+    return record
 
 
 def partition_path(root, utc_ms):
@@ -367,7 +411,7 @@ def get_with_retries(fetcher, url, timeout, retries, backoff, wait):
 
 def run(root, symbols, cycles, interval, duration, depth=50, slow_every=30, min_gap=0.25,
         retries=2, backoff=1.0, timeout=10, fetcher=fetch, wait=None, now_ns=time.time_ns,
-        monotonic=time.monotonic, clock_status=read_clock_sync):
+        monotonic=time.monotonic, clock_status=read_clock_sync, inventory=True):
     wait = wait or STOP.wait
     if not symbols or not all(SYMBOL_RE.fullmatch(s) for s in symbols):
         raise ValueError("Expected uppercase Bitget symbols")
@@ -392,6 +436,19 @@ def run(root, symbols, cycles, interval, duration, depth=50, slow_every=30, min_
             summary["stop_reason"] = "DURATION_CAP"
             break
         cycle_started = monotonic()
+        if inventory and inventory_due(root, now_ns() // 10**6):
+            try:
+                record_inventory(root, fetcher, limiter, now_ns, run_id, cycle, clock_sync,
+                                 min(timeout, max(1, end - monotonic())), retries, backoff, wait)
+                summary["records"] += 1
+                summary["inventory_recorded"] = summary.get("inventory_recorded", 0) + 1
+            except InterruptedError:
+                pass
+            except (OSError, ValueError, KeyError, TypeError, IndexError, AttributeError,
+                    ArithmeticError, TimeoutError) as exc:
+                summary["failures"].append({"cycle": cycle, "symbol": "ALL", "kind": "inventory",
+                                            "type": type(exc).__name__, "message": str(exc)})
+                inventory = False  # retry on next run, not every cycle
         kinds = FAST + (SLOW if (cycle - 1) % slow_every == 0 else ())
         for symbol in symbols:
             urls = endpoints(symbol, depth)

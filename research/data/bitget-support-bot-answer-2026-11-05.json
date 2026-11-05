@@ -1,0 +1,21 @@
+{
+  "date_utc": "2026-11-05",
+  "source": "Bitget support bot answer (chat, owner-relayed; no personal data)",
+  "question": "Is there an official historical contract catalogue/export (listing/delisting dates, status history) for USDT-FUTURES?",
+  "answer_summary": {
+    "historical_catalogue_or_export": "none official",
+    "available_endpoint": "only current GET /api/v2/mix/market/contracts (no date-range parameters, no lifecycle history fields)",
+    "error_70010": "not explained by the bot",
+    "public_historical_export": "none"
+  },
+  "conclusion": "Point-in-time universe membership cannot be reconstructed from the past; only a self-recorded forward inventory works.",
+  "mitigation": "research/recorder records a daily full contracts inventory (kind 'inventory'); research/recorder/inventory_diff.py reports added/removed/status-changed symbols.",
+  "related": [
+    "research/data/bitget-universe-feasibility-2026-11-02.json"
+  ],
+  "issues": [
+    7,
+    10,
+    26
+  ]
+}

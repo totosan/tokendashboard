@@ -9,6 +9,26 @@ ticker (`/api/v2/mix/market/ticker`). On cycle 1 and every `--slow-every` cycles
 funding rate (`current-fund-rate`) and contract/fee config (`contracts`: maker/taker fee rate,
 size multiplier, precision, status).
 
+## Daily contract inventory (point-in-time universe)
+
+Bitget offers no historical contract catalogue (support answer 2026-11-05, see
+`research/data/bitget-support-bot-answer-2026-11-05.json`), so the recorder snapshots the full
+`GET /api/v2/mix/market/contracts?productType=USDT-FUTURES` (all symbols) at the first cycle of a
+run and then at most once per UTC day, as a record with `kind: "inventory"` (symbol `ALL`) in the
+normal hashed hourly gzip-JSONL partitions (raw response + `raw_response_sha256` +
+`record_sha256`; `fields` hold `symbol_count`, `status_counts`). `_meta/inventory_state.json`
+stores the last UTC date so restarts do not repeat it; a failed snapshot is reported in the run
+summary and retried on the next run. One extra request per day.
+
+Compare consecutive snapshots (added/removed symbols, changes of `symbolStatus`, `offTime`,
+`limitOpenTime`, `launchTime`, `deliveryTime`):
+
+```
+python3 -m research.recorder.inventory_diff DIR
+```
+
+Tests: `python -m unittest research.recorder.test_recorder research.recorder.test_inventory`.
+
 ## Record format (JSONL, one per request, schema_version 1)
 
 `instrument` (venue/product/symbol/quote/settlement), `kind`, `event_ms` (**exchange** clock),

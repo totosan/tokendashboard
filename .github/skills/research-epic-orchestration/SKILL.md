@@ -43,8 +43,8 @@ completed subtasks.
 - Record real prerequisites, not just queue order. Distinguish work that can
   proceed on existing/synthetic fixtures from work blocked on source access,
   model decisions, or future observations.
-- Separate deferred ideas from active epics. Do not add hardware deployment,
-  a new product UI, paid data, or production changes to the active scope by
+- Keep out-of-scope ideas out of the epic; every issue is active or out of scope
+  (there is no 'deferred' state). Do not add a new product UI, paid data, or production changes to the active scope by
   implication.
 - Maintain the repository's label convention, including exactly one topic and
   one state label when that convention applies. Verify the invariant after
@@ -97,7 +97,7 @@ For each leftover, record:
 - stable backlog ID and owning issue;
 - relative effort (not an invented time estimate);
 - exact next action and required evidence;
-- status: ready, blocked, review queued, future-data-dependent, or deferred;
+- status: ready, blocked, review queued, future-data-dependent, or out of scope;
 - true dependencies and what may proceed in parallel.
 
 Prioritize cheap diagnostic work that resolves a concrete discrepancy, then
