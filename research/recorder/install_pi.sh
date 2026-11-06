@@ -6,7 +6,9 @@ set -euo pipefail
 
 SVC_USER="bitget-recorder"
 APP_DIR="/opt/bitget-recorder"
-DATA_DIR="/var/lib/bitget-recorder"
+LEGACY_DIR="/var/lib/bitget-recorder"
+# Data lives on the external SSD; override with DATA_DIR=... sudo -E bash install_pi.sh
+DATA_DIR="${DATA_DIR:-/mnt/external/bitget-recorder}"
 SMOKE_DIR="/var/lib/bitget-recorder-smoke"
 UNIT_DIR="/etc/systemd/system"
 SMOKE_TIMEOUT_SECONDS=60
@@ -23,12 +25,26 @@ command -v python3 >/dev/null || die "python3 missing (sudo apt install python3 
 command -v systemctl >/dev/null || die "systemd required"
 python3 -c 'import venv, ensurepip' 2>/dev/null || die "python3-venv missing (sudo apt install python3-venv)"
 
+mount_root="$(dirname "${DATA_DIR}")"
+if [[ "${DATA_DIR}" == /mnt/* ]]; then
+  mountpoint -q "${mount_root}" || die "${mount_root} is not a mounted drive (refusing to fill the SD card)"
+fi
+
 if ! id -u "${SVC_USER}" >/dev/null 2>&1; then
   log "creating system user ${SVC_USER}"
   useradd --system --home-dir "${DATA_DIR}" --no-create-home --shell /usr/sbin/nologin "${SVC_USER}"
 fi
 
 install -d -o "${SVC_USER}" -g "${SVC_USER}" -m 0750 "${DATA_DIR}"
+if [[ "${DATA_DIR}" != "${LEGACY_DIR}" && -d "${LEGACY_DIR}" && -n "$(ls -A "${LEGACY_DIR}" 2>/dev/null)" ]]; then
+  log "migrating existing data ${LEGACY_DIR} -> ${DATA_DIR}"
+  systemctl stop bitget-recorder.timer bitget-recorder.service 2>/dev/null || true
+  cp -a "${LEGACY_DIR}/." "${DATA_DIR}/"
+  chown -R "${SVC_USER}:${SVC_USER}" "${DATA_DIR}"
+  diff -rq "${LEGACY_DIR}" "${DATA_DIR}" >/dev/null || die "copy verification failed; legacy data left in place"
+  mv "${LEGACY_DIR}" "${LEGACY_DIR}.migrated"
+  log "legacy copy kept at ${LEGACY_DIR}.migrated; delete it once verified"
+fi
 install -d -o root -g root -m 0755 "${APP_DIR}" "${APP_DIR}/app" "${APP_DIR}/app/research"
 
 log "syncing code into ${APP_DIR}/app (root-owned, read-only for the service)"
@@ -51,7 +67,8 @@ else
 fi
 
 log "installing systemd units"
-install -m 0644 "${here}/systemd/bitget-recorder.service" "${UNIT_DIR}/bitget-recorder.service"
+sed "s#@DATA_DIR@#${DATA_DIR}#g" "${here}/systemd/bitget-recorder.service" > "${UNIT_DIR}/bitget-recorder.service"
+chmod 0644 "${UNIT_DIR}/bitget-recorder.service"
 install -m 0644 "${here}/systemd/bitget-recorder.timer" "${UNIT_DIR}/bitget-recorder.timer"
 systemctl daemon-reload
 

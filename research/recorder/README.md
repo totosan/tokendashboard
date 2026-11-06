@@ -66,8 +66,8 @@ protocol before any use.
 `<output-dir>/YYYY/MM/DD/HH/records.jsonl.gz` (UTC hour of `available_ms`). Each write appends one
 complete gzip member with `O_APPEND` + `fsync`; existing bytes are never rewritten (concatenated
 members are valid gzip). A crash can at worst leave a truncated final member, which is quarantined and truncated on the
-next start (see power-loss behaviour) and otherwise flagged by the integrity report. Data is never committed: point `--output-dir` outside the repo (e.g.
-`/var/lib/bitget-recorder`).
+next start (see power-loss behaviour) and otherwise flagged by the integrity report. Data is never committed: point `--output-dir` outside the repo (default on the Pi:
+`/mnt/external/bitget-recorder` on the 1 TB SSD; the installer refuses to run if `/mnt/external` is not mounted and migrates any data from the old `/var/lib/bitget-recorder`).
 
 **Estimate** (2 symbols, 5 s interval, 50 levels): ~1.5 KB raw book + ~0.6 KB ticker per symbol per
 cycle, ~0.5–0.8 KB per gzip member (small members compress modestly) → roughly 40–60 MB/day,
@@ -119,7 +119,7 @@ sudo bash research/recorder/install_pi.sh
 only, nothing to download), installs the service + timer, runs a bounded smoke test
 (`timeout 60`, 1 cycle, scratch dir that is deleted afterwards) and only then enables the timer. It
 uses no secrets and opens no listening sockets (outbound public HTTPS only). Data goes to
-`/var/lib/bitget-recorder`.
+`/mnt/external/bitget-recorder`.
 
 The service is a bounded `Type=oneshot` run (≈280 s, `RuntimeMaxSec=300`); the timer starts one every
 5 minutes, so the Pi never runs an unbounded daemon. Gaps of ~20 s between runs are expected; they
@@ -128,7 +128,7 @@ stay below the default 60 s gap limit and do not reduce coverage.
 ## Hardware and operations
 
 - **SSD vs SD card:** the recorder fsyncs every write (~0.5 writes/s per stream). SD cards wear out
-  and corrupt under sustained small writes; use a USB SSD (mount it at `/var/lib/bitget-recorder`)
+  and corrupt under sustained small writes; use a USB SSD (mounted at `/mnt/external`; data in `/mnt/external/bitget-recorder`)
   for anything beyond a trial. On SD, expect a shorter life and keep backups.
 - **UPS:** a small UPS/HAT lets the Pi shut down cleanly. Without one, power loss is survivable
   but costs data (see below).
@@ -152,14 +152,14 @@ stay below the default 60 s gap limit and do not reduce coverage.
 ```
 systemctl list-timers bitget-recorder.timer; journalctl -u bitget-recorder -n 30 --no-pager
 timedatectl show -p NTPSynchronized --value
-cd /opt/bitget-recorder/app && /opt/bitget-recorder/venv/bin/python -m research.recorder.integrity_report /var/lib/bitget-recorder
-tail -n 5 /var/lib/bitget-recorder/_meta/events.jsonl
+cd /opt/bitget-recorder/app && /opt/bitget-recorder/venv/bin/python -m research.recorder.integrity_report /mnt/external/bitget-recorder
+tail -n 5 /mnt/external/bitget-recorder/_meta/events.jsonl
 ```
 
 ## Integrity and gap report
 
 ```
-python3 -m research.recorder.integrity_report /var/lib/bitget-recorder --max-gap-seconds 60
+python3 -m research.recorder.integrity_report /mnt/external/bitget-recorder --max-gap-seconds 60
 ```
 
 Read-only. Verifies every gzip partition decompresses, `record_sha256` and `raw_response_sha256`
