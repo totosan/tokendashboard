@@ -66,6 +66,64 @@ def run(root, **kw):
                         args.pop("duration"), **args)
 
 
+def res(disk=10000, mem=500):
+    return lambda root: {"disk_free_mb": disk, "disk_total_mb": 20000, "mem_available_mb": mem}
+
+
+class StorageGuardTests(unittest.TestCase):
+    def setUp(self):
+        recorder.STOP.clear()
+        self.tmp = tempfile.TemporaryDirectory()
+        self.root = Path(self.tmp.name)
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def kinds(self):
+        out = []
+        for p in self.root.glob("*/*/*/*/records.jsonl.gz"):
+            with gzip.open(p, "rt") as h:
+                out += [json.loads(l) for l in h if l.strip()]
+        return out
+
+    def test_levels(self):
+        lv = lambda d, m: recorder.resource_level(
+            {"disk_free_mb": d, "mem_available_mb": m})
+        self.assertEqual(lv(5000, 500), "ok")
+        self.assertEqual(lv(1500, 500), "warn")
+        self.assertEqual(lv(500, 500), "degraded")
+        self.assertEqual(lv(5000, 10), "critical")
+        self.assertEqual(lv(None, None), "ok")
+
+    def test_ok_collects_everything(self):
+        s = run(self.root, cycles=1, symbols=["BTCUSDT"], resources=res())
+        self.assertEqual(s["storage_level"], "ok")
+        self.assertIn("open_interest", {r["kind"] for r in self.kinds()})
+
+    def test_degraded_sheds_sentiment_keeps_core(self):
+        s = run(self.root, cycles=1, symbols=["BTCUSDT"], resources=res(disk=500))
+        kinds = {r["kind"] for r in self.kinds()}
+        self.assertEqual(s["storage_level"], "degraded")
+        self.assertTrue({"orderbook", "ticker", "funding", "contract"} <= kinds)
+        self.assertFalse(kinds & set(recorder.SENTIMENT))
+
+    def test_critical_stops_without_writing(self):
+        s = run(self.root, cycles=3, symbols=["BTCUSDT"], resources=res(disk=100))
+        self.assertEqual(s["stop_reason"], "STORAGE_CRITICAL")
+        self.assertEqual(s["records"], 0)
+        self.assertEqual(self.kinds(), [])
+        status = json.loads((self.root / "_meta" / "storage_status.json").read_text())
+        self.assertEqual(status["level"], "critical")
+        self.assertTrue((self.root / "_meta" / "clean_shutdown.json").exists())
+
+    def test_read_resources_unknown_is_none(self):
+        def boom(path):
+            raise OSError
+        r = recorder.read_resources(self.root, disk_usage=boom, meminfo=str(self.root / "none"))
+        self.assertIsNone(r["disk_free_mb"])
+        self.assertIsNone(r["mem_available_mb"])
+
+
 class RecorderTests(unittest.TestCase):
     def setUp(self):
         recorder.STOP.clear()

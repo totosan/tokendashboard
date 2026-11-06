@@ -74,6 +74,23 @@ cycle, ~0.5–0.8 KB per gzip member (small members compress modestly) → rough
 ~1.5 GB/month. Lower with a larger `--interval`, smaller `--depth`, or by recompressing closed hours
 (`zcat` then `gzip -9`) offline. Verify on your device with `du -sh`.
 
+## Storage and memory guard (stable under low capacity)
+
+At the start of a run and every 30 s the recorder checks free disk on the output volume and
+`MemAvailable`, and logs every level change to `_meta/events.jsonl` (also `_meta/storage_status.json`).
+Level = worst of disk and memory (`--disk-free-mb`, `--mem-available-mb`, each `WARN,DEGRADED,CRITICAL`):
+
+| Level | Default disk free / mem avail | Behaviour |
+|---|---|---|
+| ok | >= 2048 MB / >= 96 MB | collect everything |
+| warn | < 2048 / < 96 | collect everything, event logged |
+| degraded | < 1024 / < 48 | shed lowest-priority data: sentiment kinds dropped, order-book depth capped at 10; order book, ticker, funding, contract/fee and inventory kept |
+| critical | < 256 / < 24 | stop writing (`stop_reason=STORAGE_CRITICAL`, clean marker written); the next timer run re-checks and resumes automatically once space is freed |
+
+Shed data is simply absent (a gap), never interpolated; the coverage report excludes it. Existing
+data is never deleted automatically — free space by archiving closed hours off the device. Unknown
+readings are treated as ok. Thresholds must satisfy WARN >= DEGRADED >= CRITICAL.
+
 ## CLI (always finite)
 
 ```

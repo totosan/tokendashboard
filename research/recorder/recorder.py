@@ -12,6 +12,7 @@ import hashlib
 import json
 import os
 import re
+import shutil
 import signal
 import subprocess
 import threading
@@ -34,6 +35,14 @@ CLEAN_MARKER = "clean_shutdown.json"
 RUN_STATE = "run_state.json"
 CLOCK_REFRESH_SECONDS = 60
 STOP = threading.Event()
+RESOURCE_REFRESH_SECONDS = 30
+STORAGE_STATUS = "storage_status.json"
+MB = 1024 * 1024
+LEVELS = ("ok", "warn", "degraded", "critical")
+DEGRADED_DEPTH = 10
+# (warn, degraded, critical) thresholds in MB; level = worst of disk-free and mem-available
+DEFAULT_DISK_FREE_MB = (2048, 1024, 256)
+DEFAULT_MEM_AVAILABLE_MB = (96, 48, 24)
 
 
 def endpoints(symbol, depth):
@@ -404,6 +413,38 @@ def read_clock_sync(runner=subprocess.run):
     return {"ntp_synchronized": None, "source": "unavailable"}
 
 
+def read_resources(root, disk_usage=shutil.disk_usage, meminfo="/proc/meminfo"):
+    """Free disk on the output volume and available memory; None means unknown (never guessed)."""
+    out = {"disk_free_mb": None, "disk_total_mb": None, "mem_available_mb": None}
+    try:
+        usage = disk_usage(str(root))
+        out["disk_free_mb"], out["disk_total_mb"] = usage.free // MB, usage.total // MB
+    except OSError:
+        pass
+    try:
+        with open(meminfo) as handle:
+            for line in handle:
+                if line.startswith("MemAvailable:"):
+                    out["mem_available_mb"] = int(line.split()[1]) // 1024
+                    break
+    except (OSError, ValueError, IndexError):
+        pass
+    return out
+
+
+def _level(value, thresholds):
+    if value is None:
+        return 0
+    warn, degraded, critical = thresholds
+    return 3 if value < critical else 2 if value < degraded else 1 if value < warn else 0
+
+
+def resource_level(resources, disk_mb=DEFAULT_DISK_FREE_MB, mem_mb=DEFAULT_MEM_AVAILABLE_MB):
+    """ok -> warn (log only) -> degraded (shed low-priority data) -> critical (stop writing)."""
+    return LEVELS[max(_level(resources["disk_free_mb"], disk_mb),
+                      _level(resources["mem_available_mb"], mem_mb))]
+
+
 def make_record(kind, symbol, url, raw, received_ns, started_ns, cycle, run_id, depth,
                 clock_sync=None):
     fields = normalize(kind, json.loads(raw), depth)
@@ -461,7 +502,9 @@ def get_with_retries(fetcher, url, timeout, retries, backoff, wait):
 
 def run(root, symbols, cycles, interval, duration, depth=50, slow_every=30, min_gap=0.25,
         retries=2, backoff=1.0, timeout=10, fetcher=fetch, wait=None, now_ns=time.time_ns,
-        monotonic=time.monotonic, clock_status=read_clock_sync, inventory=True):
+        monotonic=time.monotonic, clock_status=read_clock_sync, inventory=True,
+        resources=read_resources, disk_free_mb=DEFAULT_DISK_FREE_MB,
+        mem_available_mb=DEFAULT_MEM_AVAILABLE_MB):
     wait = wait or STOP.wait
     if not symbols or not all(SYMBOL_RE.fullmatch(s) for s in symbols):
         raise ValueError("Expected uppercase Bitget symbols")
@@ -479,14 +522,32 @@ def run(root, symbols, cycles, interval, duration, depth=50, slow_every=30, min_
                "clock_sync": clock_sync, "records": 0, "failures": [], "cycles_completed": 0,
                "stop_reason": "MAX_CYCLES", "no_data": []}
     no_data = set()
+    summary["storage_level"], summary["storage_transitions"] = "ok", []
+    level, res_at = "ok", None
     for cycle in range(1, cycles + 1):
         if STOP.is_set():
             summary["stop_reason"] = "SIGNAL"
+            break
+        if res_at is None or monotonic() - res_at >= RESOURCE_REFRESH_SECONDS:
+            snapshot = resources(root)
+            new_level = resource_level(snapshot, disk_free_mb, mem_available_mb)
+            res_at = monotonic()
+            if new_level != level or cycle == 1:
+                event = {"event": "storage_level", "run_id": run_id, "ts_ms": now_ns() // 10**6,
+                         "from": level, "to": new_level, "resources": snapshot}
+                log_event(root, event)
+                summary["storage_transitions"].append(event)
+            level = summary["storage_level"] = new_level
+            write_durable(Path(root) / META_DIR / STORAGE_STATUS, json.dumps(
+                {"ts_ms": now_ns() // 10**6, "level": level, "resources": snapshot}).encode())
+        if level == "critical":
+            summary["stop_reason"] = "STORAGE_CRITICAL"
             break
         if monotonic() >= end:
             summary["stop_reason"] = "DURATION_CAP"
             break
         cycle_started = monotonic()
+        degraded = level == "degraded"
         if inventory and inventory_due(root, now_ns() // 10**6):
             try:
                 record_inventory(root, fetcher, limiter, now_ns, run_id, cycle, clock_sync,
@@ -500,9 +561,10 @@ def run(root, symbols, cycles, interval, duration, depth=50, slow_every=30, min_
                 summary["failures"].append({"cycle": cycle, "symbol": "ALL", "kind": "inventory",
                                             "type": type(exc).__name__, "message": str(exc)})
                 inventory = False  # retry on next run, not every cycle
-        kinds = FAST + (SLOW if (cycle - 1) % slow_every == 0 else ())
+        slow = tuple(k for k in SLOW if not (degraded and k in SENTIMENT))
+        kinds = FAST + (slow if (cycle - 1) % slow_every == 0 else ())
         for symbol in symbols:
-            urls = endpoints(symbol, depth)
+            urls = endpoints(symbol, min(depth, DEGRADED_DEPTH) if degraded else depth)
             for kind in kinds:
                 if STOP.is_set() or monotonic() >= end:
                     break
@@ -560,13 +622,24 @@ def main(argv=None):
                         help="Funding/contract-fee/sentiment kinds every N cycles (always cycle 1)")
     parser.add_argument("--min-request-gap", type=float, default=0.25)
     parser.add_argument("--retries", type=int, default=2)
+    parser.add_argument("--disk-free-mb", default="2048,1024,256", metavar="WARN,DEGRADED,CRITICAL",
+                        help="Free-disk thresholds (MB): warn / shed sentiment+depth / stop writing")
+    parser.add_argument("--mem-available-mb", default="96,48,24", metavar="WARN,DEGRADED,CRITICAL",
+                        help="Available-memory thresholds (MB), same semantics")
     args = parser.parse_args(argv)
     signal.signal(signal.SIGTERM, handle_term)
     signal.signal(signal.SIGINT, handle_term)
     try:
+        thresholds = []
+        for text in (args.disk_free_mb, args.mem_available_mb):
+            t = tuple(int(x) for x in text.split(","))
+            if len(t) != 3 or not t[0] >= t[1] >= t[2] >= 0:
+                raise ValueError("Thresholds must be WARN>=DEGRADED>=CRITICAL>=0")
+            thresholds.append(t)
         summary = run(args.output_dir, [s.strip() for s in args.symbols.split(",") if s.strip()],
                       args.max_cycles, args.interval, args.duration_seconds, args.depth,
-                      args.slow_every, args.min_request_gap, args.retries)
+                      args.slow_every, args.min_request_gap, args.retries,
+                      disk_free_mb=thresholds[0], mem_available_mb=thresholds[1])
     except ValueError as exc:
         parser.error(str(exc))
     _close_connection()
