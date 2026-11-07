@@ -1,0 +1,7445 @@
+{
+  "schema_version": 1,
+  "tier": "third-party approximation, not official PIT ledger",
+  "caveat": "availableSince/availableTo describe Tardis data availability, not Bitget listing/delisting; dates are day-granular UTC. Not an official point-in-time ledger.",
+  "issue": 10,
+  "requests": [
+    {
+      "url": "https://api.tardis.dev/v1/exchanges/bitget-futures",
+      "method": "GET",
+      "retrieved_at_utc": "2026-11-05T20:27:29.898891+00:00",
+      "bytes": 455775,
+      "raw_sha256": "c4cc056b18ae4cdf4366793cdd647697587ed47d9262422ab5fc2f217953c50c",
+      "symbols_total": 1275
+    },
+    {
+      "url": "https://api.bitget.com/api/v2/mix/market/contracts?productType=USDT-FUTURES",
+      "method": "GET",
+      "bytes": 684530,
+      "raw_sha256": "35c1b47e7f6a1814e5c4d1dec15a7a276abaef48697cb2e5e91339a1395ae414",
+      "symbols_total": 884
+    }
+  ],
+  "derived": {
+    "window_start_inclusive": "2026-09-17",
+    "window_end_exclusive": "2026-11-01",
+    "active_count": 949,
+    "counts_by_class": {
+      "usdt_perpetual": 876,
+      "other_perpetual": 69,
+      "future": 4
+    },
+    "active": {
+      "usdt_perpetual": [
+        {
+          "symbol": "0GUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-18",
+          "to": null
+        },
+        {
+          "symbol": "1000000MOGUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "10000NEXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-21",
+          "to": "2026-10-31"
+        },
+        {
+          "symbol": "1000BONKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "1000CATUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "1000RATSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "1000SATSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "1000XECUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "1INCHUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "1MBABYDOGEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "1MCHEEMSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-25",
+          "to": null
+        },
+        {
+          "symbol": "2ZUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-10-02",
+          "to": null
+        },
+        {
+          "symbol": "AALUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-29",
+          "to": null
+        },
+        {
+          "symbol": "AAOIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-22",
+          "to": null
+        },
+        {
+          "symbol": "AAPLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-08-26",
+          "to": null
+        },
+        {
+          "symbol": "AAPUUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-20",
+          "to": null
+        },
+        {
+          "symbol": "AAVEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ABBVUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-21",
+          "to": null
+        },
+        {
+          "symbol": "ABNBUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-15",
+          "to": null
+        },
+        {
+          "symbol": "ACEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ACHRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-26",
+          "to": null
+        },
+        {
+          "symbol": "ACHUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ACNSTOCKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-30",
+          "to": null
+        },
+        {
+          "symbol": "ACTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-11",
+          "to": null
+        },
+        {
+          "symbol": "ACUUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-01-21",
+          "to": null
+        },
+        {
+          "symbol": "ADAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ADBEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-08",
+          "to": null
+        },
+        {
+          "symbol": "ADIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-22",
+          "to": null
+        },
+        {
+          "symbol": "ADVANTESTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-05",
+          "to": null
+        },
+        {
+          "symbol": "AEHRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-10",
+          "to": null
+        },
+        {
+          "symbol": "AEONUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-27",
+          "to": null
+        },
+        {
+          "symbol": "AEROUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "AEVOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "AGLDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "AGPUUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-18",
+          "to": null
+        },
+        {
+          "symbol": "AINUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-07-10",
+          "to": "2026-09-23"
+        },
+        {
+          "symbol": "AIOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-08-13",
+          "to": null
+        },
+        {
+          "symbol": "AIXBTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-12-21",
+          "to": null
+        },
+        {
+          "symbol": "AKAMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-30",
+          "to": null
+        },
+        {
+          "symbol": "AKEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-02",
+          "to": null
+        },
+        {
+          "symbol": "AKTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ALABUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-18",
+          "to": null
+        },
+        {
+          "symbol": "ALCHUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-01-07",
+          "to": null
+        },
+        {
+          "symbol": "ALGOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ALICEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ALLOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-11-11",
+          "to": null
+        },
+        {
+          "symbol": "ALTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "AMATUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-15",
+          "to": null
+        },
+        {
+          "symbol": "AMCUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-08",
+          "to": null
+        },
+        {
+          "symbol": "AMDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-15",
+          "to": null
+        },
+        {
+          "symbol": "AMGNUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-03",
+          "to": null
+        },
+        {
+          "symbol": "AMKRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-29",
+          "to": null
+        },
+        {
+          "symbol": "AMZNUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-08-26",
+          "to": null
+        },
+        {
+          "symbol": "AMZUUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-20",
+          "to": null
+        },
+        {
+          "symbol": "ANETUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-13",
+          "to": null
+        },
+        {
+          "symbol": "ANIMEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-01-23",
+          "to": null
+        },
+        {
+          "symbol": "ANKRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ANTHROPICUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-02",
+          "to": null
+        },
+        {
+          "symbol": "APDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-22",
+          "to": null
+        },
+        {
+          "symbol": "APEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "API3USDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "APLDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-28",
+          "to": null
+        },
+        {
+          "symbol": "APPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-09",
+          "to": null
+        },
+        {
+          "symbol": "APRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-10-23",
+          "to": null
+        },
+        {
+          "symbol": "APTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ARBUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ARCUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-01-17",
+          "to": null
+        },
+        {
+          "symbol": "ARIAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-03",
+          "to": null
+        },
+        {
+          "symbol": "ARKMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ARKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ARMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-08",
+          "to": null
+        },
+        {
+          "symbol": "ARPAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ARQQUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-26",
+          "to": null
+        },
+        {
+          "symbol": "ARUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ARXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-22",
+          "to": null
+        },
+        {
+          "symbol": "ASMLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-08",
+          "to": null
+        },
+        {
+          "symbol": "ASRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-05-06",
+          "to": null
+        },
+        {
+          "symbol": "ASTERUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-21",
+          "to": null
+        },
+        {
+          "symbol": "ASTRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ASTSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-19",
+          "to": null
+        },
+        {
+          "symbol": "ASXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-29",
+          "to": null
+        },
+        {
+          "symbol": "ATHUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ATOMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ATUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-11-03",
+          "to": null
+        },
+        {
+          "symbol": "AUCTIONUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-02-17",
+          "to": null
+        },
+        {
+          "symbol": "AUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-05-28",
+          "to": null
+        },
+        {
+          "symbol": "AVAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-12-13",
+          "to": null
+        },
+        {
+          "symbol": "AVAVUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-01",
+          "to": null
+        },
+        {
+          "symbol": "AVAXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "AVGOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-02-11",
+          "to": null
+        },
+        {
+          "symbol": "AVNTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-09",
+          "to": null
+        },
+        {
+          "symbol": "AWEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-05-21",
+          "to": null
+        },
+        {
+          "symbol": "AXISUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-21",
+          "to": null
+        },
+        {
+          "symbol": "AXLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "AXONUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-01",
+          "to": null
+        },
+        {
+          "symbol": "AXSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "AXTIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-11",
+          "to": null
+        },
+        {
+          "symbol": "AZTECUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-02-12",
+          "to": null
+        },
+        {
+          "symbol": "B200USDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-08",
+          "to": null
+        },
+        {
+          "symbol": "B2USDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-05-06",
+          "to": null
+        },
+        {
+          "symbol": "BABAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-08",
+          "to": null
+        },
+        {
+          "symbol": "BABYUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-04-10",
+          "to": null
+        },
+        {
+          "symbol": "BACUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-29",
+          "to": null
+        },
+        {
+          "symbol": "BANANAS31USDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-03-20",
+          "to": null
+        },
+        {
+          "symbol": "BANANAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "BANDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "BANKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-04-19",
+          "to": null
+        },
+        {
+          "symbol": "BANUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-18",
+          "to": null
+        },
+        {
+          "symbol": "BARDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-18",
+          "to": null
+        },
+        {
+          "symbol": "BASEDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-03-30",
+          "to": null
+        },
+        {
+          "symbol": "BATUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "BAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-09",
+          "to": null
+        },
+        {
+          "symbol": "BBSTOCKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-04",
+          "to": null
+        },
+        {
+          "symbol": "BBUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "BCHUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "BEAMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "BEATUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-11-12",
+          "to": null
+        },
+        {
+          "symbol": "BERAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-02-06",
+          "to": null
+        },
+        {
+          "symbol": "BEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-22",
+          "to": null
+        },
+        {
+          "symbol": "BGBUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "BHPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-09",
+          "to": null
+        },
+        {
+          "symbol": "BICOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "BIGTIMEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "BILLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-06",
+          "to": null
+        },
+        {
+          "symbol": "BIOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-01-03",
+          "to": null
+        },
+        {
+          "symbol": "BIRBUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-01-29",
+          "to": null
+        },
+        {
+          "symbol": "BITOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-28",
+          "to": null
+        },
+        {
+          "symbol": "BKNGUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-04",
+          "to": null
+        },
+        {
+          "symbol": "BLESSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-24",
+          "to": null
+        },
+        {
+          "symbol": "BLSHUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-21",
+          "to": null
+        },
+        {
+          "symbol": "BLURUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "BMNRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-16",
+          "to": null
+        },
+        {
+          "symbol": "BNBUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "BNCUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-06",
+          "to": null
+        },
+        {
+          "symbol": "BNTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "BOMEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "BOTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-13",
+          "to": null
+        },
+        {
+          "symbol": "BOTZUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-28",
+          "to": null
+        },
+        {
+          "symbol": "BPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-19",
+          "to": null
+        },
+        {
+          "symbol": "BRETTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "BREVUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-01-06",
+          "to": null
+        },
+        {
+          "symbol": "BRKBUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-26",
+          "to": null
+        },
+        {
+          "symbol": "BROCCOLIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-02-14",
+          "to": null
+        },
+        {
+          "symbol": "BRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-03-20",
+          "to": null
+        },
+        {
+          "symbol": "BSBUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-03-25",
+          "to": null
+        },
+        {
+          "symbol": "BSPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-06",
+          "to": null
+        },
+        {
+          "symbol": "BSVUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "BTCUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "BTWUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-04",
+          "to": null
+        },
+        {
+          "symbol": "BUDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-15",
+          "to": null
+        },
+        {
+          "symbol": "BUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-05-22",
+          "to": null
+        },
+        {
+          "symbol": "BWETUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-30",
+          "to": null
+        },
+        {
+          "symbol": "BXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-08",
+          "to": null
+        },
+        {
+          "symbol": "BYDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-08",
+          "to": null
+        },
+        {
+          "symbol": "BZUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-01",
+          "to": null
+        },
+        {
+          "symbol": "C98USDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "CAKEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "CAPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-27",
+          "to": null
+        },
+        {
+          "symbol": "CARVUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "CATIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "CATUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-22",
+          "to": null
+        },
+        {
+          "symbol": "CBRSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-12",
+          "to": null
+        },
+        {
+          "symbol": "CCLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-15",
+          "to": null
+        },
+        {
+          "symbol": "CCUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-24",
+          "to": null
+        },
+        {
+          "symbol": "CEGUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-09",
+          "to": null
+        },
+        {
+          "symbol": "CELOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "CELRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "CETUSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "CFGUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-03-16",
+          "to": null
+        },
+        {
+          "symbol": "CFXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "CGNXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-16",
+          "to": null
+        },
+        {
+          "symbol": "CGPTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-12-21",
+          "to": null
+        },
+        {
+          "symbol": "CHILLGUYUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-22",
+          "to": null
+        },
+        {
+          "symbol": "CHIPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-21",
+          "to": null
+        },
+        {
+          "symbol": "CHRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "CHZUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "CIENUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-08",
+          "to": null
+        },
+        {
+          "symbol": "CKBUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "CLANKERUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-10-27",
+          "to": null
+        },
+        {
+          "symbol": "CLSKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-17",
+          "to": null
+        },
+        {
+          "symbol": "CLSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-28",
+          "to": null
+        },
+        {
+          "symbol": "CLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-03-16",
+          "to": null
+        },
+        {
+          "symbol": "CMCSAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-15",
+          "to": null
+        },
+        {
+          "symbol": "COAIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-10-09",
+          "to": null
+        },
+        {
+          "symbol": "COHRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-22",
+          "to": null
+        },
+        {
+          "symbol": "COINUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-08-27",
+          "to": null
+        },
+        {
+          "symbol": "COMPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "CONLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-06",
+          "to": null
+        },
+        {
+          "symbol": "COOKIEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-01-07",
+          "to": null
+        },
+        {
+          "symbol": "COPPERUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-03-09",
+          "to": null
+        },
+        {
+          "symbol": "COPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-03-12",
+          "to": null
+        },
+        {
+          "symbol": "CORZUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-21",
+          "to": null
+        },
+        {
+          "symbol": "COSTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-03-02",
+          "to": null
+        },
+        {
+          "symbol": "COTIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "COWUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "CPNGUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-16",
+          "to": null
+        },
+        {
+          "symbol": "CPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-02",
+          "to": null
+        },
+        {
+          "symbol": "CRCLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-08-20",
+          "to": null
+        },
+        {
+          "symbol": "CRDOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-28",
+          "to": null
+        },
+        {
+          "symbol": "CRMLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-30",
+          "to": null
+        },
+        {
+          "symbol": "CRMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-29",
+          "to": null
+        },
+        {
+          "symbol": "CROSSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-07-04",
+          "to": null
+        },
+        {
+          "symbol": "CROUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-12",
+          "to": null
+        },
+        {
+          "symbol": "CRVUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "CRWDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-08",
+          "to": null
+        },
+        {
+          "symbol": "CRWVUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-28",
+          "to": null
+        },
+        {
+          "symbol": "CSCOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-11-10",
+          "to": null
+        },
+        {
+          "symbol": "CSOPSK2LHKDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-12",
+          "to": null
+        },
+        {
+          "symbol": "CSOPSS2LHKDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-12",
+          "to": null
+        },
+        {
+          "symbol": "CSTOCKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-19",
+          "to": null
+        },
+        {
+          "symbol": "CSXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-23",
+          "to": null
+        },
+        {
+          "symbol": "CTKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-04-30",
+          "to": null
+        },
+        {
+          "symbol": "CTRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-28",
+          "to": null
+        },
+        {
+          "symbol": "CTSIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "CTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-01",
+          "to": null
+        },
+        {
+          "symbol": "CUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-07-15",
+          "to": null
+        },
+        {
+          "symbol": "CVCUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "CVNAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-30",
+          "to": null
+        },
+        {
+          "symbol": "CVXSTOCKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-15",
+          "to": null
+        },
+        {
+          "symbol": "CVXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-12-02",
+          "to": null
+        },
+        {
+          "symbol": "CXMTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-17",
+          "to": null
+        },
+        {
+          "symbol": "CYBERUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "CYPHUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-18",
+          "to": null
+        },
+        {
+          "symbol": "CYSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-12-12",
+          "to": null
+        },
+        {
+          "symbol": "DASHSTOCKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-28",
+          "to": null
+        },
+        {
+          "symbol": "DASHUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-11-04",
+          "to": null
+        },
+        {
+          "symbol": "DATAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-02",
+          "to": null
+        },
+        {
+          "symbol": "DDOGUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-10",
+          "to": null
+        },
+        {
+          "symbol": "DEEPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "DELLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-29",
+          "to": null
+        },
+        {
+          "symbol": "DEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-24",
+          "to": null
+        },
+        {
+          "symbol": "DEXEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-12-24",
+          "to": null
+        },
+        {
+          "symbol": "DFENUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-01",
+          "to": null
+        },
+        {
+          "symbol": "DGAIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-04",
+          "to": null
+        },
+        {
+          "symbol": "DHRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-22",
+          "to": null
+        },
+        {
+          "symbol": "DIASTOCKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-06",
+          "to": null
+        },
+        {
+          "symbol": "DIAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "DISKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-06",
+          "to": null
+        },
+        {
+          "symbol": "DJTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-25",
+          "to": null
+        },
+        {
+          "symbol": "DKNGUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-15",
+          "to": null
+        },
+        {
+          "symbol": "DOGEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "DOGSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "DOLOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-04-24",
+          "to": null
+        },
+        {
+          "symbol": "DOODUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-05-09",
+          "to": null
+        },
+        {
+          "symbol": "DOOSBOTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-05",
+          "to": null
+        },
+        {
+          "symbol": "DOOSENERUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-05",
+          "to": null
+        },
+        {
+          "symbol": "DOSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-11",
+          "to": null
+        },
+        {
+          "symbol": "DOTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "DRAMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-11",
+          "to": null
+        },
+        {
+          "symbol": "DRIFTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "DXYZUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-08",
+          "to": null
+        },
+        {
+          "symbol": "DYDXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "DYMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "EBAYUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-21",
+          "to": null
+        },
+        {
+          "symbol": "ECHOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-06",
+          "to": null
+        },
+        {
+          "symbol": "EDGEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-03-31",
+          "to": null
+        },
+        {
+          "symbol": "EGLDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "EIDOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-26",
+          "to": null
+        },
+        {
+          "symbol": "EIGENUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ELICEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-21",
+          "to": null
+        },
+        {
+          "symbol": "ELSAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-01-22",
+          "to": null
+        },
+        {
+          "symbol": "ENAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ENJUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ENSOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-10-14",
+          "to": null
+        },
+        {
+          "symbol": "ENSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "EPICUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-03-13",
+          "to": "2026-10-21"
+        },
+        {
+          "symbol": "EQTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-26",
+          "to": null
+        },
+        {
+          "symbol": "ERAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-07-17",
+          "to": null
+        },
+        {
+          "symbol": "ESPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-02-12",
+          "to": null
+        },
+        {
+          "symbol": "ETCUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ETHFIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ETHUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ETHWUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ETNUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-13",
+          "to": null
+        },
+        {
+          "symbol": "EULUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-10-14",
+          "to": null
+        },
+        {
+          "symbol": "EURUSDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-09",
+          "to": null
+        },
+        {
+          "symbol": "EUVUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-06",
+          "to": null
+        },
+        {
+          "symbol": "EVAAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-10-23",
+          "to": null
+        },
+        {
+          "symbol": "EVEXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-01",
+          "to": null
+        },
+        {
+          "symbol": "EWHUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-09",
+          "to": null
+        },
+        {
+          "symbol": "EWJUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-03-17",
+          "to": null
+        },
+        {
+          "symbol": "EWTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-03-25",
+          "to": null
+        },
+        {
+          "symbol": "EWYUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-03-17",
+          "to": null
+        },
+        {
+          "symbol": "EWZSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-29",
+          "to": null
+        },
+        {
+          "symbol": "EWZUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-03",
+          "to": null
+        },
+        {
+          "symbol": "FARTCOINUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-12-21",
+          "to": null
+        },
+        {
+          "symbol": "FASTRETAILINGUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-15",
+          "to": null
+        },
+        {
+          "symbol": "FCXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-09",
+          "to": null
+        },
+        {
+          "symbol": "FETUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "FFUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-29",
+          "to": null
+        },
+        {
+          "symbol": "FIDAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "FIGHTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-01-23",
+          "to": null
+        },
+        {
+          "symbol": "FILUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "FLEXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-22",
+          "to": null
+        },
+        {
+          "symbol": "FLNCUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-16",
+          "to": null
+        },
+        {
+          "symbol": "FLOCKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-01-09",
+          "to": null
+        },
+        {
+          "symbol": "FLOKIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "FLUIDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-24",
+          "to": null
+        },
+        {
+          "symbol": "FLUXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "FLYUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-15",
+          "to": null
+        },
+        {
+          "symbol": "FOGOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-01-15",
+          "to": null
+        },
+        {
+          "symbol": "FOLKSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-11-06",
+          "to": null
+        },
+        {
+          "symbol": "FORMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-03-19",
+          "to": null
+        },
+        {
+          "symbol": "FOXAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-15",
+          "to": null
+        },
+        {
+          "symbol": "FRAXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-01-15",
+          "to": null
+        },
+        {
+          "symbol": "FTNTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-29",
+          "to": null
+        },
+        {
+          "symbol": "FUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-06-18",
+          "to": null
+        },
+        {
+          "symbol": "FUTUUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-10-28",
+          "to": null
+        },
+        {
+          "symbol": "FWDIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-06",
+          "to": null
+        },
+        {
+          "symbol": "GALAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "GASUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "GBPUSDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-09",
+          "to": null
+        },
+        {
+          "symbol": "GDXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-17",
+          "to": null
+        },
+        {
+          "symbol": "GENIUSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-16",
+          "to": null
+        },
+        {
+          "symbol": "GEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-09",
+          "to": null
+        },
+        {
+          "symbol": "GEVUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-22",
+          "to": null
+        },
+        {
+          "symbol": "GFSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-04",
+          "to": null
+        },
+        {
+          "symbol": "GGLLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-20",
+          "to": null
+        },
+        {
+          "symbol": "GIGADEVICEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-02",
+          "to": null
+        },
+        {
+          "symbol": "GIGGLEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-10-16",
+          "to": null
+        },
+        {
+          "symbol": "GILDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-28",
+          "to": null
+        },
+        {
+          "symbol": "GLMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "GLWUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-10",
+          "to": null
+        },
+        {
+          "symbol": "GMEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-10",
+          "to": null
+        },
+        {
+          "symbol": "GMTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "GMXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "GNRCUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-18",
+          "to": null
+        },
+        {
+          "symbol": "GOOGLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-08-26",
+          "to": null
+        },
+        {
+          "symbol": "GPROUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-03",
+          "to": null
+        },
+        {
+          "symbol": "GPSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-02-18",
+          "to": null
+        },
+        {
+          "symbol": "GRAMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-15",
+          "to": null
+        },
+        {
+          "symbol": "GRASSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "GRIFFAINUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-01-02",
+          "to": null
+        },
+        {
+          "symbol": "GRTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "GRVTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-30",
+          "to": null
+        },
+        {
+          "symbol": "GSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-22",
+          "to": null
+        },
+        {
+          "symbol": "GTLBUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-02",
+          "to": null
+        },
+        {
+          "symbol": "GUNUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-03-31",
+          "to": null
+        },
+        {
+          "symbol": "GUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "GWEIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-01-29",
+          "to": null
+        },
+        {
+          "symbol": "H100USDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-08",
+          "to": null
+        },
+        {
+          "symbol": "HAEDALUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-04-29",
+          "to": null
+        },
+        {
+          "symbol": "HANMIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-14",
+          "to": null
+        },
+        {
+          "symbol": "HBARUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "HDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-09",
+          "to": null
+        },
+        {
+          "symbol": "HIVEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-12-23",
+          "to": null
+        },
+        {
+          "symbol": "HLTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-21",
+          "to": null
+        },
+        {
+          "symbol": "HOLOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-11",
+          "to": null
+        },
+        {
+          "symbol": "HOMEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-06-10",
+          "to": null
+        },
+        {
+          "symbol": "HONHAIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-27",
+          "to": null
+        },
+        {
+          "symbol": "HOODUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-08-27",
+          "to": null
+        },
+        {
+          "symbol": "HOTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "HPEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-08",
+          "to": null
+        },
+        {
+          "symbol": "HPQUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-27",
+          "to": null
+        },
+        {
+          "symbol": "HSIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-31",
+          "to": null
+        },
+        {
+          "symbol": "HUMAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-05-26",
+          "to": null
+        },
+        {
+          "symbol": "HUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-06-25",
+          "to": null
+        },
+        {
+          "symbol": "HUTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-18",
+          "to": null
+        },
+        {
+          "symbol": "HYPERUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-04-22",
+          "to": null
+        },
+        {
+          "symbol": "HYPEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-12-19",
+          "to": null
+        },
+        {
+          "symbol": "HYUNDAIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-02",
+          "to": null
+        },
+        {
+          "symbol": "IBBUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-28",
+          "to": null
+        },
+        {
+          "symbol": "IBITUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-17",
+          "to": null
+        },
+        {
+          "symbol": "IBKRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-21",
+          "to": null
+        },
+        {
+          "symbol": "IBMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-08",
+          "to": null
+        },
+        {
+          "symbol": "ICNTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-07-03",
+          "to": null
+        },
+        {
+          "symbol": "ICPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "IDOLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-06-16",
+          "to": null
+        },
+        {
+          "symbol": "IDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ILVUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-08-06",
+          "to": null
+        },
+        {
+          "symbol": "IMXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "INDAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-09",
+          "to": null
+        },
+        {
+          "symbol": "INFQUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-13",
+          "to": null
+        },
+        {
+          "symbol": "INITUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-04-24",
+          "to": null
+        },
+        {
+          "symbol": "INJUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "INTCUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-08",
+          "to": null
+        },
+        {
+          "symbol": "INTWUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-13",
+          "to": null
+        },
+        {
+          "symbol": "INUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-08-07",
+          "to": null
+        },
+        {
+          "symbol": "INXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-01-31",
+          "to": null
+        },
+        {
+          "symbol": "IONQUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-22",
+          "to": null
+        },
+        {
+          "symbol": "IOSTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "IOTAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "IOTXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "IOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "IRENUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-08",
+          "to": null
+        },
+        {
+          "symbol": "IRYSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-11-27",
+          "to": null
+        },
+        {
+          "symbol": "ISRGUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-16",
+          "to": null
+        },
+        {
+          "symbol": "ITUBUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-28",
+          "to": null
+        },
+        {
+          "symbol": "IWMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-08",
+          "to": null
+        },
+        {
+          "symbol": "JASMYUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "JCTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-11-11",
+          "to": null
+        },
+        {
+          "symbol": "JDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-10-28",
+          "to": null
+        },
+        {
+          "symbol": "JEPQUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-21",
+          "to": null
+        },
+        {
+          "symbol": "JIOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-14",
+          "to": null
+        },
+        {
+          "symbol": "JMKEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-31",
+          "to": null
+        },
+        {
+          "symbol": "JOBYUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-26",
+          "to": null
+        },
+        {
+          "symbol": "JOEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "JP225USDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-24",
+          "to": null
+        },
+        {
+          "symbol": "JPMUFGUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-13",
+          "to": null
+        },
+        {
+          "symbol": "JPMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-22",
+          "to": null
+        },
+        {
+          "symbol": "JPSONYUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-13",
+          "to": null
+        },
+        {
+          "symbol": "JSTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-04-28",
+          "to": null
+        },
+        {
+          "symbol": "JTOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "JUPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "KAIAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "KAITOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-02-20",
+          "to": null
+        },
+        {
+          "symbol": "KAKAOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-12",
+          "to": null
+        },
+        {
+          "symbol": "KASUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "KATUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-03-18",
+          "to": null
+        },
+        {
+          "symbol": "KAVAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "KBFGUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-12",
+          "to": null
+        },
+        {
+          "symbol": "KERNELUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-04-14",
+          "to": null
+        },
+        {
+          "symbol": "KGENUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-10-08",
+          "to": null
+        },
+        {
+          "symbol": "KIAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-12",
+          "to": null
+        },
+        {
+          "symbol": "KIOXIAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-05",
+          "to": null
+        },
+        {
+          "symbol": "KITEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-10-29",
+          "to": null
+        },
+        {
+          "symbol": "KLACUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-28",
+          "to": null
+        },
+        {
+          "symbol": "KMNOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "KNCUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "KODUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-30",
+          "to": null
+        },
+        {
+          "symbol": "KOPNUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-11",
+          "to": null
+        },
+        {
+          "symbol": "KORUUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-22",
+          "to": null
+        },
+        {
+          "symbol": "KOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-15",
+          "to": null
+        },
+        {
+          "symbol": "KR200USDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-14",
+          "to": null
+        },
+        {
+          "symbol": "KSMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "KSTRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-06",
+          "to": null
+        },
+        {
+          "symbol": "KTOSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-01",
+          "to": null
+        },
+        {
+          "symbol": "KUAISHOUUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-14",
+          "to": null
+        },
+        {
+          "symbol": "KWEBUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-03-25",
+          "to": null
+        },
+        {
+          "symbol": "LABUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-10-17",
+          "to": null
+        },
+        {
+          "symbol": "LASERTECUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-05",
+          "to": null
+        },
+        {
+          "symbol": "LAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-06-04",
+          "to": null
+        },
+        {
+          "symbol": "LAYERUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-02-11",
+          "to": null
+        },
+        {
+          "symbol": "LDOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "LENOVOHKDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-17",
+          "to": null
+        },
+        {
+          "symbol": "LENUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-09",
+          "to": null
+        },
+        {
+          "symbol": "LGELECTRONICSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-14",
+          "to": null
+        },
+        {
+          "symbol": "LGENERGYUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-12",
+          "to": null
+        },
+        {
+          "symbol": "LINEAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-01",
+          "to": null
+        },
+        {
+          "symbol": "LINKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "LINUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-22",
+          "to": null
+        },
+        {
+          "symbol": "LISTAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "LITEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-15",
+          "to": null
+        },
+        {
+          "symbol": "LITUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "LLYUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-11-11",
+          "to": null
+        },
+        {
+          "symbol": "LMTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-01",
+          "to": null
+        },
+        {
+          "symbol": "LPTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "LQTYUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "LRCXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-18",
+          "to": null
+        },
+        {
+          "symbol": "LSKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "LTCUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "LUMIAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "LUNAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "LUNCUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "LWLGUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-11",
+          "to": null
+        },
+        {
+          "symbol": "LYNUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-10-09",
+          "to": null
+        },
+        {
+          "symbol": "LYTEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-17",
+          "to": null
+        },
+        {
+          "symbol": "MAGICUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "MAGMAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-12-29",
+          "to": null
+        },
+        {
+          "symbol": "MANAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "MANTAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "MANTRAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-03-04",
+          "to": null
+        },
+        {
+          "symbol": "MARAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-26",
+          "to": null
+        },
+        {
+          "symbol": "MARSCOINUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-01",
+          "to": null
+        },
+        {
+          "symbol": "MARUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-15",
+          "to": null
+        },
+        {
+          "symbol": "MASKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "MAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-11-11",
+          "to": null
+        },
+        {
+          "symbol": "MAVUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "MCDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-08-26",
+          "to": null
+        },
+        {
+          "symbol": "MDBUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-08",
+          "to": null
+        },
+        {
+          "symbol": "MDTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-07-26",
+          "to": null
+        },
+        {
+          "symbol": "MEDIATEKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-27",
+          "to": null
+        },
+        {
+          "symbol": "MEGAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-01-30",
+          "to": null
+        },
+        {
+          "symbol": "MEITUANUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-02",
+          "to": null
+        },
+        {
+          "symbol": "MELANIAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-01-20",
+          "to": null
+        },
+        {
+          "symbol": "MELIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-10",
+          "to": null
+        },
+        {
+          "symbol": "MEMEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "MERLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-14",
+          "to": null
+        },
+        {
+          "symbol": "METAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-08-26",
+          "to": null
+        },
+        {
+          "symbol": "METISUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "METUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-10-13",
+          "to": null
+        },
+        {
+          "symbol": "METUUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-20",
+          "to": null
+        },
+        {
+          "symbol": "MEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-12-10",
+          "to": null
+        },
+        {
+          "symbol": "MEWUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "MINAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "MINIMAXHKDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-21",
+          "to": null
+        },
+        {
+          "symbol": "MINIMAXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-24",
+          "to": null
+        },
+        {
+          "symbol": "MIRAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-26",
+          "to": null
+        },
+        {
+          "symbol": "MMTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-11-04",
+          "to": null
+        },
+        {
+          "symbol": "MOCAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "MONUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-10-10",
+          "to": null
+        },
+        {
+          "symbol": "MOODENGUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "MOONSHOTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-07",
+          "to": null
+        },
+        {
+          "symbol": "MORPHOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-21",
+          "to": null
+        },
+        {
+          "symbol": "MOVEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-12-09",
+          "to": null
+        },
+        {
+          "symbol": "MOVRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "MPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-28",
+          "to": null
+        },
+        {
+          "symbol": "MRKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-20",
+          "to": null
+        },
+        {
+          "symbol": "MRNAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-20",
+          "to": null
+        },
+        {
+          "symbol": "MRVLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-10",
+          "to": null
+        },
+        {
+          "symbol": "MSCIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-21",
+          "to": null
+        },
+        {
+          "symbol": "MSFTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-22",
+          "to": null
+        },
+        {
+          "symbol": "MSFUUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-20",
+          "to": null
+        },
+        {
+          "symbol": "MSTRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-08-27",
+          "to": null
+        },
+        {
+          "symbol": "MSTUUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-06",
+          "to": null
+        },
+        {
+          "symbol": "MTLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "MUBARAKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-03-17",
+          "to": null
+        },
+        {
+          "symbol": "MUFGUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-16",
+          "to": null
+        },
+        {
+          "symbol": "MURATAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-13",
+          "to": null
+        },
+        {
+          "symbol": "MUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-07-09",
+          "to": null
+        },
+        {
+          "symbol": "MUUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-02-11",
+          "to": null
+        },
+        {
+          "symbol": "MUUUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-18",
+          "to": null
+        },
+        {
+          "symbol": "MVLLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-24",
+          "to": null
+        },
+        {
+          "symbol": "MYXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-05-14",
+          "to": null
+        },
+        {
+          "symbol": "NANYAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-19",
+          "to": null
+        },
+        {
+          "symbol": "NAORISUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-07-31",
+          "to": null
+        },
+        {
+          "symbol": "NATGASUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-01",
+          "to": null
+        },
+        {
+          "symbol": "NAVERUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-14",
+          "to": null
+        },
+        {
+          "symbol": "NBISUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-22",
+          "to": null
+        },
+        {
+          "symbol": "NDX100USDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-22",
+          "to": null
+        },
+        {
+          "symbol": "NEARUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "NEIROCTOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "NEOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "NETEASEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-02",
+          "to": null
+        },
+        {
+          "symbol": "NETUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-17",
+          "to": null
+        },
+        {
+          "symbol": "NEWTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-06-24",
+          "to": null
+        },
+        {
+          "symbol": "NFLXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-10-28",
+          "to": null
+        },
+        {
+          "symbol": "NIGHTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-12-10",
+          "to": null
+        },
+        {
+          "symbol": "NILUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-03-24",
+          "to": null
+        },
+        {
+          "symbol": "NIOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-11",
+          "to": null
+        },
+        {
+          "symbol": "NKEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-15",
+          "to": null
+        },
+        {
+          "symbol": "NMRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-03-19",
+          "to": null
+        },
+        {
+          "symbol": "NOCUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-01",
+          "to": null
+        },
+        {
+          "symbol": "NOKSTOCKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-19",
+          "to": null
+        },
+        {
+          "symbol": "NOTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "NOWUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-01",
+          "to": null
+        },
+        {
+          "symbol": "NTAPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-01",
+          "to": null
+        },
+        {
+          "symbol": "NUUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-28",
+          "to": null
+        },
+        {
+          "symbol": "NVDAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-08-20",
+          "to": null
+        },
+        {
+          "symbol": "NVDLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-20",
+          "to": null
+        },
+        {
+          "symbol": "NVSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-02",
+          "to": null
+        },
+        {
+          "symbol": "NXPCUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-05-15",
+          "to": null
+        },
+        {
+          "symbol": "OGNUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "OGUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "OKLOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-28",
+          "to": null
+        },
+        {
+          "symbol": "OKTAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-28",
+          "to": null
+        },
+        {
+          "symbol": "ONDOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ONDSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-19",
+          "to": null
+        },
+        {
+          "symbol": "ONEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ONGUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ONTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "OPENAIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-26",
+          "to": null
+        },
+        {
+          "symbol": "OPENUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-08",
+          "to": null
+        },
+        {
+          "symbol": "OPGUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-23",
+          "to": null
+        },
+        {
+          "symbol": "OPNUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-02-22",
+          "to": null
+        },
+        {
+          "symbol": "OPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ORCAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-12-06",
+          "to": null
+        },
+        {
+          "symbol": "ORCLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-09",
+          "to": null
+        },
+        {
+          "symbol": "ORDERUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ORDIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "OSSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-10",
+          "to": null
+        },
+        {
+          "symbol": "OURAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-22",
+          "to": null
+        },
+        {
+          "symbol": "OUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-23",
+          "to": null
+        },
+        {
+          "symbol": "OUSTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-19",
+          "to": null
+        },
+        {
+          "symbol": "OXYUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-03-12",
+          "to": null
+        },
+        {
+          "symbol": "PANWUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-26",
+          "to": null
+        },
+        {
+          "symbol": "PARTIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-03-25",
+          "to": null
+        },
+        {
+          "symbol": "PATHUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-18",
+          "to": null
+        },
+        {
+          "symbol": "PAXGUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "PBRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-28",
+          "to": null
+        },
+        {
+          "symbol": "PCVXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-06",
+          "to": null
+        },
+        {
+          "symbol": "PDDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-29",
+          "to": null
+        },
+        {
+          "symbol": "PENDLEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "PENGUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-22",
+          "to": null
+        },
+        {
+          "symbol": "PENGUUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-12-18",
+          "to": null
+        },
+        {
+          "symbol": "PEOPLEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "PEPEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "PEPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-11-10",
+          "to": null
+        },
+        {
+          "symbol": "PFEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-29",
+          "to": null
+        },
+        {
+          "symbol": "PGUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-23",
+          "to": null
+        },
+        {
+          "symbol": "PHAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-12-30",
+          "to": null
+        },
+        {
+          "symbol": "PIEVERSEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-11-17",
+          "to": null
+        },
+        {
+          "symbol": "PIPPINUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-02-13",
+          "to": null
+        },
+        {
+          "symbol": "PIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-02-20",
+          "to": null
+        },
+        {
+          "symbol": "PIXELUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "PLTRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-09",
+          "to": null
+        },
+        {
+          "symbol": "PLUMEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-01-22",
+          "to": null
+        },
+        {
+          "symbol": "PLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-08",
+          "to": null
+        },
+        {
+          "symbol": "PNUTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-11",
+          "to": null
+        },
+        {
+          "symbol": "POETUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-19",
+          "to": null
+        },
+        {
+          "symbol": "POLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "POLYMARKETUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-23",
+          "to": null
+        },
+        {
+          "symbol": "POLYXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "PONSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-31",
+          "to": null
+        },
+        {
+          "symbol": "POPCATUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "POPMARTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-02",
+          "to": null
+        },
+        {
+          "symbol": "POWERUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-12-06",
+          "to": null
+        },
+        {
+          "symbol": "POWRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "PRLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-01",
+          "to": null
+        },
+        {
+          "symbol": "PROMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-01-15",
+          "to": null
+        },
+        {
+          "symbol": "PROSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-15",
+          "to": null
+        },
+        {
+          "symbol": "PROVEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-08-05",
+          "to": null
+        },
+        {
+          "symbol": "PUMPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-04-01",
+          "to": null
+        },
+        {
+          "symbol": "PUNDIXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-04-30",
+          "to": null
+        },
+        {
+          "symbol": "PURRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-26",
+          "to": null
+        },
+        {
+          "symbol": "PYPLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-03",
+          "to": null
+        },
+        {
+          "symbol": "PYTHUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "QBTSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-26",
+          "to": null
+        },
+        {
+          "symbol": "QCOMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-19",
+          "to": null
+        },
+        {
+          "symbol": "QLDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-17",
+          "to": null
+        },
+        {
+          "symbol": "QNTSTOCKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-29",
+          "to": null
+        },
+        {
+          "symbol": "QNTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "QQQUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-10-28",
+          "to": null
+        },
+        {
+          "symbol": "QTUMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "QUBTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-26",
+          "to": null
+        },
+        {
+          "symbol": "QUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-02",
+          "to": null
+        },
+        {
+          "symbol": "RAMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-25",
+          "to": null
+        },
+        {
+          "symbol": "RAREUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "RAVEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-12-15",
+          "to": null
+        },
+        {
+          "symbol": "RAYUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "RCATUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-01",
+          "to": "2026-09-23"
+        },
+        {
+          "symbol": "RDDTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-10-28",
+          "to": null
+        },
+        {
+          "symbol": "RDWUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-19",
+          "to": null
+        },
+        {
+          "symbol": "RECALLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-10-15",
+          "to": null
+        },
+        {
+          "symbol": "REDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-03-06",
+          "to": null
+        },
+        {
+          "symbol": "RENDERUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "RESOLVUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-06-10",
+          "to": null
+        },
+        {
+          "symbol": "REUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-18",
+          "to": null
+        },
+        {
+          "symbol": "REZUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "RGTIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-26",
+          "to": null
+        },
+        {
+          "symbol": "RIOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-09",
+          "to": null
+        },
+        {
+          "symbol": "RIVERUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-10-17",
+          "to": null
+        },
+        {
+          "symbol": "RKLBUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-09",
+          "to": null
+        },
+        {
+          "symbol": "ROBOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-02-27",
+          "to": null
+        },
+        {
+          "symbol": "ROKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-16",
+          "to": null
+        },
+        {
+          "symbol": "ROSEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "RPLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "RSRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "RTXSTOCKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-01",
+          "to": null
+        },
+        {
+          "symbol": "RUMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-30",
+          "to": null
+        },
+        {
+          "symbol": "RUNEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "RVNUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "SAFEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "SAHARAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-06-26",
+          "to": null
+        },
+        {
+          "symbol": "SAMSUNGEMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-14",
+          "to": null
+        },
+        {
+          "symbol": "SAMSUNGUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-02",
+          "to": null
+        },
+        {
+          "symbol": "SANDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "SANTOSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "SAPIENUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-08-20",
+          "to": null
+        },
+        {
+          "symbol": "SATLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-08",
+          "to": null
+        },
+        {
+          "symbol": "SBUXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-09",
+          "to": null
+        },
+        {
+          "symbol": "SDGRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-18",
+          "to": null
+        },
+        {
+          "symbol": "SECZUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-21",
+          "to": null
+        },
+        {
+          "symbol": "SEIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "SENTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-01-22",
+          "to": null
+        },
+        {
+          "symbol": "SFPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "SGOVUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-16",
+          "to": null
+        },
+        {
+          "symbol": "SHAZUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-22",
+          "to": null
+        },
+        {
+          "symbol": "SHEINHKDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-02",
+          "to": null
+        },
+        {
+          "symbol": "SHEINUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-27",
+          "to": null
+        },
+        {
+          "symbol": "SHELLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-02-17",
+          "to": null
+        },
+        {
+          "symbol": "SHIBUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "SHOPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-03",
+          "to": null
+        },
+        {
+          "symbol": "SIGNUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-04-28",
+          "to": null
+        },
+        {
+          "symbol": "SIMOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-10",
+          "to": null
+        },
+        {
+          "symbol": "SIRENUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-03-20",
+          "to": null
+        },
+        {
+          "symbol": "SITMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-04",
+          "to": null
+        },
+        {
+          "symbol": "SKDDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-28",
+          "to": null
+        },
+        {
+          "symbol": "SKHYNIXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-02",
+          "to": null
+        },
+        {
+          "symbol": "SKHYUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-03",
+          "to": null
+        },
+        {
+          "symbol": "SKLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "SKRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-01-21",
+          "to": null
+        },
+        {
+          "symbol": "SKUUUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-28",
+          "to": null
+        },
+        {
+          "symbol": "SKYAIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-05-13",
+          "to": null
+        },
+        {
+          "symbol": "SKYUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-09",
+          "to": null
+        },
+        {
+          "symbol": "SLPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-07-23",
+          "to": null
+        },
+        {
+          "symbol": "SLXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-01",
+          "to": null
+        },
+        {
+          "symbol": "SMCIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-19",
+          "to": null
+        },
+        {
+          "symbol": "SMHUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-16",
+          "to": null
+        },
+        {
+          "symbol": "SMICUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-02",
+          "to": null
+        },
+        {
+          "symbol": "SMRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-04",
+          "to": null
+        },
+        {
+          "symbol": "SNDKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-15",
+          "to": null
+        },
+        {
+          "symbol": "SNOWUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-28",
+          "to": null
+        },
+        {
+          "symbol": "SNPSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-12",
+          "to": null
+        },
+        {
+          "symbol": "SNXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "SNXXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-13",
+          "to": null
+        },
+        {
+          "symbol": "SOFIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-22",
+          "to": null
+        },
+        {
+          "symbol": "SOFTBANKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-07",
+          "to": null
+        },
+        {
+          "symbol": "SOLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "SOMIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-08-25",
+          "to": null
+        },
+        {
+          "symbol": "SONICUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-01-07",
+          "to": null
+        },
+        {
+          "symbol": "SONYUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-24",
+          "to": null
+        },
+        {
+          "symbol": "SOONUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-05-23",
+          "to": null
+        },
+        {
+          "symbol": "SOPHUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-05-28",
+          "to": null
+        },
+        {
+          "symbol": "SOXLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-09",
+          "to": null
+        },
+        {
+          "symbol": "SOXSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-09",
+          "to": null
+        },
+        {
+          "symbol": "SOXXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-29",
+          "to": null
+        },
+        {
+          "symbol": "SP500USDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-22",
+          "to": null
+        },
+        {
+          "symbol": "SPACEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-01-23",
+          "to": null
+        },
+        {
+          "symbol": "SPCHUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-04",
+          "to": null
+        },
+        {
+          "symbol": "SPCXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-21",
+          "to": null
+        },
+        {
+          "symbol": "SPELLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "SPIRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-08",
+          "to": null
+        },
+        {
+          "symbol": "SPKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-06-17",
+          "to": null
+        },
+        {
+          "symbol": "SPOTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-23",
+          "to": null
+        },
+        {
+          "symbol": "SPXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "SPYUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-02-11",
+          "to": null
+        },
+        {
+          "symbol": "SQDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-06-11",
+          "to": null
+        },
+        {
+          "symbol": "SQQQUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-03-31",
+          "to": null
+        },
+        {
+          "symbol": "SSBIOLOGICSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-12",
+          "to": null
+        },
+        {
+          "symbol": "SSPCUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-04",
+          "to": null
+        },
+        {
+          "symbol": "SSVUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "STABLEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-11-06",
+          "to": null
+        },
+        {
+          "symbol": "STEEMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-14",
+          "to": null
+        },
+        {
+          "symbol": "STGUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": "2026-09-29"
+        },
+        {
+          "symbol": "STMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-26",
+          "to": null
+        },
+        {
+          "symbol": "STONKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-18",
+          "to": null
+        },
+        {
+          "symbol": "STOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-04-03",
+          "to": null
+        },
+        {
+          "symbol": "STRCUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-29",
+          "to": null
+        },
+        {
+          "symbol": "STRKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "STXSTOCKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-04-15",
+          "to": null
+        },
+        {
+          "symbol": "STXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "SUIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "SUMIELECUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-05",
+          "to": null
+        },
+        {
+          "symbol": "SUNUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "SUPERUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "SUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-01-15",
+          "to": null
+        },
+        {
+          "symbol": "SUSHIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "SXTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-05-08",
+          "to": null
+        },
+        {
+          "symbol": "SYNUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "SYRUPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-05-06",
+          "to": null
+        },
+        {
+          "symbol": "TAGUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-07-25",
+          "to": null
+        },
+        {
+          "symbol": "TAIKOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "TAIYOYUDENUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-13",
+          "to": null
+        },
+        {
+          "symbol": "TAOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "TBTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-28",
+          "to": null
+        },
+        {
+          "symbol": "TEAMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-02",
+          "to": null
+        },
+        {
+          "symbol": "TEMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-20",
+          "to": null
+        },
+        {
+          "symbol": "TENCENTHKDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-22",
+          "to": null
+        },
+        {
+          "symbol": "TENCENTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-02",
+          "to": null
+        },
+        {
+          "symbol": "TERUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-18",
+          "to": null
+        },
+        {
+          "symbol": "THETAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "THEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-27",
+          "to": null
+        },
+        {
+          "symbol": "TIAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "TLMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "TLTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-21",
+          "to": null
+        },
+        {
+          "symbol": "TMFUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-28",
+          "to": null
+        },
+        {
+          "symbol": "TMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-16",
+          "to": null
+        },
+        {
+          "symbol": "TNSRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "TOKYOELUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-05",
+          "to": null
+        },
+        {
+          "symbol": "TOSHIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-01-27",
+          "to": null
+        },
+        {
+          "symbol": "TOWNSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-08-05",
+          "to": null
+        },
+        {
+          "symbol": "TOYOTAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-13",
+          "to": null
+        },
+        {
+          "symbol": "TQQQUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-03-31",
+          "to": null
+        },
+        {
+          "symbol": "TRBUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "TREEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-07-29",
+          "to": null
+        },
+        {
+          "symbol": "TRIAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-02-06",
+          "to": null
+        },
+        {
+          "symbol": "TRUMPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-01-18",
+          "to": null
+        },
+        {
+          "symbol": "TRUSTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-11-05",
+          "to": null
+        },
+        {
+          "symbol": "TRXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "TSEMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-10",
+          "to": null
+        },
+        {
+          "symbol": "TSLAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-08-20",
+          "to": null
+        },
+        {
+          "symbol": "TSLLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-20",
+          "to": null
+        },
+        {
+          "symbol": "TSMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-03-02",
+          "to": null
+        },
+        {
+          "symbol": "TSTOCKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-22",
+          "to": null
+        },
+        {
+          "symbol": "TTWOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-06",
+          "to": null
+        },
+        {
+          "symbol": "TURBOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "TUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "TUTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-03-19",
+          "to": null
+        },
+        {
+          "symbol": "TWASXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-19",
+          "to": null
+        },
+        {
+          "symbol": "TWDELTAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-19",
+          "to": null
+        },
+        {
+          "symbol": "TWLOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-08",
+          "to": null
+        },
+        {
+          "symbol": "TWSTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-30",
+          "to": null
+        },
+        {
+          "symbol": "TWTSMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-19",
+          "to": null
+        },
+        {
+          "symbol": "TWUMCUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-19",
+          "to": null
+        },
+        {
+          "symbol": "TXNUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-29",
+          "to": null
+        },
+        {
+          "symbol": "TZAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-20",
+          "to": null
+        },
+        {
+          "symbol": "UAIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-11-06",
+          "to": null
+        },
+        {
+          "symbol": "UBERUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-10",
+          "to": null
+        },
+        {
+          "symbol": "UBUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-12",
+          "to": null
+        },
+        {
+          "symbol": "UMAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "UNHUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-11-11",
+          "to": null
+        },
+        {
+          "symbol": "UNITASUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-01",
+          "to": null
+        },
+        {
+          "symbol": "UNITREEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-19",
+          "to": null
+        },
+        {
+          "symbol": "UNIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "URNMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-23",
+          "to": null
+        },
+        {
+          "symbol": "USARUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-11",
+          "to": null
+        },
+        {
+          "symbol": "USDBRLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-21",
+          "to": null
+        },
+        {
+          "symbol": "USDCUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "USDESTOCKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-06",
+          "to": null
+        },
+        {
+          "symbol": "USDJPYUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-09",
+          "to": null
+        },
+        {
+          "symbol": "USELESSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-07-14",
+          "to": null
+        },
+        {
+          "symbol": "USTCUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-02-13",
+          "to": null
+        },
+        {
+          "symbol": "USUALUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-12-18",
+          "to": null
+        },
+        {
+          "symbol": "USUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-12-12",
+          "to": null
+        },
+        {
+          "symbol": "UVXYUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-16",
+          "to": null
+        },
+        {
+          "symbol": "VALEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-09",
+          "to": null
+        },
+        {
+          "symbol": "VANAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-12-16",
+          "to": null
+        },
+        {
+          "symbol": "VEEVUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-28",
+          "to": null
+        },
+        {
+          "symbol": "VELODROMEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-01-10",
+          "to": "2026-10-29"
+        },
+        {
+          "symbol": "VELVETUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-07-15",
+          "to": null
+        },
+        {
+          "symbol": "VETUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "VIRTUALUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "VKTXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-06",
+          "to": null
+        },
+        {
+          "symbol": "VLOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-19",
+          "to": null
+        },
+        {
+          "symbol": "VOOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-29",
+          "to": null
+        },
+        {
+          "symbol": "VRTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-13",
+          "to": null
+        },
+        {
+          "symbol": "VSTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-03",
+          "to": null
+        },
+        {
+          "symbol": "VTHOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-01-22",
+          "to": null
+        },
+        {
+          "symbol": "VUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-15",
+          "to": null
+        },
+        {
+          "symbol": "VVVUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-01-28",
+          "to": null
+        },
+        {
+          "symbol": "WALSINUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-19",
+          "to": null
+        },
+        {
+          "symbol": "WALUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-03-27",
+          "to": null
+        },
+        {
+          "symbol": "WAXPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "WBDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-23",
+          "to": "2026-10-08"
+        },
+        {
+          "symbol": "WCTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-04-15",
+          "to": null
+        },
+        {
+          "symbol": "WDCUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-05-19",
+          "to": null
+        },
+        {
+          "symbol": "WENUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-29",
+          "to": null
+        },
+        {
+          "symbol": "WETUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-12-10",
+          "to": null
+        },
+        {
+          "symbol": "WIFUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "WINBONDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-19",
+          "to": null
+        },
+        {
+          "symbol": "WLDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "WLFIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-08-23",
+          "to": null
+        },
+        {
+          "symbol": "WMTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-03-02",
+          "to": null
+        },
+        {
+          "symbol": "WOOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "WUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "XAGUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-01-07",
+          "to": null
+        },
+        {
+          "symbol": "XAIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "XANUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-30",
+          "to": null
+        },
+        {
+          "symbol": "XAUTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-04-03",
+          "to": null
+        },
+        {
+          "symbol": "XAUUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-12-13",
+          "to": null
+        },
+        {
+          "symbol": "XBIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-13",
+          "to": null
+        },
+        {
+          "symbol": "XIAOMIHKDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-22",
+          "to": null
+        },
+        {
+          "symbol": "XIAOMIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-02",
+          "to": null
+        },
+        {
+          "symbol": "XLEUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-03",
+          "to": null
+        },
+        {
+          "symbol": "XLKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-16",
+          "to": null
+        },
+        {
+          "symbol": "XLMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "XLUUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-16",
+          "to": null
+        },
+        {
+          "symbol": "XLVUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-28",
+          "to": null
+        },
+        {
+          "symbol": "XMRUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-11-11",
+          "to": null
+        },
+        {
+          "symbol": "XNDUUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-18",
+          "to": null
+        },
+        {
+          "symbol": "XOMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-03-12",
+          "to": null
+        },
+        {
+          "symbol": "XPDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-01-30",
+          "to": null
+        },
+        {
+          "symbol": "XPINUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-12",
+          "to": null
+        },
+        {
+          "symbol": "XPLUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-08-26",
+          "to": null
+        },
+        {
+          "symbol": "XPTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-01-30",
+          "to": null
+        },
+        {
+          "symbol": "XPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-06",
+          "to": null
+        },
+        {
+          "symbol": "XRPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "XTZUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "XVGUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "XVSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "YAGEOUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-19",
+          "to": null
+        },
+        {
+          "symbol": "YBUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-10-11",
+          "to": null
+        },
+        {
+          "symbol": "YGGUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ZAMAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-02-02",
+          "to": null
+        },
+        {
+          "symbol": "ZBTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-10-17",
+          "to": null
+        },
+        {
+          "symbol": "ZCSHUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-10-12",
+          "to": null
+        },
+        {
+          "symbol": "ZECUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-10-16",
+          "to": null
+        },
+        {
+          "symbol": "ZENUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-01-06",
+          "to": null
+        },
+        {
+          "symbol": "ZESTUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-04",
+          "to": null
+        },
+        {
+          "symbol": "ZETAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ZHIPUHKDUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-07-22",
+          "to": null
+        },
+        {
+          "symbol": "ZHIPUUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-06-24",
+          "to": null
+        },
+        {
+          "symbol": "ZHONGJIUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-14",
+          "to": null
+        },
+        {
+          "symbol": "ZILUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ZKCUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-09-15",
+          "to": null
+        },
+        {
+          "symbol": "ZKPUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-12-21",
+          "to": null
+        },
+        {
+          "symbol": "ZKUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ZMUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-03",
+          "to": null
+        },
+        {
+          "symbol": "ZORAUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2025-04-23",
+          "to": null
+        },
+        {
+          "symbol": "ZROUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ZRXUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ZSUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-02",
+          "to": null
+        },
+        {
+          "symbol": "\u54c8\u57fa\u7c73USDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-09-06",
+          "to": null
+        },
+        {
+          "symbol": "\u725b\u6765USDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-08-30",
+          "to": null
+        },
+        {
+          "symbol": "\u9f99\u867eUSDT",
+          "type": "perpetual",
+          "class": "usdt_perpetual",
+          "since": "2026-03-13",
+          "to": null
+        }
+      ],
+      "other_perpetual": [
+        {
+          "symbol": "1000BONKPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-01-20",
+          "to": null
+        },
+        {
+          "symbol": "AAVEPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-02-08",
+          "to": null
+        },
+        {
+          "symbol": "AAVEUSD_CM",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2026-04-28",
+          "to": null
+        },
+        {
+          "symbol": "ADAPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-02-07",
+          "to": null
+        },
+        {
+          "symbol": "ADAUSD_CM",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2026-04-28",
+          "to": null
+        },
+        {
+          "symbol": "APTUSD_CM",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2026-04-28",
+          "to": null
+        },
+        {
+          "symbol": "ARBPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-01-24",
+          "to": null
+        },
+        {
+          "symbol": "AVAXPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-01-20",
+          "to": null
+        },
+        {
+          "symbol": "AVAXUSD_CM",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2026-04-28",
+          "to": null
+        },
+        {
+          "symbol": "BCHPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-01-20",
+          "to": null
+        },
+        {
+          "symbol": "BCHUSD_CM",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2026-04-28",
+          "to": null
+        },
+        {
+          "symbol": "BIOPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-08-25",
+          "to": null
+        },
+        {
+          "symbol": "BNBPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-01-24",
+          "to": null
+        },
+        {
+          "symbol": "BOMEPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-01-23",
+          "to": null
+        },
+        {
+          "symbol": "BTCPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "BTCUSD_CM",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2026-04-28",
+          "to": null
+        },
+        {
+          "symbol": "CRVPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-02-05",
+          "to": null
+        },
+        {
+          "symbol": "DATAPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2026-07-03",
+          "to": null
+        },
+        {
+          "symbol": "DOGEPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-01-16",
+          "to": null
+        },
+        {
+          "symbol": "DOGEUSD_CM",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2026-04-28",
+          "to": null
+        },
+        {
+          "symbol": "DOTPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-02-06",
+          "to": null
+        },
+        {
+          "symbol": "DOTUSD_CM",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2026-04-28",
+          "to": null
+        },
+        {
+          "symbol": "EIGENPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-02-08",
+          "to": null
+        },
+        {
+          "symbol": "ENAPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-01-18",
+          "to": null
+        },
+        {
+          "symbol": "ETCPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-01-26",
+          "to": null
+        },
+        {
+          "symbol": "ETCUSD_CM",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2026-04-28",
+          "to": null
+        },
+        {
+          "symbol": "ETHFIPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-02-05",
+          "to": null
+        },
+        {
+          "symbol": "ETHPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2024-11-08",
+          "to": null
+        },
+        {
+          "symbol": "ETHUSD_CM",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2026-04-28",
+          "to": null
+        },
+        {
+          "symbol": "FARTCOINPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-03-05",
+          "to": null
+        },
+        {
+          "symbol": "FILPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-01-26",
+          "to": null
+        },
+        {
+          "symbol": "FILUSD_CM",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2026-04-28",
+          "to": null
+        },
+        {
+          "symbol": "GRAMPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2026-06-15",
+          "to": null
+        },
+        {
+          "symbol": "HBARPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-02-07",
+          "to": null
+        },
+        {
+          "symbol": "HYPEUSD_CM",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2026-07-08",
+          "to": null
+        },
+        {
+          "symbol": "KAITOPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-03-04",
+          "to": null
+        },
+        {
+          "symbol": "LINKPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-01-20",
+          "to": null
+        },
+        {
+          "symbol": "LINKUSD_CM",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2026-04-28",
+          "to": null
+        },
+        {
+          "symbol": "LTCPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-01-26",
+          "to": null
+        },
+        {
+          "symbol": "LTCUSD_CM",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2026-04-28",
+          "to": null
+        },
+        {
+          "symbol": "NEARPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-01-18",
+          "to": null
+        },
+        {
+          "symbol": "NEARUSD_CM",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2026-04-28",
+          "to": null
+        },
+        {
+          "symbol": "NEOPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-02-05",
+          "to": null
+        },
+        {
+          "symbol": "ONDOPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-01-21",
+          "to": null
+        },
+        {
+          "symbol": "OPPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-01-24",
+          "to": null
+        },
+        {
+          "symbol": "ORDIPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-01-23",
+          "to": null
+        },
+        {
+          "symbol": "PENGUPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-07-23",
+          "to": null
+        },
+        {
+          "symbol": "PEPEPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-01-17",
+          "to": null
+        },
+        {
+          "symbol": "PNUTPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-02-10",
+          "to": null
+        },
+        {
+          "symbol": "POLPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-01-26",
+          "to": null
+        },
+        {
+          "symbol": "POPCATPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-01-21",
+          "to": null
+        },
+        {
+          "symbol": "SHIBPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-01-18",
+          "to": null
+        },
+        {
+          "symbol": "SOLPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2024-11-27",
+          "to": null
+        },
+        {
+          "symbol": "SOLUSD_CM",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2026-04-28",
+          "to": null
+        },
+        {
+          "symbol": "STRKPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-02-05",
+          "to": null
+        },
+        {
+          "symbol": "SUIPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-01-21",
+          "to": null
+        },
+        {
+          "symbol": "SUIUSD_CM",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2026-04-28",
+          "to": null
+        },
+        {
+          "symbol": "TIAPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-01-23",
+          "to": null
+        },
+        {
+          "symbol": "TRUMPPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-03-04",
+          "to": null
+        },
+        {
+          "symbol": "TRXPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-02-07",
+          "to": null
+        },
+        {
+          "symbol": "UNIPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-02-08",
+          "to": null
+        },
+        {
+          "symbol": "UNIUSD_CM",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2026-04-28",
+          "to": null
+        },
+        {
+          "symbol": "WIFPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-01-18",
+          "to": null
+        },
+        {
+          "symbol": "WLDPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-01-21",
+          "to": null
+        },
+        {
+          "symbol": "WLFIPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-09-08",
+          "to": null
+        },
+        {
+          "symbol": "XLMPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2025-02-06",
+          "to": null
+        },
+        {
+          "symbol": "XLMUSD_CM",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2026-04-28",
+          "to": null
+        },
+        {
+          "symbol": "XRPPERP",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2024-11-27",
+          "to": null
+        },
+        {
+          "symbol": "XRPUSD_CM",
+          "type": "perpetual",
+          "class": "other_perpetual",
+          "since": "2026-04-28",
+          "to": null
+        }
+      ],
+      "future": [
+        {
+          "symbol": "BTCCMH27",
+          "type": "future",
+          "class": "future",
+          "since": "2026-09-25",
+          "to": null
+        },
+        {
+          "symbol": "BTCCMZ26",
+          "type": "future",
+          "class": "future",
+          "since": "2026-09-03",
+          "to": null
+        },
+        {
+          "symbol": "ETHCMH27",
+          "type": "future",
+          "class": "future",
+          "since": "2026-09-25",
+          "to": null
+        },
+        {
+          "symbol": "ETHCMZ26",
+          "type": "future",
+          "class": "future",
+          "since": "2026-09-03",
+          "to": null
+        }
+      ]
+    },
+    "ended_in_window": [
+      {
+        "symbol": "10000NEXUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-05-21",
+        "to": "2026-10-31"
+      },
+      {
+        "symbol": "AINUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2025-07-10",
+        "to": "2026-09-23"
+      },
+      {
+        "symbol": "EPICUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2025-03-13",
+        "to": "2026-10-21"
+      },
+      {
+        "symbol": "RCATUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-06-01",
+        "to": "2026-09-23"
+      },
+      {
+        "symbol": "STGUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2024-11-08",
+        "to": "2026-09-29"
+      },
+      {
+        "symbol": "VELODROMEUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2025-01-10",
+        "to": "2026-10-29"
+      },
+      {
+        "symbol": "WBDUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-23",
+        "to": "2026-10-08"
+      }
+    ],
+    "started_in_window": [
+      {
+        "symbol": "ABBVUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-21",
+        "to": null
+      },
+      {
+        "symbol": "ACNSTOCKUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-30",
+        "to": null
+      },
+      {
+        "symbol": "AGPUUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-18",
+        "to": null
+      },
+      {
+        "symbol": "AKAMUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-30",
+        "to": null
+      },
+      {
+        "symbol": "AXISUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-21",
+        "to": null
+      },
+      {
+        "symbol": "BLSHUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-21",
+        "to": null
+      },
+      {
+        "symbol": "BPUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-19",
+        "to": null
+      },
+      {
+        "symbol": "BTCCMH27",
+        "type": "future",
+        "class": "future",
+        "since": "2026-09-25",
+        "to": null
+      },
+      {
+        "symbol": "BWETUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-30",
+        "to": null
+      },
+      {
+        "symbol": "CEGUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-09",
+        "to": null
+      },
+      {
+        "symbol": "CLSKUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-17",
+        "to": null
+      },
+      {
+        "symbol": "CLSUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-28",
+        "to": null
+      },
+      {
+        "symbol": "CORZUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-21",
+        "to": null
+      },
+      {
+        "symbol": "CRMLUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-30",
+        "to": null
+      },
+      {
+        "symbol": "CSTOCKUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-19",
+        "to": null
+      },
+      {
+        "symbol": "CSXUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-23",
+        "to": null
+      },
+      {
+        "symbol": "CTUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-01",
+        "to": null
+      },
+      {
+        "symbol": "CVNAUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-30",
+        "to": null
+      },
+      {
+        "symbol": "CYPHUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-18",
+        "to": null
+      },
+      {
+        "symbol": "DASHSTOCKUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-28",
+        "to": null
+      },
+      {
+        "symbol": "DHRUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-22",
+        "to": null
+      },
+      {
+        "symbol": "EBAYUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-21",
+        "to": null
+      },
+      {
+        "symbol": "EIDOUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-26",
+        "to": null
+      },
+      {
+        "symbol": "ELICEUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-21",
+        "to": null
+      },
+      {
+        "symbol": "EQTUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-26",
+        "to": null
+      },
+      {
+        "symbol": "ETHCMH27",
+        "type": "future",
+        "class": "future",
+        "since": "2026-09-25",
+        "to": null
+      },
+      {
+        "symbol": "EWZSUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-29",
+        "to": null
+      },
+      {
+        "symbol": "FASTRETAILINGUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-15",
+        "to": null
+      },
+      {
+        "symbol": "FTNTUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-29",
+        "to": null
+      },
+      {
+        "symbol": "GNRCUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-18",
+        "to": null
+      },
+      {
+        "symbol": "HDUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-09",
+        "to": null
+      },
+      {
+        "symbol": "HLTUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-21",
+        "to": null
+      },
+      {
+        "symbol": "HONHAIUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-27",
+        "to": null
+      },
+      {
+        "symbol": "HUTUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-18",
+        "to": null
+      },
+      {
+        "symbol": "IBITUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-17",
+        "to": null
+      },
+      {
+        "symbol": "IBKRUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-21",
+        "to": null
+      },
+      {
+        "symbol": "ITUBUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-28",
+        "to": null
+      },
+      {
+        "symbol": "JEPQUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-21",
+        "to": null
+      },
+      {
+        "symbol": "JIOUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-14",
+        "to": null
+      },
+      {
+        "symbol": "JPMUFGUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-13",
+        "to": null
+      },
+      {
+        "symbol": "JPSONYUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-13",
+        "to": null
+      },
+      {
+        "symbol": "KAKAOUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-12",
+        "to": null
+      },
+      {
+        "symbol": "KBFGUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-12",
+        "to": null
+      },
+      {
+        "symbol": "KIAUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-12",
+        "to": null
+      },
+      {
+        "symbol": "KODUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-30",
+        "to": null
+      },
+      {
+        "symbol": "LENUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-09",
+        "to": null
+      },
+      {
+        "symbol": "LGENERGYUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-12",
+        "to": null
+      },
+      {
+        "symbol": "MEDIATEKUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-27",
+        "to": null
+      },
+      {
+        "symbol": "MSCIUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-21",
+        "to": null
+      },
+      {
+        "symbol": "MURATAUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-13",
+        "to": null
+      },
+      {
+        "symbol": "NANYAUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-19",
+        "to": null
+      },
+      {
+        "symbol": "NUUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-28",
+        "to": null
+      },
+      {
+        "symbol": "OURAUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-22",
+        "to": null
+      },
+      {
+        "symbol": "PATHUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-18",
+        "to": null
+      },
+      {
+        "symbol": "PBRUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-28",
+        "to": null
+      },
+      {
+        "symbol": "PCVXUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-06",
+        "to": null
+      },
+      {
+        "symbol": "PFEUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-29",
+        "to": null
+      },
+      {
+        "symbol": "PGUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-23",
+        "to": null
+      },
+      {
+        "symbol": "POLYMARKETUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-23",
+        "to": null
+      },
+      {
+        "symbol": "QLDUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-17",
+        "to": null
+      },
+      {
+        "symbol": "RUMUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-30",
+        "to": null
+      },
+      {
+        "symbol": "SBUXUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-09",
+        "to": null
+      },
+      {
+        "symbol": "SDGRUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-18",
+        "to": null
+      },
+      {
+        "symbol": "SECZUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-21",
+        "to": null
+      },
+      {
+        "symbol": "SNPSUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-12",
+        "to": null
+      },
+      {
+        "symbol": "SPOTUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-23",
+        "to": null
+      },
+      {
+        "symbol": "SSBIOLOGICSUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-12",
+        "to": null
+      },
+      {
+        "symbol": "STMUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-26",
+        "to": null
+      },
+      {
+        "symbol": "STONKUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-18",
+        "to": null
+      },
+      {
+        "symbol": "TAIYOYUDENUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-13",
+        "to": null
+      },
+      {
+        "symbol": "TLTUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-21",
+        "to": null
+      },
+      {
+        "symbol": "TOYOTAUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-13",
+        "to": null
+      },
+      {
+        "symbol": "TSTOCKUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-22",
+        "to": null
+      },
+      {
+        "symbol": "TWASXUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-19",
+        "to": null
+      },
+      {
+        "symbol": "TWDELTAUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-19",
+        "to": null
+      },
+      {
+        "symbol": "TWSTUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-30",
+        "to": null
+      },
+      {
+        "symbol": "TWTSMUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-19",
+        "to": null
+      },
+      {
+        "symbol": "TWUMCUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-19",
+        "to": null
+      },
+      {
+        "symbol": "URNMUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-23",
+        "to": null
+      },
+      {
+        "symbol": "USDBRLUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-21",
+        "to": null
+      },
+      {
+        "symbol": "USDESTOCKUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-06",
+        "to": null
+      },
+      {
+        "symbol": "VKTXUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-06",
+        "to": null
+      },
+      {
+        "symbol": "VLOUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-19",
+        "to": null
+      },
+      {
+        "symbol": "WALSINUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-19",
+        "to": null
+      },
+      {
+        "symbol": "WBDUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-09-23",
+        "to": "2026-10-08"
+      },
+      {
+        "symbol": "WINBONDUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-19",
+        "to": null
+      },
+      {
+        "symbol": "XPUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-06",
+        "to": null
+      },
+      {
+        "symbol": "YAGEOUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-19",
+        "to": null
+      },
+      {
+        "symbol": "ZCSHUSDT",
+        "type": "perpetual",
+        "class": "usdt_perpetual",
+        "since": "2026-10-12",
+        "to": null
+      }
+    ],
+    "panel_overlap": {
+      "panel": [
+        "AAPLUSDT",
+        "ADAUSDT",
+        "BNBUSDT",
+        "BTCUSDT",
+        "COINUSDT",
+        "DOGEUSDT",
+        "ETHUSDT",
+        "LINKUSDT",
+        "NVDAUSDT",
+        "SOLUSDT",
+        "TSLAUSDT",
+        "XRPUSDT"
+      ],
+      "panel_in_tardis_active": [
+        "AAPLUSDT",
+        "ADAUSDT",
+        "BNBUSDT",
+        "BTCUSDT",
+        "COINUSDT",
+        "DOGEUSDT",
+        "ETHUSDT",
+        "LINKUSDT",
+        "NVDAUSDT",
+        "SOLUSDT",
+        "TSLAUSDT",
+        "XRPUSDT"
+      ],
+      "panel_not_in_tardis_active": [],
+      "usdt_perpetual_active_not_in_panel": 864,
+      "panel_share_of_usdt_perpetual_active": 0.013699
+    },
+    "survivor_bias_exposure": {
+      "ended_usdt_perpetual_in_window": 7,
+      "ended_usdt_perpetual_not_in_panel": [
+        "10000NEXUSDT",
+        "AINUSDT",
+        "EPICUSDT",
+        "RCATUSDT",
+        "STGUSDT",
+        "VELODROMEUSDT",
+        "WBDUSDT"
+      ],
+      "panel_symbols_ended_in_window": [],
+      "panel_is_survivor_only": true,
+      "ended_usdt_perpetual_absent_from_current_contracts": [
+        "10000NEXUSDT",
+        "AINUSDT",
+        "EPICUSDT",
+        "RCATUSDT",
+        "STGUSDT",
+        "VELODROMEUSDT",
+        "WBDUSDT"
+      ],
+      "usdt_perpetual_active_absent_from_current_contracts": [
+        "10000NEXUSDT",
+        "AINUSDT",
+        "EPICUSDT",
+        "RCATUSDT",
+        "STGUSDT",
+        "VELODROMEUSDT",
+        "WBDUSDT"
+      ],
+      "current_contracts_not_in_tardis_active": [
+        "BHARTIARTLUSDT",
+        "FISVUSDT",
+        "HDFCBANKUSDT",
+        "HINDUNILVRUSDT",
+        "ICICIBANKUSDT",
+        "INFYUSDT",
+        "ITCUSDT",
+        "KMBUSDT",
+        "LNGUSDT",
+        "LTUSDT",
+        "MOUSDT",
+        "MSUSDT",
+        "RELIANCEUSDT",
+        "SBINUSDT",
+        "TCSUSDT"
+      ],
+      "current_contracts_count": 884,
+      "panel_not_in_current_contracts": []
+    }
+  },
+  "elapsed_seconds": 0.76
+}

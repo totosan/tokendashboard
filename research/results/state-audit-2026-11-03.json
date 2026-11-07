@@ -1,0 +1,623 @@
+{
+  "audit_utc": "2026-11-03T16:48:53.761679+00:00",
+  "audited_head_before_documentation": "bb21d18037f461543b8b5c649e6ca67a10cf89f8",
+  "scope": "All repository issues, epic3 domains/children, saved code/artifacts, actual agents/processes and PR5. Audit/collection, not execution of all remaining research.",
+  "operations": {
+    "active_research_shells_observed": 0,
+    "active_research_processes_observed": 0,
+    "visible_child_agents": [
+      {
+        "id": "5db9f51a-f422-4681-b72a-159a3f7c19d6",
+        "state": "idle",
+        "delivery": "Already accepted16targetedtests/replay;notlost"
+      }
+    ],
+    "session_input_or_plan_waits_observed": 0,
+    "lost_agent_finding": "No current evidence of a lost assigned task; older unavailable handles do not establish nonresponse",
+    "limitations": "Live tools report visible runtime only, not a guarantee about unavailable past handles. No Lost Repeat label justified."
+  },
+  "native_children": {
+    "3": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "6": [],
+    "7": [
+      15,
+      16,
+      20,
+      23,
+      25
+    ],
+    "8": [
+      22,
+      24
+    ],
+    "9": [
+      19
+    ],
+    "10": [
+      21
+    ],
+    "11": [
+      17
+    ],
+    "12": [
+      18
+    ],
+    "13": [],
+    "14": []
+  },
+  "deferred_issue26": "Standalone related idea, not a native child or blocker ofepic3",
+  "tests": {
+    "command": "timeout 120s python3 -m unittest discover -s research -p 'test_*.py' -q",
+    "observed_count": 138,
+    "status": "PASS"
+  },
+  "actual_readiness": {
+    "status": "NOT_READY",
+    "empirical": "NOT_RUN",
+    "expected_cli_exit": 2,
+    "frozen_source_versions_match": true
+  },
+  "pr5": {
+    "state": "OPEN",
+    "draft": true,
+    "head_before_audit": "bb21d18037f461543b8b5c649e6ca67a10cf89f8",
+    "github_submitted_reviews": 0,
+    "status_checks_reported": 0,
+    "interpretation": "Agent critics are not submitted GitHub reviews; no CI result is implied. PR remains unmerged."
+  },
+  "issue_matrix": [
+    {
+      "issue": 1,
+      "title": "TradingView: Dashboard-Strategien als getrennte Pine-Script-Backtests umsetzen",
+      "state": "CLOSED",
+      "labels": [],
+      "classification": "MERGED_DELIVERY_RUNTIME_UNVERIFIED",
+      "remaining_or_scope_note": "Three Pine scripts and README delivered via mergedPR2; TradingView compile/tester execution not observed and explicitly unclaimed. No reopening without concrete defect.",
+      "unchecked_body_items": 4,
+      "comment_count_at_audit": 0
+    },
+    {
+      "issue": 3,
+      "title": "Epic: Intraday-Einstiege f\u00fcr Krypto und TradFi recherchieren und evaluieren",
+      "state": "OPEN",
+      "labels": [
+        "topic:research",
+        "state:in-progress"
+      ],
+      "classification": "PARTIAL_RESEARCH",
+      "remaining_or_scope_note": "Nine domains linked; no full empirical, execution or inference acceptance.",
+      "unchecked_body_items": 7,
+      "comment_count_at_audit": 37
+    },
+    {
+      "issue": 6,
+      "title": "1.1 Bestandsaufnahme von Regeln, Daten und bestehenden Ansichten",
+      "state": "CLOSED",
+      "labels": [
+        "topic:inventory",
+        "state:done"
+      ],
+      "classification": "ACCEPTED_INVENTORY",
+      "remaining_or_scope_note": "Completed bounded inventory; no performance claim.",
+      "unchecked_body_items": 0,
+      "comment_count_at_audit": 2
+    },
+    {
+      "issue": 7,
+      "title": "1.8 Bitget-Historie, Ausf\u00fchrungskosten und Hebelrisiko belegen",
+      "state": "OPEN",
+      "labels": [
+        "topic:execution-risk",
+        "state:blocked"
+      ],
+      "classification": "BLOCKED_BROAD_SCOPE",
+      "remaining_or_scope_note": "Funding, tiny official trades, CHD trade/recent-book pilots and REST sampler exist; full original execution coverage/model incomplete.",
+      "unchecked_body_items": 0,
+      "comment_count_at_audit": 10
+    },
+    {
+      "issue": 8,
+      "title": "1.9 Validierung, Synthese und unabh\u00e4ngigen Review abschlie\u00dfen",
+      "state": "OPEN",
+      "labels": [
+        "topic:validation",
+        "state:blocked"
+      ],
+      "classification": "BLOCKED_VALIDATION",
+      "remaining_or_scope_note": "Scoped critics delivered; practical inference fails/absent, actual evaluator absent and future folds unavailable.",
+      "unchecked_body_items": 0,
+      "comment_count_at_audit": 22
+    },
+    {
+      "issue": 9,
+      "title": "1.7 TradFi-Aktien-Perpetuals getrennt bewerten",
+      "state": "OPEN",
+      "labels": [
+        "topic:tradfi",
+        "state:blocked"
+      ],
+      "classification": "BLOCKED_REFERENCE_DATA",
+      "remaining_or_scope_note": "Current mapping/recent notices exist; effective historical sessions/reference chain missing.",
+      "unchecked_body_items": 0,
+      "comment_count_at_audit": 4
+    },
+    {
+      "issue": 10,
+      "title": "1.6 Breites Krypto-Universum gegen Coin-Gruppen pr\u00fcfen",
+      "state": "OPEN",
+      "labels": [
+        "topic:crypto-universe",
+        "state:blocked"
+      ],
+      "classification": "BLOCKED_REFERENCE_DATA",
+      "remaining_or_scope_note": "Current-survivor pilot/registry and notices are not point-in-time membership.",
+      "unchecked_body_items": 0,
+      "comment_count_at_audit": 4
+    },
+    {
+      "issue": 11,
+      "title": "1.5 Trend, VWAP, Tagesniveaus und Mean Reversion vergleichen",
+      "state": "OPEN",
+      "labels": [
+        "topic:indicators",
+        "state:review"
+      ],
+      "classification": "REVIEW_QUEUE_NOT_UNSTARTED",
+      "remaining_or_scope_note": "#17 daily-level/RSI/Bollinger and earlierEMA/VWAP comparisons implemented/reviewed; parent acceptance and fresh efficacy unresolved.",
+      "unchecked_body_items": 0,
+      "comment_count_at_audit": 4
+    },
+    {
+      "issue": 12,
+      "title": "1.4 Marktregime und Multi-Timeframe-Kontext evaluieren",
+      "state": "OPEN",
+      "labels": [
+        "topic:regime-mtf",
+        "state:review"
+      ],
+      "classification": "REVIEW_QUEUE_NOT_UNSTARTED",
+      "remaining_or_scope_note": "#18 causal volatility/trend/range/failure timing and priorHTF context implemented/reviewed; parent acceptance and fresh efficacy unresolved.",
+      "unchecked_body_items": 0,
+      "comment_count_at_audit": 3
+    },
+    {
+      "issue": 13,
+      "title": "1.3 Volumen-, Relativvolumen- und Profilans\u00e4tze bewerten",
+      "state": "OPEN",
+      "labels": [
+        "topic:volume-profile",
+        "state:blocked"
+      ],
+      "classification": "BLOCKED_BROADER_PROFILE_VALIDATION",
+      "remaining_or_scope_note": "Minute/hour descriptive trade profiles and same-hour5m comparison exist; opens differ; causal rolling/HVN/LVN/coverage tests incomplete.",
+      "unchecked_body_items": 0,
+      "comment_count_at_audit": 8
+    },
+    {
+      "issue": 14,
+      "title": "1.2 Breakout, Konsolidierung und Pullback operationalisieren",
+      "state": "OPEN",
+      "labels": [
+        "topic:breakout",
+        "state:review"
+      ],
+      "classification": "REVIEW_QUEUE_PARTIAL_SCANNER_SCOPE",
+      "remaining_or_scope_note": "Stairs, fixedbox/retest/failure/delay tested; full other scanner parity and overall acceptance/fresh efficacy not complete.",
+      "unchecked_body_items": 0,
+      "comment_count_at_audit": 6
+    },
+    {
+      "issue": 15,
+      "title": "1.8.1 Verify sequential Bitget historical trade pagination",
+      "state": "CLOSED",
+      "labels": [
+        "topic:execution-risk",
+        "state:done"
+      ],
+      "classification": "ACCEPTED_BOUNDED_STORY",
+      "remaining_or_scope_note": "Closed for saved scoped delivery/critic acceptance only; parent data/inference/effectiveness gates unchanged.",
+      "unchecked_body_items": 4,
+      "comment_count_at_audit": 3
+    },
+    {
+      "issue": 16,
+      "title": "1.8.2 Expand pilot funding history with settlement-boundary evidence",
+      "state": "CLOSED",
+      "labels": [
+        "topic:execution-risk",
+        "state:done"
+      ],
+      "classification": "ACCEPTED_BOUNDED_STORY",
+      "remaining_or_scope_note": "Closed for saved scoped delivery/critic acceptance only; parent data/inference/effectiveness gates unchanged.",
+      "unchecked_body_items": 5,
+      "comment_count_at_audit": 3
+    },
+    {
+      "issue": 17,
+      "title": "1.5.1 Compare fixed daily-level RSI and Bollinger hypotheses",
+      "state": "CLOSED",
+      "labels": [
+        "topic:indicators",
+        "state:done"
+      ],
+      "classification": "ACCEPTED_BOUNDED_STORY",
+      "remaining_or_scope_note": "Closed for saved scoped delivery/critic acceptance only; parent data/inference/effectiveness gates unchanged.",
+      "unchecked_body_items": 4,
+      "comment_count_at_audit": 3
+    },
+    {
+      "issue": 18,
+      "title": "1.4.1 Compare causal volatility regimes and breakout failure timing",
+      "state": "CLOSED",
+      "labels": [
+        "topic:regime-mtf",
+        "state:done"
+      ],
+      "classification": "ACCEPTED_BOUNDED_STORY",
+      "remaining_or_scope_note": "Closed for saved scoped delivery/critic acceptance only; parent data/inference/effectiveness gates unchanged.",
+      "unchecked_body_items": 5,
+      "comment_count_at_audit": 5
+    },
+    {
+      "issue": 19,
+      "title": "1.7.1 Verify authoritative stock-perp session mapping feasibility",
+      "state": "CLOSED",
+      "labels": [
+        "topic:tradfi",
+        "state:done"
+      ],
+      "classification": "ACCEPTED_BOUNDED_STORY",
+      "remaining_or_scope_note": "Closed for saved scoped delivery/critic acceptance only; parent data/inference/effectiveness gates unchanged.",
+      "unchecked_body_items": 5,
+      "comment_count_at_audit": 2
+    },
+    {
+      "issue": 20,
+      "title": "1.8.3 Verify a bounded historical Bitget quote-depth archive sample",
+      "state": "CLOSED",
+      "labels": [
+        "topic:execution-risk",
+        "state:done"
+      ],
+      "classification": "ACCEPTED_BOUNDED_STORY",
+      "remaining_or_scope_note": "Closed for saved scoped delivery/critic acceptance only; parent data/inference/effectiveness gates unchanged.",
+      "unchecked_body_items": 5,
+      "comment_count_at_audit": 2
+    },
+    {
+      "issue": 21,
+      "title": "1.6.1 Verify historical universe membership source feasibility",
+      "state": "CLOSED",
+      "labels": [
+        "topic:crypto-universe",
+        "state:done"
+      ],
+      "classification": "ACCEPTED_BOUNDED_STORY",
+      "remaining_or_scope_note": "Closed for saved scoped delivery/critic acceptance only; parent data/inference/effectiveness gates unchanged.",
+      "unchecked_body_items": 5,
+      "comment_count_at_audit": 2
+    },
+    {
+      "issue": 22,
+      "title": "1.9.1 Freeze fixed-panel walk-forward protocol and validation-readiness gates",
+      "state": "CLOSED",
+      "labels": [
+        "topic:validation",
+        "state:done"
+      ],
+      "classification": "ACCEPTED_BOUNDED_STORY",
+      "remaining_or_scope_note": "Closed for saved scoped delivery/critic acceptance only; parent data/inference/effectiveness gates unchanged.",
+      "unchecked_body_items": 5,
+      "comment_count_at_audit": 5
+    },
+    {
+      "issue": 23,
+      "title": "1.8.4 Verify official depth filters and bounded read-only archive listing",
+      "state": "CLOSED",
+      "labels": [
+        "topic:execution-risk",
+        "state:done"
+      ],
+      "classification": "ACCEPTED_BOUNDED_STORY",
+      "remaining_or_scope_note": "Closed for saved scoped delivery/critic acceptance only; parent data/inference/effectiveness gates unchanged.",
+      "unchecked_body_items": 0,
+      "comment_count_at_audit": 2
+    },
+    {
+      "issue": 24,
+      "title": "1.9.2 Prospectively redesign synthetic inference calibration after failed block test",
+      "state": "CLOSED",
+      "labels": [
+        "topic:validation",
+        "state:done"
+      ],
+      "classification": "ACCEPTED_BOUNDED_STORY",
+      "remaining_or_scope_note": "Closed for saved scoped delivery/critic acceptance only; parent data/inference/effectiveness gates unchanged.",
+      "unchecked_body_items": 0,
+      "comment_count_at_audit": 2
+    },
+    {
+      "issue": 25,
+      "title": "1.8.5 Budget workflow: CHD trade study, recent replay and sampled Bitget recording",
+      "state": "CLOSED",
+      "labels": [
+        "topic:execution-risk",
+        "state:done"
+      ],
+      "classification": "ACCEPTED_BOUNDED_STORY",
+      "remaining_or_scope_note": "Closed for saved scoped delivery/critic acceptance only; parent data/inference/effectiveness gates unchanged.",
+      "unchecked_body_items": 0,
+      "comment_count_at_audit": 1
+    },
+    {
+      "issue": 26,
+      "title": "Idee f\u00fcr sp\u00e4ter: Raspberry-Pi-Marktdatenrecorder f\u00fcr g\u00fcnstiges Solo-Research",
+      "state": "OPEN",
+      "labels": [
+        "enhancement",
+        "topic:research",
+        "state:pending",
+        "idea"
+      ],
+      "classification": "DEFERRED_NOT_ACTIVE",
+      "remaining_or_scope_note": "Separate idea, not epic prerequisite; no deployment or analysis UI implementation.",
+      "unchecked_body_items": 7,
+      "comment_count_at_audit": 0
+    }
+  ],
+  "tracking_corrections": [
+    "Completed task descriptions still said critic pending; reconciled without reopening delivered work",
+    "Parent#11/#12 queued comments predated completed#17/#18; current delivery and remaining acceptance published to both",
+    "PR5 body was stale at audit start (122 tests/f91d9c8 and no latest CHD budget implementation); refreshed on 2026-11-04 to include 138 tests, bb21d18 and audit outcome",
+    "Some closed story body checklists remain unchecked; saved acceptance comments are closure evidence, not proof of missing agents",
+    "#22 frozen inference plan is conditional and failed later calibration; closed readiness delivery cannot authorize actual significance"
+  ],
+  "gaps_ordered_cheapest_first_with_deferred_separate": [
+    {
+      "id": "G01",
+      "effort_relative_not_estimate": "small",
+      "owner_issues": [
+        13
+      ],
+      "title": "Explain twelve CHD-versus-official five-minute candle opens",
+      "status": "NOT_STARTED",
+      "next_action": "Check original candle-open convention and adjacent receive-hour/event-time boundaries; preserve raw values and add a regression. Other OHLC/volume fields match in this one-hour sample.",
+      "depends_on": []
+    },
+    {
+      "id": "G02",
+      "effort_relative_not_estimate": "small",
+      "owner_issues": [
+        11,
+        12,
+        14,
+        8
+      ],
+      "title": "Finish explicit parent-domain acceptance review",
+      "status": "REVIEW_QUEUED_NO_ACTIVE_REVIEWER",
+      "next_action": "Review actual parent criteria against accepted #17/#18 and all current artifacts. Clarify remaining domain requirements versus overall fresh validation; do not infer missing delivery from obsolete queued comments.",
+      "depends_on": []
+    },
+    {
+      "id": "G03",
+      "effort_relative_not_estimate": "medium",
+      "owner_issues": [
+        7
+      ],
+      "title": "Reproducible fresh-environment CHD acquisition and replay",
+      "status": "NOT_STARTED",
+      "next_action": "Add constrained dependency/environment instructions and a bounded cache/manifest workflow covering exact object queries, status, missing objects and replay. Verify from a clean environment; local venv/raw files are not tracked or backed up. CI is absent, not a prerequisite promised by current stories.",
+      "depends_on": []
+    },
+    {
+      "id": "G04",
+      "effort_relative_not_estimate": "medium",
+      "owner_issues": [
+        13
+      ],
+      "title": "Causal rolling volume-profile comparison",
+      "status": "NOT_STARTED",
+      "next_action": "Define past-only POC/VAH/VAL, HVN/LVN and profile-change rules; align 20-bin trade and 24-bin dashboard approximations on a genuinely common window, baseline and units. Current full-hour profile is descriptive/ex-post, not a causal feature.",
+      "depends_on": [
+        "G01",
+        "G03"
+      ]
+    },
+    {
+      "id": "G05",
+      "effort_relative_not_estimate": "medium",
+      "owner_issues": [
+        14,
+        9
+      ],
+      "title": "Cover remaining original scanner heuristics with explicit parity",
+      "status": "NOT_STARTED",
+      "next_action": "The eleven-arm family includes the stairs breakout but not full dist/pattern.js counter-candle or dist/tradfi.js first-new-high heuristics. Define rule/parity tests and required 1m inputs as a separate exploratory study; do not silently add arms to the frozen family.",
+      "depends_on": []
+    },
+    {
+      "id": "G06",
+      "effort_relative_not_estimate": "medium",
+      "owner_issues": [
+        7
+      ],
+      "title": "Multi-window book and trade coverage validation",
+      "status": "NOT_STARTED",
+      "next_action": "Extend beyond one AAPL hour: test multiple days/symbols, restart/gap cases and cross-file carry-forward. Replay currently emits but cannot consume a checkpoint; add validated import/provenance before chaining hours. Audit boundary-arrival trades and provider sequence/checksum limitations.",
+      "depends_on": [
+        "G03"
+      ]
+    },
+    {
+      "id": "G07",
+      "effort_relative_not_estimate": "medium",
+      "owner_issues": [
+        8
+      ],
+      "title": "Implement actual frozen walk-forward event evaluator",
+      "status": "NOT_STARTED",
+      "next_action": "walkforward_readiness.py only checks inputs and always reports empirical NOT_RUN. Implement a separate evaluator for all eleven frozen arms, entry-time folds, 96h warmup, purge/embargo, 1/2/3-bar outcomes and event floors. Verify on synthetic/inspected development fixtures without accessing reserved outcomes.",
+      "depends_on": []
+    },
+    {
+      "id": "G08",
+      "effort_relative_not_estimate": "large",
+      "owner_issues": [
+        8
+      ],
+      "title": "Practical calibrated dependence-aware inference",
+      "status": "METHOD_BLOCKER",
+      "next_action": "Original block calibration FAILS; the known-covariance Gaussian oracle is only synthetic and INCONCLUSIVE. Specify and independently test a practical estimator, null, sparse-family handling and all132-hypothesis multiplicity before market significance. More oracle simulations alone do not supply a market estimator.",
+      "depends_on": []
+    },
+    {
+      "id": "G09",
+      "effort_relative_not_estimate": "calendar-dependent",
+      "owner_issues": [
+        8
+      ],
+      "title": "Acquire and evaluate untouched future observations",
+      "status": "BLOCKED_FUTURE_OBSERVATIONS",
+      "next_action": "Frozen folds run 2027-02-01 through 2027-04-26 exclusive and need96h warmup. These data do not exist at audit time. Do not shift dates or substitute inspected September/November pilots; any prospective amendment must be versioned before new outcomes are inspected.",
+      "depends_on": [
+        "G07",
+        "G08"
+      ]
+    },
+    {
+      "id": "G10",
+      "effort_relative_not_estimate": "large; source-dependent",
+      "owner_issues": [
+        10
+      ],
+      "title": "Complete historical point-in-time universe",
+      "status": "BLOCKED_REFERENCE_DATA",
+      "next_action": "Obtain opening inventory, stable contract identities and effective listing/delisting/halt/rename ledger; reconcile notice publication conflicts. Then compare broad universe and liquidity groups without survivor-selection claims.",
+      "depends_on": []
+    },
+    {
+      "id": "G11",
+      "effort_relative_not_estimate": "large; source-dependent",
+      "owner_issues": [
+        9
+      ],
+      "title": "Verify historical stock-perp session/reference mapping",
+      "status": "BLOCKED_REFERENCE_DATA",
+      "next_action": "Obtain effective-dated underlying/primary-listing/reference-feed linkage and timezone/DST/halt/calendar ledger. Current issuer/ISIN and index feeds are not historical session evidence.",
+      "depends_on": []
+    },
+    {
+      "id": "G12",
+      "effort_relative_not_estimate": "large",
+      "owner_issues": [
+        7
+      ],
+      "title": "Aligned execution-cost and funding model",
+      "status": "BLOCKED_COVERAGE_AND_MODEL",
+      "next_action": "Measure appropriately sampled spread/depth over a declared validated window; define latency, historical fees, funding settlement/ownership and finite-liquidity assumptions. Message-weighted spread from a separate hour and12/22/37bp assumptions are not fills for September signals.",
+      "depends_on": [
+        "G06"
+      ]
+    },
+    {
+      "id": "G13",
+      "effort_relative_not_estimate": "highest",
+      "owner_issues": [
+        7,
+        8
+      ],
+      "title": "Portfolio, overlap, sizing and margin/liquidation model",
+      "status": "BLOCKED_MODEL_INPUTS",
+      "next_action": "Freeze allocation, overlapping-position and exposure rules; obtain historical contract/margin rules before drawdown, account cashflow or liquidation claims. One-bar event returns are not portfolio P&L.",
+      "depends_on": [
+        "G12",
+        "G08"
+      ]
+    },
+    {
+      "id": "G14",
+      "effort_relative_not_estimate": "medium; after prerequisites",
+      "owner_issues": [
+        8,
+        3
+      ],
+      "title": "Final whole-epic synthesis/review and PR decision",
+      "status": "BLOCKED_PREDECESSORS",
+      "next_action": "Scoped critics have delivered; there is no currently running final reviewer. After prerequisites or an explicit narrowed final scope, perform overall acceptance/independent review and decide draftPR5 integration. Tests alone do not complete the epic.",
+      "depends_on": [
+        "G02",
+        "G09",
+        "G10",
+        "G11",
+        "G12"
+      ]
+    },
+    {
+      "id": "G15",
+      "effort_relative_not_estimate": "later; hardware-dependent",
+      "owner_issues": [
+        26
+      ],
+      "title": "Raspberry Pi long-running recorder deployment and research",
+      "status": "DEFERRED_IDEA",
+      "next_action": "Keep separate idea pending. Choose host/budget only on activation; rotation, durability, rate-limit backoff, SIGTERM/disk-full/restart handling, ARM64 soak tests and optional WebSocket continuity remain unimplemented.",
+      "depends_on": []
+    },
+    {
+      "id": "G16",
+      "effort_relative_not_estimate": "optional; product decision",
+      "owner_issues": [
+        3,
+        26
+      ],
+      "title": "Integrated analysis UI and non-trade field journal",
+      "status": "NOT_COMMITTED_PRODUCT_SCOPE",
+      "next_action": "Scripts/results exist, not an integrated analytics UI roadmap. Charts/filters/conditional-statistics interface and rejected/non-traded signal journal require separate product scope/approval; no production implementation authorized by the research epic.",
+      "depends_on": []
+    }
+  ],
+  "evidence_sha256": {
+    "research/budget_chd_study.py": "6d31b595f3c7d1bc36b1bcba54ba01b1dd683353c5cdf241821f2d851637c132",
+    "research/bitget_snapshot_recorder.py": "1d488f5ab2d51c0c0b91047f502798d04308fafbc188bc56ca5e9c317048ea57",
+    "research/walkforward_readiness.py": "d974764fd36d50b884baeaf2717223c92bda8e1f5d27109ac840e5b3605dfaa0",
+    "research/results/walkforward-protocol.json": "913cbac63b6c3620dad0f9ba9be51647773707ad48a8e923e55d3869b3a8eba2",
+    "research/results/walkforward-readiness.json": "284ab7d1ba34195d6d2b4ce6cb96a59b98db289581afd3cc568ed699cd86c731",
+    "research/results/inference-calibration.json": "99b295d09c0286d73d7bfba9da8975bbb34265ecfcaada13657ff0ea3030284a",
+    "research/results/inference-redesign.json": "e7c0972b9412556d7c1ae924666a5444415019e05c6c8b7eb1c2609daa68c2f1",
+    "research/results/budget-trades-2026-11-03.json": "afba9a8b0b3b586f5f049de145a7cfa5d59203da6207902ebeb2e4fc9f4e0bc5",
+    "research/results/budget-recent-replay-2026-11-03.json": "af85419ac300100048fd36d5a25ab00f5efbe103afd1016ef9588ddada1e9212",
+    "research/data/budget-recorder-smoke-2026-11-03.json": "62de8678ef8f9e556af6a4c3e44aee194bcb3839a980dc8e7b01e9164a2e2298",
+    "tradingview/README.md": "c2b46f89203a88044591f73ba7f5c7231c70ce3fbe69c1613c56d65222f06f7c"
+  },
+  "limitations": [
+    "This is a status/implementation-surface audit, not a new independent full code or security review",
+    "No bulk downloads, altered frozen protocols, new significance tests, production dashboard edits or long-running deployment",
+    "Local retained raw CHD files checked in this environment; not redistributed or guaranteed restored on another machine",
+    "Existing story acceptance retained; broad parents stay open unless own acceptance explicitly met"
+  ],
+  "publication": {
+    "published_utc": "2026-11-04T06:56:38.321070+00:00",
+    "audit_commit": "8de00059d6ef114259bd6fd05a7ede6b6fb27ffe",
+    "pr": "https://github.com/totosan/tokendashboard/pull/5",
+    "issue_comments": {
+      "3": "https://github.com/totosan/tokendashboard/issues/3#issuecomment-6624683126",
+      "7": "https://github.com/totosan/tokendashboard/issues/7#issuecomment-6624683107",
+      "8": "https://github.com/totosan/tokendashboard/issues/8#issuecomment-6624683115",
+      "11": "https://github.com/totosan/tokendashboard/issues/11#issuecomment-6624683155",
+      "12": "https://github.com/totosan/tokendashboard/issues/12#issuecomment-6624683123",
+      "13": "https://github.com/totosan/tokendashboard/issues/13#issuecomment-6624683167",
+      "14": "https://github.com/totosan/tokendashboard/issues/14#issuecomment-6624683324"
+    },
+    "pr_body_refreshed": true
+  }
+}

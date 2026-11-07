@@ -1,0 +1,84 @@
+{
+ "protocol_id": "sentiment-v1.2-2026-11-05",
+ "status": "PRE_REGISTERED_NOT_RUN",
+ "amends": {
+  "protocol_id": "sentiment-v1.1-2026-11-05",
+  "file": "research/results/sentiment-protocol-v1.1-2026-11-05.json",
+  "sha256": "1c456536d115a8712bc29158ef87891567f2f17acd9902d5f2eba4fd6e73ec32",
+  "v1_and_v1_1_files_untouched": true,
+  "v1_sha256": "85f76b0ad2f7835dc7e16bc63e2c1ab7d14eb111114a7942af2cb39e7e9e4686"
+ },
+ "amendment_timing": "Made BEFORE any sentiment data was analysed. No Binance metrics/funding history or Bitget recorder sentiment has been loaded into any analysis; the only fetched Binance data remains the unanalysed v1.1 availability smoke test. Rules below are derived from recalled practitioner/academic ideas, not from data.",
+ "reason": "Owner instruction (issue #27): use community experience. Web search was unavailable, so every prior below is RECALLED FROM MEMORY and labelled 'recalled, unverified citation'. No URL, paper, author, or number is cited or invented. A prior is a hypothesis to be tested, never evidence.",
+ "community_priors": {
+  "label": "recalled, unverified citation",
+  "a_crowd_vs_top_traders": "Retail/crowd long-short ratios are often described as contrarian at extremes (existing R1/R2), while top-trader POSITION ratios are described as 'smart money' whose divergence from the crowd is worth following.",
+  "b_open_interest_and_price": "OI up + price up = trend confirmation (existing R3); OI up + price flat/down = crowded positioning / squeeze risk (new R8); sharp OI drop = liquidation flush then mean reversion (existing R4).",
+  "c_taker_flow": "Taker buy/sell volume imbalance as short-horizon momentum; already covered by R5's taker filter. No new rule (cap of 3 new rules).",
+  "d_funding_extremes": "Extreme funding rates are described as contrarian: crowded longs paying high positive funding precede pullbacks, deeply negative funding precedes squeezes up (new R6).",
+  "e_known_pitfalls": [
+   "Ratios are exchange-specific samples (Binance accounts/top traders), not the whole market; transfer to Bitget is unproven (Stage 2 stays mandatory).",
+   "Regime dependence: effects may flip between bull/bear/range; the 705-day confirmation span may cover few regimes; no regime conditioning is added (would add degrees of freedom).",
+   "Look-ahead from timestamp alignment: metrics stamped at period end; klines assigned to close-time bar; funding is used only from its settlement bar forward and expires after 96 bars (8h), never carried further.",
+   "Overlapping events: non-overlapping events (12-bar hold) and 5-day blocks retained; block inference remains unvalidated."
+  ]
+ },
+ "unchanged_from_v1_1": [
+  "rules R1-R5 and their grids (24 grid points)",
+  "horizon 12 bars, entry next-bar close, non-overlapping events",
+  "cost scenarios 12/22/37bp, primary 22bp",
+  "period, discovery/embargo/confirmation split, 5-day blocks, freeze + sha256, one-shot ledger",
+  "status ladder criteria (events>=30, net>=5bp at 22bp, plateau, Holm p<0.05, >=20 blocks)",
+  "no efficacy claim, no trading advice"
+ ],
+ "new_rules": {
+  "R6_funding_extreme_contrarian": {
+   "source": "community_prior (recalled, unverified)",
+   "data": "Binance data/futures/um/monthly/fundingRate/<SYM>/ (calc_time, last_funding_rate); Bitget recorder funding for Stage 2",
+   "signal": "|latest settled funding| >= level (fraction per 8h interval)",
+   "sign_hypothesis": "CONTRARIAN, declared in advance: funding > 0 -> short; funding < 0 -> long. Opposite sign = hypothesis falsified, not re-labelled.",
+   "grid": [0.0002, 0.0003, 0.0005, 0.0010],
+   "default": 0.0005,
+   "default_basis": "narrative; Binance baseline funding is 0.0001, so default is 5x baseline",
+   "data_gate": ">=95% of declared days with >=2 funding settlements; otherwise rule skipped (Holm family size unchanged)"
+  },
+  "R7_top_vs_crowd_divergence": {
+   "source": "community_prior (recalled, unverified)",
+   "data": "metrics sum_toptrader_long_short_ratio (top-trader position ratio) -> r/(1+r), versus global account long_ratio. Amends v1.1 'toptrader unused'.",
+   "signal": "|top_long_share - crowd_long_share| >= level",
+   "sign_hypothesis": "FOLLOW THE TOP TRADERS, declared in advance: top more long than crowd -> long; top more short -> short.",
+   "grid": [0.05, 0.10, 0.15, 0.20],
+   "default": 0.10,
+   "default_basis": "narrative round value",
+   "data_gate": ">=95% of declared days with >=95% of bars carrying top_long_ratio; otherwise rule skipped"
+  },
+  "R8_oi_price_divergence": {
+   "source": "community_prior (recalled, unverified)",
+   "signal": "12-bar OI change >= level AND 12-bar return <= 0 (OI up, price flat/down = crowded positioning)",
+   "sign_hypothesis": "SQUEEZE / REVERSAL UP, declared in advance: long. (OI-up-with-falling-price could alternatively be read as bearish continuation; that reading is NOT tried.)",
+   "grid": [0.01, 0.02, 0.03, 0.05],
+   "default": 0.02,
+   "default_basis": "same as R3/R4 for comparability",
+   "data_gate": "none beyond the v1.1 day-coverage gate"
+  }
+ },
+ "multiplicity": {
+  "rules": 8,
+  "grid_points_per_symbol": 36,
+  "primary_family_btc_eth": "36 x 2 = 72 (was 48)",
+  "with_solusdt": "36 x 3 = 108 (was 72)",
+  "secondary_stock_like_family": "separate, own Holm count, 36 per symbol, never pooled",
+  "holm": "Step-down over the full count even if a rule is skipped by its data gate (conservative). The code (GRID_TOTAL=36) applies the per-symbol count; the cross-symbol family count above is the declared reporting standard and must be applied when results are pooled for the verdict."
+ },
+ "level_adjustment_rule": {
+  "from": "owner",
+  "text": "If ~67% or ~80% fits better than the narrative 70% default, the grid already contains it (R1/R2 grid 0.60..0.85, 0.05 steps; 0.67 is bracketed by 0.65/0.70, 0.80 is in-grid). A level may be adjusted to the observed best level on DISCOVERY only; it becomes 'proven' only via one-shot confirmation on the frozen level. Off-grid values are not added."
+ },
+ "status_ladder": "unchanged: narrative_default -> candidate (discovery) -> proven (Stage-1 confirmation, Binance source-venue only) -> transfer_pending -> Bitget-venue statement only after Stage 2. Community-prior rules start at narrative_default like all others; a prior never grants status.",
+ "claims": "No efficacy claim, no trading advice. Community-prior origin is not evidence. 'proven' = pre-declared screen passed on Binance only.",
+ "implementation": {
+  "code": "research/sentiment_rules.py (R6-R8, side_for, parse_funding_csv, rule_data_ok, --binance-funding)",
+  "tests": "research/test_sentiment_rules.py (synthetic data only)"
+ },
+ "reproduction": "python3 -m research.sentiment_rules --binance-metrics research/data/binance_raw/metrics --binance-klines research/data/binance_raw/klines5m --binance-funding research/data/binance_raw/funding  (exits 2 while gates unmet)"
+}

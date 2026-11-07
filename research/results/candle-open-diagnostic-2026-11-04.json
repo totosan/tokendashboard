@@ -1,0 +1,491 @@
+{
+  "status": "BOUNDED_OPEN_CONVENTION_EVIDENCE",
+  "symbol": "AAPLUSDT",
+  "event_window_ms": [
+    1789653600000,
+    1789657200000
+  ],
+  "boundary": "[start,end)",
+  "unique_target_trades": 1720,
+  "target_trades_received_outside_target_hour": 0,
+  "target_event_time_differs_from_trade_time": 0,
+  "receive_minus_trade_ns_range": [
+    116927712,
+    392398188
+  ],
+  "five_minute_comparisons": [
+    {
+      "timestamp": 1789653600000,
+      "status": "DIFFERENCES",
+      "trade_minus_saved_candle": {
+        "open": "-0.02",
+        "close": "0.00",
+        "high": "0.0",
+        "low": "0.00",
+        "base_volume": "0.00",
+        "quote_volume": "0.0000"
+      },
+      "saved_open": "331.28",
+      "previous_saved_close": "331.28",
+      "previous_observed_trade_price": "331.28",
+      "first_observed_trade_price": "331.26",
+      "first_observed_trade_ms": 1789653600075,
+      "first_observed_receive_ns": 1789653600206736539,
+      "open_equals_previous_close": true,
+      "open_equals_previous_observed_trade": true,
+      "open_equals_first_observed_trade": false
+    },
+    {
+      "timestamp": 1789653900000,
+      "status": "DIFFERENCES",
+      "trade_minus_saved_candle": {
+        "open": "-0.06",
+        "close": "0.00",
+        "high": "0.00",
+        "low": "0.00",
+        "base_volume": "0.00",
+        "quote_volume": "0.0000"
+      },
+      "saved_open": "332.96",
+      "previous_saved_close": "332.96",
+      "previous_observed_trade_price": "332.96",
+      "first_observed_trade_price": "332.9",
+      "first_observed_trade_ms": 1789653902596,
+      "first_observed_receive_ns": 1789653902722935738,
+      "open_equals_previous_close": true,
+      "open_equals_previous_observed_trade": true,
+      "open_equals_first_observed_trade": false
+    },
+    {
+      "timestamp": 1789654200000,
+      "status": "DIFFERENCES",
+      "trade_minus_saved_candle": {
+        "open": "0.03",
+        "close": "0.00",
+        "high": "0.0",
+        "low": "0.00",
+        "base_volume": "0.00",
+        "quote_volume": "0.0000"
+      },
+      "saved_open": "333.05",
+      "previous_saved_close": "333.05",
+      "previous_observed_trade_price": "333.05",
+      "first_observed_trade_price": "333.08",
+      "first_observed_trade_ms": 1789654200012,
+      "first_observed_receive_ns": 1789654200130608601,
+      "open_equals_previous_close": true,
+      "open_equals_previous_observed_trade": true,
+      "open_equals_first_observed_trade": false
+    },
+    {
+      "timestamp": 1789654500000,
+      "status": "DIFFERENCES",
+      "trade_minus_saved_candle": {
+        "open": "-0.16",
+        "close": "0.00",
+        "high": "0.00",
+        "low": "0.00",
+        "base_volume": "0.00",
+        "quote_volume": "0.0000"
+      },
+      "saved_open": "333.63",
+      "previous_saved_close": "333.63",
+      "previous_observed_trade_price": "333.63",
+      "first_observed_trade_price": "333.47",
+      "first_observed_trade_ms": 1789654507126,
+      "first_observed_receive_ns": 1789654507267478436,
+      "open_equals_previous_close": true,
+      "open_equals_previous_observed_trade": true,
+      "open_equals_first_observed_trade": false
+    },
+    {
+      "timestamp": 1789654800000,
+      "status": "DIFFERENCES",
+      "trade_minus_saved_candle": {
+        "open": "0.04",
+        "close": "0.00",
+        "high": "0.00",
+        "low": "0.00",
+        "base_volume": "0.00",
+        "quote_volume": "0.0000"
+      },
+      "saved_open": "333.68",
+      "previous_saved_close": "333.68",
+      "previous_observed_trade_price": "333.68",
+      "first_observed_trade_price": "333.72",
+      "first_observed_trade_ms": 1789654800710,
+      "first_observed_receive_ns": 1789654800827425898,
+      "open_equals_previous_close": true,
+      "open_equals_previous_observed_trade": true,
+      "open_equals_first_observed_trade": false
+    },
+    {
+      "timestamp": 1789655100000,
+      "status": "DIFFERENCES",
+      "trade_minus_saved_candle": {
+        "open": "-0.10",
+        "close": "0.00",
+        "high": "0.00",
+        "low": "0.00",
+        "base_volume": "0.00",
+        "quote_volume": "0.0000"
+      },
+      "saved_open": "333.84",
+      "previous_saved_close": "333.84",
+      "previous_observed_trade_price": "333.84",
+      "first_observed_trade_price": "333.74",
+      "first_observed_trade_ms": 1789655100135,
+      "first_observed_receive_ns": 1789655100258548745,
+      "open_equals_previous_close": true,
+      "open_equals_previous_observed_trade": true,
+      "open_equals_first_observed_trade": false
+    },
+    {
+      "timestamp": 1789655400000,
+      "status": "DIFFERENCES",
+      "trade_minus_saved_candle": {
+        "open": "-0.08",
+        "close": "0.00",
+        "high": "0.00",
+        "low": "0.00",
+        "base_volume": "0.00",
+        "quote_volume": "0.0000"
+      },
+      "saved_open": "333.82",
+      "previous_saved_close": "333.82",
+      "previous_observed_trade_price": "333.82",
+      "first_observed_trade_price": "333.74",
+      "first_observed_trade_ms": 1789655407333,
+      "first_observed_receive_ns": 1789655407473922786,
+      "open_equals_previous_close": true,
+      "open_equals_previous_observed_trade": true,
+      "open_equals_first_observed_trade": false
+    },
+    {
+      "timestamp": 1789655700000,
+      "status": "DIFFERENCES",
+      "trade_minus_saved_candle": {
+        "open": "-0.03",
+        "close": "0.00",
+        "high": "0.00",
+        "low": "0.00",
+        "base_volume": "0.00",
+        "quote_volume": "0.0000"
+      },
+      "saved_open": "333.42",
+      "previous_saved_close": "333.42",
+      "previous_observed_trade_price": "333.42",
+      "first_observed_trade_price": "333.39",
+      "first_observed_trade_ms": 1789655706517,
+      "first_observed_receive_ns": 1789655706641927171,
+      "open_equals_previous_close": true,
+      "open_equals_previous_observed_trade": true,
+      "open_equals_first_observed_trade": false
+    },
+    {
+      "timestamp": 1789656000000,
+      "status": "DIFFERENCES",
+      "trade_minus_saved_candle": {
+        "open": "-0.07",
+        "close": "0.00",
+        "high": "0.00",
+        "low": "0.00",
+        "base_volume": "0.00",
+        "quote_volume": "0.0000"
+      },
+      "saved_open": "333.02",
+      "previous_saved_close": "333.02",
+      "previous_observed_trade_price": "333.02",
+      "first_observed_trade_price": "332.95",
+      "first_observed_trade_ms": 1789656002432,
+      "first_observed_receive_ns": 1789656002557385610,
+      "open_equals_previous_close": true,
+      "open_equals_previous_observed_trade": true,
+      "open_equals_first_observed_trade": false
+    },
+    {
+      "timestamp": 1789656300000,
+      "status": "DIFFERENCES",
+      "trade_minus_saved_candle": {
+        "open": "0.03",
+        "close": "0.00",
+        "high": "0.00",
+        "low": "0.00",
+        "base_volume": "0.00",
+        "quote_volume": "0.0000"
+      },
+      "saved_open": "332.94",
+      "previous_saved_close": "332.94",
+      "previous_observed_trade_price": "332.94",
+      "first_observed_trade_price": "332.97",
+      "first_observed_trade_ms": 1789656315104,
+      "first_observed_receive_ns": 1789656315345063198,
+      "open_equals_previous_close": true,
+      "open_equals_previous_observed_trade": true,
+      "open_equals_first_observed_trade": false
+    },
+    {
+      "timestamp": 1789656600000,
+      "status": "DIFFERENCES",
+      "trade_minus_saved_candle": {
+        "open": "0.01",
+        "close": "0.00",
+        "high": "0.0",
+        "low": "0.00",
+        "base_volume": "0.00",
+        "quote_volume": "0.0000"
+      },
+      "saved_open": "332.85",
+      "previous_saved_close": "332.85",
+      "previous_observed_trade_price": "332.85",
+      "first_observed_trade_price": "332.86",
+      "first_observed_trade_ms": 1789656601243,
+      "first_observed_receive_ns": 1789656601363980622,
+      "open_equals_previous_close": true,
+      "open_equals_previous_observed_trade": true,
+      "open_equals_first_observed_trade": false
+    },
+    {
+      "timestamp": 1789656900000,
+      "status": "DIFFERENCES",
+      "trade_minus_saved_candle": {
+        "open": "-0.04",
+        "close": "0.00",
+        "high": "0.00",
+        "low": "0.00",
+        "base_volume": "0.00",
+        "quote_volume": "0.0000"
+      },
+      "saved_open": "332.83",
+      "previous_saved_close": "332.83",
+      "previous_observed_trade_price": "332.83",
+      "first_observed_trade_price": "332.79",
+      "first_observed_trade_ms": 1789656901857,
+      "first_observed_receive_ns": 1789656901987212506,
+      "open_equals_previous_close": true,
+      "open_equals_previous_observed_trade": true,
+      "open_equals_first_observed_trade": false
+    }
+  ],
+  "conclusion": "Every sampled saved open equals both the preceding official close and the last observed pre-boundary trade, not the first observed in-bucket trade.",
+  "limitations": [
+    "Empirical convention evidence for this symbol/hour only, not a universal exchange contract",
+    "Adjacent receive hours bound this check, not arbitrarily late arrivals or ledger completeness",
+    "No original open/trade values changed; first-trade and continuity opens are distinct estimands",
+    "A saved candle open is not evidence of an executable post-signal entry price",
+    "No strategy, causal profile, return or inference computed"
+  ],
+  "sources": [
+    {
+      "object": "bitget_futures/2026-09-17/13/AAPLUSDT_trades.parquet",
+      "request": {
+        "file": "bitget_futures/2026-09-17/13/AAPLUSDT_trades.parquet"
+      },
+      "retrieved_utc": "2026-11-04T07:11:41.583497+00:00",
+      "http_status": 200,
+      "bytes": 72648,
+      "sha256": "bdcb2e627b866e5f5eabe946da36f95f7651ff17d05f9fd4046662f4743e5cd8",
+      "local_file": "00-AAPLUSDT_trades.parquet",
+      "status": "OBSERVED",
+      "rows": 4566,
+      "schema": [
+        {
+          "name": "received_time",
+          "type": "int64"
+        },
+        {
+          "name": "event_time",
+          "type": "int64"
+        },
+        {
+          "name": "symbol",
+          "type": "string"
+        },
+        {
+          "name": "trade_id",
+          "type": "int64"
+        },
+        {
+          "name": "price",
+          "type": "string"
+        },
+        {
+          "name": "quantity",
+          "type": "string"
+        },
+        {
+          "name": "trade_time",
+          "type": "int64"
+        },
+        {
+          "name": "is_buyer_maker",
+          "type": "bool"
+        },
+        {
+          "name": "order_type",
+          "type": "string"
+        }
+      ],
+      "clock_ranges": {
+        "received_time": [
+          1789650000440723240,
+          1789653599237328853
+        ],
+        "event_time": [
+          1789650000295,
+          1789653599115
+        ],
+        "trade_time": [
+          1789650000295,
+          1789653599115
+        ]
+      },
+      "clock_units": {
+        "received_time": "ns",
+        "event_time": "ms",
+        "trade_time": "ms"
+      }
+    },
+    {
+      "object": "bitget_futures/2026-09-17/14/AAPLUSDT_trades.parquet",
+      "request": {
+        "file": "bitget_futures/2026-09-17/14/AAPLUSDT_trades.parquet"
+      },
+      "retrieved_utc": "2026-11-04T07:11:43.597286+00:00",
+      "http_status": 200,
+      "bytes": 31212,
+      "sha256": "8234c5e765fb83a1990b3db6e02ff114b68ce346322317fa37a4502f293f0138",
+      "local_file": "01-AAPLUSDT_trades.parquet",
+      "status": "OBSERVED",
+      "rows": 1720,
+      "schema": [
+        {
+          "name": "received_time",
+          "type": "int64"
+        },
+        {
+          "name": "event_time",
+          "type": "int64"
+        },
+        {
+          "name": "symbol",
+          "type": "string"
+        },
+        {
+          "name": "trade_id",
+          "type": "int64"
+        },
+        {
+          "name": "price",
+          "type": "string"
+        },
+        {
+          "name": "quantity",
+          "type": "string"
+        },
+        {
+          "name": "trade_time",
+          "type": "int64"
+        },
+        {
+          "name": "is_buyer_maker",
+          "type": "bool"
+        },
+        {
+          "name": "order_type",
+          "type": "string"
+        }
+      ],
+      "clock_ranges": {
+        "received_time": [
+          1789653600206736539,
+          1789657199288756629
+        ],
+        "event_time": [
+          1789653600075,
+          1789657199153
+        ],
+        "trade_time": [
+          1789653600075,
+          1789657199153
+        ]
+      },
+      "clock_units": {
+        "received_time": "ns",
+        "event_time": "ms",
+        "trade_time": "ms"
+      }
+    },
+    {
+      "object": "bitget_futures/2026-09-17/15/AAPLUSDT_trades.parquet",
+      "request": {
+        "file": "bitget_futures/2026-09-17/15/AAPLUSDT_trades.parquet"
+      },
+      "retrieved_utc": "2026-11-04T07:11:44.807443+00:00",
+      "http_status": 200,
+      "bytes": 21649,
+      "sha256": "8f82696d479b625ae38978f0276f138ac28c0b35704fefc137d431fc87d5e653",
+      "local_file": "02-AAPLUSDT_trades.parquet",
+      "status": "OBSERVED",
+      "rows": 1113,
+      "schema": [
+        {
+          "name": "received_time",
+          "type": "int64"
+        },
+        {
+          "name": "event_time",
+          "type": "int64"
+        },
+        {
+          "name": "symbol",
+          "type": "string"
+        },
+        {
+          "name": "trade_id",
+          "type": "int64"
+        },
+        {
+          "name": "price",
+          "type": "string"
+        },
+        {
+          "name": "quantity",
+          "type": "string"
+        },
+        {
+          "name": "trade_time",
+          "type": "int64"
+        },
+        {
+          "name": "is_buyer_maker",
+          "type": "bool"
+        },
+        {
+          "name": "order_type",
+          "type": "string"
+        }
+      ],
+      "clock_ranges": {
+        "received_time": [
+          1789657200149666593,
+          1789660790674240416
+        ],
+        "event_time": [
+          1789657200030,
+          1789660790556
+        ],
+        "trade_time": [
+          1789657200030,
+          1789660790556
+        ]
+      },
+      "clock_units": {
+        "received_time": "ns",
+        "event_time": "ms",
+        "trade_time": "ms"
+      }
+    }
+  ],
+  "saved_candle_source_sha256": "1364e80e62353c853f2bacb4ba5dba59e2f618ca72e80a1b1fb493bb8a57992f"
+}

@@ -1,0 +1,218 @@
+{
+  "observed_utc": "2026-11-03T16:08:36.351068+00:00",
+  "request": "Recover historical AAPLUSDT snapshot and derive 2026-09-17T14:00:00Z checkpoint",
+  "status": "BLOCKED_NO_STARTING_SNAPSHOT_IN_BOUNDED_SEARCH",
+  "checkpoint_created": false,
+  "search": {
+    "new_objects": 3,
+    "new_object_hours_utc": [
+      "13",
+      "12",
+      "11"
+    ],
+    "existing_object_hours_utc": [
+      "14"
+    ],
+    "http_status_each_new_object": 200,
+    "per_object_timeout_seconds": 60,
+    "per_object_maximum_bytes": 20971520,
+    "retries": 0,
+    "authentication": "anonymous",
+    "stop": "Three preceding hours checked; no unbounded backward crawl"
+  },
+  "evidence": [
+    {
+      "object": "bitget_futures/2026-09-17/11/AAPLUSDT_orderbook.parquet",
+      "local_path": "/root/.local/share/cryptohftdata/samples/2026-11-03-bitget/AAPLUSDT-2026-09-17-11-orderbook.parquet",
+      "bytes": 1083428,
+      "sha256": "689809cb2c9b2160bbe3dda7e954b00b88b28b25a0410bc6cfb31a5389aa6056",
+      "rows": 143263,
+      "event_types": {
+        "update": 143263
+      },
+      "snapshot_rows": 0,
+      "received_time_ns": {
+        "min": 1789642800037601176,
+        "max": 1789646399963751402
+      },
+      "sequence_fields": {
+        "first_update_id": {
+          "null_rows": 143263,
+          "range": {
+            "min": null,
+            "max": null
+          }
+        },
+        "final_update_id": {
+          "null_rows": 0,
+          "range": {
+            "min": 822591077524,
+            "max": 822735744979
+          }
+        },
+        "prev_final_update_id": {
+          "null_rows": 143263,
+          "range": {
+            "min": null,
+            "max": null
+          }
+        },
+        "last_update_id": {
+          "null_rows": 143263,
+          "range": {
+            "min": null,
+            "max": null
+          }
+        }
+      }
+    },
+    {
+      "object": "bitget_futures/2026-09-17/12/AAPLUSDT_orderbook.parquet",
+      "local_path": "/root/.local/share/cryptohftdata/samples/2026-11-03-bitget/AAPLUSDT-2026-09-17-12-orderbook.parquet",
+      "bytes": 1174430,
+      "sha256": "dbd49efa4dc9b40333ad976c4efb53023f3c0f6ee6814c5e83f8defe390fbfad",
+      "rows": 160798,
+      "event_types": {
+        "update": 160798
+      },
+      "snapshot_rows": 0,
+      "received_time_ns": {
+        "min": 1789646400029617734,
+        "max": 1789649999932294943
+      },
+      "sequence_fields": {
+        "first_update_id": {
+          "null_rows": 160798,
+          "range": {
+            "min": null,
+            "max": null
+          }
+        },
+        "final_update_id": {
+          "null_rows": 0,
+          "range": {
+            "min": 822735748550,
+            "max": 822895209967
+          }
+        },
+        "prev_final_update_id": {
+          "null_rows": 160798,
+          "range": {
+            "min": null,
+            "max": null
+          }
+        },
+        "last_update_id": {
+          "null_rows": 160798,
+          "range": {
+            "min": null,
+            "max": null
+          }
+        }
+      }
+    },
+    {
+      "object": "bitget_futures/2026-09-17/13/AAPLUSDT_orderbook.parquet",
+      "local_path": "/root/.local/share/cryptohftdata/samples/2026-11-03-bitget/AAPLUSDT-2026-09-17-13-orderbook.parquet",
+      "bytes": 1579796,
+      "sha256": "f514663804efe45c094a395245bbfc321a53a0d972e04671d7b272928c8cde23",
+      "rows": 294849,
+      "event_types": {
+        "update": 294849
+      },
+      "snapshot_rows": 0,
+      "received_time_ns": {
+        "min": 1789650000038554409,
+        "max": 1789653599934772940
+      },
+      "sequence_fields": {
+        "first_update_id": {
+          "null_rows": 294849,
+          "range": {
+            "min": null,
+            "max": null
+          }
+        },
+        "final_update_id": {
+          "null_rows": 0,
+          "range": {
+            "min": 822895213883,
+            "max": 823061143204
+          }
+        },
+        "prev_final_update_id": {
+          "null_rows": 294849,
+          "range": {
+            "min": null,
+            "max": null
+          }
+        },
+        "last_update_id": {
+          "null_rows": 294849,
+          "range": {
+            "min": null,
+            "max": null
+          }
+        }
+      }
+    },
+    {
+      "object": "bitget_futures/2026-09-17/14/AAPLUSDT_orderbook.parquet",
+      "local_path": "/root/.local/share/cryptohftdata/samples/2026-11-03-bitget/AAPLUSDT-2026-09-17-14-orderbook.parquet",
+      "bytes": 1666571,
+      "sha256": "bb5f21fae744e0b07250f80bc6cf6092386fc29f32091b9a31495bde30c4731d",
+      "rows": 318807,
+      "event_types": {
+        "update": 318807
+      },
+      "snapshot_rows": 0,
+      "received_time_ns": {
+        "min": 1789653600021427523,
+        "max": 1789657199931638509
+      },
+      "sequence_fields": {
+        "first_update_id": {
+          "null_rows": 318807,
+          "range": {
+            "min": null,
+            "max": null
+          }
+        },
+        "final_update_id": {
+          "null_rows": 0,
+          "range": {
+            "min": 823061146026,
+            "max": 823228649581
+          }
+        },
+        "prev_final_update_id": {
+          "null_rows": 318807,
+          "range": {
+            "min": null,
+            "max": null
+          }
+        },
+        "last_update_id": {
+          "null_rows": 318807,
+          "range": {
+            "min": null,
+            "max": null
+          }
+        }
+      }
+    }
+  ],
+  "conclusion": "No snapshot among all four observed files; every row is an update. A faithful checkpoint cannot be initialized. Accumulating updates from an empty book would omit untouched levels and must not be presented as a historical snapshot. All prev_final_update_id values are null, so the documented pseq/seq gap check cannot certify continuity even if an earlier snapshot is supplied.",
+  "documentation": {
+    "https://www.cryptohftdata.com/docs/rest-orderbook": "Hour-start checkpoints are conditional on a verified current state. Without one, continue from the previous book or wait for a later snapshot.",
+    "https://www.cryptohftdata.com/docs/wire-format-bitget-futures#orderbook": "Snapshots reset the book; updates replace sizes, zero deletes a level; pseq should match the prior message seq, checked once per message.",
+    "https://www.cryptohftdata.com/docs/data-gaps-and-corrections": "Documentation describes pipeline changes and pending corrections; current mapping must not be assumed to apply retroactively."
+  },
+  "next_action": "Ask CryptoHFTData for an exact object/time containing a compatible AAPLUSDT snapshot preceding 2026-09-17T14:00Z, plus historical pseq availability or a provider-verified continuity/replay report for the chain. Alternatively select a documented checkpoint-bearing window; do not relabel a newer window as validation of the original period.",
+  "support_request_draft_not_sent": "For bitget_futures AAPLUSDT, 2026-09-17 hours 11\u201314 UTC, all downloaded orderbook rows have event_type=update and prev_final_update_id=null. Could you identify a compatible historical starting snapshot for replay to 14:00 UTC and explain how continuity can be verified for these older files? Are corrected pseq fields, checkpoint files or replay reports available?",
+  "limitations": [
+    "No assertion that snapshots are absent elsewhere in the archive",
+    "No historical spread/depth/slippage or complete ledger claimed",
+    "No live snapshot substituted; no external support message sent"
+  ]
+}

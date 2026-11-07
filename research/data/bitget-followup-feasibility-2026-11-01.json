@@ -1,0 +1,3668 @@
+{
+  "schema_version": 1,
+  "scope": "Bounded public Bitget-only follow-up for #7/#9/#10, parent #3; no credentials, account access, orders or Binance requests.",
+  "started_utc": "2026-11-01T20:50:07.646636+00:00",
+  "request_budget": 30,
+  "requests": [
+    {
+      "id": 1,
+      "kind": "document",
+      "method": "GET",
+      "url": "https://www.bitget.com/legacy-docs/uta/public/Instruments",
+      "endpoint": "/legacy-docs/uta/public/Instruments",
+      "parameters": {},
+      "retrieved_at_utc": "2026-11-01T20:50:07.646662+00:00",
+      "http_status": 200,
+      "final_url": "https://www.bitget.com/legacy-docs/uta/public/Instruments",
+      "http_date": "Sun, 01 Nov 2026 20:50:08 GMT",
+      "content_type": "text/html; charset=utf-8",
+      "raw_response_sha256": "dce9a87dd4ccc0cc0c7a9556eb75eb692f9477e9ce4643806601eb69db6ec12a",
+      "raw_response_bytes": 92829,
+      "selection": "HTML converted to text; selected context excerpts only, not full document. Hash refers to entire original HTML response.",
+      "selected_text_excerpts": [
+        "n content\nClassic\n🔥 UTA (Recommended)\nEnglish\nEnglish\n简体中文\nBitget's new API documentation is now live.\nView Now\nUnified Trading Account\nQuick Start\nBest Practices Guide\nChange Log\nRate Limit\nMarket\nTrading Data\nGet Instruments\nGet Tickers\nGet OrderBook\nGet RPI OrderBook\nGet Recent Public Fills\nGet Proof Of Reserves\nGet Open Interest\nGet Kline/Candlestick\nGet Kline/Candlestick History\nGet Current Funding Rate\nGet Funding Rate History\nGet Risk Reserve(Daily)\nGet Risk Reserve(Hourly)\nGet Discount Rate\nGet Margin Loan\nGet All Margin Loans\nGet Position Tier\nGet Interest Rate History\nGet Open Interest Limit\nGet Index Price Components\nGet Risk Reserve All\nGet Market Maker Score Weight\nGet Institution Fee Group\nGet Cash Dividend Records\nGet RPI Symbols\nGet Split Records\nGet Server Time\nGet Liquidations History\nGet Open Interest History\nGet Announcements\nGet Coins\nAccount\nTrade\nStrategy\nGrid\nCopy Trading\nTax\nEarn\nCrypto Loans\nInst Loan\nWebsocket\nP2P\nBroker\nSBE\nReality Stock\nStock+ Stocks & Options\nCFD\nError Code\nEnumeration\nData Download Center\nMarket\nGet Instruments\nGet Instruments\nCopy Page\nGet Instruments\nDescription\n​\nQuery the specifications for online trading pair instruments. Response fields vary by\ncategory\n.\nHTTP Request\n​\nGET /api/v3/market/instruments\nRate limit: 20/sec/IP\nRequest\ncurl\n\"https://api.bitget.com/api/v3/market/instruments?category=SPOT\"\n\\\nRequest Parameters\n​\nParameters\nType\nRequired\nDescription\ncategory\nString\nYes\nProduct type\nSPOT\nSpot trading\nMARGIN\nMargin trading\nUSDT-FUTURES\nUSDT futures\nCOIN-FUTURES\nCoin-M futures\nUSDC-FUTURES\nUSDC futures\nsymbol\nString\nNo\nSymbol name\ne.g.,\nBTCUSDT\nCase-insensitive\nSpot\nFutures\nMargin\nResponse\n{\n\"code\"\n:\n\"00000\"\n,\n\"msg\"\n:\n\"success\"\n,\n\"requestTime\"\n:\n1770531248742\n,\n\"data\"\n:\n[\n{\n\"symbol\"\n:\n\"BTCUSDT\"\n,\n\"category\"\n:\n\"SPOT\"\n,\n\"baseCoin\"\n:\n\"BTC\"\n,\n\"quoteCoin\"\n:\n\"USDT\"\n,\n\"isRwa\"\n:\n\"NO\"\n,\n\"isReality\"\n:\n\"no\"\n,\n\"buyLimitPriceRatio\"\n:\n\"0.02\"\n,\n\"sellLimitPriceRatio\"\n:\n\"0.02\"\n,\n\"minOrderQty\"\n:\n\"0.000001\"\n,\n\"maxOrderQty\"\n:\n\"0\"\n,\n\"pricePrecision\"\n:\n\"2\"\n,\n\"quantityPrecision\"\n:\n\"6\"\n,\n\"quotePrecision\"\n:\n\"8\"\n,\n\"minOrderAmount\"\n:\n\"1\"\n,\n\"maxSymbolOrderNum\"\n:\n\"\"\n,\n\"maxProductOrderNum\"\n:",
+        "ntainTime\"\n:\n\"\"\n,\n\"maxPositionNum\"\n:\n\"200\"\n,\n\"symbolType\"\n:\n\"crypto\"\n,\n\"fullName\"\n:\n\"\"\n,\n\"instrumentType\"\n:\n\"crypto\"\n,\n\"marketRegion\"\n:\n\"\"\n,\n\"isin\"\n:\n\"\"\n,\n\"launchTime\"\n:\n\"1532454360000\"\n,\n\"maxMarketOrderAmount\"\n:\n\"1000000\"\n}\n]\n}\nResponse\n{\n\"code\"\n:\n\"00000\"\n,\n\"msg\"\n:\n\"success\"\n,\n\"requestTime\"\n:\n1770531054230\n,\n\"data\"\n:\n[\n{\n\"symbol\"\n:\n\"BTCUSDT\"\n,\n\"category\"\n:\n\"USDT-FUTURES\"\n,\n\"baseCoin\"\n:\n\"BTC\"\n,\n\"quoteCoin\"\n:\n\"USDT\"\n,\n\"isRwa\"\n:\n\"NO\"\n,\n\"buyLimitPriceRatio\"\n:\n\"0.05\"\n,\n\"sellLimitPriceRatio\"\n:\n\"0.05\"\n,\n\"feeRateUpRatio\"\n:\n\"0.005\"\n,\n\"makerFeeRate\"\n:\n\"0.0002\"\n,\n\"takerFeeRate\"\n:\n\"0.0006\"\n,\n\"openCostUpRatio\"\n:\n\"0.01\"\n,\n\"minOrderQty\"\n:\n\"0.0001\"\n,\n\"maxOrderQty\"\n:\n\"1200\"\n,\n\"pricePrecision\"\n:\n\"1\"\n,\n\"quantityPrecision\"\n:\n\"4\"\n,\n\"quot",
+        "nt\"\n:\n\"5\"\n,\n\"maxSymbolOrderNum\"\n:\n\"\"\n,\n\"maxProductOrderNum\"\n:\n\"400\"\n,\n\"maxPositionNum\"\n:\n\"200\"\n,\n\"status\"\n:\n\"online\"\n,\n\"offTime\"\n:\n\"-1\"\n,\n\"limitOpenTime\"\n:\n\"-1\"\n,\n\"deliveryTime\"\n:\n\"\"\n,\n\"deliveryStartTime\"\n:\n\"\"\n,\n\"deliveryPeriod\"\n:\n\"\"\n,\n\"launchTime\"\n:\n\"0\"\n,\n\"fundInterval\"\n:\n\"8\"\n,\n\"minLeverage\"\n:\n\"1\"\n,\n\"maxLeverage\"\n:\n\"150\"\n,\n\"maintainTime\"\n:\n\"\"\n,\n\"symbolType\"\n:\n\"crypto\"\n,\n\"fullName\"\n:\n\"\"\n,\n\"instrumentType\"\n:\n\"crypto\"\n,\n\"marketRegion\"\n:\n\"\"\n,\n\"isin\"\n:\n\"\"\n,\n\"maxMarketOrderQty\"\n:\n\"220\"\n}\n]\n}\nResponse\n{\n\"code\"\n:\n\"00000\"\n,\n\"msg\"\n:\n\"success\"\n,\n\"requestTime\"\n:\n1770531089306\n,\n\"data\"\n:\n[\n{\n\"symbol\"\n:\n\"ADAUSDT\"\n,\n\"category\"\n:\n\"MARGIN\"\n,\n\"baseCoin\"\n:\n\"ADA\"\n,\n\"quoteCoin\"\n:\n\"USDT\"\n,\n\"buyLimitPriceRatio\"\n:\n\"0.02\"\n,\n\"sellLimitPriceRatio\"\n:\n\"0.02\"\n,\n\"minOr",
+        "\"areaSymbol\"\n:\n\"no\"\n,\n\"maxLeverage\"\n:\n\"10\"\n,\n\"symbolType\"\n:\n\"crypto\"\n,\n\"fullName\"\n:\n\"\"\n,\n\"instrumentType\"\n:\n\"crypto\"\n,\n\"marketRegion\"\n:\n\"\"\n,\n\"isin\"\n:\n\"\"\n,\n\"launchTime\"\n:\nnull\n}\n]\n}\nResponse Parameters\n​\nParameters\nType\nDescription\ncategory\nString\nProduct type\nSPOT\nSpot trading\nMARGIN\nMargin trading\nUSDT-FUTURES\n: USDT futures\nCOIN-FUTURES\n: Coin-M futures\nUSDC-FUTURES\n: USDC futures\nsymbol\nString\nSymbol name\nisRwa\nString\nIs this an RWA Symbol\nYES\nNO\nisReality\nString\nReality identifier\nyes\nReality stock token\nno\nNon-Reality stock token\nbaseCoin\nString\nBase coin\ne.g.,\nBTC\nin\nBTCUSDT\nquoteCoin\nString\nQuote coin\ne.g.,\nUSDT\nin\nBTCUSDT\nbuyLimitPriceRatio\nString\nBuy price limit ratio\nThe ratio of the buy limit pric",
+        "isted (not yet open)\nonline\nNormal\nlimit_open\nRestrict opening positions\nlimit_close\nRestrict closing positions\noffline\nDelisted/under maintenance\nrestrictedAPI\nAPI restricted\noffTime\nString\nTrading halt time.\nIf not configured, it returns: \"\"\nlimitOpenTime\nString\nRestricted open time\nIf not configured, it returns: \"\"; Other values indicate symbol is under/expected maintenance and trading is prohibited after a specified time\ndeliveryTime\nString\nDelivery time\nAvailable only for deliveries\ndeliveryStartTime\nString\nDelivery start time\nAvailable only for ",
+        "deliveryPeriod\nString\nDelivery period\nthis_quarter\nThis quarter\nnext_quarter\nNext quarter\nAvailable only for deliveries\nlaunchTime\nString\nLaunch time\nUnix millisecond timestamp indicating when the trading pair was launched\nfundInterval\nString\nFunding Interval\n1\nEvery 1 hour\n8\nEvery 8 hours\nminLeverage\nString\nMinimum leverage\nmaxLeverage\nString\nMaximum leverage\nmaintainTime\nString\nMaintenance time\nIf not configured, it returns: \"\"\nisIsolatedBaseBorrowable\nString\nBase coin borrowable status\nAvailable only for margin trading\nisIsolatedQuotedBorrowable\nStri",
+        "rs\ninstrumentType\nString\nInstrument type\nmetal\nenergy\nstock\netf\ncrypto\nReturned for both spot and futures trading pairs\nmarketRegion\nString\nMarket region code\nApplicable to trading pairs related to traditional finance\nUS\nUnited States\nCN\nChina\nHK\nHong Kong\nKR\nSouth Korea\nJP\nJapan\nReturned for both spot and futures trading pairs\nisin\nString\nInternational Securities Identification Number (ISIN), used to uniquely identify financial securities such as stocks, bonds, funds, and warrants\nFormat: 2-letter country/region code + 9-character local security identifier + 1 check digit\nmaxMarketOrderAmount\nString\nMaximum order amount for a single market order\nThis is only applicable for spot tradin"
+      ],
+      "text_characters": 10574,
+      "api_code": null,
+      "api_status_semantics": "API code if JSON API response; null for non-API documentation/client HTML or JS.",
+      "saved_payload_canonical_sha256": "13fd62d5be4740e6b040806da4325cba42a08ac7b4080d6e9fb5be342df8a6fe"
+    },
+    {
+      "id": 2,
+      "kind": "document",
+      "method": "GET",
+      "url": "https://www.bitget.com/legacy-docs/classic/contract/market/Get-Contract-Config",
+      "endpoint": "/legacy-docs/classic/contract/market/Get-Contract-Config",
+      "parameters": {},
+      "retrieved_at_utc": "2026-11-01T20:50:08.472875+00:00",
+      "http_status": 404,
+      "final_url": "https://www.bitget.com/legacy-docs/classic/contract/market/Get-Contract-Config",
+      "raw_response_sha256": "8603afc16b09e4d70930f36f38489c29ff44da2b98b9a08a516bddbab17aa9de",
+      "raw_response_bytes": 16,
+      "selection": "HTML converted to text; selected context excerpts only, not full document. Hash refers to entire original HTML response.",
+      "selected_text_excerpts": [],
+      "text_characters": 15,
+      "api_code": null,
+      "api_status_semantics": "API code if JSON API response; null for non-API documentation/client HTML or JS.",
+      "saved_payload_canonical_sha256": "7056cd4b7229e81642a5425f3b22d2f0b913997dd7cf3824a357f9362517eee2"
+    },
+    {
+      "id": 3,
+      "kind": "document",
+      "method": "GET",
+      "url": "https://www.bitget.com/legacy-docs/classic/contract/market/Get-History-Funding-Rate",
+      "endpoint": "/legacy-docs/classic/contract/market/Get-History-Funding-Rate",
+      "parameters": {},
+      "retrieved_at_utc": "2026-11-01T20:50:09.107670+00:00",
+      "http_status": 200,
+      "final_url": "https://www.bitget.com/legacy-docs/classic/contract/market/Get-History-Funding-Rate",
+      "http_date": "Sun, 01 Nov 2026 20:50:09 GMT",
+      "content_type": "text/html; charset=utf-8",
+      "raw_response_sha256": "88613067f338d9b3e941c517b78308b1bead42272a6dbecf5b70950b6268999a",
+      "raw_response_bytes": 36347,
+      "selection": "HTML converted to text; selected context excerpts only, not full document. Hash refers to entire original HTML response.",
+      "selected_text_excerpts": [
+        "n content\nClassic\n🔥 UTA (Recommended)\nEnglish\nEnglish\n简体中文\nBitget's new API documentation is now live.\nView Now\nClassic Trading Account\nQuick Start\nBest Practices Guide\nUpgrade to Unified Trading Account\nChangelog\nFAQ\nDemo Trading\nCommon\nSpot\nFutures\nMarket\nVIP Fee Rate\nGet Interest rate history\nGet Interest Exchange Rate\nGet Discount Rate\nGet Merge Market Depth\nGet Ticker\nGet All Tickers\nGet Recent Transactions\nGet History Transactions\nGet Candlestick Data\nGet Historical Candlestick\nGet Historical Index Price Candlestick\nGet Historical Mark Price Candlestick\nGet Open Interest\nGet Next Funding Time\nGet Mark/Index/Market Prices\nGet Historical Funding Rates\nGet Current Funding Rate\nGet Contract OI Limit\nGet Contract Config\nAccount\nPosition\nTrade\nTrigger Order\nWebsocket\nError Code\nMargin\nCopy Trading\nEarn\nTax\nP2P\nAffiliate\nBroker\nInst Loan\nRate Limit\nFutures\nMarket\nGet Historical Funding Rates\nGet Historical Funding Rates\nCopy Page\nGet Historical Funding Rates\nFrequency limit: 20 times/1s (IP)\nDescription\n​\nGet the historical funding rate of the contract\nHTTP Request\n​\nGET /api/v2/mix/market/history-fund-rate\nRequest Example\ncurl\n\"https://api.bitget.com/api/v2/mix/market/history-fund-rate?symbol=BTCUSDT&productType=usdt-futures\"\nRequest Parameters\n​\nParameter\nType\nRequired\nDescription\nsymbol\nString\nYes\nTrading pair\nproductType\nString\nYes\nProduct type\nUSDT-FUTURES\nUSDT-M Futures\nCOIN-FUTURES\nCoin-M Futures\nUSDC-FUTURES\nUSDC-M Futures\npageSize\nString\nNo\nNumber of queries: Default: 20, maximum: 100.\npageNo\nString\nNo\npage number\nResponse Example\n{\n\"code\"\n:\n\"00000\"\n,\n\"msg\"\n:\n\"success\"\n,\n\"requestTime\"\n:\n1695796546319\n,\n\"data\"\n:\n[\n{\n\"symbol\"\n:\n\"BTCUSDT\"\n,\n\"fundingRate\"\n:\n\"0.0005\"\n,\n\"fundingTime\"\n:\n\"1695776400000\"\n}\n,\n{\n\"symbol\"\n:\n\"BTCUSDT\"\n,\n\"fundingRate\"\n:\n\"0.000013\"\n,\n\"fundingTime\"\n:\n\"1695715200000\"\n}\n]\n}\nResponse Parameters\n​\nParameter\nType\nDescription\n>\nsymbol\nString\nTrading pair name\n>\nfundingRate\nString\nFunding rate\n>\nfundingTime\nString\nSettlement time\nHow was your Reading Experience with us?\n★\n★\n★\n★\n★\nFeedback\nPrevious\nGet Mark/Index/Market Prices\nNext\nGet Current Funding Rate"
+      ],
+      "text_characters": 2163,
+      "api_code": null,
+      "api_status_semantics": "API code if JSON API response; null for non-API documentation/client HTML or JS.",
+      "saved_payload_canonical_sha256": "483c5335033b988af084f445f55186c735de8fefc61254c5dbbe55df817c173d"
+    },
+    {
+      "id": 4,
+      "kind": "document",
+      "method": "GET",
+      "url": "https://www.bitget.com/legacy-docs/classic/contract/market/Get-Fills-History",
+      "endpoint": "/legacy-docs/classic/contract/market/Get-Fills-History",
+      "parameters": {},
+      "retrieved_at_utc": "2026-11-01T20:50:09.644144+00:00",
+      "http_status": 200,
+      "final_url": "https://www.bitget.com/legacy-docs/classic/contract/market/Get-Fills-History",
+      "http_date": "Sun, 01 Nov 2026 20:50:10 GMT",
+      "content_type": "text/html; charset=utf-8",
+      "raw_response_sha256": "d91ae400324057657a6d66316c46bdad4551c924e30aa28cc471d5bdc0ad06dd",
+      "raw_response_bytes": 40294,
+      "selection": "HTML converted to text; selected context excerpts only, not full document. Hash refers to entire original HTML response.",
+      "selected_text_excerpts": [
+        "Get History Transactions | Bitget API\nSkip to main content\nClassic\n🔥 UTA (Recommended)\nEnglish\nEnglish\n简体中文\nBitget's new API documentation is now live.\nView Now\nClassic Trading Account\nQuick Start\nBest Practices Guide\nUpgrade to Unified Trading Account\nChangelog\nFAQ\nDemo Trading\nCommon\nSpot\nFutures\nMarket\nVIP Fee Rate\nGet Interest rate history\nGet Interest Exchange Rate\nGet Discount Rate\nGet Merge Market Depth\nGet Ticker\nGet All Tickers\nGet Recent Transactions\nGet History Transactions\nGet Candlestick Data\nGet Historical Candlestick\nGet Historical Index Price Candlestick\nGet Historical Mark Price Candlestick\nGet Open Interest\nGet Next Funding Time\nGet Mark/Index/Market Prices\nGet Historical Funding Rates\nGet Current Funding Rate\nGet Contract OI Limit\nGet Contract Config\nAccount\nPosition\nTrade\nTrigger Order\nWebsocket\nError Code\nMargin\nCopy Trading\nEarn\nTax\nP2P\nAffiliate\nBroker\nInst Loan\nRate Limit\nFutures\nMarket\nGet History Transactions\nGet History Transactions\nCopy Page\nGet History Transactions\nFrequency limit: 10 times/1s (IP)\nDescription\n​\nGet transaction records of the last 90 days\nThe time interval between startTime and endTime should not exceed 7 days.\nYou can download historical futures trades data on our\nweb\n.\nHTTP Request\n​\nGET /api/v2/mix/market/fills-history\nRequest Example\ncurl\n\"https://api.bitget.com/api/v2/mix/market/fills-history?symbol=BTCUSDT&productType=usdt-futures\"\nRequest Parameters\n​\nParameter\nType\nRequired\nDescription\nsymbol\nString\nYes\nTrading pair\nproductType\nString\nYes\nProduct type\nUSDT-FUTURES\nUSDT-M Futures\nCOIN-FUTURES\nCoin-M Futures\nUSDC-FUTURES\nUSDC-M Futures\nlimit\nString\nNo\nNumber of queries: Default: 500, maximum: 1000\nidLessThan\nString\nNo\nSeparate page content before this ID is requested (older data), the value input should be the endId of the corresponding interface.\nstartTime\nString\nNo\nStart timestamp\nUnix timestamp in milliseconds format, e.g. 1597026383085\n(The maximum time span supported is a week. The default end tim",
+        "\n>\ntradeId\nString\ntradeId, descending order\n>\nprice\nString\nPrice\n>\nsize\nString\nAmount, specific base coin\n>\nside\nString\nTrading direction\nsell\n: Sell\nbuy\n: Buy\n>\nts\nString\nCurrent data timestamp\nUnix timestamp in milliseconds format, e.g. 1597026383085\n>\nsymbol\nString\nTrading pair name\nHow was your Reading Experience with us?\n★\n★\n★\n★\n★\nFeedback\nPrevious\nGet Recent Transactions\nNext\nGet Candlestick Data"
+      ],
+      "text_characters": 3060,
+      "api_code": null,
+      "api_status_semantics": "API code if JSON API response; null for non-API documentation/client HTML or JS.",
+      "saved_payload_canonical_sha256": "9fb4a0b4dcf19c7c2af0310606ab058d4869433c4ad6e3226c9f406179449406"
+    },
+    {
+      "id": 5,
+      "kind": "document",
+      "method": "GET",
+      "url": "https://www.bitget.com/legacy-docs/classic/contract/market/Get-Merge-Depth",
+      "endpoint": "/legacy-docs/classic/contract/market/Get-Merge-Depth",
+      "parameters": {},
+      "retrieved_at_utc": "2026-11-01T20:50:10.168832+00:00",
+      "http_status": 200,
+      "final_url": "https://www.bitget.com/legacy-docs/classic/contract/market/Get-Merge-Depth",
+      "http_date": "Sun, 01 Nov 2026 20:50:10 GMT",
+      "content_type": "text/html; charset=utf-8",
+      "raw_response_sha256": "8927a9cbf357d8f90d6b56e784f99ccc85900061f3fd586b53f9b3bfe797b696",
+      "raw_response_bytes": 41546,
+      "selection": "HTML converted to text; selected context excerpts only, not full document. Hash refers to entire original HTML response.",
+      "selected_text_excerpts": [
+        "n content\nClassic\n🔥 UTA (Recommended)\nEnglish\nEnglish\n简体中文\nBitget's new API documentation is now live.\nView Now\nClassic Trading Account\nQuick Start\nBest Practices Guide\nUpgrade to Unified Trading Account\nChangelog\nFAQ\nDemo Trading\nCommon\nSpot\nFutures\nMarket\nVIP Fee Rate\nGet Interest rate history\nGet Interest Exchange Rate\nGet Discount Rate\nGet Merge Market Depth\nGet Ticker\nGet All Tickers\nGet Recent Transactions\nGet History Transactions\nGet Candlestick Data\nGet Historical Candlestick\nGet Historical Index Price Candlestick\nGet Historical Mark Price Candlestick\nGet Open Interest\nGet Next Funding Time\nGet Mark/Index/Market Prices\nGet Historical Funding Rates\nGet Current Funding Rate\nGet Contract OI Limit\nGet Contract Config\nAccount\nPosition\nTrade\nTrigger Order\nWebsocket\nError Code\nMargin\nCopy Trading\nEarn\nTax\nP2P\nAffiliate\nBroker\nInst Loan\nRate Limit\nFutures\nMarket\nGet Merge Market Depth\nGet Merge Market Depth\nCopy Page\nGet Merge Market Depth\nFrequency limit: 20 times/1s (IP)\nDescription\n​\nGet merge depth data\nYou can download historical futures depth data on our\nweb\n.\nHTTP Request\n​\nGET /api/v2/mix/market/merge-depth\nRequest Example\ncurl\n\"https://api.bitget.com/api/v2/mix/market/merge-depth?productType=usdt-futures&symbol=BTCUSDT\"\nRequest Parameters\n​\nParameter\nType\nRequired\nDescription\nsymbol\nString\nYes\nTrading pair\nproductType\nString\nYes\nProduct type\nUSDT-FUTURES\nUSDT-M Futures\nCOIN-FUTURES\nCoin-M Futures\nUSDC-FUTURES\nUSDC-M Futures\nprecision\nString\nNo\nPrice accuracy, according to the selected accuracy as the step size to return the cumulative depth, enumeration value:\nscale0/scale1/scale2/scale3\n'scale0",
+        "e precision corresponding to 0/1/2/3 is subject to the actual return parameter \"scale\". The quotation precision of each trading pair is different, and some trading pairs does not have 'scale2', and the request for a scale that does not exist for the currency pair will be processed according to the maximum scale. Example: A certain trading pair only has scale 0/1, and when scale2 is requested, it will be automatically reduced to 'scale1'.\nlimit\nString\nNo\nFixed gear enumeration value: 1/5/15/50/max, the default gear is 100, passing max returns the maximum gear of the trading pair\nWhen the actual depth does not meet the limit, return a"
+      ],
+      "text_characters": 3604,
+      "api_code": null,
+      "api_status_semantics": "API code if JSON API response; null for non-API documentation/client HTML or JS.",
+      "saved_payload_canonical_sha256": "0bfbfab9be38c5778eaf0a4b84bb1d5e62f7ac51c48af6cb12bc099a8c7a7537"
+    },
+    {
+      "id": 6,
+      "kind": "document",
+      "method": "GET",
+      "url": "https://www.bitget.com/data-download",
+      "endpoint": "/data-download",
+      "parameters": {},
+      "retrieved_at_utc": "2026-11-01T20:50:10.670378+00:00",
+      "http_status": 200,
+      "final_url": "https://www.bitget.com/data-download",
+      "http_date": "Sun, 01 Nov 2026 20:50:10 GMT",
+      "content_type": "text/html; charset=utf-8",
+      "raw_response_sha256": "d01de4a06e8893a374fc69f2bf3354ad40f6634df9e1340545478b65f13284f9",
+      "raw_response_bytes": 90733,
+      "selection": "HTML converted to text; selected context excerpts only, not full document. Hash refers to entire original HTML response.",
+      "selected_text_excerpts": [
+        "History data download | Bitget\nHistory data download\nDownload candlestick charts, order book depth, and transaction history for spot and futures trading from recent years.\nSpot\nCandlestick chart data\nBitget's candlestick chart data for recent years\nDownload\nTransaction history\nBitget's transaction data for recent years\nDownload\nDepth data\nBitget's order book data for recent years\nDownload\nFutures\nCandlestick chart data\nBitget's candlestick chart data for recent years\nDownload\nTransaction history\nBitget's transaction data for recent years\nDownload\nDepth data\nBitget's order book data for recent years\nDownload"
+      ],
+      "text_characters": 614,
+      "api_code": null,
+      "api_status_semantics": "API code if JSON API response; null for non-API documentation/client HTML or JS.",
+      "saved_payload_canonical_sha256": "395b278a27603c82394e52211a81868d0cb3f5a5b04c048f5e3429b2f573d74d"
+    },
+    {
+      "id": 7,
+      "kind": "api",
+      "method": "GET",
+      "url": "https://api.bitget.com/api/v3/market/instruments?category=USDT-FUTURES",
+      "endpoint": "/api/v3/market/instruments",
+      "parameters": {
+        "category": "USDT-FUTURES"
+      },
+      "retrieved_at_utc": "2026-11-01T20:50:11.138325+00:00",
+      "http_status": 200,
+      "final_url": "https://api.bitget.com/api/v3/market/instruments?category=USDT-FUTURES",
+      "http_date": "Sun, 01 Nov 2026 20:50:11 GMT",
+      "content_type": "application/json",
+      "raw_response_sha256": "e3700d965398c15f30dd87d0cee2de887f8457614f16ae6c0bfbce0df155bddf",
+      "raw_response_bytes": 764491,
+      "api_code": "00000",
+      "api_msg": "success",
+      "request_time": 1793566211492,
+      "selection": "Selected full instrument rows for named symbols only; not full response. Raw hash above refers to entire HTTP body.",
+      "returned_rows_total": 868,
+      "response": {
+        "code": "00000",
+        "msg": "success",
+        "requestTime": 1793566211492,
+        "data": [
+          {
+            "symbol": "BTCUSDT",
+            "category": "USDT-FUTURES",
+            "baseCoin": "BTC",
+            "quoteCoin": "USDT",
+            "symbolType": "crypto",
+            "fullName": "Bitcoin",
+            "instrumentType": "crypto",
+            "marketRegion": null,
+            "isin": null,
+            "isRwa": "NO",
+            "buyLimitPriceRatio": "0.05",
+            "sellLimitPriceRatio": "0.05",
+            "feeRateUpRatio": "0.005",
+            "makerFeeRate": "0.0002",
+            "takerFeeRate": "0.0006",
+            "openCostUpRatio": "0.01",
+            "minOrderQty": "0.0001",
+            "maxOrderQty": "1200",
+            "pricePrecision": "1",
+            "quantityPrecision": "4",
+            "quotePrecision": "",
+            "priceMultiplier": "0.1",
+            "quantityMultiplier": "0.0001",
+            "type": "perpetual",
+            "minOrderAmount": "5",
+            "maxSymbolOrderNum": "",
+            "maxProductOrderNum": "400",
+            "maxPositionNum": "200",
+            "status": "online",
+            "offTime": "-1",
+            "limitOpenTime": "-1",
+            "deliveryTime": "",
+            "deliveryStartTime": "",
+            "deliveryPeriod": "",
+            "launchTime": "0",
+            "fundInterval": "8",
+            "minLeverage": "1",
+            "maxLeverage": "150",
+            "maintainTime": "",
+            "maxMarketOrderQty": "220"
+          },
+          {
+            "symbol": "TSLAUSDT",
+            "category": "USDT-FUTURES",
+            "baseCoin": "TSLA",
+            "quoteCoin": "USDT",
+            "symbolType": "stock",
+            "fullName": "Tesla",
+            "instrumentType": "stock",
+            "marketRegion": "US",
+            "isin": "US88160R1014",
+            "isRwa": "YES",
+            "buyLimitPriceRatio": "0.02",
+            "sellLimitPriceRatio": "0.02",
+            "feeRateUpRatio": "0.005",
+            "makerFeeRate": "0.0002",
+            "takerFeeRate": "0.0006",
+            "openCostUpRatio": "0.01",
+            "minOrderQty": "0.01",
+            "maxOrderQty": "34000",
+            "pricePrecision": "2",
+            "quantityPrecision": "2",
+            "quotePrecision": "",
+            "priceMultiplier": "0.01",
+            "quantityMultiplier": "0.01",
+            "type": "perpetual",
+            "minOrderAmount": "5",
+            "maxSymbolOrderNum": "",
+            "maxProductOrderNum": "400",
+            "maxPositionNum": "200",
+            "status": "online",
+            "offTime": "-1",
+            "limitOpenTime": "-1",
+            "deliveryTime": "",
+            "deliveryStartTime": "",
+            "deliveryPeriod": "",
+            "launchTime": "1769994062288",
+            "fundInterval": "8",
+            "minLeverage": "1",
+            "maxLeverage": "100",
+            "maintainTime": "",
+            "maxMarketOrderQty": "6200"
+          },
+          {
+            "symbol": "NVDAUSDT",
+            "category": "USDT-FUTURES",
+            "baseCoin": "NVDA",
+            "quoteCoin": "USDT",
+            "symbolType": "stock",
+            "fullName": "Nvidia",
+            "instrumentType": "stock",
+            "marketRegion": "US",
+            "isin": "US67066G1040",
+            "isRwa": "YES",
+            "buyLimitPriceRatio": "0.02",
+            "sellLimitPriceRatio": "0.02",
+            "feeRateUpRatio": "0.005",
+            "makerFeeRate": "0.0002",
+            "takerFeeRate": "0.0006",
+            "openCostUpRatio": "0.01",
+            "minOrderQty": "0.01",
+            "maxOrderQty": "52000",
+            "pricePrecision": "2",
+            "quantityPrecision": "2",
+            "quotePrecision": "",
+            "priceMultiplier": "0.01",
+            "quantityMultiplier": "0.01",
+            "type": "perpetual",
+            "minOrderAmount": "5",
+            "maxSymbolOrderNum": "",
+            "maxProductOrderNum": "400",
+            "maxPositionNum": "200",
+            "status": "online",
+            "offTime": "-1",
+            "limitOpenTime": "-1",
+            "deliveryTime": "",
+            "deliveryStartTime": "",
+            "deliveryPeriod": "",
+            "launchTime": "1769994062273",
+            "fundInterval": "8",
+            "minLeverage": "1",
+            "maxLeverage": "100",
+            "maintainTime": "",
+            "maxMarketOrderQty": "9500"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "category": "USDT-FUTURES",
+            "baseCoin": "AAPL",
+            "quoteCoin": "USDT",
+            "symbolType": "stock",
+            "fullName": "Apple",
+            "instrumentType": "stock",
+            "marketRegion": "US",
+            "isin": "US0378331005",
+            "isRwa": "YES",
+            "buyLimitPriceRatio": "0.02",
+            "sellLimitPriceRatio": "0.02",
+            "feeRateUpRatio": "0.005",
+            "makerFeeRate": "0.0002",
+            "takerFeeRate": "0.0006",
+            "openCostUpRatio": "0.01",
+            "minOrderQty": "0.01",
+            "maxOrderQty": "37000",
+            "pricePrecision": "2",
+            "quantityPrecision": "2",
+            "quotePrecision": "",
+            "priceMultiplier": "0.01",
+            "quantityMultiplier": "0.01",
+            "type": "perpetual",
+            "minOrderAmount": "5",
+            "maxSymbolOrderNum": "",
+            "maxProductOrderNum": "400",
+            "maxPositionNum": "200",
+            "status": "online",
+            "offTime": "-1",
+            "limitOpenTime": "-1",
+            "deliveryTime": "",
+            "deliveryStartTime": "",
+            "deliveryPeriod": "",
+            "launchTime": "1769994062305",
+            "fundInterval": "8",
+            "minLeverage": "1",
+            "maxLeverage": "100",
+            "maintainTime": "",
+            "maxMarketOrderQty": "6800"
+          },
+          {
+            "symbol": "COINUSDT",
+            "category": "USDT-FUTURES",
+            "baseCoin": "COIN",
+            "quoteCoin": "USDT",
+            "symbolType": "stock",
+            "fullName": "Coinbase Global",
+            "instrumentType": "stock",
+            "marketRegion": "US",
+            "isin": "US19260Q1076",
+            "isRwa": "YES",
+            "buyLimitPriceRatio": "0.02",
+            "sellLimitPriceRatio": "0.02",
+            "feeRateUpRatio": "0.005",
+            "makerFeeRate": "0.0002",
+            "takerFeeRate": "0.0006",
+            "openCostUpRatio": "0.01",
+            "minOrderQty": "0.01",
+            "maxOrderQty": "65000",
+            "pricePrecision": "2",
+            "quantityPrecision": "2",
+            "quotePrecision": "",
+            "priceMultiplier": "0.01",
+            "quantityMultiplier": "0.01",
+            "type": "perpetual",
+            "minOrderAmount": "5",
+            "maxSymbolOrderNum": "",
+            "maxProductOrderNum": "400",
+            "maxPositionNum": "200",
+            "status": "online",
+            "offTime": "-1",
+            "limitOpenTime": "-1",
+            "deliveryTime": "",
+            "deliveryStartTime": "",
+            "deliveryPeriod": "",
+            "launchTime": "1769994064132",
+            "fundInterval": "8",
+            "minLeverage": "1",
+            "maxLeverage": "20",
+            "maintainTime": "",
+            "maxMarketOrderQty": "12000"
+          }
+        ]
+      },
+      "saved_response_canonical_sha256": "ef1f4a7602d5fdc3c1bef37002b8fed9ddd5131f9cd37ed53d4d72808a5ea5e9",
+      "api_status_semantics": "API code if JSON API response; null for non-API documentation/client HTML or JS.",
+      "saved_payload_canonical_sha256": "f5a029d6626e666910a30060e3feddd03f4f0cd4605ff6456bbe537aa12ba9e9"
+    },
+    {
+      "id": 8,
+      "kind": "api",
+      "method": "GET",
+      "url": "https://api.bitget.com/api/v2/mix/market/contracts?productType=USDT-FUTURES&symbol=AAPLUSDT",
+      "endpoint": "/api/v2/mix/market/contracts",
+      "parameters": {
+        "productType": "USDT-FUTURES",
+        "symbol": "AAPLUSDT"
+      },
+      "retrieved_at_utc": "2026-11-01T20:50:11.782222+00:00",
+      "http_status": 200,
+      "final_url": "https://api.bitget.com/api/v2/mix/market/contracts?productType=USDT-FUTURES&symbol=AAPLUSDT",
+      "http_date": "Sun, 01 Nov 2026 20:50:12 GMT",
+      "content_type": "application/json",
+      "raw_response_sha256": "faa1d0595baa381b3608e90c399051d443e687b67edbd79feeca467808586158",
+      "raw_response_bytes": 846,
+      "api_code": "00000",
+      "api_msg": "success",
+      "request_time": 1793566212017,
+      "selection": "Full decoded JSON response; raw hash above refers to original HTTP body.",
+      "response": {
+        "code": "00000",
+        "msg": "success",
+        "requestTime": 1793566212017,
+        "data": [
+          {
+            "symbol": "AAPLUSDT",
+            "baseCoin": "AAPL",
+            "quoteCoin": "USDT",
+            "buyLimitPriceRatio": "0.02",
+            "sellLimitPriceRatio": "0.02",
+            "feeRateUpRatio": "0.005",
+            "makerFeeRate": "0.0002",
+            "takerFeeRate": "0.0006",
+            "openCostUpRatio": "0.01",
+            "supportMarginCoins": [
+              "USDT"
+            ],
+            "minTradeNum": "0.01",
+            "priceEndStep": "1",
+            "volumePlace": "2",
+            "pricePlace": "2",
+            "sizeMultiplier": "0.01",
+            "symbolType": "perpetual",
+            "minTradeUSDT": "5",
+            "maxSymbolOrderNum": "200",
+            "maxProductOrderNum": "1000",
+            "maxPositionNum": "200",
+            "symbolStatus": "normal",
+            "offTime": "-1",
+            "limitOpenTime": "-1",
+            "deliveryTime": "",
+            "deliveryStartTime": "",
+            "deliveryPeriod": "",
+            "launchTime": "",
+            "fundInterval": "8",
+            "minLever": "1",
+            "maxLever": "100",
+            "posLimit": "0.2",
+            "maintainTime": "",
+            "openTime": "1769994062305",
+            "maxMarketOrderQty": "6800",
+            "maxOrderQty": "37000",
+            "isRwa": "YES"
+          }
+        ]
+      },
+      "saved_response_canonical_sha256": "3fb1505c79d04a244ceba189268a1bbf01f89b81dac70fae7a0d9b212ab1d4fc",
+      "api_status_semantics": "API code if JSON API response; null for non-API documentation/client HTML or JS.",
+      "saved_payload_canonical_sha256": "0ee10556ed36048fff50407fb19f8a8a2e34a027228095b6ad2d5c6cab66cff9"
+    },
+    {
+      "id": 9,
+      "kind": "api",
+      "method": "GET",
+      "url": "https://api.bitget.com/api/v2/mix/market/history-fund-rate?symbol=BTCUSDT&productType=USDT-FUTURES&pageSize=100&pageNo=1",
+      "endpoint": "/api/v2/mix/market/history-fund-rate",
+      "parameters": {
+        "symbol": "BTCUSDT",
+        "productType": "USDT-FUTURES",
+        "pageSize": 100,
+        "pageNo": 1
+      },
+      "retrieved_at_utc": "2026-11-01T20:50:50.303893+00:00",
+      "http_status": 200,
+      "http_date": "Sun, 01 Nov 2026 20:50:50 GMT",
+      "final_url": "https://api.bitget.com/api/v2/mix/market/history-fund-rate?symbol=BTCUSDT&productType=USDT-FUTURES&pageSize=100&pageNo=1",
+      "raw_response_sha256": "e1d7bbcdb69e4c9788e15021893a95a41dd7911eb8c86318c370dbb20593b865",
+      "raw_response_bytes": 7612,
+      "selection": "Full decoded JSON response; hash refers to entire original HTTP body.",
+      "api_code": "00000",
+      "api_msg": "success",
+      "response": {
+        "code": "00000",
+        "msg": "success",
+        "requestTime": 1793566250574,
+        "data": [
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000083",
+            "fundingTime": "1793548800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000055",
+            "fundingTime": "1793520000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000085",
+            "fundingTime": "1793491200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000033",
+            "fundingTime": "1793462400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1793433600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1793404800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1793376000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "-0.00001",
+            "fundingTime": "1793347200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1793318400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000049",
+            "fundingTime": "1793289600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000077",
+            "fundingTime": "1793260800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000037",
+            "fundingTime": "1793232000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000086",
+            "fundingTime": "1793203200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.00007",
+            "fundingTime": "1793174400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.00007",
+            "fundingTime": "1793145600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1793116800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1793088000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1793059200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000093",
+            "fundingTime": "1793030400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000057",
+            "fundingTime": "1793001600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000068",
+            "fundingTime": "1792972800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000076",
+            "fundingTime": "1792944000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000061",
+            "fundingTime": "1792915200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000037",
+            "fundingTime": "1792886400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000075",
+            "fundingTime": "1792857600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.00007",
+            "fundingTime": "1792828800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000066",
+            "fundingTime": "1792800000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000075",
+            "fundingTime": "1792771200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1792742400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000099",
+            "fundingTime": "1792713600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000077",
+            "fundingTime": "1792684800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1792656000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000012",
+            "fundingTime": "1792627200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "-0.000012",
+            "fundingTime": "1792598400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000081",
+            "fundingTime": "1792569600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000027",
+            "fundingTime": "1792540800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.00006",
+            "fundingTime": "1792512000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000096",
+            "fundingTime": "1792483200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1792454400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000079",
+            "fundingTime": "1792425600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "-0.000011",
+            "fundingTime": "1792396800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000079",
+            "fundingTime": "1792368000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000079",
+            "fundingTime": "1792339200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000055",
+            "fundingTime": "1792310400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000077",
+            "fundingTime": "1792281600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000046",
+            "fundingTime": "1792252800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000048",
+            "fundingTime": "1792224000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1792195200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000062",
+            "fundingTime": "1792166400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1792137600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000034",
+            "fundingTime": "1792108800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000085",
+            "fundingTime": "1792080000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1792051200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1792022400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000075",
+            "fundingTime": "1791993600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000035",
+            "fundingTime": "1791964800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000014",
+            "fundingTime": "1791936000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000037",
+            "fundingTime": "1791907200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000021",
+            "fundingTime": "1791878400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000042",
+            "fundingTime": "1791849600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000077",
+            "fundingTime": "1791820800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000022",
+            "fundingTime": "1791792000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000024",
+            "fundingTime": "1791763200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000028",
+            "fundingTime": "1791734400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "-0.000021",
+            "fundingTime": "1791705600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000028",
+            "fundingTime": "1791676800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000055",
+            "fundingTime": "1791648000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1791619200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "-0.000004",
+            "fundingTime": "1791590400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.00004",
+            "fundingTime": "1791561600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000038",
+            "fundingTime": "1791532800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1791504000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1791475200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1791446400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1791417600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1791388800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000088",
+            "fundingTime": "1791360000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000095",
+            "fundingTime": "1791331200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000014",
+            "fundingTime": "1791302400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000062",
+            "fundingTime": "1791273600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000003",
+            "fundingTime": "1791244800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000036",
+            "fundingTime": "1791216000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000053",
+            "fundingTime": "1791187200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000032",
+            "fundingTime": "1791158400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "-0.000008",
+            "fundingTime": "1791129600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1791100800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000062",
+            "fundingTime": "1791072000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.00008",
+            "fundingTime": "1791043200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000066",
+            "fundingTime": "1791014400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1790985600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000041",
+            "fundingTime": "1790956800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.00004",
+            "fundingTime": "1790928000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "-0.000009",
+            "fundingTime": "1790899200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1790870400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1790841600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1790812800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1790784000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1790755200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1790726400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000074",
+            "fundingTime": "1790697600000"
+          }
+        ]
+      },
+      "saved_response_canonical_sha256": "df732013ebe39a7e24b9b21c2bc08411757b13edfb685ba177b83004824eb528",
+      "api_status_semantics": "API code if JSON API response; null for non-API documentation/client HTML or JS.",
+      "saved_payload_canonical_sha256": "f271009f9205ab5d80d39f6af35ef48d6a61c3d80e894fc2ed86cfd2529a5e34"
+    },
+    {
+      "id": 10,
+      "kind": "api",
+      "method": "GET",
+      "url": "https://api.bitget.com/api/v2/mix/market/history-fund-rate?symbol=BTCUSDT&productType=USDT-FUTURES&pageSize=100&pageNo=2",
+      "endpoint": "/api/v2/mix/market/history-fund-rate",
+      "parameters": {
+        "symbol": "BTCUSDT",
+        "productType": "USDT-FUTURES",
+        "pageSize": 100,
+        "pageNo": 2
+      },
+      "retrieved_at_utc": "2026-11-01T20:50:50.857522+00:00",
+      "http_status": 200,
+      "http_date": "Sun, 01 Nov 2026 20:50:51 GMT",
+      "final_url": "https://api.bitget.com/api/v2/mix/market/history-fund-rate?symbol=BTCUSDT&productType=USDT-FUTURES&pageSize=100&pageNo=2",
+      "raw_response_sha256": "dfaba8e016901e7422ae1fb4185a3673752ee228169b81848028e7fe9f13faa6",
+      "raw_response_bytes": 7630,
+      "selection": "Full decoded JSON response; hash refers to entire original HTTP body.",
+      "api_code": "00000",
+      "api_msg": "success",
+      "response": {
+        "code": "00000",
+        "msg": "success",
+        "requestTime": 1793566250977,
+        "data": [
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1790668800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1790640000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1790611200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1790582400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000012",
+            "fundingTime": "1790553600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000007",
+            "fundingTime": "1790524800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000017",
+            "fundingTime": "1790496000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000024",
+            "fundingTime": "1790467200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000024",
+            "fundingTime": "1790438400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000071",
+            "fundingTime": "1790409600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000048",
+            "fundingTime": "1790380800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000078",
+            "fundingTime": "1790352000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000053",
+            "fundingTime": "1790323200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000027",
+            "fundingTime": "1790294400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000044",
+            "fundingTime": "1790265600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000059",
+            "fundingTime": "1790236800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000068",
+            "fundingTime": "1790208000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1790179200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000048",
+            "fundingTime": "1790150400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000005",
+            "fundingTime": "1790121600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000006",
+            "fundingTime": "1790092800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1790064000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000058",
+            "fundingTime": "1790035200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "-0.000004",
+            "fundingTime": "1790006400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000068",
+            "fundingTime": "1789977600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000067",
+            "fundingTime": "1789948800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000068",
+            "fundingTime": "1789920000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1789891200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1789862400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000081",
+            "fundingTime": "1789833600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000098",
+            "fundingTime": "1789804800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000017",
+            "fundingTime": "1789776000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000019",
+            "fundingTime": "1789747200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000024",
+            "fundingTime": "1789718400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000064",
+            "fundingTime": "1789689600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000083",
+            "fundingTime": "1789660800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000044",
+            "fundingTime": "1789632000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.00007",
+            "fundingTime": "1789603200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000052",
+            "fundingTime": "1789574400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000052",
+            "fundingTime": "1789545600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000056",
+            "fundingTime": "1789516800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000085",
+            "fundingTime": "1789488000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000088",
+            "fundingTime": "1789459200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.00002",
+            "fundingTime": "1789430400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000031",
+            "fundingTime": "1789401600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000043",
+            "fundingTime": "1789372800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000051",
+            "fundingTime": "1789344000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000076",
+            "fundingTime": "1789315200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000082",
+            "fundingTime": "1789286400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000091",
+            "fundingTime": "1789257600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000058",
+            "fundingTime": "1789228800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000068",
+            "fundingTime": "1789200000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000037",
+            "fundingTime": "1789171200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.00009",
+            "fundingTime": "1789142400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000052",
+            "fundingTime": "1789113600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000077",
+            "fundingTime": "1789084800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1789056000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1789027200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1788998400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000098",
+            "fundingTime": "1788969600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000079",
+            "fundingTime": "1788940800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000064",
+            "fundingTime": "1788912000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1788883200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1788854400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000029",
+            "fundingTime": "1788825600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000087",
+            "fundingTime": "1788796800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.00006",
+            "fundingTime": "1788768000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000061",
+            "fundingTime": "1788739200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000063",
+            "fundingTime": "1788710400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000058",
+            "fundingTime": "1788681600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000038",
+            "fundingTime": "1788652800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "-0.000005",
+            "fundingTime": "1788624000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000006",
+            "fundingTime": "1788595200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "-0.000006",
+            "fundingTime": "1788566400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000092",
+            "fundingTime": "1788537600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000079",
+            "fundingTime": "1788508800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000008",
+            "fundingTime": "1788480000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000043",
+            "fundingTime": "1788451200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000094",
+            "fundingTime": "1788422400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.00004",
+            "fundingTime": "1788393600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000069",
+            "fundingTime": "1788364800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000067",
+            "fundingTime": "1788336000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1788307200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000077",
+            "fundingTime": "1788278400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1788249600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000053",
+            "fundingTime": "1788220800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000096",
+            "fundingTime": "1788192000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1788163200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000064",
+            "fundingTime": "1788134400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000045",
+            "fundingTime": "1788105600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000046",
+            "fundingTime": "1788076800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000041",
+            "fundingTime": "1788048000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000086",
+            "fundingTime": "1788019200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1787990400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.0001",
+            "fundingTime": "1787961600000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.00007",
+            "fundingTime": "1787932800000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000093",
+            "fundingTime": "1787904000000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000016",
+            "fundingTime": "1787875200000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000024",
+            "fundingTime": "1787846400000"
+          },
+          {
+            "symbol": "BTCUSDT",
+            "fundingRate": "0.000038",
+            "fundingTime": "1787817600000"
+          }
+        ]
+      },
+      "saved_response_canonical_sha256": "031e7c215a5a691f8d1c12d0e28bd07918f1c1d5efb09958bc025ee40f2a4338",
+      "api_status_semantics": "API code if JSON API response; null for non-API documentation/client HTML or JS.",
+      "saved_payload_canonical_sha256": "5e7e20e9e208df4cb2757674bf0b081e461e08dda0ee650b3b21cd7e696e58db"
+    },
+    {
+      "id": 11,
+      "kind": "api",
+      "method": "GET",
+      "url": "https://api.bitget.com/api/v2/mix/market/history-fund-rate?symbol=AAPLUSDT&productType=USDT-FUTURES&pageSize=100&pageNo=1",
+      "endpoint": "/api/v2/mix/market/history-fund-rate",
+      "parameters": {
+        "symbol": "AAPLUSDT",
+        "productType": "USDT-FUTURES",
+        "pageSize": 100,
+        "pageNo": 1
+      },
+      "retrieved_at_utc": "2026-11-01T20:50:51.258743+00:00",
+      "http_status": 200,
+      "http_date": "Sun, 01 Nov 2026 20:50:51 GMT",
+      "final_url": "https://api.bitget.com/api/v2/mix/market/history-fund-rate?symbol=AAPLUSDT&productType=USDT-FUTURES&pageSize=100&pageNo=1",
+      "raw_response_sha256": "8b3bed68a6b2162451fd01553c3bfe3c036e3fcf721ecfd724746f05b242fde4",
+      "raw_response_bytes": 7149,
+      "selection": "Full decoded JSON response; hash refers to entire original HTTP body.",
+      "api_code": "00000",
+      "api_msg": "success",
+      "response": {
+        "code": "00000",
+        "msg": "success",
+        "requestTime": 1793566251400,
+        "data": [
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1793548800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1793520000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1793491200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1793462400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1793433600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1793404800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1793376000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "-0.000182",
+            "fundingTime": "1793347200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1793318400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1793289600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1793260800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1793232000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1793203200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1793174400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1793145600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1793116800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1793088000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1793059200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1793030400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1793001600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792972800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792944000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792915200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792886400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792857600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792828800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "-0.000133",
+            "fundingTime": "1792800000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "-0.000129",
+            "fundingTime": "1792771200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792742400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "-0.000126",
+            "fundingTime": "1792713600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792684800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792656000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792627200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792598400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792569600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792540800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792512000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792483200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792454400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792425600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792396800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792368000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792339200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792310400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792281600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792252800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792224000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792195200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792166400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792137600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792108800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792080000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792051200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1792022400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791993600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791964800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791936000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791907200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791878400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791849600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791820800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791792000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791763200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791734400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791705600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791676800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791648000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791619200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791590400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791561600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "-0.000028",
+            "fundingTime": "1791532800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791504000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791475200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791446400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791417600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791388800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791360000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791331200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0.000054",
+            "fundingTime": "1791302400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791273600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0.000104",
+            "fundingTime": "1791244800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791216000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791187200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791158400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791129600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791100800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791072000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791043200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1791014400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790985600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790956800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790928000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0.000039",
+            "fundingTime": "1790899200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0.00016",
+            "fundingTime": "1790870400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790841600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790812800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790784000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790755200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0.000193",
+            "fundingTime": "1790726400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0.00004",
+            "fundingTime": "1790697600000"
+          }
+        ]
+      },
+      "saved_response_canonical_sha256": "eb10a48c12a4dc1dbea8d242af8636e2352dd2919b866021b5d9ba0c4ed9f528",
+      "api_status_semantics": "API code if JSON API response; null for non-API documentation/client HTML or JS.",
+      "saved_payload_canonical_sha256": "2e8e4ed0ccc44a12cf515987540426cf49869fd0416d462a509bb79dd130c523"
+    },
+    {
+      "id": 12,
+      "kind": "api",
+      "method": "GET",
+      "url": "https://api.bitget.com/api/v2/mix/market/history-fund-rate?symbol=AAPLUSDT&productType=USDT-FUTURES&pageSize=100&pageNo=2",
+      "endpoint": "/api/v2/mix/market/history-fund-rate",
+      "parameters": {
+        "symbol": "AAPLUSDT",
+        "productType": "USDT-FUTURES",
+        "pageSize": 100,
+        "pageNo": 2
+      },
+      "retrieved_at_utc": "2026-11-01T20:50:51.682047+00:00",
+      "http_status": 200,
+      "http_date": "Sun, 01 Nov 2026 20:50:51 GMT",
+      "final_url": "https://api.bitget.com/api/v2/mix/market/history-fund-rate?symbol=AAPLUSDT&productType=USDT-FUTURES&pageSize=100&pageNo=2",
+      "raw_response_sha256": "2df5f2096cdec1bfa628ee8e24165b815dcc7583491a2950c85f8bc008c031d0",
+      "raw_response_bytes": 7165,
+      "selection": "Full decoded JSON response; hash refers to entire original HTTP body.",
+      "api_code": "00000",
+      "api_msg": "success",
+      "response": {
+        "code": "00000",
+        "msg": "success",
+        "requestTime": 1793566251900,
+        "data": [
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790668800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790640000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790611200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790582400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790553600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790524800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790496000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790467200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790438400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790409600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790380800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790352000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790323200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0.000043",
+            "fundingTime": "1790294400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790265600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790236800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790208000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790179200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790150400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790121600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790092800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790064000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0.00009",
+            "fundingTime": "1790035200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1790006400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789977600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789948800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789920000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789891200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789862400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789833600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789804800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789776000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789747200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789718400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789689600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789660800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789632000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789603200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789574400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789545600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789516800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789488000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789459200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789430400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789401600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789372800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789344000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789315200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789286400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789257600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789228800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789200000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789171200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789142400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789113600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789084800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789056000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1789027200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1788998400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0.000199",
+            "fundingTime": "1788969600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1788940800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0.000136",
+            "fundingTime": "1788912000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0.000121",
+            "fundingTime": "1788883200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1788854400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1788825600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1788796800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1788768000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1788739200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1788710400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1788681600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1788652800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1788624000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1788595200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0.00029",
+            "fundingTime": "1788566400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1788537600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1788508800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0.000084",
+            "fundingTime": "1788480000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0.000127",
+            "fundingTime": "1788451200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1788422400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0.000028",
+            "fundingTime": "1788393600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1788364800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1788336000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0.000036",
+            "fundingTime": "1788307200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1788278400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1788249600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0.000007",
+            "fundingTime": "1788220800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0.000184",
+            "fundingTime": "1788192000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1788163200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1788134400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1788105600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1788076800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1788048000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1788019200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1787990400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0.000002",
+            "fundingTime": "1787961600000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1787932800000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1787904000000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1787875200000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0.000085",
+            "fundingTime": "1787846400000"
+          },
+          {
+            "symbol": "AAPLUSDT",
+            "fundingRate": "0",
+            "fundingTime": "1787817600000"
+          }
+        ]
+      },
+      "saved_response_canonical_sha256": "4547fbc1908cf1fe19d728539a096b46d3b3f396e39c12a0f40f882ff0b99a83",
+      "api_status_semantics": "API code if JSON API response; null for non-API documentation/client HTML or JS.",
+      "saved_payload_canonical_sha256": "d60c79692fa86e5b651a78b302748d2c786367d5b37a285ac0b56b78c63ca653"
+    },
+    {
+      "id": 13,
+      "kind": "api",
+      "method": "GET",
+      "url": "https://api.bitget.com/api/v2/mix/market/fills-history?symbol=BTCUSDT&productType=USDT-FUTURES&startTime=1789655400000&endTime=1789655460000&limit=3",
+      "endpoint": "/api/v2/mix/market/fills-history",
+      "parameters": {
+        "symbol": "BTCUSDT",
+        "productType": "USDT-FUTURES",
+        "startTime": 1789655400000,
+        "endTime": 1789655460000,
+        "limit": 3,
+        "idLessThan": "1484488082201526276"
+      },
+      "retrieved_at_utc": "2026-11-01T20:50:52.179978+00:00",
+      "http_status": 200,
+      "http_date": "Sun, 01 Nov 2026 20:50:52 GMT",
+      "final_url": "https://api.bitget.com/api/v2/mix/market/fills-history?symbol=BTCUSDT&productType=USDT-FUTURES&startTime=1789655400000&endTime=1789655460000&limit=3",
+      "raw_response_sha256": "edcc3cf4b221fcd9f778db8ad3ed4388a7911f934d26b003695250501ef4aa47",
+      "raw_response_bytes": 434,
+      "selection": "Full decoded JSON response; hash refers to entire original HTTP body.",
+      "api_code": "00000",
+      "api_msg": "success",
+      "response": {
+        "code": "00000",
+        "msg": "success",
+        "requestTime": 1793566252388,
+        "data": [
+          {
+            "tradeId": "1484488082201526280",
+            "price": "76899.4",
+            "size": "0.0041",
+            "side": "Sell",
+            "ts": "1789655459928",
+            "symbol": "BTCUSDT"
+          },
+          {
+            "tradeId": "1484488082201526278",
+            "price": "76899.4",
+            "size": "0.0025",
+            "side": "Sell",
+            "ts": "1789655459928",
+            "symbol": "BTCUSDT"
+          },
+          {
+            "tradeId": "1484488082201526276",
+            "price": "76899.4",
+            "size": "0.005",
+            "side": "Sell",
+            "ts": "1789655459928",
+            "symbol": "BTCUSDT"
+          }
+        ]
+      },
+      "saved_response_canonical_sha256": "907520b76cb83215537cad19669350dda823b42e3f2d25ad5d5a982316910b7e",
+      "api_status_semantics": "API code if JSON API response; null for non-API documentation/client HTML or JS.",
+      "saved_payload_canonical_sha256": "3912eeee2b9a54db0516789c92f6bc31fe2d6af08b40f0bce709d9dd60c99289"
+    },
+    {
+      "id": 14,
+      "kind": "api",
+      "method": "GET",
+      "url": "https://api.bitget.com/api/v2/mix/market/fills-history?symbol=BTCUSDT&productType=USDT-FUTURES&startTime=1789655400000&endTime=1789655460000&limit=3&idLessThan=1484488082201526276",
+      "endpoint": "/api/v2/mix/market/fills-history",
+      "parameters": {
+        "symbol": "BTCUSDT",
+        "productType": "USDT-FUTURES",
+        "startTime": 1789655400000,
+        "endTime": 1789655460000,
+        "limit": 3,
+        "idLessThan": "1484488082201526276"
+      },
+      "retrieved_at_utc": "2026-11-01T20:50:52.677347+00:00",
+      "http_status": 200,
+      "http_date": "Sun, 01 Nov 2026 20:50:52 GMT",
+      "final_url": "https://api.bitget.com/api/v2/mix/market/fills-history?symbol=BTCUSDT&productType=USDT-FUTURES&startTime=1789655400000&endTime=1789655460000&limit=3&idLessThan=1484488082201526276",
+      "raw_response_sha256": "9a3457c3e9fef2cea2657feb8ad704ff68c117fa526e3b0c707a9b990c8e8ead",
+      "raw_response_bytes": 434,
+      "selection": "Full decoded JSON response; hash refers to entire original HTTP body.",
+      "api_code": "00000",
+      "api_msg": "success",
+      "response": {
+        "code": "00000",
+        "msg": "success",
+        "requestTime": 1793566252768,
+        "data": [
+          {
+            "tradeId": "1484488082201526274",
+            "price": "76899.4",
+            "size": "0.0011",
+            "side": "Sell",
+            "ts": "1789655459928",
+            "symbol": "BTCUSDT"
+          },
+          {
+            "tradeId": "1484488082201526272",
+            "price": "76899.4",
+            "size": "0.0358",
+            "side": "Sell",
+            "ts": "1789655459928",
+            "symbol": "BTCUSDT"
+          },
+          {
+            "tradeId": "1484488081891147776",
+            "price": "76899.5",
+            "size": "0.0007",
+            "side": "Buy",
+            "ts": "1789655459854",
+            "symbol": "BTCUSDT"
+          }
+        ]
+      },
+      "saved_response_canonical_sha256": "e2db22258ae7d849bee48418e7c9769d165bb63f895c1e6c392640e3d3b3912e",
+      "api_status_semantics": "API code if JSON API response; null for non-API documentation/client HTML or JS.",
+      "saved_payload_canonical_sha256": "29e6622d7dd9aab87f5ef000e4c8e3f9a0d1fe03e4665f841d863ae348a93b7a"
+    },
+    {
+      "id": 15,
+      "kind": "api",
+      "method": "GET",
+      "url": "https://api.bitget.com/api/v2/mix/market/fills-history?symbol=AAPLUSDT&productType=USDT-FUTURES&startTime=1789655400000&endTime=1789655460000&limit=3",
+      "endpoint": "/api/v2/mix/market/fills-history",
+      "parameters": {
+        "symbol": "AAPLUSDT",
+        "productType": "USDT-FUTURES",
+        "startTime": 1789655400000,
+        "endTime": 1789655460000,
+        "limit": 3,
+        "idLessThan": "1484487996474114050"
+      },
+      "retrieved_at_utc": "2026-11-01T20:50:53.065523+00:00",
+      "http_status": 200,
+      "http_date": "Sun, 01 Nov 2026 20:50:53 GMT",
+      "final_url": "https://api.bitget.com/api/v2/mix/market/fills-history?symbol=AAPLUSDT&productType=USDT-FUTURES&startTime=1789655400000&endTime=1789655460000&limit=3",
+      "raw_response_sha256": "09b3893cf2e9fd6bb07d4cd356e8afb43bfbea3186da2cbc516bdd106c7fda02",
+      "raw_response_bytes": 426,
+      "selection": "Full decoded JSON response; hash refers to entire original HTTP body.",
+      "api_code": "00000",
+      "api_msg": "success",
+      "response": {
+        "code": "00000",
+        "msg": "success",
+        "requestTime": 1793566253181,
+        "data": [
+          {
+            "tradeId": "1484488076648235008",
+            "price": "334.14",
+            "size": "0.02",
+            "side": "Buy",
+            "ts": "1789655458604",
+            "symbol": "AAPLUSDT"
+          },
+          {
+            "tradeId": "1484488070717489152",
+            "price": "334.12",
+            "size": "0.65",
+            "side": "Sell",
+            "ts": "1789655457190",
+            "symbol": "AAPLUSDT"
+          },
+          {
+            "tradeId": "1484487996474114050",
+            "price": "334.04",
+            "size": "0.5",
+            "side": "Buy",
+            "ts": "1789655439489",
+            "symbol": "AAPLUSDT"
+          }
+        ]
+      },
+      "saved_response_canonical_sha256": "561913de108470194679b3feabb969bb8f147ad2b1f8cffb462bc6ddd35d9ccb",
+      "api_status_semantics": "API code if JSON API response; null for non-API documentation/client HTML or JS.",
+      "saved_payload_canonical_sha256": "a914f49d312853a3b53ee7c53355da872c9d37e2d9b5190bc09d15e56b647be6"
+    },
+    {
+      "id": 16,
+      "kind": "api",
+      "method": "GET",
+      "url": "https://api.bitget.com/api/v2/mix/market/fills-history?symbol=AAPLUSDT&productType=USDT-FUTURES&startTime=1789655400000&endTime=1789655460000&limit=3&idLessThan=1484487996474114050",
+      "endpoint": "/api/v2/mix/market/fills-history",
+      "parameters": {
+        "symbol": "AAPLUSDT",
+        "productType": "USDT-FUTURES",
+        "startTime": 1789655400000,
+        "endTime": 1789655460000,
+        "limit": 3,
+        "idLessThan": "1484487996474114050"
+      },
+      "retrieved_at_utc": "2026-11-01T20:50:53.463756+00:00",
+      "http_status": 200,
+      "http_date": "Sun, 01 Nov 2026 20:50:53 GMT",
+      "final_url": "https://api.bitget.com/api/v2/mix/market/fills-history?symbol=AAPLUSDT&productType=USDT-FUTURES&startTime=1789655400000&endTime=1789655460000&limit=3&idLessThan=1484487996474114050",
+      "raw_response_sha256": "9ad613b8ce87369700a9608d9d609324e6e9015b1b36fd7296d5aa49e28dffee",
+      "raw_response_bytes": 424,
+      "selection": "Full decoded JSON response; hash refers to entire original HTTP body.",
+      "api_code": "00000",
+      "api_msg": "success",
+      "response": {
+        "code": "00000",
+        "msg": "success",
+        "requestTime": 1793566253569,
+        "data": [
+          {
+            "tradeId": "1484487996474114048",
+            "price": "334.03",
+            "size": "0.5",
+            "side": "Buy",
+            "ts": "1789655439489",
+            "symbol": "AAPLUSDT"
+          },
+          {
+            "tradeId": "1484487979277467652",
+            "price": "334.02",
+            "size": "0.5",
+            "side": "Buy",
+            "ts": "1789655435389",
+            "symbol": "AAPLUSDT"
+          },
+          {
+            "tradeId": "1484487954141003778",
+            "price": "333.92",
+            "size": "0.06",
+            "side": "Buy",
+            "ts": "1789655429396",
+            "symbol": "AAPLUSDT"
+          }
+        ]
+      },
+      "saved_response_canonical_sha256": "7e339462242ef3d3314d8df2997a96a6c4e6b0059fe012fc10e6f11190e2faf8",
+      "api_status_semantics": "API code if JSON API response; null for non-API documentation/client HTML or JS.",
+      "saved_payload_canonical_sha256": "62f26cebded7e8d64bda13d4e591ef9b8a141c1f297cc9006a632224c4ebf8e1"
+    },
+    {
+      "id": 17,
+      "kind": "api",
+      "method": "GET",
+      "url": "https://api.bitget.com/api/v2/mix/market/merge-depth?symbol=BTCUSDT&productType=USDT-FUTURES&precision=scale0&limit=1",
+      "endpoint": "/api/v2/mix/market/merge-depth",
+      "parameters": {
+        "symbol": "BTCUSDT",
+        "productType": "USDT-FUTURES",
+        "precision": "scale0",
+        "limit": 1
+      },
+      "retrieved_at_utc": "2026-11-01T20:50:53.850033+00:00",
+      "http_status": 200,
+      "http_date": "Sun, 01 Nov 2026 20:50:54 GMT",
+      "final_url": "https://api.bitget.com/api/v2/mix/market/merge-depth?symbol=BTCUSDT&productType=USDT-FUTURES&precision=scale0&limit=1",
+      "raw_response_sha256": "d0b5b73b2a482bf64ef00cdc4dbac673114abd6a52714827622c8186ab92c34d",
+      "raw_response_bytes": 199,
+      "selection": "Full decoded JSON response; hash refers to entire original HTTP body.",
+      "api_code": "00000",
+      "api_msg": "success",
+      "response": {
+        "code": "00000",
+        "msg": "success",
+        "requestTime": 1793566253952,
+        "data": {
+          "asks": [
+            [
+              77871.1,
+              4.7688
+            ]
+          ],
+          "bids": [
+            [
+              77871.0,
+              5.3576
+            ]
+          ],
+          "ts": "1793566253953",
+          "scale": "0.1",
+          "precision": "scale0",
+          "isMaxPrecision": "NO"
+        }
+      },
+      "saved_response_canonical_sha256": "5e0d21c83817044973ce22664281f268ae405af807a5aa4ff03cae4237b30a90",
+      "api_status_semantics": "API code if JSON API response; null for non-API documentation/client HTML or JS.",
+      "saved_payload_canonical_sha256": "96d63fd233d26b32f29cb0546332613fdf0edc00b2d9e56e26a6a94ff84cf46e"
+    },
+    {
+      "id": 18,
+      "kind": "api",
+      "method": "GET",
+      "url": "https://api.bitget.com/api/v2/mix/market/ticker?symbol=AAPLUSDT&productType=USDT-FUTURES",
+      "endpoint": "/api/v2/mix/market/ticker",
+      "parameters": {
+        "symbol": "AAPLUSDT",
+        "productType": "USDT-FUTURES"
+      },
+      "retrieved_at_utc": "2026-11-01T20:50:54.230916+00:00",
+      "http_status": 200,
+      "http_date": "Sun, 01 Nov 2026 20:50:54 GMT",
+      "final_url": "https://api.bitget.com/api/v2/mix/market/ticker?symbol=AAPLUSDT&productType=USDT-FUTURES",
+      "raw_response_sha256": "089a7784d1a11b76370f4a9ab046ca287f7221c8239040cb4bac6a566ea2c3ff",
+      "raw_response_bytes": 573,
+      "selection": "Full decoded JSON response; hash refers to entire original HTTP body.",
+      "api_code": "00000",
+      "api_msg": "success",
+      "response": {
+        "code": "00000",
+        "msg": "success",
+        "requestTime": 1793566254552,
+        "data": [
+          {
+            "symbol": "AAPLUSDT",
+            "lastPr": "344.16",
+            "askPr": "344.16",
+            "bidPr": "344.15",
+            "bidSz": "7.69",
+            "askSz": "66.49",
+            "high24h": "345.68",
+            "low24h": "343.79",
+            "ts": "1793566254554",
+            "change24h": "-0.0022",
+            "baseVolume": "1357.69",
+            "quoteVolume": "468446.5429",
+            "usdtVolume": "468446.5429",
+            "openUtc": "345.19",
+            "changeUtc24h": "-0.00298",
+            "indexPrice": "344.1039188113408449",
+            "fundingRate": "0",
+            "holdingAmount": "18902.180000000005",
+            "deliveryStartTime": null,
+            "deliveryTime": null,
+            "deliveryStatus": "",
+            "open24h": "344.92",
+            "markPrice": "344.16"
+          }
+        ]
+      },
+      "saved_response_canonical_sha256": "e9d031ad02f286d0f709de215869b6a5ff5af16f3ca832288c9208359a9a714a",
+      "api_status_semantics": "API code if JSON API response; null for non-API documentation/client HTML or JS.",
+      "saved_payload_canonical_sha256": "9fe8c5db6c59a7145561472f4258f980ff4551571e9e51708ad1d01b5665d9bd"
+    },
+    {
+      "id": 19,
+      "kind": "document",
+      "method": "GET",
+      "url": "https://www.bitget.com/legacy-docs/classic/contract/market/Get-Merge-Depth",
+      "endpoint": "/legacy-docs/classic/contract/market/Get-Merge-Depth",
+      "parameters": {},
+      "retrieved_at_utc": "2026-11-01T20:51:10.219095+00:00",
+      "http_status": 200,
+      "final_url": "https://www.bitget.com/legacy-docs/classic/contract/market/Get-Merge-Depth",
+      "http_date": "Sun, 01 Nov 2026 20:51:10 GMT",
+      "raw_response_sha256": "8927a9cbf357d8f90d6b56e784f99ccc85900061f3fd586b53f9b3bfe797b696",
+      "raw_response_bytes": 41546,
+      "selection": "Selected hyperlinks and inline HTML context, not full document. Hash refers to entire original HTML response.",
+      "selected_links": [
+        [
+          "/legacy-docs/classic/contract/market/Get-Merge-Depth",
+          "English"
+        ],
+        [
+          "/zh-CN/legacy-docs/classic/contract/market/Get-Merge-Depth",
+          "简体中文"
+        ],
+        [
+          "/legacy-docs/classic/contract/market/Get-Merge-Depth",
+          "Get Merge Market Depth"
+        ],
+        [
+          "/legacy-docs/classic/contract/market/Get-All-Symbols-Contracts",
+          "Get Contract Config"
+        ],
+        [
+          "https://www.bitget.com/data-download",
+          "web"
+        ]
+      ],
+      "selected_script_urls": [],
+      "api_code": null,
+      "api_status_semantics": "API code if JSON API response; null for non-API documentation/client HTML or JS.",
+      "saved_payload_canonical_sha256": "491fd462ac20a3ca0584d7b62c4235aa5357210aaa6425dd598a5043b2db6f53"
+    },
+    {
+      "id": 20,
+      "kind": "document",
+      "method": "GET",
+      "url": "https://www.bitget.com/data-download",
+      "endpoint": "/data-download",
+      "parameters": {},
+      "retrieved_at_utc": "2026-11-01T20:51:10.371362+00:00",
+      "http_status": 200,
+      "final_url": "https://www.bitget.com/data-download",
+      "http_date": "Sun, 01 Nov 2026 20:51:10 GMT",
+      "raw_response_sha256": "d01de4a06e8893a374fc69f2bf3354ad40f6634df9e1340545478b65f13284f9",
+      "raw_response_bytes": 90733,
+      "selection": "Selected hyperlinks and inline HTML context, not full document. Hash refers to entire original HTML response.",
+      "selected_links": [],
+      "selected_script_urls": [
+        "/cdnstatic/libs/verify-auth.v1.min.js",
+        "/cdnstatic/libs/dx-sdk-new.v1.1511.0.min.js",
+        "https://static.bgbstatic.com/cdnstatic/libs/react.v18.3.1.min.js",
+        "https://static.bgbstatic.com/cdnstatic/libs/react-dom.v18.3.1.min.js",
+        "/landing-static/client/js/runtime.536f3b463535aec3fc20.main.js",
+        "/landing-static/client/js/4000.a865986384736b33a060.main.js",
+        "/landing-static/client/js/1913.8f811cf3ee357a412933.main.js",
+        "/landing-static/client/js/6018.d973f286e5a9987a56ba.main.js",
+        "/landing-static/client/js/8486.966f567a352b0267fda3.main.js",
+        "/landing-static/client/js/152.a472aec3c374783ee151.main.js",
+        "/landing-static/client/js/5368.08a5d94d3f12d0254c60.main.js",
+        "/landing-static/client/js/5632.3c4e38d986d1b40c310d.main.js",
+        "/landing-static/client/js/9899.0d1640f3daa5353040fe.main.js",
+        "/landing-static/client/js/8083.d7aee3ea565e09e86f97.main.js",
+        "/landing-static/client/js/client.ef4a4af7640f8baa29c0.main.js",
+        "/landing-static/client/js/1123.2740b5a35cb7a76353e5.chunk.js",
+        "/landing-static/client/js/3957.580f4564529cbdaf4fab.chunk.js",
+        "/landing-static/client/js/7280.fb5236ee57b511a075ba.chunk.js",
+        "/landing-static/client/js/9599.e1a3d034f1450d4bf592.chunk.js",
+        "/landing-static/client/js/pages-data-download-index-page.1f14c0d0ddfaba7e1f21.chunk.js"
+      ],
+      "selected_html_context": [
+        "tion\":\"Historical market data for Bitget futures contracts, including candlestick chart data, transaction history, and order book depth data.\",\"keywords\":[\"Futures\",\"Candlestick Chart Data\",\"Transaction History\",\"Depth Data\"]}]}]}</script><title data-rh=\"true\">History data download | Bitget</title>\n  <link data-chunk=\"pages-data-download-index-page\" rel=\"preload\" as=\"style\" href=\"/landing-static/client/css/bbf14e5cf53839a179dc.css\" integrity=\"sha384-Lu8Fs+mvORD8Zu8nzbXhZ94Bw7eBCEA8VC9/",
+        "hart data, transaction history, and order book depth data.\",\"keywords\":[\"Futures\",\"Candlestick Chart Data\",\"Transaction History\",\"Depth Data\"]}]}]}</script><title data-rh=\"true\">History data download | Bitget</title>\n  <link data-chunk=\"pages-data-download-index-page\" rel=\"preload\" as=\"style\" href=\"/landing-static/client/css/bbf14e5cf53839a179dc.css\" integrity=\"sha384-Lu8Fs+mvORD8Zu8nzbXhZ94Bw7eBCEA8VC9/s695nzrK3vJQTrbPZLpToC536Rp2\" crossorigin=\"anonymous\">\n<link data-chunk=\"client\" re",
+        "path></svg></div><div class=\"flex-1\"><div class=\"text-[24px] font-medium leading-[34px] &lt;md:text-[20px] &lt;md:leading-[28px]\">Depth data</div><div class=\"mt-[4px] min-h-[44px] text-[16px] font-normal leading-[22px] text-[var(--ds-color-text-tertiary)] &lt;md:text-[14px] &lt;md:leading-[20px]\">Bitget&#x27;s order book data for recent years</div></div><button type=\"button\" class=\"bit-btn css-1lgvuyy bit-btn-main bit-btn-md mt-[60px] w-full font-medium &lt;md:mt-[32px]\"><span>Download",
+        "path></svg></div><div class=\"flex-1\"><div class=\"text-[24px] font-medium leading-[34px] &lt;md:text-[20px] &lt;md:leading-[28px]\">Depth data</div><div class=\"mt-[4px] min-h-[44px] text-[16px] font-normal leading-[22px] text-[var(--ds-color-text-tertiary)] &lt;md:text-[14px] &lt;md:leading-[20px]\">Bitget&#x27;s order book data for recent years</div></div><button type=\"button\" class=\"bit-btn css-1lgvuyy bit-btn-main bit-btn-md mt-[60px] w-full font-medium &lt;md:mt-[32px]\"><span>Download",
+        "hart data, transaction history, and order book depth data.\",\"keywords\":[\"Futures\",\"Candlestick Chart Data\",\"Transaction History\",\"Depth Data\"]}]}]}</script><title data-rh=\"true\">History data download | Bitget</title>\n  <link data-chunk=\"pages-data-download-index-page\" rel=\"preload\" as=\"style\" href=\"/landing-static/client/css/bbf14e5cf53839a179dc.css\" integrity=\"sha384-Lu8Fs+mvORD8Zu8nzbXhZ94Bw7eBCEA8VC9/s695nzrK3vJQTrbPZLpToC536Rp2\" crossorigin=\"anonymous\">\n<link data-chunk=\"clien",
+        "ing-[24px] text-[var(--ds-color-text-tertiary)] &lt;md:text-[14px] &lt;md:leading-[20px]\">Download candlestick charts, order book depth, and transaction history for spot and futures trading from recent years.</p></div><img src=\"/landing-static/client/media/e8490355fb09cb76a4e3.png\" alt=\"data-download-banner\" class=\"shrink-0 md:h-[285px] md:w-[300px] &lt;md:!h-[104px] &lt;md:!w-[104px] &lt;md:self-center\"/></div></div></div><div class=\"relative z-[1] mx-auto w-[1200px] text-[var(--",
+        "path></svg></div><div class=\"flex-1\"><div class=\"text-[24px] font-medium leading-[34px] &lt;md:text-[20px] &lt;md:leading-[28px]\">Depth data</div><div class=\"mt-[4px] min-h-[44px] text-[16px] font-normal leading-[22px] text-[var(--ds-color-text-tertiary)] &lt;md:text-[14px] &lt;md:leading-[20px]\">Bitget&#x27;s order book data for recent years</div></div><button type=\"button\" class=\"bit-btn css-1lgvuyy bit-btn-main bit-btn-md mt-[60px] w-full font-medium &lt;md:mt-[32px]\"><span>Dow",
+        "path></svg></div><div class=\"flex-1\"><div class=\"text-[24px] font-medium leading-[34px] &lt;md:text-[20px] &lt;md:leading-[28px]\">Depth data</div><div class=\"mt-[4px] min-h-[44px] text-[16px] font-normal leading-[22px] text-[var(--ds-color-text-tertiary)] &lt;md:text-[14px] &lt;md:leading-[20px]\">Bitget&#x27;s order book data for recent years</div></div><button type=\"button\" class=\"bit-btn css-1lgvuyy bit-btn-main bit-btn-md mt-[60px] w-full font-medium &lt;md:mt-[32px]\"><span>Dow",
+        "a\",\"description\":\"Historical market data for Bitget futures contracts, including candlestick chart data, transaction history, and order book depth data.\",\"keywords\":[\"Futures\",\"Candlestick Chart Data\",\"Transaction History\",\"Depth Data\"]}]}]}</script><title data-rh=\"true\">History data download | Bitget</title>\n  <link data-chunk=\"pages-data-download-index-page\" rel=\"preload\" as=\"style\" href=\"/landing-static/client/css/bbf14e5cf53839a179dc.css\" integrity=\"sha384-Lu8Fs+mvORD8Zu8nzbXhZ94Bw",
+        "normal leading-[24px] text-[var(--ds-color-text-tertiary)] &lt;md:text-[14px] &lt;md:leading-[20px]\">Download candlestick charts, order book depth, and transaction history for spot and futures trading from recent years.</p></div><img src=\"/landing-static/client/media/e8490355fb09cb76a4e3.png\" alt=\"data-download-banner\" class=\"shrink-0 md:h-[285px] md:w-[300px] &lt;md:!h-[104px] &lt;md:!w-[104px] &lt;md:self-center\"/></div></div></div><div class=\"relative z-[1] mx-auto w-[1200px] text-[",
+        "xt-[16px] font-normal leading-[22px] text-[var(--ds-color-text-tertiary)] &lt;md:text-[14px] &lt;md:leading-[20px]\">Bitget&#x27;s order book data for recent years</div></div><button type=\"button\" class=\"bit-btn css-1lgvuyy bit-btn-main bit-btn-md mt-[60px] w-full font-medium &lt;md:mt-[32px]\"><span>Download</span></button></div></div></div></div><div><div class=\"text-[32px] font-semibold leading-[32px] &lt;md:text-[24px] &lt;md:leading-[28px]\">Futures</div><div class=\"mt-[24px] grid gr",
+        "xt-[16px] font-normal leading-[22px] text-[var(--ds-color-text-tertiary)] &lt;md:text-[14px] &lt;md:leading-[20px]\">Bitget&#x27;s order book data for recent years</div></div><button type=\"button\" class=\"bit-btn css-1lgvuyy bit-btn-main bit-btn-md mt-[60px] w-full font-medium &lt;md:mt-[32px]\"><span>Download</span></button></div></div></div></div></div></div></main><div class=\"micro micro-dark\" data-micro-type=\"Footer\"><div></div></div></div><div class=\"fixed right-[24px] bottom-[24px] ",
+        "O6i6WPuBtSQzOJD/vBNeXdX67lznduiEaUQMhrWnYxOS4XkHqOY6yaIq+\" crossorigin=\"anonymous\"></script>\n<script async data-chunk=\"pages-data-download-index-page\" src=\"/landing-static/client/js/7280.fb5236ee57b511a075ba.chunk.js\" integrity=\"sha384-MFT/ioOwNM6c+VDPwrPnwceZd2qoAg4pRemoju3Qv/2ntgDqDPD0axX6rsHgLaMC\" crossorigin=\"anonymous\"></script>\n<script async data-chunk=\"pages-data-download-index-page\" src=\"/landing-static/client/js/9599.e1a3d034f1450d4bf592.chunk.js\" integrity=\"sha384-M7/2hRTuM",
+        "wNM6c+VDPwrPnwceZd2qoAg4pRemoju3Qv/2ntgDqDPD0axX6rsHgLaMC\" crossorigin=\"anonymous\"></script>\n<script async data-chunk=\"pages-data-download-index-page\" src=\"/landing-static/client/js/9599.e1a3d034f1450d4bf592.chunk.js\" integrity=\"sha384-M7/2hRTuMiHsu/VOGGtP7p+mA08CuzSNdflMjEWKO5hT6BihUpC/2dbSZUdE3IpX\" crossorigin=\"anonymous\"></script>\n<script async data-chunk=\"pages-data-download-index-page\" src=\"/landing-static/client/js/pages-data-download-index-page.1f14c0d0ddfaba7e1f21.chunk.js\" i",
+        "uMiHsu/VOGGtP7p+mA08CuzSNdflMjEWKO5hT6BihUpC/2dbSZUdE3IpX\" crossorigin=\"anonymous\"></script>\n<script async data-chunk=\"pages-data-download-index-page\" src=\"/landing-static/client/js/pages-data-download-index-page.1f14c0d0ddfaba7e1f21.chunk.js\" integrity=\"sha384-rQZ8jmzSLx9JiZpuFliLEOIRdlls7E7Snt0lIXGN0pY8l9716GFhjWo05CGnW7cU\" crossorigin=\"anonymous\"></script>\n  \n</body>\n</html>",
+        "sorigin=\"anonymous\"></script>\n<script async data-chunk=\"pages-data-download-index-page\" src=\"/landing-static/client/js/pages-data-download-index-page.1f14c0d0ddfaba7e1f21.chunk.js\" integrity=\"sha384-rQZ8jmzSLx9JiZpuFliLEOIRdlls7E7Snt0lIXGN0pY8l9716GFhjWo05CGnW7cU\" crossorigin=\"anonymous\"></script>\n  \n</body>\n</html>",
+        "l leading-[22px] text-[var(--ds-color-text-tertiary)] &lt;md:text-[14px] &lt;md:leading-[20px]\">Bitget&#x27;s order book data for recent years</div></div><button type=\"button\" class=\"bit-btn css-1lgvuyy bit-btn-main bit-btn-md mt-[60px] w-full font-medium &lt;md:mt-[32px]\"><span>Download</span></button></div></div></div></div><div><div class=\"text-[32px] font-semibold leading-[32px] &lt;md:text-[24px] &lt;md:leading-[28px]\">Futures</div><div class=\"mt-[24px] grid grid-cols-3 gap-[24px] &",
+        "ng-[22px] text-[var(--ds-color-text-tertiary)] &lt;md:text-[14px] &lt;md:leading-[20px]\">Bitget&#x27;s candlestick chart data for recent years</div></div><button type=\"button\" class=\"bit-btn css-1lgvuyy bit-btn-main bit-btn-md mt-[60px] w-full font-medium &lt;md:mt-[32px]\"><span>Download</span></button></div></div><div class=\"BoSD2_RcP7uUotfhtpq5 flex flex-1 flex-col rounded-[16px] p-[24px] text-[var(--ds-color-text-primary)] &lt;md:p-[20px] &lt;md:rounded-[12px]\"><div class=\"yqDk2sQnUZr",
+        " leading-[22px] text-[var(--ds-color-text-tertiary)] &lt;md:text-[14px] &lt;md:leading-[20px]\">Bitget&#x27;s transaction data for recent years</div></div><button type=\"button\" class=\"bit-btn css-1lgvuyy bit-btn-main bit-btn-md mt-[60px] w-full font-medium &lt;md:mt-[32px]\"><span>Download</span></button></div></div><div class=\"BoSD2_RcP7uUotfhtpq5 flex flex-1 flex-col rounded-[16px] p-[24px] text-[var(--ds-color-text-primary)] &lt;md:p-[20px] &lt;md:rounded-[12px]\"><div class=\"yqDk2sQnUZr",
+        "l leading-[22px] text-[var(--ds-color-text-tertiary)] &lt;md:text-[14px] &lt;md:leading-[20px]\">Bitget&#x27;s order book data for recent years</div></div><button type=\"button\" class=\"bit-btn css-1lgvuyy bit-btn-main bit-btn-md mt-[60px] w-full font-medium &lt;md:mt-[32px]\"><span>Download</span></button></div></div></div></div></div></div></main><div class=\"micro micro-dark\" data-micro-type=\"Footer\"><div></div></div></div><div class=\"fixed right-[24px] bottom-[24px] flex justify-center it"
+      ],
+      "api_code": null,
+      "api_status_semantics": "API code if JSON API response; null for non-API documentation/client HTML or JS.",
+      "saved_payload_canonical_sha256": "c104f59c365f63e2a4046b3df3ff819942943b3c43f2a77813634b948c8c1c58"
+    },
+    {
+      "id": 21,
+      "kind": "document",
+      "method": "GET",
+      "url": "https://www.bitget.com/legacy-docs/classic/contract/market/Get-All-Symbols-Contracts",
+      "endpoint": "/legacy-docs/classic/contract/market/Get-All-Symbols-Contracts",
+      "parameters": {},
+      "retrieved_at_utc": "2026-11-01T20:51:23.817686+00:00",
+      "http_status": 200,
+      "final_url": "https://www.bitget.com/legacy-docs/classic/contract/market/Get-All-Symbols-Contracts",
+      "http_date": "Sun, 01 Nov 2026 20:51:24 GMT",
+      "raw_response_sha256": "ae300b7d9a936ec808dcbdf62f07839c5884877669d3ffcd3df8b79872c717fe",
+      "raw_response_bytes": 54596,
+      "selection": "Selected source text contexts only, not full document. Hash refers to entire original HTTP body.",
+      "selected_excerpts": [
+        {
+          "term": "offTime",
+          "text": "xSymbolOrderNum\"\n:\n\"999999\"\n,\n\"maxProductOrderNum\"\n:\n\"999999\"\n,\n\"maxPositionNum\"\n:\n\"150\"\n,\n\"symbolStatus\"\n:\n\"normal\"\n,\n\"offTime\"\n:\n\"-1\"\n,\n\"limitOpenTime\"\n:\n\"-1\"\n,\n\"deliveryTime\"\n:\n\"\"\n,\n\"deliveryStartTime\"\n:\n\"\"\n,\n\"deliveryPeriod\"\n:\n\"\"\n,\n\"launchTime\"\n:\n\"\"\n,\n\"fundInterval\"\n:\n\"8\"\n,\n\"minLever\"\n:\n\"1\"\n,\n\"maxLever\"\n:\n\"125\"\n,\n\"posLimit\"\n:\n\"0.05\"\n,\n\"maintainTime\"\n:\n\"1680165535278\"\n,\n\"openTime\"\n:\n\"\"\n,\n\"maxMarketOrderQty\"\n:\n\"220\"\n,\n\"maxOrderQty\"\n:\n\"1200\"\n,\n\"isRwa\"\n:\n\"YES\"\n}\n]\n}\nResponse Parameters\n​\nParameter\nType\nDescription\n>\nsymbol\nString\nProduct name\n>\nbaseCoin\nString\nBase currency\nSpecifically refers to ETH as in ETHUSDT\n>\nquo"
+        },
+        {
+          "term": "offTime",
+          "text": "position\nlimit_open\n: can't place orders(can close position)\nrestrictedAPI\n:can't place orders with API\noff\n: offline\n>\noffTime\nString\nTrading halt time, '-1' means normal\n>\nlimitOpenTime\nString\nTime to open positions, '-1' means normal; other values indicate that the symbol is under maintenance or to be maintained and trading is prohibited after the specified time.\n>\ndeliveryTime\nString\nDelivery time\n>\ndeliveryStartTime\nString\nDelivery start time\n>\ndeliveryPeriod\nString\nDelivery period\nthis_quarter\ncurrent quarter\nnext_quarter\nsecond quarter\n>\nlaunchTime\nString\nListing time\n>\nfundInterval\nString\nFunding fee settlement "
+        },
+        {
+          "term": "openTime",
+          "text": "fundInterval\"\n:\n\"8\"\n,\n\"minLever\"\n:\n\"1\"\n,\n\"maxLever\"\n:\n\"125\"\n,\n\"posLimit\"\n:\n\"0.05\"\n,\n\"maintainTime\"\n:\n\"1680165535278\"\n,\n\"openTime\"\n:\n\"\"\n,\n\"maxMarketOrderQty\"\n:\n\"220\"\n,\n\"maxOrderQty\"\n:\n\"1200\"\n,\n\"isRwa\"\n:\n\"YES\"\n}\n]\n}\nResponse Parameters\n​\nParameter\nType\nDescription\n>\nsymbol\nString\nProduct name\n>\nbaseCoin\nString\nBase currency\nSpecifically refers to ETH as in ETHUSDT\n>\nquoteCoin\nString\nQuote currency\nSpecifically refers to USDT as in ETHUSDT\n>\nbuyLimitPriceRatio\nString\nRatio of bid price to limit price\n>\nsellLimitPriceRatio\nString\nRatio of ask price to limit price\n>\nfeeRateUpRatio\nString\nTransaction fee increase ratio\n>\nmaker"
+        },
+        {
+          "term": "openTime",
+          "text": ")\nrestrictedAPI\n:can't place orders with API\noff\n: offline\n>\noffTime\nString\nTrading halt time, '-1' means normal\n>\nlimitOpenTime\nString\nTime to open positions, '-1' means normal; other values indicate that the symbol is under maintenance or to be maintained and trading is prohibited after the specified time.\n>\ndeliveryTime\nString\nDelivery time\n>\ndeliveryStartTime\nString\nDelivery start time\n>\ndeliveryPeriod\nString\nDelivery period\nthis_quarter\ncurrent quarter\nnext_quarter\nsecond quarter\n>\nlaunchTime\nString\nListing time\n>\nfundInterval\nString\nFunding fee settlement cycle, hourly/every 8 hours\n>\nminLever\nString\nminimum levera"
+        },
+        {
+          "term": "openTime",
+          "text": "to the maximum allowed quantity when placing an order using the base coin\n>\nisRwa\nString\nIs this an RWA Symbol\nYES\nNO\n>\nopenTime\nString\nThis field has been deprecated\nHow was your Reading Experience with us?\n★\n★\n★\n★\n★\nFeedback\nPrevious\nGet Contract OI Limit\nNext\nGet Single Account"
+        },
+        {
+          "term": "launchTime",
+          "text": ",\n\"offTime\"\n:\n\"-1\"\n,\n\"limitOpenTime\"\n:\n\"-1\"\n,\n\"deliveryTime\"\n:\n\"\"\n,\n\"deliveryStartTime\"\n:\n\"\"\n,\n\"deliveryPeriod\"\n:\n\"\"\n,\n\"launchTime\"\n:\n\"\"\n,\n\"fundInterval\"\n:\n\"8\"\n,\n\"minLever\"\n:\n\"1\"\n,\n\"maxLever\"\n:\n\"125\"\n,\n\"posLimit\"\n:\n\"0.05\"\n,\n\"maintainTime\"\n:\n\"1680165535278\"\n,\n\"openTime\"\n:\n\"\"\n,\n\"maxMarketOrderQty\"\n:\n\"220\"\n,\n\"maxOrderQty\"\n:\n\"1200\"\n,\n\"isRwa\"\n:\n\"YES\"\n}\n]\n}\nResponse Parameters\n​\nParameter\nType\nDescription\n>\nsymbol\nString\nProduct name\n>\nbaseCoin\nString\nBase currency\nSpecifically refers to ETH as in ETHUSDT\n>\nquoteCoin\nString\nQuote currency\nSpecifically refers to USDT as in ETHUSDT\n>\nbuyLimitPriceRatio\nString\nRatio of bid price to"
+        },
+        {
+          "term": "launchTime",
+          "text": "\nDelivery start time\n>\ndeliveryPeriod\nString\nDelivery period\nthis_quarter\ncurrent quarter\nnext_quarter\nsecond quarter\n>\nlaunchTime\nString\nListing time\n>\nfundInterval\nString\nFunding fee settlement cycle, hourly/every 8 hours\n>\nminLever\nString\nminimum leverage\n>\nmaxLever\nString\nMaximum leverage\n>\nposLimit\nString\nPosition limits (deprecated)\n>\nmaintainTime\nString\nMaintenance time (there will be a value when the status is under maintenance/upcoming maintenance)\n>\nmaxMarketOrderQty\nString\nMaximum order quantity for a single market order\nThis refers to the maximum allowed quantity when placing an order using the base coin\n>\nmaxO"
+        },
+        {
+          "term": "symbolStatus",
+          "text": ",\n\"minTradeUSDT\"\n:\n\"5\"\n,\n\"maxSymbolOrderNum\"\n:\n\"999999\"\n,\n\"maxProductOrderNum\"\n:\n\"999999\"\n,\n\"maxPositionNum\"\n:\n\"150\"\n,\n\"symbolStatus\"\n:\n\"normal\"\n,\n\"offTime\"\n:\n\"-1\"\n,\n\"limitOpenTime\"\n:\n\"-1\"\n,\n\"deliveryTime\"\n:\n\"\"\n,\n\"deliveryStartTime\"\n:\n\"\"\n,\n\"deliveryPeriod\"\n:\n\"\"\n,\n\"launchTime\"\n:\n\"\"\n,\n\"fundInterval\"\n:\n\"8\"\n,\n\"minLever\"\n:\n\"1\"\n,\n\"maxLever\"\n:\n\"125\"\n,\n\"posLimit\"\n:\n\"0.05\"\n,\n\"maintainTime\"\n:\n\"1680165535278\"\n,\n\"openTime\"\n:\n\"\"\n,\n\"maxMarketOrderQty\"\n:\n\"220\"\n,\n\"maxOrderQty\"\n:\n\"1200\"\n,\n\"isRwa\"\n:\n\"YES\"\n}\n]\n}\nResponse Parameters\n​\nParameter\nType\nDescription\n>\nsymbol\nString\nProduct name\n>\nbaseCoin\nString\nBase currency\nSpecifically refers to "
+        },
+        {
+          "term": "symbolStatus",
+          "text": "\nString\nMaximum number of held orders-product type dimension\n>\nmaxPositionNum\nString\nMaximum number of positions held\n>\nsymbolStatus\nString\nTrading pair status\nlisted\nListing symbol\nnormal\ntrade normal\nmaintain\ncan't open/close position\nlimit_open\n: can't place orders(can close position)\nrestrictedAPI\n:can't place orders with API\noff\n: offline\n>\noffTime\nString\nTrading halt time, '-1' means normal\n>\nlimitOpenTime\nString\nTime to open positions, '-1' means normal; other values indicate that the symbol is under maintenance or to be maintained and trading is prohibited after the specified time.\n>\ndeliveryTime\nString\nDelivery time"
+        },
+        {
+          "term": "limitOpenTime",
+          "text": "\"999999\"\n,\n\"maxProductOrderNum\"\n:\n\"999999\"\n,\n\"maxPositionNum\"\n:\n\"150\"\n,\n\"symbolStatus\"\n:\n\"normal\"\n,\n\"offTime\"\n:\n\"-1\"\n,\n\"limitOpenTime\"\n:\n\"-1\"\n,\n\"deliveryTime\"\n:\n\"\"\n,\n\"deliveryStartTime\"\n:\n\"\"\n,\n\"deliveryPeriod\"\n:\n\"\"\n,\n\"launchTime\"\n:\n\"\"\n,\n\"fundInterval\"\n:\n\"8\"\n,\n\"minLever\"\n:\n\"1\"\n,\n\"maxLever\"\n:\n\"125\"\n,\n\"posLimit\"\n:\n\"0.05\"\n,\n\"maintainTime\"\n:\n\"1680165535278\"\n,\n\"openTime\"\n:\n\"\"\n,\n\"maxMarketOrderQty\"\n:\n\"220\"\n,\n\"maxOrderQty\"\n:\n\"1200\"\n,\n\"isRwa\"\n:\n\"YES\"\n}\n]\n}\nResponse Parameters\n​\nParameter\nType\nDescription\n>\nsymbol\nString\nProduct name\n>\nbaseCoin\nString\nBase currency\nSpecifically refers to ETH as in ETHUSDT\n>\nquoteCoin\nString\nQuote curre"
+        },
+        {
+          "term": "limitOpenTime",
+          "text": "ition)\nrestrictedAPI\n:can't place orders with API\noff\n: offline\n>\noffTime\nString\nTrading halt time, '-1' means normal\n>\nlimitOpenTime\nString\nTime to open positions, '-1' means normal; other values indicate that the symbol is under maintenance or to be maintained and trading is prohibited after the specified time.\n>\ndeliveryTime\nString\nDelivery time\n>\ndeliveryStartTime\nString\nDelivery start time\n>\ndeliveryPeriod\nString\nDelivery period\nthis_quarter\ncurrent quarter\nnext_quarter\nsecond quarter\n>\nlaunchTime\nString\nListing time\n>\nfundInterval\nString\nFunding fee settlement cycle, hourly/every 8 hours\n>\nminLever\nString\nminimum levera"
+        },
+        {
+          "term": "startTime",
+          "text": "onNum\"\n:\n\"150\"\n,\n\"symbolStatus\"\n:\n\"normal\"\n,\n\"offTime\"\n:\n\"-1\"\n,\n\"limitOpenTime\"\n:\n\"-1\"\n,\n\"deliveryTime\"\n:\n\"\"\n,\n\"deliveryStartTime\"\n:\n\"\"\n,\n\"deliveryPeriod\"\n:\n\"\"\n,\n\"launchTime\"\n:\n\"\"\n,\n\"fundInterval\"\n:\n\"8\"\n,\n\"minLever\"\n:\n\"1\"\n,\n\"maxLever\"\n:\n\"125\"\n,\n\"posLimit\"\n:\n\"0.05\"\n,\n\"maintainTime\"\n:\n\"1680165535278\"\n,\n\"openTime\"\n:\n\"\"\n,\n\"maxMarketOrderQty\"\n:\n\"220\"\n,\n\"maxOrderQty\"\n:\n\"1200\"\n,\n\"isRwa\"\n:\n\"YES\"\n}\n]\n}\nResponse Parameters\n​\nParameter\nType\nDescription\n>\nsymbol\nString\nProduct name\n>\nbaseCoin\nString\nBase currency\nSpecifically refers to ETH as in ETHUSDT\n>\nquoteCoin\nString\nQuote currency\nSpecifically refers to USDT as in ETHUSDT\n>\nbuy"
+        },
+        {
+          "term": "startTime",
+          "text": "e or to be maintained and trading is prohibited after the specified time.\n>\ndeliveryTime\nString\nDelivery time\n>\ndeliveryStartTime\nString\nDelivery start time\n>\ndeliveryPeriod\nString\nDelivery period\nthis_quarter\ncurrent quarter\nnext_quarter\nsecond quarter\n>\nlaunchTime\nString\nListing time\n>\nfundInterval\nString\nFunding fee settlement cycle, hourly/every 8 hours\n>\nminLever\nString\nminimum leverage\n>\nmaxLever\nString\nMaximum leverage\n>\nposLimit\nString\nPosition limits (deprecated)\n>\nmaintainTime\nString\nMaintenance time (there will be a value when the status is under maintenance/upcoming maintenance)\n>\nmaxMarketOrderQty\nString\nMaxi"
+        },
+        {
+          "term": "history",
+          "text": "Upgrade to Unified Trading Account\nChangelog\nFAQ\nDemo Trading\nCommon\nSpot\nFutures\nMarket\nVIP Fee Rate\nGet Interest rate history\nGet Interest Exchange Rate\nGet Discount Rate\nGet Merge Market Depth\nGet Ticker\nGet All Tickers\nGet Recent Transactions\nGet History Transactions\nGet Candlestick Data\nGet Historical Candlestick\nGet Historical Index Price Candlestick\nGet Historical Mark Price Candlestick\nGet Open Interest\nGet Next Funding Time\nGet Mark/Index/Market Prices\nGet Historical Funding Rates\nGet Current Funding Rate\nGet Contract OI Limit\nGet Contract Config\nAccount\nPosition\nTrade\nTrigger Order\nWebsocket\nError Code\nMargin\n"
+        },
+        {
+          "term": "history",
+          "text": " Interest Exchange Rate\nGet Discount Rate\nGet Merge Market Depth\nGet Ticker\nGet All Tickers\nGet Recent Transactions\nGet History Transactions\nGet Candlestick Data\nGet Historical Candlestick\nGet Historical Index Price Candlestick\nGet Historical Mark Price Candlestick\nGet Open Interest\nGet Next Funding Time\nGet Mark/Index/Market Prices\nGet Historical Funding Rates\nGet Current Funding Rate\nGet Contract OI Limit\nGet Contract Config\nAccount\nPosition\nTrade\nTrigger Order\nWebsocket\nError Code\nMargin\nCopy Trading\nEarn\nTax\nP2P\nAffiliate\nBroker\nInst Loan\nRate Limit\nFutures\nMarket\nGet Contract Config\nGet Contract Config\nCopy Page\nGe"
+        },
+        {
+          "term": "depth",
+          "text": "pot\nFutures\nMarket\nVIP Fee Rate\nGet Interest rate history\nGet Interest Exchange Rate\nGet Discount Rate\nGet Merge Market Depth\nGet Ticker\nGet All Tickers\nGet Recent Transactions\nGet History Transactions\nGet Candlestick Data\nGet Historical Candlestick\nGet Historical Index Price Candlestick\nGet Historical Mark Price Candlestick\nGet Open Interest\nGet Next Funding Time\nGet Mark/Index/Market Prices\nGet Historical Funding Rates\nGet Current Funding Rate\nGet Contract OI Limit\nGet Contract Config\nAccount\nPosition\nTrade\nTrigger Order\nWebsocket\nError Code\nMargin\nCopy Trading\nEarn\nTax\nP2P\nAffiliate\nBroker\nInst Loan\nRate Limit\nFutu"
+        },
+        {
+          "term": "/api/",
+          "text": "act Config\nRate Limit: 20 req/sec/IP\nDescription\n​\nInterface is used to get future contract details.\nHTTP Request\n​\nGET /api/v2/mix/market/contracts\nRequest Example\ncurl\n\"https://api.bitget.com/api/v2/mix/market/contracts?productType=usdt-futures&symbol=BTCUSDT\"\nRequest Parameters\n​\nParameter\nType\nRequired\nDescription\nsymbol\nString\nNo\nTrading pair, based on the symbolName, i.e. BTCUSDT\nproductType\nString\nYes\nProduct type\nUSDT-FUTURES\nUSDT-M Futures\nCOIN-FUTURES\nCoin-M Futures\nUSDC-FUTURES\nUSDC-M Futures\nResponse Example\n{\n\"code\"\n:\n\"00000\"\n,\n\"msg\"\n:\n\"success\"\n,\n\"requestTime\"\n:\n1695793701269\n,\n\"data\"\n:\n[\n{\n\"symbol\"\n:\n\"B"
+        },
+        {
+          "term": "/api/",
+          "text": "et future contract details.\nHTTP Request\n​\nGET /api/v2/mix/market/contracts\nRequest Example\ncurl\n\"https://api.bitget.com/api/v2/mix/market/contracts?productType=usdt-futures&symbol=BTCUSDT\"\nRequest Parameters\n​\nParameter\nType\nRequired\nDescription\nsymbol\nString\nNo\nTrading pair, based on the symbolName, i.e. BTCUSDT\nproductType\nString\nYes\nProduct type\nUSDT-FUTURES\nUSDT-M Futures\nCOIN-FUTURES\nCoin-M Futures\nUSDC-FUTURES\nUSDC-M Futures\nResponse Example\n{\n\"code\"\n:\n\"00000\"\n,\n\"msg\"\n:\n\"success\"\n,\n\"requestTime\"\n:\n1695793701269\n,\n\"data\"\n:\n[\n{\n\"symbol\"\n:\n\"BTCUSDT\"\n,\n\"baseCoin\"\n:\n\"BTC\"\n,\n\"quoteCoin\"\n:\n\"USDT\"\n,\n\"buyLimitPriceRatio"
+        }
+      ],
+      "api_code": null,
+      "api_status_semantics": "API code if JSON API response; null for non-API documentation/client HTML or JS.",
+      "saved_payload_canonical_sha256": "8724e718171d420b75c82b0c556d344c1c63da476f36452f51f11b66e6b82b11"
+    },
+    {
+      "id": 22,
+      "kind": "public_web_client_source",
+      "method": "GET",
+      "url": "https://www.bitget.com/landing-static/client/js/pages-data-download-index-page.1f14c0d0ddfaba7e1f21.chunk.js",
+      "endpoint": "/landing-static/client/js/pages-data-download-index-page.1f14c0d0ddfaba7e1f21.chunk.js",
+      "parameters": {},
+      "retrieved_at_utc": "2026-11-01T20:51:24.362550+00:00",
+      "http_status": 200,
+      "final_url": "https://www.bitget.com/landing-static/client/js/pages-data-download-index-page.1f14c0d0ddfaba7e1f21.chunk.js",
+      "http_date": "Sun, 01 Nov 2026 20:51:24 GMT",
+      "raw_response_sha256": "90f9a66e66122906dcb2df4b8ca74aec15317e30712e91738b8180a03200a3cb",
+      "raw_response_bytes": 31647,
+      "selection": "Selected source text contexts only, not full document. Hash refers to entire original HTTP body.",
+      "selected_excerpts": [
+        {
+          "term": "endTime",
+          "text": "f(\"month\").format(\"YYYY-MM-DD\")),c&&m&&await R({displaySymbol:t,businessLine:r,businessType:i,dateType:n,beginTimeStr:c,endTimeStr:m,..._(a)&&null!=o?{deptType:o}:{}})||[]},{manual:!0}),l=n.loading,o=n.runAsync,s=(0,d.useCallback)(async e=>{const a=await o(e);return t(a||[]),a||[]},[o]),r=(0,d.useCallback)((e,a)=>{const t=document.createElement(\"iframe\");(0,M.uq)(t,e),t.id=a,t.style.display=\"none\",document.body.appendChild(t)},[]),i=(0,d.useCallback)(()=>{a.forEach(e=>{r(e.fileUrl,e.fileName)})},[a,r]),c=(0,d.useCallback)(()=>{t([])},[]);return{files:a,loading:l,getDownloadFiles:s,downloadFile:r,downloadAllFiles:i,reset"
+        },
+        {
+          "term": "history",
+          "text": "ick chart data, transaction history, and order book depth data.\",keywords:[\"Spot\",\"Candlestick Chart Data\",\"Transaction History\",\"Depth Data\"]},{name:\"Futures Historical Market Data\",description:\"Historical market data for Bitget futures contracts, including candlestick chart data, transaction history, and order book depth data.\",keywords:[\"Futures\",\"Candlestick Chart Data\",\"Transaction History\",\"Depth Data\"]}];const ke=()=>{const e=(0,o.Bd)(\"landing\").t,a=(0,r.Gx)(),t=a.pageUrl,n=a.locale,i=(0,d.useMemo)(()=>function(e){const a=e.pageUrl,t=e.locale,n=e.title,l=e.description,d=e.catalogName,o=e.catalogDescription,s=`${a"
+        },
+        {
+          "term": "history",
+          "text": "t Data\",description:\"Historical market data for Bitget futures contracts, including candlestick chart data, transaction history, and order book depth data.\",keywords:[\"Futures\",\"Candlestick Chart Data\",\"Transaction History\",\"Depth Data\"]}];const ke=()=>{const e=(0,o.Bd)(\"landing\").t,a=(0,r.Gx)(),t=a.pageUrl,n=a.locale,i=(0,d.useMemo)(()=>function(e){const a=e.pageUrl,t=e.locale,n=e.title,l=e.description,d=e.catalogName,o=e.catalogDescription,s=`${a}#catalog`,i=(0,r.Cm)({pageUrl:a,title:n,description:l,locale:t,aboutId:s,mainEntityId:s}),c=(0,r.KZ)({pageUrl:a,name:d,description:o,datasets:Ae});return(0,r.gZ)([r.tx,i,c])}"
+        },
+        {
+          "term": "history",
+          "text": " chart data, transaction history, and order book depth data.\",keywords:[\"Futures\",\"Candlestick Chart Data\",\"Transaction History\",\"Depth Data\"]}];const ke=()=>{const e=(0,o.Bd)(\"landing\").t,a=(0,r.Gx)(),t=a.pageUrl,n=a.locale,i=(0,d.useMemo)(()=>function(e){const a=e.pageUrl,t=e.locale,n=e.title,l=e.description,d=e.catalogName,o=e.catalogDescription,s=`${a}#catalog`,i=(0,r.Cm)({pageUrl:a,title:n,description:l,locale:t,aboutId:s,mainEntityId:s}),c=(0,r.KZ)({pageUrl:a,name:d,description:o,datasets:Ae});return(0,r.gZ)([r.tx,i,c])}({pageUrl:t,locale:n,title:e(\"seo.data_download.title\"),description:e(\"seo.data_download.desc\")"
+        },
+        {
+          "term": "data-download",
+          "text": "ren:e(\"data_download.page_subtitle\")}),(0,j.jsx)(s.kZ,{children:(0,j.jsx)(Ce,{})})]}),(0,j.jsx)(\"img\",{src:a?ue:pe,alt:\"data-download-banner\",className:l()(\"shrink-0\",\"md:h-[285px] md:w-[300px]\",\"<md:!h-[104px] <md:!w-[104px] <md:self-center\")})]})},Ae=[{name:\"Spot Historical Market Data\",description:\"Historical market data for Bitget spot trading pairs, including candlestick chart data, transaction history, and order book depth data.\",keywords:[\"Spot\",\"Candlestick Chart Data\",\"Transaction History\",\"Depth Data\"]},{name:\"Futures Historical Market Data\",description:\"Historical market data for Bitget futures contracts, including"
+        },
+        {
+          "term": "data-download",
+          "text": "ldren:[(0,j.jsx)(s.k0,{title:e(\"seo.data_download.title\"),description:e(\"seo.data_download.desc\")}),(0,j.jsx)(r.S_,{id:\"data-download-jsonld\",data:i}),(0,j.jsxs)(\"div\",{className:\"relative pb-[100px]\",children:[(0,j.jsx)(\"div\",{className:l()(\"BkRyWUCr0GvqLk5LubJq\",\"overflow-hidden\"),children:(0,j.jsx)(\"div\",{className:c,children:(0,j.jsx)(Ne,{})})}),(0,j.jsx)(\"div\",{className:c,children:(0,j.jsx)(ce,{})})]})]})}},58580(e,a,t){\"use strict\";t.d(a,{l:()=>l});var n=t(84183);const l=e=>{const a=location.href,t=n.A.parse(location.search);if(t.clacCode||t.vipCode)return a;const l=e?n.A.stringify({...t,clacCode:e}):n.A.stringify(t),d"
+        },
+        {
+          "term": "data-download",
+          "text": "e}):n.A.stringify(t),d=l?`?${l}`:\"\";return`${location.origin}${location.pathname}${d}`}}}]);\n//# sourceMappingURL=pages-data-download-index-page.1f14c0d0ddfaba7e1f21.chunk.js.map"
+        },
+        {
+          "term": "download",
+          "text": "uto\");return(0,j.jsxs)(j.Fragment,{children:[(0,j.jsx)(s.k0,{title:e(\"seo.data_download.title\"),description:e(\"seo.data_download.desc\")}),(0,j.jsx)(r.S_,{id:\"data-download-jsonld\",data:i}),(0,j.jsxs)(\"div\",{className:\"relative pb-[100px]\",children:[(0,j.jsx)(\"div\",{className:l()(\"BkRyWUCr0GvqLk5LubJq\",\"overflow-hidden\"),children:(0,j.jsx)(\"div\",{className:c,children:(0,j.jsx)(Ne,{})})}),(0,j.jsx)(\"div\",{className:c,children:(0,j.jsx)(ce,{})})]})]})}},58580(e,a,t){\"use strict\";t.d(a,{l:()=>l});var n=t(84183);const l=e=>{const a=location.href,t=n.A.parse(location.search);if(t.clacCode||t.vipCode)return a;const l=e?n.A.stri"
+        },
+        {
+          "term": "download",
+          "text": ":[(0,j.jsx)(s.k0,{title:e(\"seo.data_download.title\"),description:e(\"seo.data_download.desc\")}),(0,j.jsx)(r.S_,{id:\"data-download-jsonld\",data:i}),(0,j.jsxs)(\"div\",{className:\"relative pb-[100px]\",children:[(0,j.jsx)(\"div\",{className:l()(\"BkRyWUCr0GvqLk5LubJq\",\"overflow-hidden\"),children:(0,j.jsx)(\"div\",{className:c,children:(0,j.jsx)(Ne,{})})}),(0,j.jsx)(\"div\",{className:c,children:(0,j.jsx)(ce,{})})]})]})}},58580(e,a,t){\"use strict\";t.d(a,{l:()=>l});var n=t(84183);const l=e=>{const a=location.href,t=n.A.parse(location.search);if(t.clacCode||t.vipCode)return a;const l=e?n.A.stringify({...t,clacCode:e}):n.A.stringify(t),d"
+        },
+        {
+          "term": "download",
+          "text": ".A.stringify(t),d=l?`?${l}`:\"\";return`${location.origin}${location.pathname}${d}`}}}]);\n//# sourceMappingURL=pages-data-download-index-page.1f14c0d0ddfaba7e1f21.chunk.js.map"
+        },
+        {
+          "term": "depth",
+          "text": "data, transaction history, and order book depth data.\",keywords:[\"Spot\",\"Candlestick Chart Data\",\"Transaction History\",\"Depth Data\"]},{name:\"Futures Historical Market Data\",description:\"Historical market data for Bitget futures contracts, including candlestick chart data, transaction history, and order book depth data.\",keywords:[\"Futures\",\"Candlestick Chart Data\",\"Transaction History\",\"Depth Data\"]}];const ke=()=>{const e=(0,o.Bd)(\"landing\").t,a=(0,r.Gx)(),t=a.pageUrl,n=a.locale,i=(0,d.useMemo)(()=>function(e){const a=e.pageUrl,t=e.locale,n=e.title,l=e.description,d=e.catalogName,o=e.catalogDescription,s=`${a}#catalo"
+        },
+        {
+          "term": "depth",
+          "text": "torical market data for Bitget futures contracts, including candlestick chart data, transaction history, and order book depth data.\",keywords:[\"Futures\",\"Candlestick Chart Data\",\"Transaction History\",\"Depth Data\"]}];const ke=()=>{const e=(0,o.Bd)(\"landing\").t,a=(0,r.Gx)(),t=a.pageUrl,n=a.locale,i=(0,d.useMemo)(()=>function(e){const a=e.pageUrl,t=e.locale,n=e.title,l=e.description,d=e.catalogName,o=e.catalogDescription,s=`${a}#catalog`,i=(0,r.Cm)({pageUrl:a,title:n,description:l,locale:t,aboutId:s,mainEntityId:s}),c=(0,r.KZ)({pageUrl:a,name:d,description:o,datasets:Ae});return(0,r.gZ)([r.tx,i,c])}({pageUrl:t,locale:n,t"
+        },
+        {
+          "term": "depth",
+          "text": "a, transaction history, and order book depth data.\",keywords:[\"Futures\",\"Candlestick Chart Data\",\"Transaction History\",\"Depth Data\"]}];const ke=()=>{const e=(0,o.Bd)(\"landing\").t,a=(0,r.Gx)(),t=a.pageUrl,n=a.locale,i=(0,d.useMemo)(()=>function(e){const a=e.pageUrl,t=e.locale,n=e.title,l=e.description,d=e.catalogName,o=e.catalogDescription,s=`${a}#catalog`,i=(0,r.Cm)({pageUrl:a,title:n,description:l,locale:t,aboutId:s,mainEntityId:s}),c=(0,r.KZ)({pageUrl:a,name:d,description:o,datasets:Ae});return(0,r.gZ)([r.tx,i,c])}({pageUrl:t,locale:n,title:e(\"seo.data_download.title\"),description:e(\"seo.data_download.desc\"),catalog"
+        }
+      ],
+      "api_code": null,
+      "api_status_semantics": "API code if JSON API response; null for non-API documentation/client HTML or JS.",
+      "saved_payload_canonical_sha256": "39a1c5e05dd097b9cfeb234b09ad52fc702b9e92bdbdd718018bea42060aa7ee"
+    },
+    {
+      "id": 23,
+      "kind": "public_web_client_source",
+      "method": "GET",
+      "url": "https://www.bitget.com/landing-static/client/js/pages-data-download-index-page.1f14c0d0ddfaba7e1f21.chunk.js",
+      "endpoint": "/landing-static/client/js/pages-data-download-index-page.1f14c0d0ddfaba7e1f21.chunk.js",
+      "parameters": {},
+      "retrieved_at_utc": "2026-11-01T20:51:41.615817+00:00",
+      "http_status": 200,
+      "http_date": "Sun, 01 Nov 2026 20:51:41 GMT",
+      "raw_response_sha256": "90f9a66e66122906dcb2df4b8ca74aec15317e30712e91738b8180a03200a3cb",
+      "raw_response_bytes": 31647,
+      "selection": "Selected client source contexts; not full script; hash refers to entire HTTP body. Read only, no script execution.",
+      "selected_excerpts": [
+        {
+          "term": "beginTimeStr",
+          "text": "m=\"\";return n===p.Day&&l&&(c=(0,L.Y)(l[0],\"YYYY-MM-DD\"),m=(0,L.Y)(l[1],\"YYYY-MM-DD\")),n===p.Month&&d&&(c=w().tz(d[0]).startOf(\"month\").format(\"YYYY-MM-DD\"),m=w().tz(d[1]).endOf(\"month\").format(\"YYYY-MM-DD\")),c&&m&&await R({displaySymbol:t,businessLine:r,businessType:i,dateType:n,beginTimeStr:c,endTimeStr:m,..._(a)&&null!=o?{deptType:o}:{}})||[]},{manual:!0}),l=n.loading,o=n.runAsync,s=(0,d.useCallback)(async e=>{const a=await o(e);return t(a||[]),a||[]},[o]),r=(0,d.useCallback)((e,a)=>{const t=document.createElement(\"iframe\");(0,M.uq)(t,e),t.id=a,t.style.display=\"none\",document.body.appendChild(t)},[]),i=(0,d.useCallback)(()=>{a.forEach(e=>{r(e.fileUrl,e.fileName)})},[a,r]),c=(0,d.us"
+        },
+        {
+          "term": "getDownload",
+          "text": "=(0,d.useCallback)((e,a)=>{const t=document.createElement(\"iframe\");(0,M.uq)(t,e),t.id=a,t.style.display=\"none\",document.body.appendChild(t)},[]),i=(0,d.useCallback)(()=>{a.forEach(e=>{r(e.fileUrl,e.fileName)})},[a,r]),c=(0,d.useCallback)(()=>{t([])},[]);return{files:a,loading:l,getDownloadFiles:s,downloadFile:r,downloadAllFiles:i,reset:c}})(),ie=re.files,ce=re.loading,me=re.getDownloadFiles,ue=re.downloadAllFiles,pe=re.reset,xe=(0,d.useCallback)(e=>{S!==p.Month?V(e):te(e)},[S]),_e=O({datePeriod:S,onRangeComplete:xe}),he=_e.handlePick,fe=_e.handleChange,ge=_e.handleOpenChange,ye=_e.disabledDate,ve=_e.resetDatePickerState,be=(0,d.useMemo)(()=>(e=>[{value:\"1-1\",label:`${e(\"coupon.cash"
+        },
+        {
+          "term": "getDownload",
+          "text": "isplay=\"none\",document.body.appendChild(t)},[]),i=(0,d.useCallback)(()=>{a.forEach(e=>{r(e.fileUrl,e.fileName)})},[a,r]),c=(0,d.useCallback)(()=>{t([])},[]);return{files:a,loading:l,getDownloadFiles:s,downloadFile:r,downloadAllFiles:i,reset:c}})(),ie=re.files,ce=re.loading,me=re.getDownloadFiles,ue=re.downloadAllFiles,pe=re.reset,xe=(0,d.useCallback)(e=>{S!==p.Month?V(e):te(e)},[S]),_e=O({datePeriod:S,onRangeComplete:xe}),he=_e.handlePick,fe=_e.handleChange,ge=_e.handleOpenChange,ye=_e.disabledDate,ve=_e.resetDatePickerState,be=(0,d.useMemo)(()=>(e=>[{value:\"1-1\",label:`${e(\"coupon.cash.spot\")} - ${e(\"data_download.data_kline\")}`},{value:\"1-2\",label:`${e(\"coupon.cash.spot\")} - ${e(\""
+        },
+        {
+          "term": "businessLine",
+          "text": "0],X=F[1],Z=W((0,d.useState)(null),2),K=Z[0],V=Z[1],ee=W((0,d.useState)(null),2),ae=ee[0],te=ee[1],ne=(()=>{const e=(0,u.Ym)(),a=(0,d.useRef)(null),t=(0,P.A)(async t=>{const n=a.current;if(!n)return[];const l=B(n.split(\"-\").map(Number),2),d=l[0],o=l[1],s=await z({displaySymbol:t,businessLine:d,businessType:o,languageType:(0,$.m)(e)}),r=new Set;return(s||[]).filter(e=>!r.has(e.displaySymbol)&&(r.add(e.displaySymbol),!0))},{manual:!0,debounceWait:300}),n=t.data,l=void 0===n?[]:n,o=t.loading,s=t.run,r=t.mutate;return{options:l,loading:o,search:(0,d.useCallback)((e,t)=>{a.current=t,s(e)},[s]),reset:(0,d.useCallback)(()=>{r([])},[r])}})(),le=ne.options,de=ne.loading,oe=ne.search,se=ne.res"
+        },
+        {
+          "term": "businessLine",
+          "text": "\").map(Number),2),r=s[0],i=s[1];let c=\"\",m=\"\";return n===p.Day&&l&&(c=(0,L.Y)(l[0],\"YYYY-MM-DD\"),m=(0,L.Y)(l[1],\"YYYY-MM-DD\")),n===p.Month&&d&&(c=w().tz(d[0]).startOf(\"month\").format(\"YYYY-MM-DD\"),m=w().tz(d[1]).endOf(\"month\").format(\"YYYY-MM-DD\")),c&&m&&await R({displaySymbol:t,businessLine:r,businessType:i,dateType:n,beginTimeStr:c,endTimeStr:m,..._(a)&&null!=o?{deptType:o}:{}})||[]},{manual:!0}),l=n.loading,o=n.runAsync,s=(0,d.useCallback)(async e=>{const a=await o(e);return t(a||[]),a||[]},[o]),r=(0,d.useCallback)((e,a)=>{const t=document.createElement(\"iframe\");(0,M.uq)(t,e),t.id=a,t.style.display=\"none\",document.body.appendChild(t)},[]),i=(0,d.useCallback)(()=>{a.forEach(e=>{r("
+        },
+        {
+          "term": "businessType",
+          "text": "0,d.useState)(null),2),K=Z[0],V=Z[1],ee=W((0,d.useState)(null),2),ae=ee[0],te=ee[1],ne=(()=>{const e=(0,u.Ym)(),a=(0,d.useRef)(null),t=(0,P.A)(async t=>{const n=a.current;if(!n)return[];const l=B(n.split(\"-\").map(Number),2),d=l[0],o=l[1],s=await z({displaySymbol:t,businessLine:d,businessType:o,languageType:(0,$.m)(e)}),r=new Set;return(s||[]).filter(e=>!r.has(e.displaySymbol)&&(r.add(e.displaySymbol),!0))},{manual:!0,debounceWait:300}),n=t.data,l=void 0===n?[]:n,o=t.loading,s=t.run,r=t.mutate;return{options:l,loading:o,search:(0,d.useCallback)((e,t)=>{a.current=t,s(e)},[s]),reset:(0,d.useCallback)(()=>{r([])},[r])}})(),le=ne.options,de=ne.loading,oe=ne.search,se=ne.reset,re=(()=>{con"
+        },
+        {
+          "term": "businessType",
+          "text": "2),r=s[0],i=s[1];let c=\"\",m=\"\";return n===p.Day&&l&&(c=(0,L.Y)(l[0],\"YYYY-MM-DD\"),m=(0,L.Y)(l[1],\"YYYY-MM-DD\")),n===p.Month&&d&&(c=w().tz(d[0]).startOf(\"month\").format(\"YYYY-MM-DD\"),m=w().tz(d[1]).endOf(\"month\").format(\"YYYY-MM-DD\")),c&&m&&await R({displaySymbol:t,businessLine:r,businessType:i,dateType:n,beginTimeStr:c,endTimeStr:m,..._(a)&&null!=o?{deptType:o}:{}})||[]},{manual:!0}),l=n.loading,o=n.runAsync,s=(0,d.useCallback)(async e=>{const a=await o(e);return t(a||[]),a||[]},[o]),r=(0,d.useCallback)((e,a)=>{const t=document.createElement(\"iframe\");(0,M.uq)(t,e),t.id=a,t.style.display=\"none\",document.body.appendChild(t)},[]),i=(0,d.useCallback)(()=>{a.forEach(e=>{r(e.fileUrl,e.fil"
+        },
+        {
+          "term": "deptType",
+          "text": "})}),(0,j.jsx)(m.Ay,{type:\"main\",size:\"medium\",disabled:0===n.length,onClick:l,className:\"min-w-[140px]\",children:d(\"data_download.download\")})]})]})};var X=t(75762),Z=t(73957),K=t(26174);const V=X.A.RangePicker,q=e=>{let a=e.dataType,t=e.dataTypeOptions,n=e.onDataTypeChange,s=e.deptType,r=e.deptTypeOptions,i=e.onDeptTypeChange,c=e.tradingPairs,m=e.onTradingPairsChange,u=e.tradingPairOptions,x=e.onSearchTradingPairs,h=e.searchLoading,f=e.datePeriod,g=e.datePeriodOptions,y=e.onDatePeriodChange,v=e.dayRange,b=e.monthRange,w=e.onCalendarChange,C=e.onOpenChange,A=e.onRangeChange,k=e.disabledDate,T=e.hideSectionTitle,D=void 0!==T&&T;const S=(0,o.Bd)(\"landing\").t,O=_(a),M=(0,d.useMemo)"
+        },
+        {
+          "term": "deptType",
+          "text": ")(m.Ay,{type:\"main\",size:\"medium\",disabled:0===n.length,onClick:l,className:\"min-w-[140px]\",children:d(\"data_download.download\")})]})]})};var X=t(75762),Z=t(73957),K=t(26174);const V=X.A.RangePicker,q=e=>{let a=e.dataType,t=e.dataTypeOptions,n=e.onDataTypeChange,s=e.deptType,r=e.deptTypeOptions,i=e.onDeptTypeChange,c=e.tradingPairs,m=e.onTradingPairsChange,u=e.tradingPairOptions,x=e.onSearchTradingPairs,h=e.searchLoading,f=e.datePeriod,g=e.datePeriodOptions,y=e.onDatePeriodChange,v=e.dayRange,b=e.monthRange,w=e.onCalendarChange,C=e.onOpenChange,A=e.onRangeChange,k=e.disabledDate,T=e.hideSectionTitle,D=void 0!==T&&T;const S=(0,o.Bd)(\"landing\").t,O=_(a),M=(0,d.useMemo)(()=>u.map(e="
+        },
+        {
+          "term": "deptType",
+          "text": "ze:\"medium\",disabled:0===n.length,onClick:l,className:\"min-w-[140px]\",children:d(\"data_download.download\")})]})]})};var X=t(75762),Z=t(73957),K=t(26174);const V=X.A.RangePicker,q=e=>{let a=e.dataType,t=e.dataTypeOptions,n=e.onDataTypeChange,s=e.deptType,r=e.deptTypeOptions,i=e.onDeptTypeChange,c=e.tradingPairs,m=e.onTradingPairsChange,u=e.tradingPairOptions,x=e.onSearchTradingPairs,h=e.searchLoading,f=e.datePeriod,g=e.datePeriodOptions,y=e.onDatePeriodChange,v=e.dayRange,b=e.monthRange,w=e.onCalendarChange,C=e.onOpenChange,A=e.onRangeChange,k=e.disabledDate,T=e.hideSectionTitle,D=void 0!==T&&T;const S=(0,o.Bd)(\"landing\").t,O=_(a),M=(0,d.useMemo)(()=>u.map(e=>({label:e.displaySymb"
+        },
+        {
+          "term": "deptType",
+          "text": "a.current=t,s(e)},[s]),reset:(0,d.useCallback)(()=>{r([])},[r])}})(),le=ne.options,de=ne.loading,oe=ne.search,se=ne.reset,re=(()=>{const e=U((0,d.useState)([]),2),a=e[0],t=e[1],n=(0,P.A)(async e=>{const a=e.dataType,t=e.tradingPairs,n=e.datePeriod,l=e.dayRange,d=e.monthRange,o=e.deptType;if(!a||!n||0===t.length)return[];const s=U(a.split(\"-\").map(Number),2),r=s[0],i=s[1];let c=\"\",m=\"\";return n===p.Day&&l&&(c=(0,L.Y)(l[0],\"YYYY-MM-DD\"),m=(0,L.Y)(l[1],\"YYYY-MM-DD\")),n===p.Month&&d&&(c=w().tz(d[0]).startOf(\"month\").format(\"YYYY-MM-DD\"),m=w().tz(d[1]).endOf(\"month\").format(\"YYYY-MM-DD\")),c&&m&&await R({displaySymbol:t,businessLine:r,businessType:i,dateType:n,beginTimeStr:c,endTimeStr"
+        },
+        {
+          "term": "deptType",
+          "text": "Y-MM-DD\"),m=(0,L.Y)(l[1],\"YYYY-MM-DD\")),n===p.Month&&d&&(c=w().tz(d[0]).startOf(\"month\").format(\"YYYY-MM-DD\"),m=w().tz(d[1]).endOf(\"month\").format(\"YYYY-MM-DD\")),c&&m&&await R({displaySymbol:t,businessLine:r,businessType:i,dateType:n,beginTimeStr:c,endTimeStr:m,..._(a)&&null!=o?{deptType:o}:{}})||[]},{manual:!0}),l=n.loading,o=n.runAsync,s=(0,d.useCallback)(async e=>{const a=await o(e);return t(a||[]),a||[]},[o]),r=(0,d.useCallback)((e,a)=>{const t=document.createElement(\"iframe\");(0,M.uq)(t,e),t.id=a,t.style.display=\"none\",document.body.appendChild(t)},[]),i=(0,d.useCallback)(()=>{a.forEach(e=>{r(e.fileUrl,e.fileName)})},[a,r]),c=(0,d.useCallback)(()=>{t([])},[]);return{files:a,"
+        },
+        {
+          "term": "deptType",
+          "text": ",d.useCallback)(e=>{s(e),X([]),H(g),se()},[s,se]),De=(0,d.useCallback)(e=>{H(e)},[]),Se=(0,d.useCallback)(e=>{e.trim()&&oe(e,t)},[oe,t]),Oe=(0,d.useCallback)(e=>{E(e),V(null),te(null),ve()},[ve]),Me=(0,d.useCallback)(async()=>{try{await me({dataType:t,tradingPairs:G,datePeriod:S,deptType:I,dayRange:null!=K&&K[0]&&null!=K&&K[1]?[K[0].toDate(),K[1].toDate()]:null,monthRange:null!=ae&&ae[0]&&null!=ae&&ae[1]?[ae[0].toDate(),ae[1].toDate()]:null}),N(!0)}catch{}},[me,t,G,S,I,K,ae]),Pe=(0,d.useCallback)(()=>{i.Ay.success(r(\"data_download.download_start_tips\")),ue()},[r,ue]),Ee=(0,d.useCallback)(()=>{N(!1)},[]),Re=!h||\"filters\"===k,Le=!h||\"description\"===k;return(0,j.jsxs)(j.Fragment,{ch"
+        },
+        {
+          "term": "fileUrl",
+          "text": "o=n.runAsync,s=(0,d.useCallback)(async e=>{const a=await o(e);return t(a||[]),a||[]},[o]),r=(0,d.useCallback)((e,a)=>{const t=document.createElement(\"iframe\");(0,M.uq)(t,e),t.id=a,t.style.display=\"none\",document.body.appendChild(t)},[]),i=(0,d.useCallback)(()=>{a.forEach(e=>{r(e.fileUrl,e.fileName)})},[a,r]),c=(0,d.useCallback)(()=>{t([])},[]);return{files:a,loading:l,getDownloadFiles:s,downloadFile:r,downloadAllFiles:i,reset:c}})(),ie=re.files,ce=re.loading,me=re.getDownloadFiles,ue=re.downloadAllFiles,pe=re.reset,xe=(0,d.useCallback)(e=>{S!==p.Month?V(e):te(e)},[S]),_e=O({datePeriod:S,onRangeComplete:xe}),he=_e.handlePick,fe=_e.handleChange,ge=_e.handleOpenChange,ye=_e.disable"
+        },
+        {
+          "term": "download",
+          "text": "evel1=1]=\"Level1\",e[e.Level500=2]=\"Level500\",e}({});const _=e=>\"1-3\"===e||\"2-3\"===e,h={MAX_DAY_RANGE:7,MAX_MONTH_RANGE:6,MIN_DATE:new Date(\"2018-01-01\")},f=p.Day,g=x.Level1;var y=\"EzehEgWZ4n8pCfnPXmQ_\",v=\"kk3I9iLE3MsnQlmKT3gg\",b=t(80286),w=t.n(b),j=t(65723);const C=\"landing.data_download.data_date_selector_tips\",N=e=>{let a=e.t;return(0,j.jsx)(o.x6,{t:a,i18nKey:C,components:[(0,j.jsx)(\"span\",{className:\"text-[var(--ds-color-function-brand)]\"},\"0\")]})};function A(e,a){return function(e){if(Array.isArray(e))return e}(e)||function(e,a){var t=null==e?null:\"undefined\"!=typeof Symbol&&e[Symbol.iterator]||e[\"@@iterator\"];if(null!=t){var n,l,d,o,s=[],r=!0,i=!1;try{if(d=(t=t.call(e)).next"
+        },
+        {
+          "term": "download",
+          "text": "e&&(a<x.minTime||a>x.maxTime)},[x,t,r]),j=(0,d.useCallback)(e=>{e?null==s||s(null):y()},[s,y]);return{handlePick:v,handleChange:(0,d.useCallback)(e=>{if(t){if(null!=e&&e[0]&&null!=e&&e[1]){if(r){if(e[1].diff(e[0],\"month\")>=h.MAX_MONTH_RANGE)return void i.Ay.error(a(\"landing.data_download.data_date_selector_month_tips\"))}else if(e[1].valueOf()-e[0].valueOf()>=D)return void i.Ay.error((e=>e(C).replace(/<\\/?0>/g,\"\"))(a));null==s||s([e[0],e[1]])}else null==s||s(null);y()}},[s,y,a,t,r]),handleOpenChange:j,disabledDate:b,resetDatePickerState:y}};var M=t(52956),P=t(60907),E=t(60090);const R=(0,E.$)({endpoint:\"/statistics/public/download/getPublicDataV2\"});var L=t(7319);function U(e,a){r"
+        },
+        {
+          "term": "download",
+          "text": ".valueOf()>=D)return void i.Ay.error((e=>e(C).replace(/<\\/?0>/g,\"\"))(a));null==s||s([e[0],e[1]])}else null==s||s(null);y()}},[s,y,a,t,r]),handleOpenChange:j,disabledDate:b,resetDatePickerState:y}};var M=t(52956),P=t(60907),E=t(60090);const R=(0,E.$)({endpoint:\"/statistics/public/download/getPublicDataV2\"});var L=t(7319);function U(e,a){return function(e){if(Array.isArray(e))return e}(e)||function(e,a){var t=null==e?null:\"undefined\"!=typeof Symbol&&e[Symbol.iterator]||e[\"@@iterator\"];if(null!=t){var n,l,d,o,s=[],r=!0,i=!1;try{if(d=(t=t.call(e)).next,0===a){if(Object(t)!==t)return;r=!1}else for(;!(r=(n=d.call(t)).done)&&(s.push(n.value),s.length!==a);r=!0);}catch(e){i=!0,l=e}finall"
+        },
+        {
+          "term": "download",
+          "text": "e,a){(null==a||a>e.length)&&(a=e.length);for(var t=0,n=Array(a);t<a;t++)n[t]=e[t];return n}t(61955),t(82689),t(84847),t(16285),t(20602),t(33307),t(94341),t(7270),t(44997),t(50364),t(79780),t(80372),t(72498),t(37928),t(25597),t(92321);const z=(0,E.$)({endpoint:\"/statistics/public/download/getSymbolList\"});var $=t(16361);function B(e,a){return function(e){if(Array.isArray(e))return e}(e)||function(e,a){var t=null==e?null:\"undefined\"!=typeof Symbol&&e[Symbol.iterator]||e[\"@@iterator\"];if(null!=t){var n,l,d,o,s=[],r=!0,i=!1;try{if(d=(t=t.call(e)).next,0===a){if(Object(t)!==t)return;r=!1}else for(;!(r=(n=d.call(t)).done)&&(s.push(n.value),s.length!==a);r=!0);}catch(e){i=!0,l=e}finally"
+        },
+        {
+          "term": "download",
+          "text": "In order to be iterable, non-array objects must have a [Symbol.iterator]() method.\")}()}function I(e,a){(null==a||a>e.length)&&(a=e.length);for(var t=0,n=Array(a);t<a;t++)n[t]=e[t];return n}var H=t(64),F=t(15280),G=t(71147);const Q=e=>{let a=e.visible,t=e.onClose,n=e.files,l=e.onDownload;const d=(0,o.Bd)(\"landing\").t;return(0,j.jsxs)(c.A,{open:a,title:d(\"data_download.data_download_check\"),onCancel:t,width:720,footer:null,maskClosable:!1,destroyOnClose:!0,children:[(0,j.jsxs)(\"div\",{className:\"flex py-[16px] px-[24px] rounded-[8px] bg-[var(--ds-color-function-brand-soft)] text-[var(--ds-color-text-primary)] text-[14px] leading-[1.57]\",children:[(0,j.jsx)(F.A,{className:\"w-[20px] "
+        },
+        {
+          "term": "download",
+          "text": "\")}()}function I(e,a){(null==a||a>e.length)&&(a=e.length);for(var t=0,n=Array(a);t<a;t++)n[t]=e[t];return n}var H=t(64),F=t(15280),G=t(71147);const Q=e=>{let a=e.visible,t=e.onClose,n=e.files,l=e.onDownload;const d=(0,o.Bd)(\"landing\").t;return(0,j.jsxs)(c.A,{open:a,title:d(\"data_download.data_download_check\"),onCancel:t,width:720,footer:null,maskClosable:!1,destroyOnClose:!0,children:[(0,j.jsxs)(\"div\",{className:\"flex py-[16px] px-[24px] rounded-[8px] bg-[var(--ds-color-function-brand-soft)] text-[var(--ds-color-text-primary)] text-[14px] leading-[1.57]\",children:[(0,j.jsx)(F.A,{className:\"w-[20px] h-[20px] text-[var(--ds-color-function-brand)] flex-shrink-0\"}),(0,j.jsx)(\"div\",{c"
+        }
+      ],
+      "api_code": null,
+      "api_status_semantics": "API code if JSON API response; null for non-API documentation/client HTML or JS.",
+      "saved_payload_canonical_sha256": "b31b5e0f98c7011d7c0839f23f58506f4618407d6cf03a30edee46359e7c338f"
+    },
+    {
+      "id": 24,
+      "kind": "public_archive_route_probe",
+      "method": "GET",
+      "url": "https://www.bitget.com/statistics/public/download/getPublicDataV2?displaySymbol=BTCUSDT&businessLine=2&businessType=3&dateType=1&beginTimeStr=2026-09-17&endTimeStr=2026-09-17&deptType=1",
+      "endpoint": "/statistics/public/download/getPublicDataV2",
+      "parameters": {
+        "displaySymbol": "BTCUSDT",
+        "businessLine": 2,
+        "businessType": 3,
+        "dateType": 1,
+        "beginTimeStr": "2026-09-17",
+        "endTimeStr": "2026-09-17",
+        "deptType": 1
+      },
+      "retrieved_at_utc": "2026-11-01T20:52:04.786177+00:00",
+      "parameter_semantics": "Field names and businessLine/businessType codes taken from public download page client; GET method, dateType and host routing not yet verified. Neither failed route nor empty payload establishes archive absence.",
+      "http_status": 404,
+      "final_url": "https://www.bitget.com/statistics/public/download/getPublicDataV2?displaySymbol=BTCUSDT&businessLine=2&businessType=3&dateType=1&beginTimeStr=2026-09-17&endTimeStr=2026-09-17&deptType=1",
+      "raw_response_sha256": "46d3874a0b61bbe080f9ef594290b54971f4924155e8035b12a47c27268ec523",
+      "raw_response_bytes": 186537,
+      "selected_response_prefix": "<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\" class=\"micro micro-dark\">\n<head>\n  <meta charset=\"utf-8\">\n  \n  <link data-rh=\"true\" rel=\"dns-prefetch\" href=\"https://static.bgbstatic.com\"/><link data-rh=\"true\" rel=\"preconnect\" href=\"https://static.bgbstatic.com\" crossOrigin=\"anonymous\"/><meta data-rh=\"true\" charset=\"utf-8\"/><meta data-rh=\"true\" name=\"viewport\" content=\"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no\"/><script data-rh=\"true\" >\n              (function () {\n                  const script = document.createElement('script')\n                  script.type = 'module'\n                  script.src = '/micro-runtime/micro-runtime.js?t=' + Date.now()\n       ",
+      "selection": "Selected first 700 text characters only; hash refers to entire HTTP body, no absence conclusion.",
+      "api_code": null,
+      "api_status_semantics": "API code if JSON API response; null for non-API documentation/client HTML or JS.",
+      "saved_payload_canonical_sha256": "67da52f08a969d1467ee826e9934ebeae22445fa48a9cd1972bb381f6486d310"
+    },
+    {
+      "id": 25,
+      "kind": "public_archive_route_probe",
+      "method": "GET",
+      "url": "https://www.bitget.com/v1/statistics/public/download/getPublicDataV2?displaySymbol=BTCUSDT&businessLine=2&businessType=3&dateType=1&beginTimeStr=2026-09-17&endTimeStr=2026-09-17&deptType=1",
+      "endpoint": "/v1/statistics/public/download/getPublicDataV2",
+      "parameters": {
+        "displaySymbol": "BTCUSDT",
+        "businessLine": 2,
+        "businessType": 3,
+        "dateType": 1,
+        "beginTimeStr": "2026-09-17",
+        "endTimeStr": "2026-09-17",
+        "deptType": 1
+      },
+      "retrieved_at_utc": "2026-11-01T20:52:05.320664+00:00",
+      "parameter_semantics": "Field names and businessLine/businessType codes taken from public download page client; GET method, dateType and host routing not yet verified. Neither failed route nor empty payload establishes archive absence.",
+      "http_status": 405,
+      "final_url": "https://www.bitget.com/v1/statistics/public/download/getPublicDataV2?displaySymbol=BTCUSDT&businessLine=2&businessType=3&dateType=1&beginTimeStr=2026-09-17&endTimeStr=2026-09-17&deptType=1",
+      "raw_response_sha256": "14ef042b1a08eb403efd82b27c7ff36eb7e0352f8d343d375637c47c24b8bbb3",
+      "raw_response_bytes": 124,
+      "api_code": "405",
+      "api_msg": "The HTTP Method is not supported",
+      "response": {
+        "code": "405",
+        "flag": true,
+        "group": "common",
+        "msg": "The HTTP Method is not supported",
+        "params": [],
+        "requestTime": 1793566325755
+      },
+      "selection": "Full decoded JSON response; hash refers to entire HTTP body.",
+      "api_status_semantics": "API code if JSON API response; null for non-API documentation/client HTML or JS.",
+      "saved_payload_canonical_sha256": "112b10b4e9ae094eb26d2d9103bcbcb177208a346cd03f7e1d68fe21be5c372c"
+    }
+  ],
+  "findings": {
+    "issue_7": {
+      "state_after": "state:blocked",
+      "scoped_block_reason": "Funding recovery and small historic trade samples were observed. Trade cursor pagination is not verified: saved request pairs repeat the same idLessThan and some returned IDs violate that cursor. The remaining empirical historical execution-price/impact validation requires timestamped bid/ask/depth not yet present in the saved window. The reviewed REST snapshot has no history selector; the linked archive GET route returned 405, so no archive file was recovered within the mandated GET-only boundary. This does not prove that archives require private access.",
+      "next_executable_step": "Use saved BTC/AAPL funding rows to join each actual holding interval at settlement (state the exact boundary rule); use fills-history with limit<=1000, <=7-day windows and idLessThan for a preselected minute/day. For historical spread validation, obtain one public Bitget archive file link via a documented supported read-only GET listing or official published direct URL, then GET a small file/range and verify UTC timestamps, symbol and depth semantics before paging further; if the listing truly requires a non-GET method, it is outside this run, not a reason to use credentials."
+    },
+    "issue_9": {
+      "state_after": "state:blocked",
+      "scoped_block_reason": "Selected current identity/US region/ISIN mapping is now available from Bitget. The requested underlying-session-labelled empirical comparison still lacks a verified exchange MIC/timezone/holiday and early-close calendar plus historical mapping. Product launch/maintenance times cannot supply that calendar.",
+      "next_executable_step": "Preserve the four saved symbol/fullName/ISIN/US mappings as current metadata; request an official Bitget per-symbol underlying exchange/session and dated exception mapping, validate it against the saved window before assigning core-session labels. Perp-only candle/funding comparisons can proceed now without claiming underlying session verification; funding is measured for AAPL only here."
+    },
+    "issue_10": {
+      "state_after": "state:blocked",
+      "scoped_block_reason": "A survivorship-corrected broad crypto comparison requires dated membership, including delisted symbols and availability intervals. Reviewed APIs supply current online metadata; no complete historical listing/delisting membership was recovered or documented through these endpoints. BTC launchTime=0 and current offTime=-1 cannot prove past membership.",
+      "next_executable_step": "Obtain a Bitget-provided dated USDT-perpetual listing/delisting export or reconstruct a bounded interval manifest from official dated listing/delisting notices with a demonstrable completeness check; validate symbol identity and first/last trading timestamps against candles. Until then label the existing 12-symbol panel as a fixed current-survivor pilot, not a PIT broad-universe test. Do not infer delistings from missing candles."
+    }
+  },
+  "existing_reports_reviewed": {
+    "3": [
+      "https://github.com/totosan/tokendashboard/issues/3#issuecomment-6563232355"
+    ],
+    "7": [
+      "https://github.com/totosan/tokendashboard/issues/7#issuecomment-6559832260"
+    ],
+    "9": [
+      "https://github.com/totosan/tokendashboard/issues/9#issuecomment-6559753835"
+    ],
+    "10": [
+      "https://github.com/totosan/tokendashboard/issues/10#issuecomment-6559776257"
+    ],
+    "scope_note": "Prior Binance/CoinGecko sources in #10 were read as existing issue text only, not called or used for this evidence capture; all new public data/doc/source requests are to Bitget."
+  },
+  "source_document_semantics": {
+    "listing_and_membership": {
+      "source_request_ids": [
+        1,
+        21
+      ],
+      "documented": "V3 Instruments explicitly queries specifications for online trading pairs; launchTime is a launch Unix millisecond timestamp. V2 contracts describes launchTime as listing time, symbolStatus current listed/normal/maintain/limit_open/restrictedAPI/off states, offTime as trading halt time (-1 normal), and openTime as deprecated. limitOpenTime is a maintenance/restriction boundary, not a daily market-opening schedule.",
+      "not_documented_in_reviewed_endpoints": "No historical as-of membership query, complete listing/delisting event archive, immutable historical launch values, or guarantee that currently delisted instruments remain enumerable. This limited review is not proof that no other Bitget archive exists.",
+      "correction": "Request #2 was a 404 guessed documentation slug; the authoritative config document was discovered via link in #19 and successfully captured at #21. The 404 is not evidence that contract config is unavailable."
+    },
+    "stock_identity_and_times": {
+      "source_request_ids": [
+        1,
+        21
+      ],
+      "documented": "marketRegion is a region code; isin identifies a financial security; fullName/instrumentType/type distinguish issuer and perpetual instrument. launchTime, offTime, limitOpenTime and maintainTime describe product lifecycle or maintenance, not underlying exchange trading sessions.",
+      "not_verified": "No per-symbol exchange MIC, IANA session timezone, exchange holiday/early-close calendar or historical halt schedule was provided in the selected instrument responses. No non-Bitget calendars were accessed. Current issuer/region/ISIN mappings are Bitget metadata, not independent verification of a primary exchange or calendar."
+    },
+    "funding": {
+      "source_request_ids": [
+        3
+      ],
+      "documented": "GET history-fund-rate supports pageNo and pageSize (max 100); fundingTime is settlement time, with fundingRate and symbol. No retention horizon asserted from this document."
+    },
+    "trades_and_depth": {
+      "source_request_ids": [
+        4,
+        5,
+        19,
+        20,
+        22,
+        23
+      ],
+      "documented": "fills-history: last 90 days, request interval <=7 days, max 1000 rows and idLessThan older-ID pagination. merge-depth: current orderbook snapshot; docs link to public website historical futures depth downloads. data-download advertises orderbook data for recent years.",
+      "important_limitation": "No claim that Bitget has no historic depth. No documented historical timestamp selector in the reviewed merge-depth endpoint. Public website advertises archives, but no file content or temporal coverage was recovered in this GET-only run. Client source contains /statistics/public/download/getPublicDataV2 with date and depth-type fields; GET at the plain website route returned 404; /v1 prefixed route returned API 405 unsupported HTTP method. No POST, auth, cookies, account or browser requests attempted. These route probes establish only failed GET access using those exact paths/params, not absence, an access paywall, or a credential requirement."
+    }
+  },
+  "measured_coverage": {
+    "funding": [
+      {
+        "symbol": "BTCUSDT",
+        "source_request_ids": [
+          9,
+          10
+        ],
+        "page_row_counts": [
+          100,
+          100
+        ],
+        "combined_rows": 200,
+        "duplicate_timestamps": 0,
+        "all_returned_oldest_utc": "2026-08-27T08:00:00Z",
+        "all_returned_newest_utc": "2026-11-01T16:00:00Z",
+        "page_boundary_gap_ms": 28800000,
+        "evaluation_window": "[2026-09-17T00:00:00Z, 2026-11-01T00:00:00Z)",
+        "window_rows": 135,
+        "window_first_utc": "2026-09-17T00:00:00Z",
+        "window_last_utc": "2026-10-31T16:00:00Z",
+        "expected_8h_grid_count": 135,
+        "missing_on_observed_8h_grid": 0,
+        "off_grid_timestamps": 0,
+        "duplicate_free": true,
+        "nonzero_funding_rates_in_window": 135,
+        "funding_rate_min_in_window": -2.1e-05,
+        "funding_rate_max_in_window": 0.0001,
+        "end_boundary_event_returned": true,
+        "interpretation": "All expected 8h settlement timestamps were measured for this symbol and fixed half-open window; no inference for unqueried symbols, account ledger debits, or earlier retention. Funding rate is not a personal ledger charge. Position sign, notional and boundary ownership must be applied per actual holding interval."
+      },
+      {
+        "symbol": "AAPLUSDT",
+        "source_request_ids": [
+          11,
+          12
+        ],
+        "page_row_counts": [
+          100,
+          100
+        ],
+        "combined_rows": 200,
+        "duplicate_timestamps": 0,
+        "all_returned_oldest_utc": "2026-08-27T08:00:00Z",
+        "all_returned_newest_utc": "2026-11-01T16:00:00Z",
+        "page_boundary_gap_ms": 28800000,
+        "evaluation_window": "[2026-09-17T00:00:00Z, 2026-11-01T00:00:00Z)",
+        "window_rows": 135,
+        "window_first_utc": "2026-09-17T00:00:00Z",
+        "window_last_utc": "2026-10-31T16:00:00Z",
+        "expected_8h_grid_count": 135,
+        "missing_on_observed_8h_grid": 0,
+        "off_grid_timestamps": 0,
+        "duplicate_free": true,
+        "nonzero_funding_rates_in_window": 13,
+        "funding_rate_min_in_window": -0.000182,
+        "funding_rate_max_in_window": 0.000193,
+        "end_boundary_event_returned": true,
+        "interpretation": "All expected 8h settlement timestamps were measured for this symbol and fixed half-open window; no inference for unqueried symbols, account ledger debits, or earlier retention. Funding rate is not a personal ledger charge. Position sign, notional and boundary ownership must be applied per actual holding interval."
+      }
+    ],
+    "historic_trade_prints": [
+      {
+        "symbol": "BTCUSDT",
+        "source_request_ids": [
+          13,
+          14
+        ],
+        "requested_window_start_utc": "2026-09-17T14:30:00Z",
+        "requested_window_end_utc": "2026-09-17T14:31:00Z",
+        "requested_limit_per_page": 3,
+        "returned_rows_per_page": [
+          3,
+          3
+        ],
+        "all_timestamps_inside_requested_window": true,
+        "unique_trade_ids": 6,
+        "ids_strictly_descending_across_pages": true,
+        "idLessThan_boundary_honored": false,
+        "pagination_verified": false,
+        "oldest_returned_utc": "2026-09-17T14:30:59.854000Z",
+        "newest_returned_utc": "2026-09-17T14:30:59.928000Z",
+        "interpretation": "Two returned 3-print samples; cursor pagination is not verified because saved request pairs repeat idLessThan and returned IDs violate that cursor. Six unique prints do not establish complete minute or archive coverage. Aggressor side and trade price do not recover contemporaneous bid/ask, queue, cancelled orders, or own fills."
+      },
+      {
+        "symbol": "AAPLUSDT",
+        "source_request_ids": [
+          15,
+          16
+        ],
+        "requested_window_start_utc": "2026-09-17T14:30:00Z",
+        "requested_window_end_utc": "2026-09-17T14:31:00Z",
+        "requested_limit_per_page": 3,
+        "returned_rows_per_page": [
+          3,
+          3
+        ],
+        "all_timestamps_inside_requested_window": true,
+        "unique_trade_ids": 6,
+        "ids_strictly_descending_across_pages": true,
+        "idLessThan_boundary_honored": false,
+        "pagination_verified": false,
+        "oldest_returned_utc": "2026-09-17T14:30:29.396000Z",
+        "newest_returned_utc": "2026-09-17T14:30:58.604000Z",
+        "interpretation": "Two returned 3-print samples; cursor pagination is not verified because saved request pairs repeat idLessThan and returned IDs violate that cursor. Six unique prints do not establish complete minute or archive coverage. Aggressor side and trade price do not recover contemporaneous bid/ask, queue, cancelled orders, or own fills."
+      }
+    ],
+    "stock_metadata_mapping": {
+      "source_request_ids": [
+        7,
+        8
+      ],
+      "rows": [
+        {
+          "symbol": "TSLAUSDT",
+          "fullName": "Tesla",
+          "baseCoin": "TSLA",
+          "instrumentType": "stock",
+          "marketRegion": "US",
+          "isin": "US88160R1014",
+          "status": "online",
+          "type": "perpetual",
+          "isRwa": "YES",
+          "launchTime": "1769994062288",
+          "fundInterval": "8",
+          "offTime": "-1",
+          "limitOpenTime": "-1",
+          "maintainTime": "",
+          "launch_time_utc": "2026-02-02T01:01:02.288000Z"
+        },
+        {
+          "symbol": "NVDAUSDT",
+          "fullName": "Nvidia",
+          "baseCoin": "NVDA",
+          "instrumentType": "stock",
+          "marketRegion": "US",
+          "isin": "US67066G1040",
+          "status": "online",
+          "type": "perpetual",
+          "isRwa": "YES",
+          "launchTime": "1769994062273",
+          "fundInterval": "8",
+          "offTime": "-1",
+          "limitOpenTime": "-1",
+          "maintainTime": "",
+          "launch_time_utc": "2026-02-02T01:01:02.273000Z"
+        },
+        {
+          "symbol": "AAPLUSDT",
+          "fullName": "Apple",
+          "baseCoin": "AAPL",
+          "instrumentType": "stock",
+          "marketRegion": "US",
+          "isin": "US0378331005",
+          "status": "online",
+          "type": "perpetual",
+          "isRwa": "YES",
+          "launchTime": "1769994062305",
+          "fundInterval": "8",
+          "offTime": "-1",
+          "limitOpenTime": "-1",
+          "maintainTime": "",
+          "launch_time_utc": "2026-02-02T01:01:02.305000Z"
+        },
+        {
+          "symbol": "COINUSDT",
+          "fullName": "Coinbase Global",
+          "baseCoin": "COIN",
+          "instrumentType": "stock",
+          "marketRegion": "US",
+          "isin": "US19260Q1076",
+          "status": "online",
+          "type": "perpetual",
+          "isRwa": "YES",
+          "launchTime": "1769994064132",
+          "fundInterval": "8",
+          "offTime": "-1",
+          "limitOpenTime": "-1",
+          "maintainTime": "",
+          "launch_time_utc": "2026-02-02T01:01:04.132000Z"
+        }
+      ],
+      "current_snapshot_only": true,
+      "aapl_v2_v3_crosscheck": {
+        "v3_launchTime": "1769994062305",
+        "v2_launchTime": "",
+        "v2_deprecated_openTime": "1769994062305",
+        "interpretation": "V3 launchTime and deprecated V2 openTime agree numerically for AAPL; V2 launchTime itself is empty. Do not silently substitute deprecated openTime as a verified listing-date series."
+      },
+      "daily_trading_session_fields_returned": [],
+      "calendar_verified": false
+    },
+    "crypto_point_in_time": {
+      "source_request_ids": [
+        1,
+        7,
+        21
+      ],
+      "btc_current_status": "online",
+      "btc_launchTime": "0",
+      "btc_launch_time_usable": false,
+      "historical_membership_recovered": false,
+      "delisting_archive_completeness_verified": false,
+      "interpretation": "BTC launchTime=0 is not a usable listing date. Current online selection plus some valid stock launch dates does not reconstruct the past crypto universe, missing delisted symbols, past halts, or turnover. No historical-universe request returned empty; no absence conclusion was drawn from emptiness. No broad symbol crawl attempted."
+    },
+    "quotes": {
+      "source_request_ids": [
+        17,
+        18,
+        24,
+        25
+      ],
+      "current_btc_depth_ts_utc": "2026-11-01T20:50:53.953000Z",
+      "current_aapl_bbo_ts_utc": "2026-11-01T20:50:54.554000Z",
+      "historic_bbo_or_depth_rows_recovered": 0,
+      "historic_quote_availability": "Not recovered/verified under this bounded GET-only route check, not proven nonexistent. Current snapshots are not substitutes for historical quotes.",
+      "public_archive_get_route_results": [
+        {
+          "request_id": 24,
+          "http": 404
+        },
+        {
+          "request_id": 25,
+          "http": 405,
+          "api_code": "405"
+        }
+      ]
+    }
+  },
+  "request_count": 25,
+  "completed_utc": "2026-11-01T20:53:09.085324+00:00",
+  "safety": {
+    "public_bitget_requests_only": true,
+    "methods": [
+      "GET"
+    ],
+    "private_endpoints_or_credentials_used": false,
+    "account_or_order_access": false,
+    "binance_requests": 0,
+    "broad_crawl": false,
+    "archive_file_downloaded": false,
+    "notes": "25 total Bitget HTTP GET requests including official docs/client-source reads and 12 market API calls; no redirect left Bitget. Raw body SHA256 refers to original HTTP bytes, which are not stored here and cannot be independently rehashed from this artifact. Selected fields/excerpts are explicitly marked; selected decoded responses also carry a reproducible canonical hash where present. Trade cursor pagination is not verified; original request/response records are preserved despite their inconsistency. No performance or execution-quality claims."
+  }
+}

@@ -1,0 +1,367 @@
+{
+  "plan_id": "epic-3-completion-v1",
+  "date_utc": "2026-11-04",
+  "epic": 3,
+  "baseline_head": "be666b139d04febd75aec133d294cc635a9b7c89",
+  "implementation_scope": "Research only on draft PR 5; no production dashboard, orders, paid data, always-on services, new product UI or a new product UI; issue 26 (Raspberry Pi recorder) is active.",
+  "overall_acceptance": "NOT_COMPLETE",
+  "initial_issue_disposition": {
+    "open_active_during_wave": [3, 7, 8, 14, 22],
+    "open_input_blocked": [9, 10, 13],
+    "closed_accepted_own_scope": [6, 11, 12, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25],
+    "out_of_scope": [], "active_recorder": [26],
+    "rule": "Active is a temporary execution state, not acceptance. Reconcile all active labels after actual deliveries and critic; any own unmet criterion remains open."
+  },
+  "root_acceptance_trace": [
+    {
+      "criterion": "Numbered linked tasks, label convention and honest runtime capability",
+      "evidence": "Nine native direct children and eleven nested numbered stories; all applicable issues have one topic and one state label; nine domain audits and critic returned in the preceding reconciliation.",
+      "status": "satisfied_maintain_continuously"
+    },
+    {
+      "criterion": "All domains covered or explicitly left open with reason and next action",
+      "evidence": "Four-wave graph covers every unfinished domain, with closed inventory/indicator/regime research retained and explicit source/calendar gates.",
+      "status": "documented_not_whole_domain_acceptance"
+    },
+    {
+      "criterion": "Reproducible sources/data/code/tests/time splits/costs, negative results and uncertainty",
+      "evidence": "Existing saved research and immutable hashes; wave 1 adds bounded reproducible code and diagnostics. Actual historical inputs and calibrated inference are separate gates.",
+      "status": "partially_satisfied"
+    },
+    {
+      "criterion": "Broad versus group/symbol crypto comparison and separate TradFi transferability",
+      "evidence": "Fixed survivor-panel exploratory results exist; G10/G11 remain required for the intended broader historical comparison.",
+      "status": "blocked_by_G10_G11"
+    },
+    {
+      "criterion": "Final independent critical review and complete consistency audit",
+      "evidence": "Previous domain/state audit is complete; each new delivery wave needs its own critic, and G14 whole-epic acceptance remains separate.",
+      "status": "partially_satisfied_G14_pending"
+    },
+    {
+      "criterion": "Concrete understandable dashboard and manual-observation recommendations without guarantees",
+      "evidence": "Existing synthesis gives bounded context/observation recommendations; synchronize final conclusions after evidence gates, without implementing product changes.",
+      "status": "partially_satisfied_G14_pending"
+    },
+    {
+      "criterion": "No production dashboard changes based only on research; no automatic orders",
+      "evidence": "Production files are immutable in this plan and no order/account operation is authorized.",
+      "status": "satisfied_preserve"
+    }
+  ],
+  "process_contract": {
+    "command_wall_time_seconds": 120,
+    "termination": "Use timeout --signal=TERM --kill-after=5s for every potentially blocking CLI command. Each Python/Node subprocess must have its own finite timeout. Network requests additionally need explicit request/connect/read deadlines and finite byte/request/retry limits. No servers, watch modes, stdin prompts, detached processes or unbounded polling.",
+    "compute": "Offline synthetic or already inspected data only in wave 1. One prospectively fixed inference candidate and one calibration run; do not tune/retry to obtain PASS. At most 90 seconds per candidate run, 120 seconds outer timeout. Save partial failure evidence and exit nonzero on budget exhaustion.",
+    "ownership": "Each agent edits only its explicitly assigned new files. Coordinator owns synthesis, plan, handoff, integration, commits, pushes and state changes. Agents do not spawn agents or modify shared evaluators/frozen protocols.",
+    "status_delivery": "Each specialist posts sources, exact commands, test results, accepted scope, limitations, and next prerequisite in its assigned issue. A reported blocker is a response, not agent loss.",
+    "nonresponse": "On an actually unanswered status request, wait at least 60 seconds before one retry; after a second 60-second unanswered interval inspect artifacts and owned processes, document both requests/observations and apply Lost Repeat only to that truly lost assignment. An unstarted/unavailable agent is blocked, not lost.",
+    "review": "Independent critic starts after all working agents deliver or are evidenced lost. Critic checks source provenance, methodology, bias, tests and acceptance claims; no automatic GitHub approval or whole-epic acceptance.",
+    "publication": "Validate targeted packages and integrated suite, reconcile docs and labels, commit with Copilot trailer, push without force to the existing draft PR branch, verify remote head and issue states. Never silently overwrite concurrent changes."
+  },
+  "waves": [
+    {
+      "wave": 1,
+      "purpose": "Execute independent work that needs no new market-data access or future observations.",
+      "packages": [
+        {
+          "id": "G08",
+          "owner_issue": 22,
+          "parent_issue": 8,
+          "persona": "Dependence-aware statistical-methodology engineer",
+          "status": "candidate_failed_methodology_still_blocked",
+          "effort": "large",
+          "depends_on": [],
+          "deliverables": [
+            "One new prospectively written practical estimator/null design using estimated, not oracle covariance, explicit assumptions and missing-family refusal.",
+            "Finite deterministic synthetic diagnostics for the complete 132-hypothesis family, marginal/family errors with Monte Carlo uncertainty and declared PASS/FAIL/INCONCLUSIVE rules.",
+            "Failure/sparsity/serial-and-cross-dependence tests and honest saved result; original failed/inconclusive artifacts and frozen market protocol unchanged."
+          ],
+          "closure_gate": "Issue 22 criterion 4 stays unchecked unless a valid block-based inference/multiplicity plan for the frozen intended use is actually demonstrated. A useful candidate or unit-test PASS alone is insufficient."
+        },
+        {
+          "id": "G05",
+          "owner_issue": 14,
+          "related_issue": 9,
+          "persona": "Causal scanner-parity and fixture engineer",
+          "status": "fixture_deliverable_reviewed_empirical_coverage_blocked",
+          "effort": "medium",
+          "depends_on": [],
+          "deliverables": [
+            "Research-only bridge invoking actual dist/pattern.js and dist/tradfi.js with finite Node subprocesses; exact fixtures for supported Long/Short/cadences, boundaries, gaps and confirmation timing.",
+            "Parity comparison/evidence and explicit distinctions from frozen eleven-arm research family; unsupported timeframe/direction cases are refused, not silently resampled.",
+            "An offline input-coverage report stating whether suitable saved 1m data exist; no fabricated empirical signal/return results."
+          ],
+          "closure_gate": "Parent 14 closes only when its own comparative research and required coverage are evidenced. Fixture parity cannot stand in for missing empirical 1m coverage or stock-session mapping."
+        },
+        {
+          "id": "G12-contract",
+          "owner_issue": 7,
+          "persona": "Historical execution-input and interval-join engineer",
+          "status": "contract_deliverable_reviewed_historical_inputs_blocked",
+          "effort": "medium",
+          "depends_on": [],
+          "deliverables": [
+            "Read-only fail-closed execution-readiness contract and audit for actual historical quotes/depth, latency, effective fee and funding inputs, reusing existing helpers where appropriate.",
+            "Synthetic interval-join/boundary tests and explicit missing/stale/mismatched/source-unverified input diagnostics; scenario costs never become measured fills.",
+            "Offline report on current saved evidence, with original sources/hashes and separate collection/provider requirements."
+          ],
+          "closure_gate": "G12 historical evidence remains blocked unless aligned reviewed inputs actually exist; implementing a readiness gate is not an execution model or measured PnL."
+        }
+      ],
+      "exit_gate": "All actual agent deliveries integrated and independently reviewed; engineering checks pass, limitations retained, and remote publication verified."
+    },
+    {
+      "wave": 2,
+      "purpose": "Resolve bounded coverage and authoritative-reference inputs; not authorized as an unlimited download or paid purchase.",
+      "packages": [
+        {
+          "id": "G04-coverage",
+          "owner_issue": 13,
+          "persona": "Volume-profile data-integrity researcher",
+          "status": "input_specification_required",
+          "effort": "medium",
+          "depends_on": [],
+          "next": "Freeze a finite multi-hour/symbol matrix, causal availability/warmup and matched trade/candle windows. Use the existing bounded acquisition path only after identifying documented exact objects and budget. Preserve 0/8 POC agreement and missing ledger/availability facts; do not restart delivered G04.",
+          "proposed_sample_matrix": {
+            "status": "PLANNED_NOT_ACQUIRED",
+            "symbols": ["AAPLUSDT", "BTCUSDT"],
+            "event_window_utc": ["2026-09-17T14:00:00Z", "2026-09-17T16:00:00Z"],
+            "receive_partitions_to_check": ["2026-09-17/13", "2026-09-17/14", "2026-09-17/15", "2026-09-17/16"],
+            "maximum_trade_objects": 8,
+            "maximum_http_transactions_including_discovery_redirects_retries": 16,
+            "maximum_total_response_body_bytes": 16777216,
+            "maximum_command_seconds": 120,
+            "maximum_request_seconds": 10,
+            "maximum_retries_per_request": 0,
+            "prerequisite": "Confirm exact provider dataset/product/symbol object identifiers and each object's declared size before acquisition; a matrix cell exceeding the budget remains blocked, not replaced by a convenient result.",
+            "warmup_and_availability": "Use saved closed 15m candles only where comparable source clocks and completeness are evidenced; preserve unknown candle publication/receive time. Missing native availability blocks signal-time claims even if ex-post profiles can be compared."
+          },
+          "closure_gate": "Own profile research criteria and requested fidelity/coverage comparisons are explicitly satisfied or left open; no predictive utility claim."
+        },
+        {
+          "id": "G06-coverage",
+          "owner_issue": 7,
+          "persona": "Order-book provenance and replay engineer",
+          "status": "input_specification_required",
+          "effort": "medium",
+          "depends_on": [],
+          "next": "Freeze the next multi-symbol/day sample matrix, exact source objects and request/byte budget. Validate snapshot/seq/pseq/time/schema/checkpoint chain and any available checksum before expanding. Missing September initial state remains a gate.",
+          "proposed_sample_matrix": {
+            "status": "PLANNED_NOT_ACQUIRED",
+            "symbols": ["AAPLUSDT", "BTCUSDT"],
+            "dates_utc": ["2026-11-03", "2026-11-04"],
+            "hours_utc": [14, 15],
+            "maximum_book_objects": 8,
+            "maximum_http_transactions_including_discovery_redirects_retries": 16,
+            "maximum_total_response_body_bytes": 16777216,
+            "maximum_command_seconds": 120,
+            "maximum_request_seconds": 10,
+            "maximum_retries_per_request": 0,
+            "prerequisite": "Only already published objects may be acquired; Nov 4 hours cannot be assumed present at plan time. Confirm catalog identifiers/size/snapshot semantics before each finite batch. Missing, too large or delta-only objects remain explicit gaps.",
+            "historical_scope": "Recent replay extends parser/chain evidence only. It never substitutes for the missing September execution start state."
+          },
+          "closure_gate": "Adequate historical execution-window coverage, not just sequence-consistent recent samples."
+        },
+        {
+          "id": "G10",
+          "owner_issue": 10,
+          "persona": "Point-in-time instrument-identity researcher",
+          "status": "source_blocked",
+          "effort": "large",
+          "depends_on": [],
+          "next": "Obtain authoritative opening inventory at 2026-09-17 and effective listing/halt/delist/rename identities through 2026-11-01; reconcile publication/effective clocks and prove inventory completeness before the broad/group/symbol comparison.",
+          "source_request_reference": "research/data/bitget-universe-feasibility-2026-11-02.json#/delivery/next_official_data_request",
+          "required_evidence": [
+            "Official opening and closing USDT-perpetual inventories including subsequently removed contracts, export version/counts/checksums and completeness/retention guarantees.",
+            "Stable venue contract generation and canonical asset identities, ticker validity, effective UTC listing/delist/halt/resumption/restriction/rename/relisting events.",
+            "Separate publication/known-at clocks and revisions, including pre-window publications effective inside the window.",
+            "Exact documented anonymous read-only retrieval contract; reconcile opening inventory plus events to closing inventory."
+          ],
+          "closure_gate": "Historical membership completeness and all requested comparison groups; current instruments, isolated notices and survivor panels are insufficient."
+        },
+        {
+          "id": "G11",
+          "owner_issue": 9,
+          "persona": "Equity/perpetual reference-calendar researcher",
+          "status": "source_blocked",
+          "effort": "large",
+          "depends_on": [],
+          "next": "Obtain effective-dated contract-to-underlying/reference-venue/MIC/timezone/session/holiday/halt mappings with provenance; apply the existing reference gate before stock-session comparisons.",
+          "source_request_reference": "research/data/bitget-session-feasibility-2026-11-02.json#/result/next_official_request",
+          "required_evidence": [
+            "Bitget symbol-level historical reference-market specification for AAPLUSDT, TSLAUSDT, NVDAUSDT and COINUSDT over 2026-09-17 to 2026-11-01.",
+            "Underlying identity, primary exchange/MIC, reference/index source, timezone, effective-from/to and mapping revision history.",
+            "Only after mapping is evidenced: the mapped exchange's official historical session, holiday, early-close and halt records, with availability/effective timestamps."
+          ],
+          "closure_gate": "Historical underlying/session linkage; no substitution of 24/7 derivative candles for stock sessions, volume, float or news."
+        }
+      ]
+    },
+    {
+      "wave": 3,
+      "purpose": "Run only models and evaluations whose actual prerequisites are satisfied.",
+      "packages": [
+        {
+          "id": "G12",
+          "owner_issue": 7,
+          "status": "historical_inputs_blocked",
+          "depends_on": ["G06-coverage", "G12-contract"],
+          "next": "Source and join historical executable quotes/depth, measured or prospectively specified manual/scan latency, effective instrument/account fees and settlement funding. Distinguish assumptions from observations in all outputs."
+        },
+        {
+          "id": "G13",
+          "owner_issue": 7,
+          "related_issue": 8,
+          "status": "model_and_input_blocked",
+          "depends_on": ["G12", "G08"],
+          "next": "Freeze sizing, concurrency, allocation and account cashflow assumptions; source effective historical margin/liquidation rules. Only then evaluate overlap, portfolio drawdown or leverage risk."
+        },
+        {
+          "id": "G09",
+          "owner_issue": 8,
+          "status": "future_data_dependent",
+          "depends_on": ["G08"],
+          "existing_prerequisite": "G07 development-only evaluator is delivered, not empirical validation.",
+          "reserved_folds_utc": ["2027-02-01/2027-03-01", "2027-03-01/2027-03-29", "2027-03-29/2027-04-26"],
+          "warmup_hours": 96,
+          "next": "After all frozen observations actually exist, verify complete fixed-panel coverage, warmup, purge/embargo, event floors and calibrated inference before a single reserved evaluation. Do not shift dates, peek, reuse inspected history or impute absent outcomes."
+        }
+      ]
+    },
+    {
+      "wave": 4,
+      "purpose": "Accept the actual whole requirement set, not just code packages.",
+      "packages": [
+        {
+          "id": "G14",
+          "owner_issue": 8,
+          "parent_issue": 3,
+          "status": "prerequisite_blocked",
+          "depends_on": ["G05", "G04-coverage", "G09", "G10", "G11", "G12", "G13"],
+          "next": "Final synchronized comparison matrix, negative/uncertain results, understandable dashboard/manual-observation recommendations, independent whole-epic critic and criterion-by-criterion closure audit. Scope cannot be narrowed silently."
+        }
+      ]
+    }
+  ],
+  "preserved_results": {
+    "original_calibration": "FAIL",
+    "oracle_redesign": "INCONCLUSIVE",
+    "empirical_readiness": "NOT_READY",
+    "empirical_validation": "NOT_RUN",
+    "baseline_research_tests": 194,
+    "practical_candidate_observed_run": "FAIL",
+    "practical_candidate_design_compliance": "DEVIATION_IDENTIFIED_BY_CRITIC_NOT_A_COMPLIANT_TEST_OF_INTENDED_DESIGN"
+  },
+  "agent_deliveries": [
+    {
+      "package": "G08",
+      "agent": "practical-inference",
+      "issue": 22,
+      "comment": "https://github.com/totosan/tokendashboard/issues/22#issuecomment-6631878785",
+      "initial_targeted_tests": 7,
+      "diagnostic_runtime_seconds": 24.23,
+      "observed_run_result": "FAIL",
+      "criterion_4_satisfied": false,
+      "run_count": 1,
+      "no_calibration_rerun": true,
+      "source_files": ["research/practical_inference.py", "research/test_practical_inference.py"],
+      "artifacts": [
+        "research/results/practical-inference-protocol-2026-11-04.json",
+        "research/results/practical-inference-calibration-2026-11-04.json",
+        "research/results/practical-inference-deviation-2026-11-04.json"
+      ],
+      "limitations": "The original protocol and observed FAIL are immutable. Critic identified actual event counts differed from frozen design; deviation record distinguishes original executed source from corrected source. No claim that this run validates intended design or permits market inference.",
+      "task_owned_processes_reported": "NONE"
+    },
+    {
+      "package": "G05",
+      "agent": "scanner-parity",
+      "issue": 14,
+      "comment": "https://github.com/totosan/tokendashboard/issues/14#issuecomment-6631882711",
+      "targeted_tests": 5,
+      "synthetic_cases": 18,
+      "critic_actual_js_replay": "MATCH",
+      "source_files": ["research/scanner_parity.py", "research/scanner_parity_bridge.js", "research/test_scanner_parity.py"],
+      "artifacts": ["research/results/scanner-parity-protocol-2026-11-04.json", "research/results/scanner-parity-2026-11-04.json"],
+      "remaining": "No suitable committed 1m data; empirical original-scanner forward returns/MFE/MAE and full requested timeframe comparison remain open. No extension of frozen eleven-arm family.",
+      "task_owned_processes_reported": "NONE"
+    },
+    {
+      "package": "G12-contract",
+      "agent": "execution-contract",
+      "issue": 7,
+      "comment": "https://github.com/totosan/tokendashboard/issues/7#issuecomment-6631896278",
+      "new_tests": 24,
+      "targeted_tests_including_existing_helpers": 39,
+      "actual_evidence_readiness": "NOT_READY",
+      "intentional_audit_exit": 2,
+      "missing_or_unverified_reason_count": 13,
+      "manifest_hashes_match": 5,
+      "account_ownership": "UNKNOWN",
+      "critic_offline_report_replay": "MATCH",
+      "source_files": ["research/execution_readiness.py", "research/test_execution_readiness.py"],
+      "artifacts": ["research/results/execution-input-contract-2026-11-04.json", "research/results/execution-readiness-2026-11-04.json"],
+      "authorizes_execution": false,
+      "task_owned_processes_reported": "NONE"
+    }
+  ],
+  "independent_wave_review": {
+    "actually_started": true,
+    "initial_added_tests_passed": 36,
+    "actual_scanner_fixture_replay": "MATCH_ALL_18",
+    "actual_execution_audit_replay": "MATCH_13_REASONS_5_HASHES",
+    "findings": [
+      {
+        "id": "C1",
+        "severity": "medium",
+        "finding": "Practical inference event-count generator contradicted frozen protocol.",
+        "required_correction": "Preserve original run/protocol; record separate source-hash-bound deviation; correct future source and test generator invariant without rerunning calibration."
+      },
+      {
+        "id": "C2",
+        "severity": "medium",
+        "finding": "Non-failing calibration gate read a nonexistent replicate-floor config key.",
+        "required_correction": "Use required_independent_panels_per_scenario; direct regression for INCONCLUSIVE when precision floor unmet."
+      },
+      {
+        "id": "C3",
+        "severity": "medium",
+        "finding": "Execution exception could downgrade retained FAIL to INCONCLUSIVE.",
+        "required_correction": "Retain observed FAIL precedence and separate runtime failure in both exception paths; regression tests."
+      }
+    ],
+    "correction_comment": "https://github.com/totosan/tokendashboard/issues/22#issuecomment-6632241381",
+    "correction_review": {
+      "actually_started": true,
+      "scope": "C1 generator/source-deviation disclosure, C2 precision key, C3 retained FAIL precedence",
+      "targeted_tests_passed": 11,
+      "result": "VERIFIED_NO_REMAINING_HIGH_CONFIDENCE_BLOCKER_WITHIN_FIX_SCOPE",
+      "immutable_protocol_and_calibration_hashes_verified": true,
+      "calibration_rerun": false,
+      "criterion_4_satisfied": false
+    },
+    "submitted_github_approval": false,
+    "whole_epic_acceptance": false
+  },
+  "execution_result": {
+    "status": "BOUNDED_DELIVERIES_REVIEWED_PARENT_GATES_BLOCKED",
+    "integrated_command": "timeout --signal=TERM --kill-after=5s 120s python3 -m unittest discover -s research -p 'test_*.py' -q",
+    "integrated_tests_passed": 234,
+    "new_tests": 40,
+    "production_directory_changed": false,
+    "frozen_walkforward_protocol_changed": false,
+    "original_failed_and_oracle_artifacts_changed": false,
+    "practical_original_protocol_and_calibration_changed_after_review": false,
+    "actually_lost_agents": 0,
+    "task_owned_processes_reported_after_delivery": "NONE",
+    "open_blocked_at_end": [3, 7, 8, 9, 10, 13, 14, 22],
+    "separate_pending": [26],
+    "closed_accepted_own_scope": [6, 11, 12, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25],
+    "next_methodological_action": "A genuinely new justified prospective dependence-aware design, not an identical rerun or tuning of the saved failed implementation. Corrected source has no calibration authorization.",
+    "parallel_next_actions": "Use documented exact source objects and declared finite budgets for G05 empirical inputs, G04 profile coverage and G06 book coverage; G10/G11 remain authoritative-source gated.",
+    "publication": "Commit and push package/results to existing draft PR 5, then verify remote head, body, open inventory and label invariants; main remains unchanged."
+  },
+  "active_recorder": {"issue": 26, "status": "active", "feeds": [7, 10], "note": "owner decision 2026-11-05: deferred state removed; forward data source incl. daily contract inventory"},
+  "completion_definition": "Every issue closes only on its own evidenced acceptance. Source/calendar blockers and failed methodology remain open; >55% rough usefulness is never a substitute for valid inference, economic evidence or truthfulness."
+}

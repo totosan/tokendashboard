@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "mode": "EXISTING_EVIDENCE",
+  "instrument": {
+    "venue": "bitget",
+    "product": "USDT-FUTURES",
+    "symbol": "AAPLUSDT",
+    "quote_currency": "USDT",
+    "settlement_currency": "USDT",
+    "contract_multiplier": "1"
+  },
+  "window": {
+    "start_ms": 1789653600000,
+    "end_ms": 1789657200000
+  },
+  "policy": {
+    "max_quote_age_ms": 1000,
+    "max_total_latency_ms": 60000
+  },
+  "manifest_refs": [
+    {
+      "path": "research/data/execution-inputs-2026-11-02.json",
+      "sha256": "54f9afca1563cc14854551c76638dccbdf3802b2fb23b4e7c4c72b466af17c76",
+      "role": "execution_metadata"
+    },
+    {
+      "path": "research/data/bitget-funding-history-2026-11-02T160715.916809Z.json",
+      "sha256": "03cc6f2341c0f46e02392b273954a707271dcbba24a6c7b2278b92c4a522f7e4",
+      "role": "funding_history"
+    },
+    {
+      "path": "research/data/chd-bounded-acquisition-2026-11-04.json",
+      "sha256": "f93e49a85fcd7834199b83e6687ccfd4a300ddb549ac080a5df6f1df1178d3a6",
+      "role": "acquisition"
+    },
+    {
+      "path": "research/results/budget-recent-replay-2026-11-03.json",
+      "sha256": "af85419ac300100048fd36d5a25ab00f5efbe103afd1016ef9588ddada1e9212",
+      "role": "recent_replay"
+    },
+    {
+      "path": "research/results/chd-cross-hour-2026-11-04.json",
+      "sha256": "72e4277c822e04c78fa5cb8daa623aef5cce2b9c0745cc9aad763a2c2ef1c655",
+      "role": "cross_hour_replay"
+    }
+  ],
+  "candidate": {
+    "signals": [],
+    "quotes": [],
+    "fees": [],
+    "funding": [],
+    "holdings": []
+  }
+}

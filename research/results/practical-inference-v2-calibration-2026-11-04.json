@@ -1,0 +1,214 @@
+{
+  "actual_market_data_used": false,
+  "artifact_status": "COMPLETE_SYNTHETIC_ONLY",
+  "calibration_gate": "FAIL",
+  "limitations": [
+    "Synthetic generators only; a PASS would not validate any market assumption or show efficacy.",
+    "Power is for one declared alternative (+0.5 per event on 3 of 12 cells) only.",
+    "Sign-flip validity relies on block-sum symmetry and independence across 4-day blocks.",
+    "Frozen walkforward-protocol.json 132-family, 5-day-block plan and v1 artifacts are unchanged; this v2 result does not satisfy them."
+  ],
+  "protocol_id": "issue-22-practical-inference-candidate-v2-narrowed",
+  "protocol_sha256": "4c383ad1511baaece7b1419db556bc7481e39ec85317500348771e753efbf5dd",
+  "results": {
+    "iid_heteroskedastic": {
+      "any_rejection": 81,
+      "any_rejection_rate": 0.0405,
+      "any_rejection_wilson_95": [
+        0.03270494331440327,
+        0.05005682313706816
+      ],
+      "marginal_rejection_rate_by_cell": [
+        0.004,
+        0.0055,
+        0.0035,
+        0.003,
+        0.002,
+        0.007,
+        0.0035,
+        0.002,
+        0.0015,
+        0.0025,
+        0.003,
+        0.0035
+      ],
+      "panels": 2000,
+      "refusal_rate": 0.0,
+      "refusal_reasons": {},
+      "refused_panels": 0,
+      "scenario": "iid_heteroskedastic",
+      "valid_panels": 2000
+    },
+    "long_memory_serial": {
+      "any_rejection": 496,
+      "any_rejection_rate": 0.248,
+      "any_rejection_wilson_95": [
+        0.22956868258991328,
+        0.2673975092398382
+      ],
+      "marginal_rejection_rate_by_cell": [
+        0.108,
+        0.1025,
+        0.113,
+        0.1095,
+        0.107,
+        0.1015,
+        0.1015,
+        0.098,
+        0.1135,
+        0.1095,
+        0.1075,
+        0.104
+      ],
+      "panels": 2000,
+      "refusal_rate": 0.0,
+      "refusal_reasons": {},
+      "refused_panels": 0,
+      "scenario": "long_memory_serial",
+      "valid_panels": 2000
+    },
+    "power_three_of_twelve": {
+      "any_rejection": 1842,
+      "any_rejection_rate": 0.921,
+      "any_rejection_wilson_95": [
+        0.9083551101095888,
+        0.9320307360795963
+      ],
+      "marginal_rejection_rate_by_cell": [
+        0.5895,
+        0.0045,
+        0.007,
+        0.003,
+        0.584,
+        0.003,
+        0.004,
+        0.0035,
+        0.581,
+        0.0035,
+        0.0015,
+        0.004
+      ],
+      "panels": 2000,
+      "refusal_rate": 0.0,
+      "refusal_reasons": {},
+      "refused_panels": 0,
+      "scenario": "power_three_of_twelve",
+      "valid_panels": 2000
+    },
+    "serial_heteroskedastic": {
+      "any_rejection": 193,
+      "any_rejection_rate": 0.0965,
+      "any_rejection_wilson_95": [
+        0.0843220272921492,
+        0.11022502986382192
+      ],
+      "marginal_rejection_rate_by_cell": [
+        0.021,
+        0.0205,
+        0.026,
+        0.0195,
+        0.0235,
+        0.0215,
+        0.0235,
+        0.0225,
+        0.0195,
+        0.026,
+        0.019,
+        0.0175
+      ],
+      "panels": 2000,
+      "refusal_rate": 0.0,
+      "refusal_reasons": {},
+      "refused_panels": 0,
+      "scenario": "serial_heteroskedastic",
+      "valid_panels": 2000
+    },
+    "shared_cross_cell_heteroskedastic": {
+      "any_rejection": 85,
+      "any_rejection_rate": 0.0425,
+      "any_rejection_wilson_95": [
+        0.03450117971009799,
+        0.05225291855224844
+      ],
+      "marginal_rejection_rate_by_cell": [
+        0.011,
+        0.01,
+        0.01,
+        0.011,
+        0.0115,
+        0.0105,
+        0.0105,
+        0.011,
+        0.0095,
+        0.0095,
+        0.012,
+        0.0135
+      ],
+      "panels": 2000,
+      "refusal_rate": 0.0,
+      "refusal_reasons": {},
+      "refused_panels": 0,
+      "scenario": "shared_cross_cell_heteroskedastic",
+      "valid_panels": 2000
+    },
+    "skewed_mean_zero": {
+      "any_rejection": 60,
+      "any_rejection_rate": 0.03,
+      "any_rejection_wilson_95": [
+        0.02337785471293825,
+        0.03842416973143951
+      ],
+      "marginal_rejection_rate_by_cell": [
+        0.004,
+        0.002,
+        0.004,
+        0.0035,
+        0.0025,
+        0.002,
+        0.0035,
+        0.0035,
+        0.0025,
+        0.005,
+        0.003,
+        0.001
+      ],
+      "panels": 2000,
+      "refusal_rate": 0.0,
+      "refusal_reasons": {},
+      "refused_panels": 0,
+      "scenario": "skewed_mean_zero",
+      "valid_panels": 2000
+    },
+    "sparse_days": {
+      "any_rejection": 79,
+      "any_rejection_rate": 0.0395,
+      "any_rejection_wilson_95": [
+        0.03180890787160705,
+        0.0489566926744269
+      ],
+      "marginal_rejection_rate_by_cell": [
+        0.0015,
+        0.0035,
+        0.002,
+        0.004,
+        0.004,
+        0.0025,
+        0.004,
+        0.004,
+        0.004,
+        0.004,
+        0.0025,
+        0.004
+      ],
+      "panels": 2000,
+      "refusal_rate": 0.0635,
+      "refusal_reasons": {
+        "ineligible_cell": 127
+      },
+      "refused_panels": 127,
+      "scenario": "sparse_days",
+      "valid_panels": 1873
+    }
+  },
+  "runtime_seconds": 22.148
+}

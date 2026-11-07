@@ -1,0 +1,27 @@
+[Unit]
+Description=Bounded Bitget public market-data recorder run (issue #26)
+After=network-online.target
+Wants=network-online.target
+RequiresMountsFor=@DATA_DIR@
+
+[Service]
+Type=oneshot
+User=bitget-recorder
+Group=bitget-recorder
+WorkingDirectory=/opt/bitget-recorder/app
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/opt/bitget-recorder/venv/bin/python -m research.recorder.recorder --output-dir @DATA_DIR@ --symbols AAPLUSDT,BTCUSDT --max-cycles 50 --interval 5 --duration-seconds 280
+# Hard stop: SIGTERM (graceful), then SIGKILL after 10s
+RuntimeMaxSec=300
+TimeoutStartSec=300
+TimeoutStopSec=10
+KillSignal=SIGTERM
+SuccessExitStatus=2
+Nice=15
+CPUQuota=60%
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=@DATA_DIR@
+PrivateTmp=true
+ProtectHome=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6

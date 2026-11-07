@@ -1,0 +1,213 @@
+{
+  "actual_market_data_used": false,
+  "artifact_status": "COMPLETE_SYNTHETIC_ONLY",
+  "calibration_gate": "FAIL",
+  "frozen_protocol": {
+    "block_plan": "Synchronized moving-block resampling of UTC days in contiguous 5-day blocks, with the same sampled day indices shared across all 12 symbols, arms, sides, groups, timeframes, and outcomes. Resample non-wrapping 5-day blocks with replacement to the original fold's day count; retain all empty days. Report the 1-day synchronized block analysis only as a sensitivity.",
+    "fold_days": 28,
+    "folds": [
+      {
+        "fold_id": "future-01",
+        "validation_end_utc_exclusive": "2027-03-01T00:00:00Z",
+        "validation_start_utc": "2027-02-01T00:00:00Z"
+      },
+      {
+        "fold_id": "future-02",
+        "validation_end_utc_exclusive": "2027-03-29T00:00:00Z",
+        "validation_start_utc": "2027-03-01T00:00:00Z"
+      },
+      {
+        "fold_id": "future-03",
+        "validation_end_utc_exclusive": "2027-04-26T00:00:00Z",
+        "validation_start_utc": "2027-03-29T00:00:00Z"
+      }
+    ],
+    "null": "Per-cell hypothesized net event mean = 0; center each cell's daily event sums by its observed event-weighted mean times that day's event count.",
+    "primary_hypothesis_count": 132,
+    "protocol_id": "issue-22-fixed-panel-walkforward-v2",
+    "protocol_path": "research/results/walkforward-protocol.json",
+    "statistic": "Event-weighted mean net return; empty UTC dates are retained in the 28-day calendar panel."
+  },
+  "future_data_fetched": false,
+  "gate_decision_reason": "At least one scenario's median marginal type-I point estimate exceeded the predeclared upper tolerance of 0.075.",
+  "interpretation": [
+    "These are synthetic null experiments under specified illustrative dependence scenarios, not observed market data.",
+    "The 28-day fold, non-wrapping 5-day blocks, shared sampled date indices, and empty calendar dates follow the frozen protocol.",
+    "Finite p-values use (1 + exceedances) / (B + 1); a zero-event resample is retained and assigned null statistic 0, not omitted.",
+    "The run is deliberately modest; its binomial intervals are Monte Carlo uncertainty, not market uncertainty.",
+    "A PASS would not validate real-market assumptions, establish independent replications, or authorize claims on reserved folds."
+  ],
+  "limitations": [
+    "Only 28 synthetic dates are available per simulated fold; moving blocks cannot characterize structural breaks or dependence longer than the block.",
+    "Synthetic factor structures and sparse activity are illustrative and cannot span all plausible event-generating processes.",
+    "Only empirical type-I rates are examined here; this is not a full power or confidence-interval coverage study.",
+    "The finite bootstrap p-value grid may be too coarse for 132-test Holm significance thresholds."
+  ],
+  "predeclared_gate": {
+    "family_calibration": "PASS only if all scenario Holm familywise 95% Wilson upper bounds are <=0.075 and raw p-value resolution reaches the first Holm threshold; FAIL on observed marginal point-rate breach; otherwise INCONCLUSIVE.",
+    "individual_calibration": "FAIL if any scenario's median cell type-I point estimate falls outside the predeclared 0.025-0.075 tolerance; otherwise individual results remain diagnostic.",
+    "scope_guard": "No raw iid event p-values, no reserved-data claims, and no implication of profitability or validation readiness."
+  },
+  "predeclared_scenarios": {
+    "ar1_day_null": "Zero-mean AR(1) shared daily factor (rho=0.65) and arm factors (rho=0.45).",
+    "iid_day_null": "Independent daily global/arm factors and event noise; zero-mean event returns.",
+    "shared_crossarm_factor": "Strong shared daily factor across all 132 hypotheses plus arm factor and event noise; zero mean.",
+    "sparse_empty_days": "Shared sparse active-date mask (35% daily activity), cell activity conditional on active dates (55%), and zero-mean outcomes; empty calendar days preserved."
+  },
+  "predeclared_simulation_config": {
+    "block_days": 5,
+    "bootstrap_draws_per_replicate": 199,
+    "confidence_level": 0.95,
+    "days_per_fold": 28,
+    "familywise_upper_wilson_tolerance": 0.075,
+    "hypothesis_count": 132,
+    "nominal_type_i": 0.05,
+    "seed": 20261102,
+    "simulation_replicates_per_scenario": 120,
+    "type_i_point_tolerance": [
+      0.025,
+      0.075
+    ]
+  },
+  "reserved_validation_readiness": "NOT_READY_NOT_EVALUATED",
+  "results": {
+    "ar1_day_null": {
+      "bootstrap_draws_per_replicate": 199,
+      "holm_132": {
+        "family_rejection_count": 0,
+        "familywise_error_rate": 0.0,
+        "first_holm_threshold_at_alpha_0_05": 0.0003787878787878788,
+        "invalid_family_replicates": 0,
+        "minimum_attainable_raw_p": 0.005,
+        "status": "ESTIMABLE",
+        "wilson_95_interval": [
+          0.0,
+          0.031019166418703486
+        ]
+      },
+      "marginal_type_i": {
+        "cell_rate_range": [
+          0.058333333333333334,
+          0.2
+        ],
+        "median_cell_rate": 0.11666666666666667,
+        "median_cell_wilson_95_interval": [
+          0.0707811780783005,
+          0.18633351617603885
+        ],
+        "nominal": 0.05,
+        "p_value_range_observed": [
+          0.005,
+          1.0
+        ],
+        "per_cell_wilson_interval_coverage_of_nominal": 0.14393939393939395
+      },
+      "minimum_events_in_any_cell": 31,
+      "minimum_valid_replicates_per_cell": 120,
+      "replicates": 120
+    },
+    "iid_day_null": {
+      "bootstrap_draws_per_replicate": 199,
+      "holm_132": {
+        "family_rejection_count": 0,
+        "familywise_error_rate": 0.0,
+        "first_holm_threshold_at_alpha_0_05": 0.0003787878787878788,
+        "invalid_family_replicates": 0,
+        "minimum_attainable_raw_p": 0.005,
+        "status": "ESTIMABLE",
+        "wilson_95_interval": [
+          0.0,
+          0.031019166418703486
+        ]
+      },
+      "marginal_type_i": {
+        "cell_rate_range": [
+          0.041666666666666664,
+          0.175
+        ],
+        "median_cell_rate": 0.10833333333333334,
+        "median_cell_wilson_95_interval": [
+          0.06441141154173441,
+          0.17655360215291668
+        ],
+        "nominal": 0.05,
+        "p_value_range_observed": [
+          0.005,
+          1.0
+        ],
+        "per_cell_wilson_interval_coverage_of_nominal": 0.19696969696969696
+      },
+      "minimum_events_in_any_cell": 30,
+      "minimum_valid_replicates_per_cell": 120,
+      "replicates": 120
+    },
+    "shared_crossarm_factor": {
+      "bootstrap_draws_per_replicate": 199,
+      "holm_132": {
+        "family_rejection_count": 0,
+        "familywise_error_rate": 0.0,
+        "first_holm_threshold_at_alpha_0_05": 0.0003787878787878788,
+        "invalid_family_replicates": 0,
+        "minimum_attainable_raw_p": 0.005,
+        "status": "ESTIMABLE",
+        "wilson_95_interval": [
+          0.0,
+          0.031019166418703486
+        ]
+      },
+      "marginal_type_i": {
+        "cell_rate_range": [
+          0.041666666666666664,
+          0.13333333333333333
+        ],
+        "median_cell_rate": 0.09166666666666666,
+        "median_cell_wilson_95_interval": [
+          0.05195718284856543,
+          0.15670846972670907
+        ],
+        "nominal": 0.05,
+        "p_value_range_observed": [
+          0.005,
+          1.0
+        ],
+        "per_cell_wilson_interval_coverage_of_nominal": 0.4696969696969697
+      },
+      "minimum_events_in_any_cell": 30,
+      "minimum_valid_replicates_per_cell": 120,
+      "replicates": 120
+    },
+    "sparse_empty_days": {
+      "bootstrap_draws_per_replicate": 199,
+      "holm_132": {
+        "family_rejection_count": 0,
+        "familywise_error_rate": null,
+        "first_holm_threshold_at_alpha_0_05": 0.0003787878787878788,
+        "invalid_family_replicates": 14,
+        "minimum_attainable_raw_p": 0.005,
+        "status": "NOT_ESTIMABLE_INVALID_FAMILY",
+        "wilson_95_interval": null
+      },
+      "marginal_type_i": {
+        "cell_rate_range": [
+          0.0660377358490566,
+          0.24528301886792453
+        ],
+        "median_cell_rate": 0.16037735849056603,
+        "median_cell_wilson_95_interval": [
+          0.10261020166712782,
+          0.2418995966091929
+        ],
+        "nominal": 0.05,
+        "p_value_range_observed": [
+          0.005,
+          1.0
+        ],
+        "per_cell_wilson_interval_coverage_of_nominal": 0.030303030303030304
+      },
+      "minimum_events_in_any_cell": 0,
+      "minimum_valid_replicates_per_cell": 106,
+      "replicates": 120
+    }
+  },
+  "scope": "Synthetic-only null calibration; not actual validation or future-data readiness."
+}

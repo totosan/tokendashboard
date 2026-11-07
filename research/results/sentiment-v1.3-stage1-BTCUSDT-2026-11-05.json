@@ -1,0 +1,278 @@
+{
+ "claim": "source-venue (Binance) screen only; no Bitget execution claim; test size control not validated",
+ "rules": [
+  {
+   "confirmation": {
+    "block_days": 5,
+    "day_blocks": 40,
+    "level": 0.7,
+    "neighbour_gross_bp": {
+     "0.65": 0.033222150607254024,
+     "0.75": 6.652199802804433
+    },
+    "p_raw": 1.0,
+    "prior_status": "narrative_default",
+    "rule": "R1_crowded_long_squeeze",
+    "scenarios": {
+     "12": {
+      "gross_mean_bp": 0.9878877312951908,
+      "n": 1274,
+      "net_mean_bp": -11.01211226870481
+     },
+     "22": {
+      "gross_mean_bp": 0.9878877312951908,
+      "n": 1274,
+      "net_mean_bp": -21.012112268704808
+     },
+     "37": {
+      "gross_mean_bp": 0.9878877312951908,
+      "n": 1274,
+      "net_mean_bp": -36.01211226870481
+     }
+    }
+   },
+   "failed_criteria": [
+    "not a discovery candidate: best discovery net mean <= 0 at 22bp"
+   ],
+   "label": "not_proven",
+   "level": 0.7,
+   "p_holm_descriptive": 1.0,
+   "rule": "R1_crowded_long_squeeze"
+  },
+  {
+   "confirmation": {
+    "block_days": 5,
+    "day_blocks": 2,
+    "level": 0.7,
+    "neighbour_gross_bp": {
+     "0.65": 1.8044661662694927,
+     "0.75": 0.0
+    },
+    "p_raw": null,
+    "prior_status": "narrative_default",
+    "rule": "R2_crowded_short_squeeze",
+    "scenarios": {
+     "12": {
+      "gross_mean_bp": 38.418222045016215,
+      "n": 5,
+      "net_mean_bp": 26.418222045016215
+     },
+     "22": {
+      "gross_mean_bp": 38.418222045016215,
+      "n": 5,
+      "net_mean_bp": 16.418222045016215
+     },
+     "37": {
+      "gross_mean_bp": 38.418222045016215,
+      "n": 5,
+      "net_mean_bp": 1.4182220450162148
+     }
+    }
+   },
+   "failed_criteria": [
+    "not a discovery candidate: best discovery net mean <= 0 at 22bp"
+   ],
+   "label": "not_proven",
+   "level": 0.7,
+   "p_holm_descriptive": 1.0,
+   "rule": "R2_crowded_short_squeeze"
+  },
+  {
+   "confirmation": {
+    "block_days": 5,
+    "day_blocks": 69,
+    "level": 0.02,
+    "neighbour_gross_bp": {
+     "0.01": -1.325594115568332,
+     "0.03": 10.43184218801278
+    },
+    "p_raw": 1.0,
+    "prior_status": "narrative_default",
+    "rule": "R3_healthy_trend_rising_oi",
+    "scenarios": {
+     "12": {
+      "gross_mean_bp": 0.6213578192099065,
+      "n": 121,
+      "net_mean_bp": -11.378642180790093
+     },
+     "22": {
+      "gross_mean_bp": 0.6213578192099065,
+      "n": 121,
+      "net_mean_bp": -21.378642180790095
+     },
+     "37": {
+      "gross_mean_bp": 0.6213578192099065,
+      "n": 121,
+      "net_mean_bp": -36.378642180790095
+     }
+    }
+   },
+   "failed_criteria": [
+    "not a discovery candidate: best discovery net mean <= 0 at 22bp"
+   ],
+   "label": "not_proven",
+   "level": 0.02,
+   "p_holm_descriptive": 1.0,
+   "rule": "R3_healthy_trend_rising_oi"
+  },
+  {
+   "confirmation": {
+    "block_days": 5,
+    "day_blocks": 72,
+    "level": 0.02,
+    "neighbour_gross_bp": {
+     "0.01": 1.6811960036748825,
+     "0.03": 35.63360784224534
+    },
+    "p_raw": 0.999950002499875,
+    "prior_status": "narrative_default",
+    "rule": "R4_oi_flush_after_squeeze",
+    "scenarios": {
+     "12": {
+      "gross_mean_bp": 1.6522405266191693,
+      "n": 132,
+      "net_mean_bp": -10.347759473380831
+     },
+     "22": {
+      "gross_mean_bp": 1.6522405266191693,
+      "n": 132,
+      "net_mean_bp": -20.34775947338083
+     },
+     "37": {
+      "gross_mean_bp": 1.6522405266191693,
+      "n": 132,
+      "net_mean_bp": -35.34775947338083
+     }
+    }
+   },
+   "failed_criteria": [
+    "not a discovery candidate: best discovery net mean <= 0 at 22bp"
+   ],
+   "label": "not_proven",
+   "level": 0.02,
+   "p_holm_descriptive": 1.0,
+   "rule": "R4_oi_flush_after_squeeze"
+  },
+  {
+   "confirmation": {
+    "block_days": 5,
+    "day_blocks": 30,
+    "level": 0.02,
+    "neighbour_gross_bp": {
+     "0.01": -6.788526460911449,
+     "0.03": -7.188881731247906
+    },
+    "p_raw": 0.7876106194690266,
+    "prior_status": "narrative_default",
+    "rule": "R5_exhaustion",
+    "scenarios": {
+     "12": {
+      "gross_mean_bp": 9.824885834408574,
+      "n": 43,
+      "net_mean_bp": -2.1751141655914257
+     },
+     "22": {
+      "gross_mean_bp": 9.824885834408574,
+      "n": 43,
+      "net_mean_bp": -12.175114165591426
+     },
+     "37": {
+      "gross_mean_bp": 9.824885834408574,
+      "n": 43,
+      "net_mean_bp": -27.175114165591424
+     }
+    }
+   },
+   "failed_criteria": [
+    "not a discovery candidate: best discovery net mean <= 0 at 22bp"
+   ],
+   "label": "not_proven",
+   "level": 0.02,
+   "p_holm_descriptive": 1.0,
+   "rule": "R5_exhaustion"
+  },
+  {
+   "confirmation": {
+    "block_days": 5,
+    "day_blocks": 1,
+    "level": 0.0005,
+    "neighbour_gross_bp": {
+     "0.0003": 17.737316794388335,
+     "0.001": 0.0
+    },
+    "p_raw": null,
+    "prior_status": "narrative_default",
+    "rule": "R6_funding_extreme_contrarian",
+    "scenarios": {
+     "12": {
+      "gross_mean_bp": 27.846772327548425,
+      "n": 8,
+      "net_mean_bp": 15.846772327548425
+     },
+     "22": {
+      "gross_mean_bp": 27.846772327548425,
+      "n": 8,
+      "net_mean_bp": 5.846772327548425
+     },
+     "37": {
+      "gross_mean_bp": 27.846772327548425,
+      "n": 8,
+      "net_mean_bp": -9.153227672451575
+     }
+    }
+   },
+   "failed_criteria": [
+    "not a discovery candidate: best discovery net mean <= 0 at 22bp"
+   ],
+   "label": "not_proven",
+   "level": 0.0005,
+   "p_holm_descriptive": 1.0,
+   "rule": "R6_funding_extreme_contrarian"
+  },
+  {
+   "confirmation": {
+    "block_days": 5,
+    "day_blocks": 60,
+    "level": 0.02,
+    "neighbour_gross_bp": {
+     "0.01": -1.811803403653441,
+     "0.03": 3.408980364170866
+    },
+    "p_raw": 0.9993500324983751,
+    "prior_status": "narrative_default",
+    "rule": "R8_oi_price_divergence",
+    "scenarios": {
+     "12": {
+      "gross_mean_bp": 4.226569834243926,
+      "n": 98,
+      "net_mean_bp": -7.773430165756074
+     },
+     "22": {
+      "gross_mean_bp": 4.226569834243926,
+      "n": 98,
+      "net_mean_bp": -17.773430165756075
+     },
+     "37": {
+      "gross_mean_bp": 4.226569834243926,
+      "n": 98,
+      "net_mean_bp": -32.773430165756075
+     }
+    }
+   },
+   "failed_criteria": [
+    "not a discovery candidate: best discovery net mean <= 0 at 22bp"
+   ],
+   "label": "not_proven",
+   "level": 0.02,
+   "p_holm_descriptive": 1.0,
+   "rule": "R8_oi_price_divergence"
+  }
+ ],
+ "rules_skipped_data_gate": [
+  "R7_top_vs_crowd_divergence"
+ ],
+ "stage": "binance_history",
+ "symbol": "BTCUSDT",
+ "transfer_to_bitget": "transfer_pending",
+ "verdict": "COMPLETE_DESCRIPTIVE"
+}

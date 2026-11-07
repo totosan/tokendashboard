@@ -1,0 +1,22 @@
+{
+  "symbol": "AAPLUSDT",
+  "status": "CANDIDATE_REQUIRES_REPLAY",
+  "rows_by_event": {
+    "snapshot": 400,
+    "update": 623567
+  },
+  "snapshot_message_candidates": 1,
+  "update_message_candidates": 39163,
+  "updates_without_chain_fields": 0,
+  "limitations": [
+    "Readiness audit only; message grouping is provisional and no book reconstructed",
+    "Presence of snapshots/IDs does not prove continuity, completeness or executable liquidity",
+    "Separate exploratory period: never replaces reserved or original study observations"
+  ],
+  "source": {
+    "path": "/root/.local/share/cryptohftdata/samples/2026-11-03-budget/AAPLUSDT-2026-11-03-14-orderbook.parquet",
+    "sha256": "244ab4d37ae89a4140435104b31d05f35f4ccea69f85beccd2e81dda316dd250",
+    "bytes": 2962734,
+    "parquet_rows": 623967
+  }
+}

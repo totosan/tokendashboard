@@ -1,0 +1,36 @@
+{
+  "contentSha256": "46379f81d875d1006d5c0b66589b4382b2cddf5952579f7d7f159683aa06eed1",
+  "endpointsUnverified": true,
+  "fees": {
+    "AAPLUSDT": {
+      "makerFeeRate": "0.0002",
+      "takerFeeRate": "0.0006"
+    },
+    "BTCUSDT": {
+      "makerFeeRate": "0.0002",
+      "takerFeeRate": "0.0006"
+    }
+  },
+  "fundingBills": {
+    "unavailable": "API error HTTP 400 code 40085",
+    "warnings": []
+  },
+  "generatedAt": "2026-11-05T13:43:09.685634+00:00",
+  "mixAccount": {
+    "unavailable": "API error HTTP 400 code 40085",
+    "warnings": []
+  },
+  "permissions": {
+    "unavailable": "API error HTTP 400 code 40085",
+    "warnings": []
+  },
+  "requestCount": 6,
+  "utaSettings": {
+    "accountLevel": "advanced",
+    "accountMode": "unified",
+    "assetMode": "multi_assets",
+    "holdMode": "hedge_mode",
+    "symbolConfigCount": 41
+  },
+  "warnings": []
+}

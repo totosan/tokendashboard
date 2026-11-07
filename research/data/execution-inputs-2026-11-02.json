@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "title": "Bitget public listing transport and current futures risk-tier evidence",
+  "issue": 7,
+  "parent_issue": 3,
+  "completed_utc": "2026-11-02T21:05:50.390000+00:00",
+  "scope": {
+    "objective": "Use first-party client configuration or official documentation to identify the public historical-depth listing transport, and collect an official current maintenance-margin tier specification.",
+    "exclusions": [
+      "No guessed archive GETs; the prior bounded 404/405 GET probes were not repeated.",
+      "No credentials, account access, orders, private endpoints, Binance, bulk archive downloads, production changes, or executable-PnL claims.",
+      "No claim that current risk tiers are historical tiers or establish a historical liquidation price."
+    ]
+  },
+  "budget": {
+    "first_party_http_transactions_including_redirect_responses": 12,
+    "redirects_followed": 0,
+    "redirect_response_not_followed": 1,
+    "aggregate_response_body_bytes": 1416002,
+    "response_body_limit_bytes": 2097152,
+    "per_request_timeout_seconds": 10,
+    "whole_command_timeout_seconds": 180,
+    "longest_observed_request_seconds": 0.642,
+    "whole_command_elapsed_seconds": "Completed before the 30-second tool wait elapsed; exact elapsed time was not recorded.",
+    "methods_used": [
+      "GET"
+    ],
+    "credentials_used": false,
+    "notes": [
+      "The 12 transactions include repeated retrievals of the same official JS bundles used to isolate the relevant helper modules; repeated responses had matching body lengths and SHA-256 values.",
+      "The one HTTP 301 was not followed. No redirected request was issued.",
+      "The last public listing call was not attempted because the authorized 12-transaction ceiling was reached."
+    ]
+  },
+  "archive_listing": {
+    "finding": "CLIENT_CONFIG_IDENTIFIES_POST_AND_RELATIVE_V1_ROUTE; HOST_ORIGIN_INFERRED_NOT_EXPLICIT",
+    "official_data_download_page": {
+      "url": "https://www.bitget.com/data-download",
+      "status": 200,
+      "raw_response_bytes": 90733,
+      "raw_response_sha256": "5c37f2068bd69bffb613508bac3eae611021c216f622dc72311989f53ac7c4f5",
+      "note": "The current page was used to establish the page origin and locate its page bundle."
+    },
+    "official_page_client": {
+      "url": "https://www.bitget.com/landing-static/client/js/pages-data-download-index-page.1f14c0d0ddfaba7e1f21.chunk.js",
+      "status": 200,
+      "raw_response_bytes": 31647,
+      "raw_response_sha256": "90f9a66e66122906dcb2df4b8ca74aec15317e30712e91738b8180a03200a3cb",
+      "selected_source": [
+        "const R=(0,E.$)({endpoint:\"/statistics/public/download/getPublicDataV2\"});",
+        "The page invokes R with displaySymbol, businessLine, businessType, dateType, beginTimeStr, endTimeStr, and optionally deptType; the function feeds the resulting records' fileUrl/fileName to download links.",
+        "The sibling getSymbolList helper is also called with displaySymbol, businessLine, businessType, and languageType."
+      ],
+      "selection_note": "Selected exact call-site strings from the full response; full JS body was not retained."
+    },
+    "official_shared_client_helper": {
+      "url": "https://www.bitget.com/landing-static/client/js/client.ef4a4af7640f8baa29c0.main.js",
+      "status": 200,
+      "fetch_count": 4,
+      "raw_response_bytes_each": 180420,
+      "raw_response_sha256": "63a241a28175959a3a2014a7b436da32e92bb9946cd1565d1cbbdc7c34e018df",
+      "selected_helper_configuration": [
+        "The endpoint wrapper sets method to POST when the endpoint config omits method: `const t=e.endpoint,n=e.method,i=void 0===n?\"POST\":n`.",
+        "Its dispatch uses the corresponding GET/POST/PUT/DELETE helper; the POST branch calls `post({url:t,data:e,...n})`.",
+        "The browser client prefixes requests with `/v1`: `S({requestOptions:{urlPrefix:\"/v1\"}})`."
+      ],
+      "route_assessment": {
+        "method": "POST (default explicitly selected by the official helper for this endpoint configuration)",
+        "path": "/v1/statistics/public/download/getPublicDataV2",
+        "candidate_origin": "https://www.bitget.com",
+        "host_confidence": "The endpoint is a relative browser-client URL and the official page is served from www.bitget.com; the inspected helper excerpt does not itself specify an absolute base host or rule out a runtime origin override.",
+        "read_only_assessment": "The cited page calls the endpoint to retrieve a list of downloadable file URLs from user-selected symbol/type/date filters; it does not call an order, account, or authentication action. This is client evidence for a read-only data listing, not a separately published API contract."
+      },
+      "request_not_sent": {
+        "reason": "The 12-request maximum was reached while resolving method, path, host context, and current risk-tier evidence.",
+        "unresolved": [
+          "No POST response, listing, or direct file URL was observed.",
+          "The client call-site names and sends businessLine/businessType values, but the reviewed evidence does not establish that the previously tried values 2/3 select futures depth.",
+          "No exact supported listing contract, archive sample, or sample schema/coverage was verified."
+        ],
+        "candidate_parameters_from_client_only": [
+          "displaySymbol",
+          "businessLine",
+          "businessType",
+          "dateType",
+          "beginTimeStr",
+          "endTimeStr",
+          "optional deptType"
+        ]
+      }
+    },
+    "prior_archive_evidence_reused": {
+      "path": "research/data/bitget-archive-feasibility-2026-11-02.json",
+      "sha256": "c4eabd64feeb397ca8fa6442ce14737091338027a4b7ebbe1f324e919b3cf2b9",
+      "conclusion_preserved": "Bitget advertises recent historical futures depth downloads. Earlier GET failures did not establish archive absence, private access, or executable-price coverage."
+    },
+    "transport_result": "The cited official client supplies new evidence that the listing helper defaults to POST and that the browser client prefixes /v1. The likely URL is https://www.bitget.com/v1/statistics/public/download/getPublicDataV2, but the host remains inferred from same-origin page context, not an explicit absolute base URL in the inspected configuration. No POST was sent."
+  },
+  "current_risk_tiers": {
+    "official_api_documentation": {
+      "url": "https://www.bitget.com/docs/catalog/classic-contract-position/classic-contract-position",
+      "status": 200,
+      "raw_response_bytes": 351902,
+      "raw_response_sha256": "f6456f9a0d3415a71095b8f1c4df7144ca6a363e7e4c5d82c91de76226cbaf81",
+      "documented_endpoint": "GET https://api.bitget.com/api/v2/mix/market/query-position-lever",
+      "documented_parameters": {
+        "productType": "Required; USDT-FUTURES, COIN-FUTURES, or USDC-FUTURES.",
+        "symbol": "Required trading pair."
+      },
+      "documented_semantics": {
+        "response_fields": [
+          "symbol",
+          "level",
+          "startUnit",
+          "endUnit",
+          "leverage",
+          "keepMarginRate"
+        ],
+        "keepMarginRate": "Maintenance-margin rate corresponding to the position-size tier; when the position margin rate is below this maintenance-margin rate, forced partial or full liquidation is triggered."
+      }
+    },
+    "official_support_explanation": {
+      "url": "https://www.bitget.com/support/articles/12560603819706",
+      "status": 200,
+      "article_published": "2025-12-16",
+      "raw_response_bytes": 185147,
+      "raw_response_sha256": "713e13f9c01a953242c4276527f8d6ee90a3456cd10845a294d9d11d0193989f",
+      "selected_claims": [
+        "The article describes position tiers as position-value bands with maximum leverage decreasing and initial/maintenance margin requirements increasing at higher tiers.",
+        "Its illustrative formula is maintenance margin = position value × the tier's maintenance-margin rate."
+      ],
+      "limitation": "The article's BTC tier table is explicitly an example and is not substituted for the live per-contract API response."
+    },
+    "live_public_api_observations": [
+      {
+        "url": "https://api.bitget.com/api/v2/mix/market/query-position-lever?productType=USDT-FUTURES&symbol=BTCUSDT",
+        "retrieved_at_utc_from_response_requestTime": "2026-11-02T21:05:50.168000+00:00",
+        "status": 200,
+        "content_type": "application/json",
+        "raw_response_bytes": 1496,
+        "raw_response_sha256": "0f009aecdf480a1ec106d9ea397d49b3cc0cade5d512da2f775dbf522f75a30c",
+        "raw_response_body_utf8": "{\"code\":\"00000\",\"msg\":\"success\",\"requestTime\":1793653550168,\"data\":[{\"symbol\":\"BTCUSDT\",\"level\":\"1\",\"startUnit\":\"0\",\"endUnit\":\"200000\",\"leverage\":\"150\",\"keepMarginRate\":\"0.0040\"},{\"symbol\":\"BTCUSDT\",\"level\":\"2\",\"startUnit\":\"200000\",\"endUnit\":\"1000000\",\"leverage\":\"100\",\"keepMarginRate\":\"0.0050\"},{\"symbol\":\"BTCUSDT\",\"level\":\"3\",\"startUnit\":\"1000000\",\"endUnit\":\"5000000\",\"leverage\":\"75\",\"keepMarginRate\":\"0.0070\"},{\"symbol\":\"BTCUSDT\",\"level\":\"4\",\"startUnit\":\"5000000\",\"endUnit\":\"15000000\",\"leverage\":\"50\",\"keepMarginRate\":\"0.0100\"},{\"symbol\":\"BTCUSDT\",\"level\":\"5\",\"startUnit\":\"15000000\",\"endUnit\":\"50000000\",\"leverage\":\"25\",\"keepMarginRate\":\"0.0200\"},{\"symbol\":\"BTCUSDT\",\"level\":\"6\",\"startUnit\":\"50000000\",\"endUnit\":\"100000000\",\"leverage\":\"20\",\"keepMarginRate\":\"0.0300\"},{\"symbol\":\"BTCUSDT\",\"level\":\"7\",\"startUnit\":\"100000000\",\"endUnit\":\"150000000\",\"leverage\":\"10\",\"keepMarginRate\":\"0.0600\"},{\"symbol\":\"BTCUSDT\",\"level\":\"8\",\"startUnit\":\"150000000\",\"endUnit\":\"300000000\",\"leverage\":\"5\",\"keepMarginRate\":\"0.1200\"},{\"symbol\":\"BTCUSDT\",\"level\":\"9\",\"startUnit\":\"300000000\",\"endUnit\":\"500000000\",\"leverage\":\"4\",\"keepMarginRate\":\"0.1500\"},{\"symbol\":\"BTCUSDT\",\"level\":\"10\",\"startUnit\":\"500000000\",\"endUnit\":\"700000000\",\"leverage\":\"3\",\"keepMarginRate\":\"0.2000\"},{\"symbol\":\"BTCUSDT\",\"level\":\"11\",\"startUnit\":\"700000000\",\"endUnit\":\"900000000\",\"leverage\":\"2\",\"keepMarginRate\":\"0.3000\"},{\"symbol\":\"BTCUSDT\",\"level\":\"12\",\"startUnit\":\"900000000\",\"endUnit\":\"1200000000\",\"leverage\":\"1\",\"keepMarginRate\":\"0.6000\"}]}",
+        "selected_limits": {
+          "tier_1": {
+            "notional_start": "0",
+            "notional_end": "200000",
+            "max_leverage": "150",
+            "maintenance_margin_rate": "0.0040"
+          },
+          "tier_2": {
+            "notional_start": "200000",
+            "notional_end": "1000000",
+            "max_leverage": "100",
+            "maintenance_margin_rate": "0.0050"
+          },
+          "highest_returned_tier": {
+            "level": "12",
+            "notional_start": "900000000",
+            "notional_end": "1200000000",
+            "max_leverage": "1",
+            "maintenance_margin_rate": "0.6000"
+          }
+        }
+      },
+      {
+        "url": "https://api.bitget.com/api/v2/mix/market/query-position-lever?productType=USDT-FUTURES&symbol=AAPLUSDT",
+        "retrieved_at_utc_from_response_requestTime": "2026-11-02T21:05:50.390000+00:00",
+        "status": 200,
+        "content_type": "application/json",
+        "raw_response_bytes": 1584,
+        "raw_response_sha256": "bf4f1d18d6f3588102c7904aa7bde10655ca0474c01e48d49cb04ea63b9d9803",
+        "raw_response_body_utf8": "{\"code\":\"00000\",\"msg\":\"success\",\"requestTime\":1793653550390,\"data\":[{\"symbol\":\"AAPLUSDT\",\"level\":\"1\",\"startUnit\":\"0\",\"endUnit\":\"10000\",\"leverage\":\"100\",\"keepMarginRate\":\"0.0050\"},{\"symbol\":\"AAPLUSDT\",\"level\":\"2\",\"startUnit\":\"10000\",\"endUnit\":\"30000\",\"leverage\":\"75\",\"keepMarginRate\":\"0.0070\"},{\"symbol\":\"AAPLUSDT\",\"level\":\"3\",\"startUnit\":\"30000\",\"endUnit\":\"50000\",\"leverage\":\"50\",\"keepMarginRate\":\"0.0100\"},{\"symbol\":\"AAPLUSDT\",\"level\":\"4\",\"startUnit\":\"50000\",\"endUnit\":\"100000\",\"leverage\":\"25\",\"keepMarginRate\":\"0.0200\"},{\"symbol\":\"AAPLUSDT\",\"level\":\"5\",\"startUnit\":\"100000\",\"endUnit\":\"200000\",\"leverage\":\"20\",\"keepMarginRate\":\"0.0250\"},{\"symbol\":\"AAPLUSDT\",\"level\":\"6\",\"startUnit\":\"200000\",\"endUnit\":\"500000\",\"leverage\":\"15\",\"keepMarginRate\":\"0.0400\"},{\"symbol\":\"AAPLUSDT\",\"level\":\"7\",\"startUnit\":\"500000\",\"endUnit\":\"2000000\",\"leverage\":\"10\",\"keepMarginRate\":\"0.0500\"},{\"symbol\":\"AAPLUSDT\",\"level\":\"8\",\"startUnit\":\"2000000\",\"endUnit\":\"3000000\",\"leverage\":\"8\",\"keepMarginRate\":\"0.0700\"},{\"symbol\":\"AAPLUSDT\",\"level\":\"9\",\"startUnit\":\"3000000\",\"endUnit\":\"4000000\",\"leverage\":\"6\",\"keepMarginRate\":\"0.0900\"},{\"symbol\":\"AAPLUSDT\",\"level\":\"10\",\"startUnit\":\"4000000\",\"endUnit\":\"5000000\",\"leverage\":\"5\",\"keepMarginRate\":\"0.1000\"},{\"symbol\":\"AAPLUSDT\",\"level\":\"11\",\"startUnit\":\"5000000\",\"endUnit\":\"10000000\",\"leverage\":\"4\",\"keepMarginRate\":\"0.1250\"},{\"symbol\":\"AAPLUSDT\",\"level\":\"12\",\"startUnit\":\"10000000\",\"endUnit\":\"50000000\",\"leverage\":\"2\",\"keepMarginRate\":\"0.3000\"},{\"symbol\":\"AAPLUSDT\",\"level\":\"13\",\"startUnit\":\"50000000\",\"endUnit\":\"100000000\",\"leverage\":\"1\",\"keepMarginRate\":\"0.6000\"}]}",
+        "selected_limits": {
+          "tier_1": {
+            "notional_start": "0",
+            "notional_end": "10000",
+            "max_leverage": "100",
+            "maintenance_margin_rate": "0.0050"
+          },
+          "tier_2": {
+            "notional_start": "10000",
+            "notional_end": "30000",
+            "max_leverage": "75",
+            "maintenance_margin_rate": "0.0070"
+          },
+          "highest_returned_tier": {
+            "level": "13",
+            "notional_start": "50000000",
+            "notional_end": "100000000",
+            "max_leverage": "1",
+            "maintenance_margin_rate": "0.6000"
+          }
+        }
+      }
+    ],
+    "interpretation_limits": [
+      "These are current public tier schedules for BTCUSDT and AAPLUSDT only, not schedules for every researched contract.",
+      "Position tiers and maintenance rates can change; these live responses do not establish values for the historical research window.",
+      "The public tier endpoint does not calculate an account's liquidation price. No account or position state, margin mode, mark-price history, fees-at-liquidation, funding ledger, or historical tier schedule was retrieved.",
+      "Do not turn this current snapshot into historical liquidation or executable-PnL results."
+    ]
+  },
+  "execution_input_gate": {
+    "status": "BLOCKED_FOR_EXECUTABLE_HISTORICAL_PRICE_MODEL",
+    "required_missing_inputs": [
+      "Supported listing response and a downloadable historical futures-depth sample.",
+      "Sample symbol/product and timestamp identity, saved-window coverage, gaps, bid/ask level order/quantities, and snapshot/delta/sequence semantics.",
+      "Historical point-in-time margin-tier schedules and liquidation rules if historical liquidation levels are to be simulated."
+    ],
+    "explicitly_not_done": [
+      "No quotes or depth were downloaded or validated.",
+      "No executable prices, fills, margin, liquidation price, or PnL were computed.",
+      "No code gate or tests were added; this is a metadata-only evidence artifact."
+    ],
+    "next_official_step": "If a follow-up budget is authorized, use the exact first-party client-inferred POST route only after verifying the product-type values for futures depth from official client/docs; retrieve a single capped listing/sample, validate its schema and UTC coverage, and separately request historical tier effective dates/rules from Bitget."
+  }
+}

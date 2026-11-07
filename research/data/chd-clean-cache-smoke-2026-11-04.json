@@ -1,0 +1,101 @@
+{
+  "provider": "CryptoHFTData; third-party collector, not official Bitget archive",
+  "started_utc": "2026-11-04T07:16:35.625133+00:00",
+  "pyarrow_version": "26.0.1",
+  "api": "https://api.cryptohftdata.com/v1/download",
+  "authentication": "anonymous; no credentials loaded",
+  "requested_objects": [
+    "bitget_futures/2026-09-17/14/AAPLUSDT_trades.parquet"
+  ],
+  "budgets": {
+    "objects": 6,
+    "http_transactions": 12,
+    "bytes_per_object": 20971520,
+    "total_bytes": 41943040,
+    "rows_per_object": 2000000,
+    "socket_timeout_seconds": 10,
+    "wall_budget_seconds": 120,
+    "retries": 0
+  },
+  "objects": [
+    {
+      "object": "bitget_futures/2026-09-17/14/AAPLUSDT_trades.parquet",
+      "request": {
+        "file": "bitget_futures/2026-09-17/14/AAPLUSDT_trades.parquet"
+      },
+      "retrieved_utc": "2026-11-04T07:16:35.625383+00:00",
+      "status": "OBSERVED",
+      "http_status": 200,
+      "bytes": 31212,
+      "sha256": "8234c5e765fb83a1990b3db6e02ff114b68ce346322317fa37a4502f293f0138",
+      "local_file": "00-AAPLUSDT_trades.parquet",
+      "rows": 1720,
+      "schema": [
+        {
+          "name": "received_time",
+          "type": "int64"
+        },
+        {
+          "name": "event_time",
+          "type": "int64"
+        },
+        {
+          "name": "symbol",
+          "type": "string"
+        },
+        {
+          "name": "trade_id",
+          "type": "int64"
+        },
+        {
+          "name": "price",
+          "type": "string"
+        },
+        {
+          "name": "quantity",
+          "type": "string"
+        },
+        {
+          "name": "trade_time",
+          "type": "int64"
+        },
+        {
+          "name": "is_buyer_maker",
+          "type": "bool"
+        },
+        {
+          "name": "order_type",
+          "type": "string"
+        }
+      ],
+      "clock_ranges": {
+        "received_time": [
+          1789653600206736539,
+          1789657199288756629
+        ],
+        "event_time": [
+          1789653600075,
+          1789657199153
+        ],
+        "trade_time": [
+          1789653600075,
+          1789657199153
+        ]
+      },
+      "clock_units": {
+        "received_time": "ns",
+        "event_time": "ms",
+        "trade_time": "ms"
+      }
+    }
+  ],
+  "limitations": [
+    "Receive-hour storage partitions are not event-time completeness certificates",
+    "No retries; stop on rate limit and honor Retry-After before a separate invocation",
+    "Signed redirect URLs, response cookies and authentication headers are not persisted",
+    "Raw files stay local; reacquisition may change availability or hashes"
+  ],
+  "status": "BOUNDED_SAMPLE_OBSERVED",
+  "http_transactions": 2,
+  "bytes_received": 31212
+}

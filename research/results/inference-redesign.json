@@ -1,0 +1,6714 @@
+{
+  "actual_market_data_used": false,
+  "ar1_false_independence_diagnostic": {
+    "assumptions_apply": false,
+    "attempted_independent_panels": 600,
+    "holm_132": {
+      "complete_independent_families": 600,
+      "monte_carlo_precision_sufficient": false,
+      "refused_families": 0,
+      "rejections_in_complete_families_diagnostic_only": 111,
+      "required_minimum_independent_families": 2000,
+      "status": "COMPLETE_FAMILIES",
+      "unconditional_rate": 0.185,
+      "wilson_95": [
+        0.15596845243160834,
+        0.21803941920702313
+      ]
+    },
+    "interpretation": "Deliberately wrong independent-day covariance on AR1; never market-valid or a selectable alternative.",
+    "marginal_scope": "Available-cell diagnostics conditional on nonempty cells; pointwise intervals, never pooled across correlated cells.",
+    "marginal_type_i": [
+      {
+        "cell_index": 0,
+        "independent_replicates": 600,
+        "rate": 0.13833333333333334,
+        "rejections": 83,
+        "wilson_95": [
+          0.11300100104651516,
+          0.1682672960200617
+        ]
+      },
+      {
+        "cell_index": 1,
+        "independent_replicates": 600,
+        "rate": 0.12833333333333333,
+        "rejections": 77,
+        "wilson_95": [
+          0.1039165192128853,
+          0.15747901187396557
+        ]
+      },
+      {
+        "cell_index": 2,
+        "independent_replicates": 600,
+        "rate": 0.12,
+        "rejections": 72,
+        "wilson_95": [
+          0.09638593328911173,
+          0.14844895948130082
+        ]
+      },
+      {
+        "cell_index": 3,
+        "independent_replicates": 600,
+        "rate": 0.13,
+        "rejections": 78,
+        "wilson_95": [
+          0.10542709735321987,
+          0.15928056139691865
+        ]
+      },
+      {
+        "cell_index": 4,
+        "independent_replicates": 600,
+        "rate": 0.12666666666666668,
+        "rejections": 76,
+        "wilson_95": [
+          0.10240739498691152,
+          0.15567600843665172
+        ]
+      },
+      {
+        "cell_index": 5,
+        "independent_replicates": 600,
+        "rate": 0.125,
+        "rejections": 75,
+        "wilson_95": [
+          0.10089974887356176,
+          0.15387152688671377
+        ]
+      },
+      {
+        "cell_index": 6,
+        "independent_replicates": 600,
+        "rate": 0.12,
+        "rejections": 72,
+        "wilson_95": [
+          0.09638593328911173,
+          0.14844895948130082
+        ]
+      },
+      {
+        "cell_index": 7,
+        "independent_replicates": 600,
+        "rate": 0.13666666666666666,
+        "rejections": 82,
+        "wilson_95": [
+          0.111483490917006,
+          0.16647267848628314
+        ]
+      },
+      {
+        "cell_index": 8,
+        "independent_replicates": 600,
+        "rate": 0.15,
+        "rejections": 90,
+        "wilson_95": [
+          0.12365957580215664,
+          0.18079361490743384
+        ]
+      },
+      {
+        "cell_index": 9,
+        "independent_replicates": 600,
+        "rate": 0.13,
+        "rejections": 78,
+        "wilson_95": [
+          0.10542709735321987,
+          0.15928056139691865
+        ]
+      },
+      {
+        "cell_index": 10,
+        "independent_replicates": 600,
+        "rate": 0.12833333333333333,
+        "rejections": 77,
+        "wilson_95": [
+          0.1039165192128853,
+          0.15747901187396557
+        ]
+      },
+      {
+        "cell_index": 11,
+        "independent_replicates": 600,
+        "rate": 0.12166666666666667,
+        "rejections": 73,
+        "wilson_95": [
+          0.09788899177278657,
+          0.15025802866091367
+        ]
+      },
+      {
+        "cell_index": 12,
+        "independent_replicates": 600,
+        "rate": 0.11666666666666667,
+        "rejections": 70,
+        "wilson_95": [
+          0.0933845944690549,
+          0.14482604297478233
+        ]
+      },
+      {
+        "cell_index": 13,
+        "independent_replicates": 600,
+        "rate": 0.13,
+        "rejections": 78,
+        "wilson_95": [
+          0.10542709735321987,
+          0.15928056139691865
+        ]
+      },
+      {
+        "cell_index": 14,
+        "independent_replicates": 600,
+        "rate": 0.105,
+        "rejections": 63,
+        "wilson_95": [
+          0.08293329952922511,
+          0.13209244427159847
+        ]
+      },
+      {
+        "cell_index": 15,
+        "independent_replicates": 600,
+        "rate": 0.13166666666666665,
+        "rejections": 79,
+        "wilson_95": [
+          0.10693910596672464,
+          0.1610806804467015
+        ]
+      },
+      {
+        "cell_index": 16,
+        "independent_replicates": 600,
+        "rate": 0.135,
+        "rejections": 81,
+        "wilson_95": [
+          0.10996732443966875,
+          0.16467671730033281
+        ]
+      },
+      {
+        "cell_index": 17,
+        "independent_replicates": 600,
+        "rate": 0.14,
+        "rejections": 84,
+        "wilson_95": [
+          0.11451983471668892,
+          0.17006059001317564
+        ]
+      },
+      {
+        "cell_index": 18,
+        "independent_replicates": 600,
+        "rate": 0.14666666666666667,
+        "rejections": 88,
+        "wilson_95": [
+          0.12060802259334437,
+          0.17722091278967084
+        ]
+      },
+      {
+        "cell_index": 19,
+        "independent_replicates": 600,
+        "rate": 0.13333333333333333,
+        "rejections": 80,
+        "wilson_95": [
+          0.10845252233661881,
+          0.16287939174009505
+        ]
+      },
+      {
+        "cell_index": 20,
+        "independent_replicates": 600,
+        "rate": 0.13833333333333334,
+        "rejections": 83,
+        "wilson_95": [
+          0.11300100104651516,
+          0.1682672960200617
+        ]
+      },
+      {
+        "cell_index": 21,
+        "independent_replicates": 600,
+        "rate": 0.13,
+        "rejections": 78,
+        "wilson_95": [
+          0.10542709735321987,
+          0.15928056139691865
+        ]
+      },
+      {
+        "cell_index": 22,
+        "independent_replicates": 600,
+        "rate": 0.12,
+        "rejections": 72,
+        "wilson_95": [
+          0.09638593328911173,
+          0.14844895948130082
+        ]
+      },
+      {
+        "cell_index": 23,
+        "independent_replicates": 600,
+        "rate": 0.11833333333333333,
+        "rejections": 71,
+        "wilson_95": [
+          0.09488445800574202,
+          0.14663830710138287
+        ]
+      },
+      {
+        "cell_index": 24,
+        "independent_replicates": 600,
+        "rate": 0.11166666666666666,
+        "rejections": 67,
+        "wilson_95": [
+          0.08889497508919378,
+          0.13937927936478045
+        ]
+      },
+      {
+        "cell_index": 25,
+        "independent_replicates": 600,
+        "rate": 0.11833333333333333,
+        "rejections": 71,
+        "wilson_95": [
+          0.09488445800574202,
+          0.14663830710138287
+        ]
+      },
+      {
+        "cell_index": 26,
+        "independent_replicates": 600,
+        "rate": 0.13,
+        "rejections": 78,
+        "wilson_95": [
+          0.10542709735321987,
+          0.15928056139691865
+        ]
+      },
+      {
+        "cell_index": 27,
+        "independent_replicates": 600,
+        "rate": 0.12666666666666668,
+        "rejections": 76,
+        "wilson_95": [
+          0.10240739498691152,
+          0.15567600843665172
+        ]
+      },
+      {
+        "cell_index": 28,
+        "independent_replicates": 600,
+        "rate": 0.135,
+        "rejections": 81,
+        "wilson_95": [
+          0.10996732443966875,
+          0.16467671730033281
+        ]
+      },
+      {
+        "cell_index": 29,
+        "independent_replicates": 600,
+        "rate": 0.13,
+        "rejections": 78,
+        "wilson_95": [
+          0.10542709735321987,
+          0.15928056139691865
+        ]
+      },
+      {
+        "cell_index": 30,
+        "independent_replicates": 600,
+        "rate": 0.14,
+        "rejections": 84,
+        "wilson_95": [
+          0.11451983471668892,
+          0.17006059001317564
+        ]
+      },
+      {
+        "cell_index": 31,
+        "independent_replicates": 600,
+        "rate": 0.13166666666666665,
+        "rejections": 79,
+        "wilson_95": [
+          0.10693910596672464,
+          0.1610806804467015
+        ]
+      },
+      {
+        "cell_index": 32,
+        "independent_replicates": 600,
+        "rate": 0.125,
+        "rejections": 75,
+        "wilson_95": [
+          0.10089974887356176,
+          0.15387152688671377
+        ]
+      },
+      {
+        "cell_index": 33,
+        "independent_replicates": 600,
+        "rate": 0.13666666666666666,
+        "rejections": 82,
+        "wilson_95": [
+          0.111483490917006,
+          0.16647267848628314
+        ]
+      },
+      {
+        "cell_index": 34,
+        "independent_replicates": 600,
+        "rate": 0.125,
+        "rejections": 75,
+        "wilson_95": [
+          0.10089974887356176,
+          0.15387152688671377
+        ]
+      },
+      {
+        "cell_index": 35,
+        "independent_replicates": 600,
+        "rate": 0.135,
+        "rejections": 81,
+        "wilson_95": [
+          0.10996732443966875,
+          0.16467671730033281
+        ]
+      },
+      {
+        "cell_index": 36,
+        "independent_replicates": 600,
+        "rate": 0.13,
+        "rejections": 78,
+        "wilson_95": [
+          0.10542709735321987,
+          0.15928056139691865
+        ]
+      },
+      {
+        "cell_index": 37,
+        "independent_replicates": 600,
+        "rate": 0.125,
+        "rejections": 75,
+        "wilson_95": [
+          0.10089974887356176,
+          0.15387152688671377
+        ]
+      },
+      {
+        "cell_index": 38,
+        "independent_replicates": 600,
+        "rate": 0.14166666666666666,
+        "rejections": 85,
+        "wilson_95": [
+          0.11603997240185697,
+          0.17185257999129525
+        ]
+      },
+      {
+        "cell_index": 39,
+        "independent_replicates": 600,
+        "rate": 0.12,
+        "rejections": 72,
+        "wilson_95": [
+          0.09638593328911173,
+          0.14844895948130082
+        ]
+      },
+      {
+        "cell_index": 40,
+        "independent_replicates": 600,
+        "rate": 0.13833333333333334,
+        "rejections": 83,
+        "wilson_95": [
+          0.11300100104651516,
+          0.1682672960200617
+        ]
+      },
+      {
+        "cell_index": 41,
+        "independent_replicates": 600,
+        "rate": 0.12166666666666667,
+        "rejections": 73,
+        "wilson_95": [
+          0.09788899177278657,
+          0.15025802866091367
+        ]
+      },
+      {
+        "cell_index": 42,
+        "independent_replicates": 600,
+        "rate": 0.13333333333333333,
+        "rejections": 80,
+        "wilson_95": [
+          0.10845252233661881,
+          0.16287939174009505
+        ]
+      },
+      {
+        "cell_index": 43,
+        "independent_replicates": 600,
+        "rate": 0.13166666666666665,
+        "rejections": 79,
+        "wilson_95": [
+          0.10693910596672464,
+          0.1610806804467015
+        ]
+      },
+      {
+        "cell_index": 44,
+        "independent_replicates": 600,
+        "rate": 0.14333333333333334,
+        "rejections": 86,
+        "wilson_95": [
+          0.11756139513870045,
+          0.1736432849177394
+        ]
+      },
+      {
+        "cell_index": 45,
+        "independent_replicates": 600,
+        "rate": 0.11666666666666667,
+        "rejections": 70,
+        "wilson_95": [
+          0.0933845944690549,
+          0.14482604297478233
+        ]
+      },
+      {
+        "cell_index": 46,
+        "independent_replicates": 600,
+        "rate": 0.12666666666666668,
+        "rejections": 76,
+        "wilson_95": [
+          0.10240739498691152,
+          0.15567600843665172
+        ]
+      },
+      {
+        "cell_index": 47,
+        "independent_replicates": 600,
+        "rate": 0.12666666666666668,
+        "rejections": 76,
+        "wilson_95": [
+          0.10240739498691152,
+          0.15567600843665172
+        ]
+      },
+      {
+        "cell_index": 48,
+        "independent_replicates": 600,
+        "rate": 0.13166666666666665,
+        "rejections": 79,
+        "wilson_95": [
+          0.10693910596672464,
+          0.1610806804467015
+        ]
+      },
+      {
+        "cell_index": 49,
+        "independent_replicates": 600,
+        "rate": 0.13,
+        "rejections": 78,
+        "wilson_95": [
+          0.10542709735321987,
+          0.15928056139691865
+        ]
+      },
+      {
+        "cell_index": 50,
+        "independent_replicates": 600,
+        "rate": 0.13666666666666666,
+        "rejections": 82,
+        "wilson_95": [
+          0.111483490917006,
+          0.16647267848628314
+        ]
+      },
+      {
+        "cell_index": 51,
+        "independent_replicates": 600,
+        "rate": 0.12833333333333333,
+        "rejections": 77,
+        "wilson_95": [
+          0.1039165192128853,
+          0.15747901187396557
+        ]
+      },
+      {
+        "cell_index": 52,
+        "independent_replicates": 600,
+        "rate": 0.13666666666666666,
+        "rejections": 82,
+        "wilson_95": [
+          0.111483490917006,
+          0.16647267848628314
+        ]
+      },
+      {
+        "cell_index": 53,
+        "independent_replicates": 600,
+        "rate": 0.12,
+        "rejections": 72,
+        "wilson_95": [
+          0.09638593328911173,
+          0.14844895948130082
+        ]
+      },
+      {
+        "cell_index": 54,
+        "independent_replicates": 600,
+        "rate": 0.13166666666666665,
+        "rejections": 79,
+        "wilson_95": [
+          0.10693910596672464,
+          0.1610806804467015
+        ]
+      },
+      {
+        "cell_index": 55,
+        "independent_replicates": 600,
+        "rate": 0.12,
+        "rejections": 72,
+        "wilson_95": [
+          0.09638593328911173,
+          0.14844895948130082
+        ]
+      },
+      {
+        "cell_index": 56,
+        "independent_replicates": 600,
+        "rate": 0.12333333333333334,
+        "rejections": 74,
+        "wilson_95": [
+          0.09939360586276594,
+          0.15206554223422195
+        ]
+      },
+      {
+        "cell_index": 57,
+        "independent_replicates": 600,
+        "rate": 0.125,
+        "rejections": 75,
+        "wilson_95": [
+          0.10089974887356176,
+          0.15387152688671377
+        ]
+      },
+      {
+        "cell_index": 58,
+        "independent_replicates": 600,
+        "rate": 0.11666666666666667,
+        "rejections": 70,
+        "wilson_95": [
+          0.0933845944690549,
+          0.14482604297478233
+        ]
+      },
+      {
+        "cell_index": 59,
+        "independent_replicates": 600,
+        "rate": 0.115,
+        "rejections": 69,
+        "wilson_95": [
+          0.0918863722244461,
+          0.14301213755610348
+        ]
+      },
+      {
+        "cell_index": 60,
+        "independent_replicates": 600,
+        "rate": 0.12,
+        "rejections": 72,
+        "wilson_95": [
+          0.09638593328911173,
+          0.14844895948130082
+        ]
+      },
+      {
+        "cell_index": 61,
+        "independent_replicates": 600,
+        "rate": 0.13166666666666665,
+        "rejections": 79,
+        "wilson_95": [
+          0.10693910596672464,
+          0.1610806804467015
+        ]
+      },
+      {
+        "cell_index": 62,
+        "independent_replicates": 600,
+        "rate": 0.13333333333333333,
+        "rejections": 80,
+        "wilson_95": [
+          0.10845252233661881,
+          0.16287939174009505
+        ]
+      },
+      {
+        "cell_index": 63,
+        "independent_replicates": 600,
+        "rate": 0.11333333333333333,
+        "rejections": 68,
+        "wilson_95": [
+          0.09038982186596657,
+          0.1411965602512953
+        ]
+      },
+      {
+        "cell_index": 64,
+        "independent_replicates": 600,
+        "rate": 0.14166666666666666,
+        "rejections": 85,
+        "wilson_95": [
+          0.11603997240185697,
+          0.17185257999129525
+        ]
+      },
+      {
+        "cell_index": 65,
+        "independent_replicates": 600,
+        "rate": 0.13833333333333334,
+        "rejections": 83,
+        "wilson_95": [
+          0.11300100104651516,
+          0.1682672960200617
+        ]
+      },
+      {
+        "cell_index": 66,
+        "independent_replicates": 600,
+        "rate": 0.12833333333333333,
+        "rejections": 77,
+        "wilson_95": [
+          0.1039165192128853,
+          0.15747901187396557
+        ]
+      },
+      {
+        "cell_index": 67,
+        "independent_replicates": 600,
+        "rate": 0.13666666666666666,
+        "rejections": 82,
+        "wilson_95": [
+          0.111483490917006,
+          0.16647267848628314
+        ]
+      },
+      {
+        "cell_index": 68,
+        "independent_replicates": 600,
+        "rate": 0.13,
+        "rejections": 78,
+        "wilson_95": [
+          0.10542709735321987,
+          0.15928056139691865
+        ]
+      },
+      {
+        "cell_index": 69,
+        "independent_replicates": 600,
+        "rate": 0.15,
+        "rejections": 90,
+        "wilson_95": [
+          0.12365957580215664,
+          0.18079361490743384
+        ]
+      },
+      {
+        "cell_index": 70,
+        "independent_replicates": 600,
+        "rate": 0.14833333333333334,
+        "rejections": 89,
+        "wilson_95": [
+          0.12213319200132422,
+          0.17900787104497867
+        ]
+      },
+      {
+        "cell_index": 71,
+        "independent_replicates": 600,
+        "rate": 0.125,
+        "rejections": 75,
+        "wilson_95": [
+          0.10089974887356176,
+          0.15387152688671377
+        ]
+      },
+      {
+        "cell_index": 72,
+        "independent_replicates": 600,
+        "rate": 0.12666666666666668,
+        "rejections": 76,
+        "wilson_95": [
+          0.10240739498691152,
+          0.15567600843665172
+        ]
+      },
+      {
+        "cell_index": 73,
+        "independent_replicates": 600,
+        "rate": 0.13333333333333333,
+        "rejections": 80,
+        "wilson_95": [
+          0.10845252233661881,
+          0.16287939174009505
+        ]
+      },
+      {
+        "cell_index": 74,
+        "independent_replicates": 600,
+        "rate": 0.12833333333333333,
+        "rejections": 77,
+        "wilson_95": [
+          0.1039165192128853,
+          0.15747901187396557
+        ]
+      },
+      {
+        "cell_index": 75,
+        "independent_replicates": 600,
+        "rate": 0.13666666666666666,
+        "rejections": 82,
+        "wilson_95": [
+          0.111483490917006,
+          0.16647267848628314
+        ]
+      },
+      {
+        "cell_index": 76,
+        "independent_replicates": 600,
+        "rate": 0.11333333333333333,
+        "rejections": 68,
+        "wilson_95": [
+          0.09038982186596657,
+          0.1411965602512953
+        ]
+      },
+      {
+        "cell_index": 77,
+        "independent_replicates": 600,
+        "rate": 0.13,
+        "rejections": 78,
+        "wilson_95": [
+          0.10542709735321987,
+          0.15928056139691865
+        ]
+      },
+      {
+        "cell_index": 78,
+        "independent_replicates": 600,
+        "rate": 0.13666666666666666,
+        "rejections": 82,
+        "wilson_95": [
+          0.111483490917006,
+          0.16647267848628314
+        ]
+      },
+      {
+        "cell_index": 79,
+        "independent_replicates": 600,
+        "rate": 0.13,
+        "rejections": 78,
+        "wilson_95": [
+          0.10542709735321987,
+          0.15928056139691865
+        ]
+      },
+      {
+        "cell_index": 80,
+        "independent_replicates": 600,
+        "rate": 0.12333333333333334,
+        "rejections": 74,
+        "wilson_95": [
+          0.09939360586276594,
+          0.15206554223422195
+        ]
+      },
+      {
+        "cell_index": 81,
+        "independent_replicates": 600,
+        "rate": 0.115,
+        "rejections": 69,
+        "wilson_95": [
+          0.0918863722244461,
+          0.14301213755610348
+        ]
+      },
+      {
+        "cell_index": 82,
+        "independent_replicates": 600,
+        "rate": 0.14833333333333334,
+        "rejections": 89,
+        "wilson_95": [
+          0.12213319200132422,
+          0.17900787104497867
+        ]
+      },
+      {
+        "cell_index": 83,
+        "independent_replicates": 600,
+        "rate": 0.145,
+        "rejections": 87,
+        "wilson_95": [
+          0.1190840845039717,
+          0.1754327232157558
+        ]
+      },
+      {
+        "cell_index": 84,
+        "independent_replicates": 600,
+        "rate": 0.13,
+        "rejections": 78,
+        "wilson_95": [
+          0.10542709735321987,
+          0.15928056139691865
+        ]
+      },
+      {
+        "cell_index": 85,
+        "independent_replicates": 600,
+        "rate": 0.13,
+        "rejections": 78,
+        "wilson_95": [
+          0.10542709735321987,
+          0.15928056139691865
+        ]
+      },
+      {
+        "cell_index": 86,
+        "independent_replicates": 600,
+        "rate": 0.13166666666666665,
+        "rejections": 79,
+        "wilson_95": [
+          0.10693910596672464,
+          0.1610806804467015
+        ]
+      },
+      {
+        "cell_index": 87,
+        "independent_replicates": 600,
+        "rate": 0.135,
+        "rejections": 81,
+        "wilson_95": [
+          0.10996732443966875,
+          0.16467671730033281
+        ]
+      },
+      {
+        "cell_index": 88,
+        "independent_replicates": 600,
+        "rate": 0.11833333333333333,
+        "rejections": 71,
+        "wilson_95": [
+          0.09488445800574202,
+          0.14663830710138287
+        ]
+      },
+      {
+        "cell_index": 89,
+        "independent_replicates": 600,
+        "rate": 0.13833333333333334,
+        "rejections": 83,
+        "wilson_95": [
+          0.11300100104651516,
+          0.1682672960200617
+        ]
+      },
+      {
+        "cell_index": 90,
+        "independent_replicates": 600,
+        "rate": 0.12166666666666667,
+        "rejections": 73,
+        "wilson_95": [
+          0.09788899177278657,
+          0.15025802866091367
+        ]
+      },
+      {
+        "cell_index": 91,
+        "independent_replicates": 600,
+        "rate": 0.11833333333333333,
+        "rejections": 71,
+        "wilson_95": [
+          0.09488445800574202,
+          0.14663830710138287
+        ]
+      },
+      {
+        "cell_index": 92,
+        "independent_replicates": 600,
+        "rate": 0.12666666666666668,
+        "rejections": 76,
+        "wilson_95": [
+          0.10240739498691152,
+          0.15567600843665172
+        ]
+      },
+      {
+        "cell_index": 93,
+        "independent_replicates": 600,
+        "rate": 0.13166666666666665,
+        "rejections": 79,
+        "wilson_95": [
+          0.10693910596672464,
+          0.1610806804467015
+        ]
+      },
+      {
+        "cell_index": 94,
+        "independent_replicates": 600,
+        "rate": 0.12833333333333333,
+        "rejections": 77,
+        "wilson_95": [
+          0.1039165192128853,
+          0.15747901187396557
+        ]
+      },
+      {
+        "cell_index": 95,
+        "independent_replicates": 600,
+        "rate": 0.13,
+        "rejections": 78,
+        "wilson_95": [
+          0.10542709735321987,
+          0.15928056139691865
+        ]
+      },
+      {
+        "cell_index": 96,
+        "independent_replicates": 600,
+        "rate": 0.13666666666666666,
+        "rejections": 82,
+        "wilson_95": [
+          0.111483490917006,
+          0.16647267848628314
+        ]
+      },
+      {
+        "cell_index": 97,
+        "independent_replicates": 600,
+        "rate": 0.14666666666666667,
+        "rejections": 88,
+        "wilson_95": [
+          0.12060802259334437,
+          0.17722091278967084
+        ]
+      },
+      {
+        "cell_index": 98,
+        "independent_replicates": 600,
+        "rate": 0.13833333333333334,
+        "rejections": 83,
+        "wilson_95": [
+          0.11300100104651516,
+          0.1682672960200617
+        ]
+      },
+      {
+        "cell_index": 99,
+        "independent_replicates": 600,
+        "rate": 0.12833333333333333,
+        "rejections": 77,
+        "wilson_95": [
+          0.1039165192128853,
+          0.15747901187396557
+        ]
+      },
+      {
+        "cell_index": 100,
+        "independent_replicates": 600,
+        "rate": 0.13333333333333333,
+        "rejections": 80,
+        "wilson_95": [
+          0.10845252233661881,
+          0.16287939174009505
+        ]
+      },
+      {
+        "cell_index": 101,
+        "independent_replicates": 600,
+        "rate": 0.14666666666666667,
+        "rejections": 88,
+        "wilson_95": [
+          0.12060802259334437,
+          0.17722091278967084
+        ]
+      },
+      {
+        "cell_index": 102,
+        "independent_replicates": 600,
+        "rate": 0.13666666666666666,
+        "rejections": 82,
+        "wilson_95": [
+          0.111483490917006,
+          0.16647267848628314
+        ]
+      },
+      {
+        "cell_index": 103,
+        "independent_replicates": 600,
+        "rate": 0.14166666666666666,
+        "rejections": 85,
+        "wilson_95": [
+          0.11603997240185697,
+          0.17185257999129525
+        ]
+      },
+      {
+        "cell_index": 104,
+        "independent_replicates": 600,
+        "rate": 0.13,
+        "rejections": 78,
+        "wilson_95": [
+          0.10542709735321987,
+          0.15928056139691865
+        ]
+      },
+      {
+        "cell_index": 105,
+        "independent_replicates": 600,
+        "rate": 0.14166666666666666,
+        "rejections": 85,
+        "wilson_95": [
+          0.11603997240185697,
+          0.17185257999129525
+        ]
+      },
+      {
+        "cell_index": 106,
+        "independent_replicates": 600,
+        "rate": 0.14166666666666666,
+        "rejections": 85,
+        "wilson_95": [
+          0.11603997240185697,
+          0.17185257999129525
+        ]
+      },
+      {
+        "cell_index": 107,
+        "independent_replicates": 600,
+        "rate": 0.14,
+        "rejections": 84,
+        "wilson_95": [
+          0.11451983471668892,
+          0.17006059001317564
+        ]
+      },
+      {
+        "cell_index": 108,
+        "independent_replicates": 600,
+        "rate": 0.12666666666666668,
+        "rejections": 76,
+        "wilson_95": [
+          0.10240739498691152,
+          0.15567600843665172
+        ]
+      },
+      {
+        "cell_index": 109,
+        "independent_replicates": 600,
+        "rate": 0.145,
+        "rejections": 87,
+        "wilson_95": [
+          0.1190840845039717,
+          0.1754327232157558
+        ]
+      },
+      {
+        "cell_index": 110,
+        "independent_replicates": 600,
+        "rate": 0.135,
+        "rejections": 81,
+        "wilson_95": [
+          0.10996732443966875,
+          0.16467671730033281
+        ]
+      },
+      {
+        "cell_index": 111,
+        "independent_replicates": 600,
+        "rate": 0.13,
+        "rejections": 78,
+        "wilson_95": [
+          0.10542709735321987,
+          0.15928056139691865
+        ]
+      },
+      {
+        "cell_index": 112,
+        "independent_replicates": 600,
+        "rate": 0.14,
+        "rejections": 84,
+        "wilson_95": [
+          0.11451983471668892,
+          0.17006059001317564
+        ]
+      },
+      {
+        "cell_index": 113,
+        "independent_replicates": 600,
+        "rate": 0.16,
+        "rejections": 96,
+        "wilson_95": [
+          0.13284248906564322,
+          0.1914834676236733
+        ]
+      },
+      {
+        "cell_index": 114,
+        "independent_replicates": 600,
+        "rate": 0.13,
+        "rejections": 78,
+        "wilson_95": [
+          0.10542709735321987,
+          0.15928056139691865
+        ]
+      },
+      {
+        "cell_index": 115,
+        "independent_replicates": 600,
+        "rate": 0.13833333333333334,
+        "rejections": 83,
+        "wilson_95": [
+          0.11300100104651516,
+          0.1682672960200617
+        ]
+      },
+      {
+        "cell_index": 116,
+        "independent_replicates": 600,
+        "rate": 0.13666666666666666,
+        "rejections": 82,
+        "wilson_95": [
+          0.111483490917006,
+          0.16647267848628314
+        ]
+      },
+      {
+        "cell_index": 117,
+        "independent_replicates": 600,
+        "rate": 0.14833333333333334,
+        "rejections": 89,
+        "wilson_95": [
+          0.12213319200132422,
+          0.17900787104497867
+        ]
+      },
+      {
+        "cell_index": 118,
+        "independent_replicates": 600,
+        "rate": 0.15,
+        "rejections": 90,
+        "wilson_95": [
+          0.12365957580215664,
+          0.18079361490743384
+        ]
+      },
+      {
+        "cell_index": 119,
+        "independent_replicates": 600,
+        "rate": 0.12833333333333333,
+        "rejections": 77,
+        "wilson_95": [
+          0.1039165192128853,
+          0.15747901187396557
+        ]
+      },
+      {
+        "cell_index": 120,
+        "independent_replicates": 600,
+        "rate": 0.13333333333333333,
+        "rejections": 80,
+        "wilson_95": [
+          0.10845252233661881,
+          0.16287939174009505
+        ]
+      },
+      {
+        "cell_index": 121,
+        "independent_replicates": 600,
+        "rate": 0.13666666666666666,
+        "rejections": 82,
+        "wilson_95": [
+          0.111483490917006,
+          0.16647267848628314
+        ]
+      },
+      {
+        "cell_index": 122,
+        "independent_replicates": 600,
+        "rate": 0.125,
+        "rejections": 75,
+        "wilson_95": [
+          0.10089974887356176,
+          0.15387152688671377
+        ]
+      },
+      {
+        "cell_index": 123,
+        "independent_replicates": 600,
+        "rate": 0.13666666666666666,
+        "rejections": 82,
+        "wilson_95": [
+          0.111483490917006,
+          0.16647267848628314
+        ]
+      },
+      {
+        "cell_index": 124,
+        "independent_replicates": 600,
+        "rate": 0.14333333333333334,
+        "rejections": 86,
+        "wilson_95": [
+          0.11756139513870045,
+          0.1736432849177394
+        ]
+      },
+      {
+        "cell_index": 125,
+        "independent_replicates": 600,
+        "rate": 0.13166666666666665,
+        "rejections": 79,
+        "wilson_95": [
+          0.10693910596672464,
+          0.1610806804467015
+        ]
+      },
+      {
+        "cell_index": 126,
+        "independent_replicates": 600,
+        "rate": 0.13,
+        "rejections": 78,
+        "wilson_95": [
+          0.10542709735321987,
+          0.15928056139691865
+        ]
+      },
+      {
+        "cell_index": 127,
+        "independent_replicates": 600,
+        "rate": 0.15166666666666667,
+        "rejections": 91,
+        "wilson_95": [
+          0.12518715753167084,
+          0.18257816084120734
+        ]
+      },
+      {
+        "cell_index": 128,
+        "independent_replicates": 600,
+        "rate": 0.12333333333333334,
+        "rejections": 74,
+        "wilson_95": [
+          0.09939360586276594,
+          0.15206554223422195
+        ]
+      },
+      {
+        "cell_index": 129,
+        "independent_replicates": 600,
+        "rate": 0.12833333333333333,
+        "rejections": 77,
+        "wilson_95": [
+          0.1039165192128853,
+          0.15747901187396557
+        ]
+      },
+      {
+        "cell_index": 130,
+        "independent_replicates": 600,
+        "rate": 0.12333333333333334,
+        "rejections": 74,
+        "wilson_95": [
+          0.09939360586276594,
+          0.15206554223422195
+        ]
+      },
+      {
+        "cell_index": 131,
+        "independent_replicates": 600,
+        "rate": 0.135,
+        "rejections": 81,
+        "wilson_95": [
+          0.10996732443966875,
+          0.16467671730033281
+        ]
+      }
+    ],
+    "status": "FAIL"
+  },
+  "artifact_status": "COMPLETE_SYNTHETIC_ONLY",
+  "calibration_gate": "INCONCLUSIVE",
+  "decision_reason": "Fixed 600 independent panels/scenario cannot meet >=2000 family calibration requirement; missing sparse families are refused. Analytic p-value resolution alone is not sufficient. Known-covariance oracle assumptions are not established for market data.",
+  "frozen_future_protocol_amended": false,
+  "future_data_fetched": false,
+  "protocol_sha256": "8165bb667b1704571e6c3793e3c00ae2e71b56e41f9c08466f7b9d9713055c28",
+  "reserved_validation": "NOT_RUN",
+  "results": {
+    "ar1_day_null": {
+      "attempted_independent_panels": 600,
+      "holm_132": {
+        "complete_independent_families": 600,
+        "monte_carlo_precision_sufficient": false,
+        "refused_families": 0,
+        "rejections_in_complete_families_diagnostic_only": 7,
+        "required_minimum_independent_families": 2000,
+        "status": "COMPLETE_FAMILIES",
+        "unconditional_rate": 0.011666666666666667,
+        "wilson_95": [
+          0.005662583797877487,
+          0.023884010858836874
+        ]
+      },
+      "marginal_scope": "Available-cell diagnostics conditional on nonempty cells; pointwise intervals, never pooled across correlated cells.",
+      "marginal_type_i": [
+        {
+          "cell_index": 0,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 1,
+          "independent_replicates": 600,
+          "rate": 0.051666666666666666,
+          "rejections": 31,
+          "wilson_95": [
+            0.036634743907307504,
+            0.0724029146683108
+          ]
+        },
+        {
+          "cell_index": 2,
+          "independent_replicates": 600,
+          "rate": 0.03833333333333333,
+          "rejections": 23,
+          "wilson_95": [
+            0.025677277815960083,
+            0.0568633594533569
+          ]
+        },
+        {
+          "cell_index": 3,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 4,
+          "independent_replicates": 600,
+          "rate": 0.04,
+          "rejections": 24,
+          "wilson_95": [
+            0.02702502927655182,
+            0.05882773565605286
+          ]
+        },
+        {
+          "cell_index": 5,
+          "independent_replicates": 600,
+          "rate": 0.03666666666666667,
+          "rejections": 22,
+          "wilson_95": [
+            0.024336895975690734,
+            0.05489161363033859
+          ]
+        },
+        {
+          "cell_index": 6,
+          "independent_replicates": 600,
+          "rate": 0.04,
+          "rejections": 24,
+          "wilson_95": [
+            0.02702502927655182,
+            0.05882773565605286
+          ]
+        },
+        {
+          "cell_index": 7,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 8,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 9,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 10,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 11,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 12,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 13,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 14,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 15,
+          "independent_replicates": 600,
+          "rate": 0.03833333333333333,
+          "rejections": 23,
+          "wilson_95": [
+            0.025677277815960083,
+            0.0568633594533569
+          ]
+        },
+        {
+          "cell_index": 16,
+          "independent_replicates": 600,
+          "rate": 0.06,
+          "rejections": 36,
+          "wilson_95": [
+            0.043651428759454075,
+            0.08194686813260255
+          ]
+        },
+        {
+          "cell_index": 17,
+          "independent_replicates": 600,
+          "rate": 0.055,
+          "rejections": 33,
+          "wilson_95": [
+            0.03942813848636002,
+            0.07623377541583362
+          ]
+        },
+        {
+          "cell_index": 18,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 19,
+          "independent_replicates": 600,
+          "rate": 0.055,
+          "rejections": 33,
+          "wilson_95": [
+            0.03942813848636002,
+            0.07623377541583362
+          ]
+        },
+        {
+          "cell_index": 20,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 21,
+          "independent_replicates": 600,
+          "rate": 0.043333333333333335,
+          "rejections": 26,
+          "wilson_95": [
+            0.02974099813478266,
+            0.06273602212439733
+          ]
+        },
+        {
+          "cell_index": 22,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 23,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 24,
+          "independent_replicates": 600,
+          "rate": 0.04,
+          "rejections": 24,
+          "wilson_95": [
+            0.02702502927655182,
+            0.05882773565605286
+          ]
+        },
+        {
+          "cell_index": 25,
+          "independent_replicates": 600,
+          "rate": 0.04,
+          "rejections": 24,
+          "wilson_95": [
+            0.02702502927655182,
+            0.05882773565605286
+          ]
+        },
+        {
+          "cell_index": 26,
+          "independent_replicates": 600,
+          "rate": 0.051666666666666666,
+          "rejections": 31,
+          "wilson_95": [
+            0.036634743907307504,
+            0.0724029146683108
+          ]
+        },
+        {
+          "cell_index": 27,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 28,
+          "independent_replicates": 600,
+          "rate": 0.051666666666666666,
+          "rejections": 31,
+          "wilson_95": [
+            0.036634743907307504,
+            0.0724029146683108
+          ]
+        },
+        {
+          "cell_index": 29,
+          "independent_replicates": 600,
+          "rate": 0.04,
+          "rejections": 24,
+          "wilson_95": [
+            0.02702502927655182,
+            0.05882773565605286
+          ]
+        },
+        {
+          "cell_index": 30,
+          "independent_replicates": 600,
+          "rate": 0.043333333333333335,
+          "rejections": 26,
+          "wilson_95": [
+            0.02974099813478266,
+            0.06273602212439733
+          ]
+        },
+        {
+          "cell_index": 31,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 32,
+          "independent_replicates": 600,
+          "rate": 0.041666666666666664,
+          "rejections": 25,
+          "wilson_95": [
+            0.02837972965493859,
+            0.06078516294095374
+          ]
+        },
+        {
+          "cell_index": 33,
+          "independent_replicates": 600,
+          "rate": 0.051666666666666666,
+          "rejections": 31,
+          "wilson_95": [
+            0.036634743907307504,
+            0.0724029146683108
+          ]
+        },
+        {
+          "cell_index": 34,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 35,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 36,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 37,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 38,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 39,
+          "independent_replicates": 600,
+          "rate": 0.03833333333333333,
+          "rejections": 23,
+          "wilson_95": [
+            0.025677277815960083,
+            0.0568633594533569
+          ]
+        },
+        {
+          "cell_index": 40,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 41,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 42,
+          "independent_replicates": 600,
+          "rate": 0.03833333333333333,
+          "rejections": 23,
+          "wilson_95": [
+            0.025677277815960083,
+            0.0568633594533569
+          ]
+        },
+        {
+          "cell_index": 43,
+          "independent_replicates": 600,
+          "rate": 0.055,
+          "rejections": 33,
+          "wilson_95": [
+            0.03942813848636002,
+            0.07623377541583362
+          ]
+        },
+        {
+          "cell_index": 44,
+          "independent_replicates": 600,
+          "rate": 0.041666666666666664,
+          "rejections": 25,
+          "wilson_95": [
+            0.02837972965493859,
+            0.06078516294095374
+          ]
+        },
+        {
+          "cell_index": 45,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 46,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 47,
+          "independent_replicates": 600,
+          "rate": 0.04,
+          "rejections": 24,
+          "wilson_95": [
+            0.02702502927655182,
+            0.05882773565605286
+          ]
+        },
+        {
+          "cell_index": 48,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 49,
+          "independent_replicates": 600,
+          "rate": 0.051666666666666666,
+          "rejections": 31,
+          "wilson_95": [
+            0.036634743907307504,
+            0.0724029146683108
+          ]
+        },
+        {
+          "cell_index": 50,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 51,
+          "independent_replicates": 600,
+          "rate": 0.055,
+          "rejections": 33,
+          "wilson_95": [
+            0.03942813848636002,
+            0.07623377541583362
+          ]
+        },
+        {
+          "cell_index": 52,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 53,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 54,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 55,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 56,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 57,
+          "independent_replicates": 600,
+          "rate": 0.051666666666666666,
+          "rejections": 31,
+          "wilson_95": [
+            0.036634743907307504,
+            0.0724029146683108
+          ]
+        },
+        {
+          "cell_index": 58,
+          "independent_replicates": 600,
+          "rate": 0.056666666666666664,
+          "rejections": 34,
+          "wilson_95": [
+            0.04083165535330541,
+            0.0781423862121759
+          ]
+        },
+        {
+          "cell_index": 59,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 60,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 61,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 62,
+          "independent_replicates": 600,
+          "rate": 0.04,
+          "rejections": 24,
+          "wilson_95": [
+            0.02702502927655182,
+            0.05882773565605286
+          ]
+        },
+        {
+          "cell_index": 63,
+          "independent_replicates": 600,
+          "rate": 0.035,
+          "rejections": 21,
+          "wilson_95": [
+            0.023004350476005058,
+            0.052912031466736606
+          ]
+        },
+        {
+          "cell_index": 64,
+          "independent_replicates": 600,
+          "rate": 0.051666666666666666,
+          "rejections": 31,
+          "wilson_95": [
+            0.036634743907307504,
+            0.0724029146683108
+          ]
+        },
+        {
+          "cell_index": 65,
+          "independent_replicates": 600,
+          "rate": 0.04,
+          "rejections": 24,
+          "wilson_95": [
+            0.02702502927655182,
+            0.05882773565605286
+          ]
+        },
+        {
+          "cell_index": 66,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 67,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 68,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 69,
+          "independent_replicates": 600,
+          "rate": 0.058333333333333334,
+          "rejections": 35,
+          "wilson_95": [
+            0.04223947455645403,
+            0.08004669467231493
+          ]
+        },
+        {
+          "cell_index": 70,
+          "independent_replicates": 600,
+          "rate": 0.055,
+          "rejections": 33,
+          "wilson_95": [
+            0.03942813848636002,
+            0.07623377541583362
+          ]
+        },
+        {
+          "cell_index": 71,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 72,
+          "independent_replicates": 600,
+          "rate": 0.051666666666666666,
+          "rejections": 31,
+          "wilson_95": [
+            0.036634743907307504,
+            0.0724029146683108
+          ]
+        },
+        {
+          "cell_index": 73,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 74,
+          "independent_replicates": 600,
+          "rate": 0.043333333333333335,
+          "rejections": 26,
+          "wilson_95": [
+            0.02974099813478266,
+            0.06273602212439733
+          ]
+        },
+        {
+          "cell_index": 75,
+          "independent_replicates": 600,
+          "rate": 0.058333333333333334,
+          "rejections": 35,
+          "wilson_95": [
+            0.04223947455645403,
+            0.08004669467231493
+          ]
+        },
+        {
+          "cell_index": 76,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 77,
+          "independent_replicates": 600,
+          "rate": 0.051666666666666666,
+          "rejections": 31,
+          "wilson_95": [
+            0.036634743907307504,
+            0.0724029146683108
+          ]
+        },
+        {
+          "cell_index": 78,
+          "independent_replicates": 600,
+          "rate": 0.051666666666666666,
+          "rejections": 31,
+          "wilson_95": [
+            0.036634743907307504,
+            0.0724029146683108
+          ]
+        },
+        {
+          "cell_index": 79,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 80,
+          "independent_replicates": 600,
+          "rate": 0.043333333333333335,
+          "rejections": 26,
+          "wilson_95": [
+            0.02974099813478266,
+            0.06273602212439733
+          ]
+        },
+        {
+          "cell_index": 81,
+          "independent_replicates": 600,
+          "rate": 0.03666666666666667,
+          "rejections": 22,
+          "wilson_95": [
+            0.024336895975690734,
+            0.05489161363033859
+          ]
+        },
+        {
+          "cell_index": 82,
+          "independent_replicates": 600,
+          "rate": 0.041666666666666664,
+          "rejections": 25,
+          "wilson_95": [
+            0.02837972965493859,
+            0.06078516294095374
+          ]
+        },
+        {
+          "cell_index": 83,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 84,
+          "independent_replicates": 600,
+          "rate": 0.058333333333333334,
+          "rejections": 35,
+          "wilson_95": [
+            0.04223947455645403,
+            0.08004669467231493
+          ]
+        },
+        {
+          "cell_index": 85,
+          "independent_replicates": 600,
+          "rate": 0.056666666666666664,
+          "rejections": 34,
+          "wilson_95": [
+            0.04083165535330541,
+            0.0781423862121759
+          ]
+        },
+        {
+          "cell_index": 86,
+          "independent_replicates": 600,
+          "rate": 0.03333333333333333,
+          "rejections": 20,
+          "wilson_95": [
+            0.021680161456561077,
+            0.05092409282289293
+          ]
+        },
+        {
+          "cell_index": 87,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 88,
+          "independent_replicates": 600,
+          "rate": 0.03833333333333333,
+          "rejections": 23,
+          "wilson_95": [
+            0.025677277815960083,
+            0.0568633594533569
+          ]
+        },
+        {
+          "cell_index": 89,
+          "independent_replicates": 600,
+          "rate": 0.041666666666666664,
+          "rejections": 25,
+          "wilson_95": [
+            0.02837972965493859,
+            0.06078516294095374
+          ]
+        },
+        {
+          "cell_index": 90,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 91,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 92,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 93,
+          "independent_replicates": 600,
+          "rate": 0.03666666666666667,
+          "rejections": 22,
+          "wilson_95": [
+            0.024336895975690734,
+            0.05489161363033859
+          ]
+        },
+        {
+          "cell_index": 94,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 95,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 96,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 97,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 98,
+          "independent_replicates": 600,
+          "rate": 0.043333333333333335,
+          "rejections": 26,
+          "wilson_95": [
+            0.02974099813478266,
+            0.06273602212439733
+          ]
+        },
+        {
+          "cell_index": 99,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 100,
+          "independent_replicates": 600,
+          "rate": 0.03,
+          "rejections": 18,
+          "wilson_95": [
+            0.01905925662590196,
+            0.046920742326976704
+          ]
+        },
+        {
+          "cell_index": 101,
+          "independent_replicates": 600,
+          "rate": 0.051666666666666666,
+          "rejections": 31,
+          "wilson_95": [
+            0.036634743907307504,
+            0.0724029146683108
+          ]
+        },
+        {
+          "cell_index": 102,
+          "independent_replicates": 600,
+          "rate": 0.035,
+          "rejections": 21,
+          "wilson_95": [
+            0.023004350476005058,
+            0.052912031466736606
+          ]
+        },
+        {
+          "cell_index": 103,
+          "independent_replicates": 600,
+          "rate": 0.055,
+          "rejections": 33,
+          "wilson_95": [
+            0.03942813848636002,
+            0.07623377541583362
+          ]
+        },
+        {
+          "cell_index": 104,
+          "independent_replicates": 600,
+          "rate": 0.03666666666666667,
+          "rejections": 22,
+          "wilson_95": [
+            0.024336895975690734,
+            0.05489161363033859
+          ]
+        },
+        {
+          "cell_index": 105,
+          "independent_replicates": 600,
+          "rate": 0.051666666666666666,
+          "rejections": 31,
+          "wilson_95": [
+            0.036634743907307504,
+            0.0724029146683108
+          ]
+        },
+        {
+          "cell_index": 106,
+          "independent_replicates": 600,
+          "rate": 0.04,
+          "rejections": 24,
+          "wilson_95": [
+            0.02702502927655182,
+            0.05882773565605286
+          ]
+        },
+        {
+          "cell_index": 107,
+          "independent_replicates": 600,
+          "rate": 0.041666666666666664,
+          "rejections": 25,
+          "wilson_95": [
+            0.02837972965493859,
+            0.06078516294095374
+          ]
+        },
+        {
+          "cell_index": 108,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 109,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 110,
+          "independent_replicates": 600,
+          "rate": 0.041666666666666664,
+          "rejections": 25,
+          "wilson_95": [
+            0.02837972965493859,
+            0.06078516294095374
+          ]
+        },
+        {
+          "cell_index": 111,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 112,
+          "independent_replicates": 600,
+          "rate": 0.041666666666666664,
+          "rejections": 25,
+          "wilson_95": [
+            0.02837972965493859,
+            0.06078516294095374
+          ]
+        },
+        {
+          "cell_index": 113,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 114,
+          "independent_replicates": 600,
+          "rate": 0.055,
+          "rejections": 33,
+          "wilson_95": [
+            0.03942813848636002,
+            0.07623377541583362
+          ]
+        },
+        {
+          "cell_index": 115,
+          "independent_replicates": 600,
+          "rate": 0.04,
+          "rejections": 24,
+          "wilson_95": [
+            0.02702502927655182,
+            0.05882773565605286
+          ]
+        },
+        {
+          "cell_index": 116,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 117,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 118,
+          "independent_replicates": 600,
+          "rate": 0.043333333333333335,
+          "rejections": 26,
+          "wilson_95": [
+            0.02974099813478266,
+            0.06273602212439733
+          ]
+        },
+        {
+          "cell_index": 119,
+          "independent_replicates": 600,
+          "rate": 0.03833333333333333,
+          "rejections": 23,
+          "wilson_95": [
+            0.025677277815960083,
+            0.0568633594533569
+          ]
+        },
+        {
+          "cell_index": 120,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 121,
+          "independent_replicates": 600,
+          "rate": 0.056666666666666664,
+          "rejections": 34,
+          "wilson_95": [
+            0.04083165535330541,
+            0.0781423862121759
+          ]
+        },
+        {
+          "cell_index": 122,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 123,
+          "independent_replicates": 600,
+          "rate": 0.051666666666666666,
+          "rejections": 31,
+          "wilson_95": [
+            0.036634743907307504,
+            0.0724029146683108
+          ]
+        },
+        {
+          "cell_index": 124,
+          "independent_replicates": 600,
+          "rate": 0.06166666666666667,
+          "rejections": 37,
+          "wilson_95": [
+            0.045067361772116676,
+            0.08384306278322762
+          ]
+        },
+        {
+          "cell_index": 125,
+          "independent_replicates": 600,
+          "rate": 0.041666666666666664,
+          "rejections": 25,
+          "wilson_95": [
+            0.02837972965493859,
+            0.06078516294095374
+          ]
+        },
+        {
+          "cell_index": 126,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 127,
+          "independent_replicates": 600,
+          "rate": 0.065,
+          "rejections": 39,
+          "wilson_95": [
+            0.04791058921339886,
+            0.08762409066852075
+          ]
+        },
+        {
+          "cell_index": 128,
+          "independent_replicates": 600,
+          "rate": 0.043333333333333335,
+          "rejections": 26,
+          "wilson_95": [
+            0.02974099813478266,
+            0.06273602212439733
+          ]
+        },
+        {
+          "cell_index": 129,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 130,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 131,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        }
+      ],
+      "status": "INCONCLUSIVE"
+    },
+    "iid_day_null": {
+      "attempted_independent_panels": 600,
+      "holm_132": {
+        "complete_independent_families": 600,
+        "monte_carlo_precision_sufficient": false,
+        "refused_families": 0,
+        "rejections_in_complete_families_diagnostic_only": 20,
+        "required_minimum_independent_families": 2000,
+        "status": "COMPLETE_FAMILIES",
+        "unconditional_rate": 0.03333333333333333,
+        "wilson_95": [
+          0.021680161456561077,
+          0.05092409282289293
+        ]
+      },
+      "marginal_scope": "Available-cell diagnostics conditional on nonempty cells; pointwise intervals, never pooled across correlated cells.",
+      "marginal_type_i": [
+        {
+          "cell_index": 0,
+          "independent_replicates": 600,
+          "rate": 0.03333333333333333,
+          "rejections": 20,
+          "wilson_95": [
+            0.021680161456561077,
+            0.05092409282289293
+          ]
+        },
+        {
+          "cell_index": 1,
+          "independent_replicates": 600,
+          "rate": 0.058333333333333334,
+          "rejections": 35,
+          "wilson_95": [
+            0.04223947455645403,
+            0.08004669467231493
+          ]
+        },
+        {
+          "cell_index": 2,
+          "independent_replicates": 600,
+          "rate": 0.058333333333333334,
+          "rejections": 35,
+          "wilson_95": [
+            0.04223947455645403,
+            0.08004669467231493
+          ]
+        },
+        {
+          "cell_index": 3,
+          "independent_replicates": 600,
+          "rate": 0.051666666666666666,
+          "rejections": 31,
+          "wilson_95": [
+            0.036634743907307504,
+            0.0724029146683108
+          ]
+        },
+        {
+          "cell_index": 4,
+          "independent_replicates": 600,
+          "rate": 0.06166666666666667,
+          "rejections": 37,
+          "wilson_95": [
+            0.045067361772116676,
+            0.08384306278322762
+          ]
+        },
+        {
+          "cell_index": 5,
+          "independent_replicates": 600,
+          "rate": 0.051666666666666666,
+          "rejections": 31,
+          "wilson_95": [
+            0.036634743907307504,
+            0.0724029146683108
+          ]
+        },
+        {
+          "cell_index": 6,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 7,
+          "independent_replicates": 600,
+          "rate": 0.043333333333333335,
+          "rejections": 26,
+          "wilson_95": [
+            0.02974099813478266,
+            0.06273602212439733
+          ]
+        },
+        {
+          "cell_index": 8,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 9,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 10,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 11,
+          "independent_replicates": 600,
+          "rate": 0.051666666666666666,
+          "rejections": 31,
+          "wilson_95": [
+            0.036634743907307504,
+            0.0724029146683108
+          ]
+        },
+        {
+          "cell_index": 12,
+          "independent_replicates": 600,
+          "rate": 0.055,
+          "rejections": 33,
+          "wilson_95": [
+            0.03942813848636002,
+            0.07623377541583362
+          ]
+        },
+        {
+          "cell_index": 13,
+          "independent_replicates": 600,
+          "rate": 0.06,
+          "rejections": 36,
+          "wilson_95": [
+            0.043651428759454075,
+            0.08194686813260255
+          ]
+        },
+        {
+          "cell_index": 14,
+          "independent_replicates": 600,
+          "rate": 0.06333333333333334,
+          "rejections": 38,
+          "wilson_95": [
+            0.04648712753383062,
+            0.08573542468480135
+          ]
+        },
+        {
+          "cell_index": 15,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 16,
+          "independent_replicates": 600,
+          "rate": 0.056666666666666664,
+          "rejections": 34,
+          "wilson_95": [
+            0.04083165535330541,
+            0.0781423862121759
+          ]
+        },
+        {
+          "cell_index": 17,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 18,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 19,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 20,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 21,
+          "independent_replicates": 600,
+          "rate": 0.041666666666666664,
+          "rejections": 25,
+          "wilson_95": [
+            0.02837972965493859,
+            0.06078516294095374
+          ]
+        },
+        {
+          "cell_index": 22,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 23,
+          "independent_replicates": 600,
+          "rate": 0.056666666666666664,
+          "rejections": 34,
+          "wilson_95": [
+            0.04083165535330541,
+            0.0781423862121759
+          ]
+        },
+        {
+          "cell_index": 24,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 25,
+          "independent_replicates": 600,
+          "rate": 0.043333333333333335,
+          "rejections": 26,
+          "wilson_95": [
+            0.02974099813478266,
+            0.06273602212439733
+          ]
+        },
+        {
+          "cell_index": 26,
+          "independent_replicates": 600,
+          "rate": 0.056666666666666664,
+          "rejections": 34,
+          "wilson_95": [
+            0.04083165535330541,
+            0.0781423862121759
+          ]
+        },
+        {
+          "cell_index": 27,
+          "independent_replicates": 600,
+          "rate": 0.03666666666666667,
+          "rejections": 22,
+          "wilson_95": [
+            0.024336895975690734,
+            0.05489161363033859
+          ]
+        },
+        {
+          "cell_index": 28,
+          "independent_replicates": 600,
+          "rate": 0.03833333333333333,
+          "rejections": 23,
+          "wilson_95": [
+            0.025677277815960083,
+            0.0568633594533569
+          ]
+        },
+        {
+          "cell_index": 29,
+          "independent_replicates": 600,
+          "rate": 0.035,
+          "rejections": 21,
+          "wilson_95": [
+            0.023004350476005058,
+            0.052912031466736606
+          ]
+        },
+        {
+          "cell_index": 30,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 31,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 32,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 33,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 34,
+          "independent_replicates": 600,
+          "rate": 0.03833333333333333,
+          "rejections": 23,
+          "wilson_95": [
+            0.025677277815960083,
+            0.0568633594533569
+          ]
+        },
+        {
+          "cell_index": 35,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 36,
+          "independent_replicates": 600,
+          "rate": 0.043333333333333335,
+          "rejections": 26,
+          "wilson_95": [
+            0.02974099813478266,
+            0.06273602212439733
+          ]
+        },
+        {
+          "cell_index": 37,
+          "independent_replicates": 600,
+          "rate": 0.055,
+          "rejections": 33,
+          "wilson_95": [
+            0.03942813848636002,
+            0.07623377541583362
+          ]
+        },
+        {
+          "cell_index": 38,
+          "independent_replicates": 600,
+          "rate": 0.06166666666666667,
+          "rejections": 37,
+          "wilson_95": [
+            0.045067361772116676,
+            0.08384306278322762
+          ]
+        },
+        {
+          "cell_index": 39,
+          "independent_replicates": 600,
+          "rate": 0.043333333333333335,
+          "rejections": 26,
+          "wilson_95": [
+            0.02974099813478266,
+            0.06273602212439733
+          ]
+        },
+        {
+          "cell_index": 40,
+          "independent_replicates": 600,
+          "rate": 0.03,
+          "rejections": 18,
+          "wilson_95": [
+            0.01905925662590196,
+            0.046920742326976704
+          ]
+        },
+        {
+          "cell_index": 41,
+          "independent_replicates": 600,
+          "rate": 0.06,
+          "rejections": 36,
+          "wilson_95": [
+            0.043651428759454075,
+            0.08194686813260255
+          ]
+        },
+        {
+          "cell_index": 42,
+          "independent_replicates": 600,
+          "rate": 0.058333333333333334,
+          "rejections": 35,
+          "wilson_95": [
+            0.04223947455645403,
+            0.08004669467231493
+          ]
+        },
+        {
+          "cell_index": 43,
+          "independent_replicates": 600,
+          "rate": 0.051666666666666666,
+          "rejections": 31,
+          "wilson_95": [
+            0.036634743907307504,
+            0.0724029146683108
+          ]
+        },
+        {
+          "cell_index": 44,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 45,
+          "independent_replicates": 600,
+          "rate": 0.07333333333333333,
+          "rejections": 44,
+          "wilson_95": [
+            0.055079099515184984,
+            0.09701621868317296
+          ]
+        },
+        {
+          "cell_index": 46,
+          "independent_replicates": 600,
+          "rate": 0.065,
+          "rejections": 39,
+          "wilson_95": [
+            0.04791058921339886,
+            0.08762409066852075
+          ]
+        },
+        {
+          "cell_index": 47,
+          "independent_replicates": 600,
+          "rate": 0.058333333333333334,
+          "rejections": 35,
+          "wilson_95": [
+            0.04223947455645403,
+            0.08004669467231493
+          ]
+        },
+        {
+          "cell_index": 48,
+          "independent_replicates": 600,
+          "rate": 0.03166666666666667,
+          "rejections": 19,
+          "wilson_95": [
+            0.020364911485651824,
+            0.048927215130514526
+          ]
+        },
+        {
+          "cell_index": 49,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 50,
+          "independent_replicates": 600,
+          "rate": 0.06333333333333334,
+          "rejections": 38,
+          "wilson_95": [
+            0.04648712753383062,
+            0.08573542468480135
+          ]
+        },
+        {
+          "cell_index": 51,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 52,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 53,
+          "independent_replicates": 600,
+          "rate": 0.028333333333333332,
+          "rejections": 17,
+          "wilson_95": [
+            0.01776394016148477,
+            0.044903931128106235
+          ]
+        },
+        {
+          "cell_index": 54,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 55,
+          "independent_replicates": 600,
+          "rate": 0.03666666666666667,
+          "rejections": 22,
+          "wilson_95": [
+            0.024336895975690734,
+            0.05489161363033859
+          ]
+        },
+        {
+          "cell_index": 56,
+          "independent_replicates": 600,
+          "rate": 0.043333333333333335,
+          "rejections": 26,
+          "wilson_95": [
+            0.02974099813478266,
+            0.06273602212439733
+          ]
+        },
+        {
+          "cell_index": 57,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 58,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 59,
+          "independent_replicates": 600,
+          "rate": 0.041666666666666664,
+          "rejections": 25,
+          "wilson_95": [
+            0.02837972965493859,
+            0.06078516294095374
+          ]
+        },
+        {
+          "cell_index": 60,
+          "independent_replicates": 600,
+          "rate": 0.06,
+          "rejections": 36,
+          "wilson_95": [
+            0.043651428759454075,
+            0.08194686813260255
+          ]
+        },
+        {
+          "cell_index": 61,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 62,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 63,
+          "independent_replicates": 600,
+          "rate": 0.051666666666666666,
+          "rejections": 31,
+          "wilson_95": [
+            0.036634743907307504,
+            0.0724029146683108
+          ]
+        },
+        {
+          "cell_index": 64,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 65,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 66,
+          "independent_replicates": 600,
+          "rate": 0.055,
+          "rejections": 33,
+          "wilson_95": [
+            0.03942813848636002,
+            0.07623377541583362
+          ]
+        },
+        {
+          "cell_index": 67,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 68,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 69,
+          "independent_replicates": 600,
+          "rate": 0.06333333333333334,
+          "rejections": 38,
+          "wilson_95": [
+            0.04648712753383062,
+            0.08573542468480135
+          ]
+        },
+        {
+          "cell_index": 70,
+          "independent_replicates": 600,
+          "rate": 0.075,
+          "rejections": 45,
+          "wilson_95": [
+            0.05652228942144615,
+            0.09888515644019943
+          ]
+        },
+        {
+          "cell_index": 71,
+          "independent_replicates": 600,
+          "rate": 0.04,
+          "rejections": 24,
+          "wilson_95": [
+            0.02702502927655182,
+            0.05882773565605286
+          ]
+        },
+        {
+          "cell_index": 72,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 73,
+          "independent_replicates": 600,
+          "rate": 0.055,
+          "rejections": 33,
+          "wilson_95": [
+            0.03942813848636002,
+            0.07623377541583362
+          ]
+        },
+        {
+          "cell_index": 74,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 75,
+          "independent_replicates": 600,
+          "rate": 0.06666666666666667,
+          "rejections": 40,
+          "wilson_95": [
+            0.04933761840939038,
+            0.0895091891358169
+          ]
+        },
+        {
+          "cell_index": 76,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 77,
+          "independent_replicates": 600,
+          "rate": 0.056666666666666664,
+          "rejections": 34,
+          "wilson_95": [
+            0.04083165535330541,
+            0.0781423862121759
+          ]
+        },
+        {
+          "cell_index": 78,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 79,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 80,
+          "independent_replicates": 600,
+          "rate": 0.041666666666666664,
+          "rejections": 25,
+          "wilson_95": [
+            0.02837972965493859,
+            0.06078516294095374
+          ]
+        },
+        {
+          "cell_index": 81,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 82,
+          "independent_replicates": 600,
+          "rate": 0.058333333333333334,
+          "rejections": 35,
+          "wilson_95": [
+            0.04223947455645403,
+            0.08004669467231493
+          ]
+        },
+        {
+          "cell_index": 83,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 84,
+          "independent_replicates": 600,
+          "rate": 0.06,
+          "rejections": 36,
+          "wilson_95": [
+            0.043651428759454075,
+            0.08194686813260255
+          ]
+        },
+        {
+          "cell_index": 85,
+          "independent_replicates": 600,
+          "rate": 0.07333333333333333,
+          "rejections": 44,
+          "wilson_95": [
+            0.055079099515184984,
+            0.09701621868317296
+          ]
+        },
+        {
+          "cell_index": 86,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 87,
+          "independent_replicates": 600,
+          "rate": 0.06666666666666667,
+          "rejections": 40,
+          "wilson_95": [
+            0.04933761840939038,
+            0.0895091891358169
+          ]
+        },
+        {
+          "cell_index": 88,
+          "independent_replicates": 600,
+          "rate": 0.06666666666666667,
+          "rejections": 40,
+          "wilson_95": [
+            0.04933761840939038,
+            0.0895091891358169
+          ]
+        },
+        {
+          "cell_index": 89,
+          "independent_replicates": 600,
+          "rate": 0.056666666666666664,
+          "rejections": 34,
+          "wilson_95": [
+            0.04083165535330541,
+            0.0781423862121759
+          ]
+        },
+        {
+          "cell_index": 90,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 91,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 92,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 93,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 94,
+          "independent_replicates": 600,
+          "rate": 0.06333333333333334,
+          "rejections": 38,
+          "wilson_95": [
+            0.04648712753383062,
+            0.08573542468480135
+          ]
+        },
+        {
+          "cell_index": 95,
+          "independent_replicates": 600,
+          "rate": 0.07666666666666666,
+          "rejections": 46,
+          "wilson_95": [
+            0.05796841836178705,
+            0.10075115516314621
+          ]
+        },
+        {
+          "cell_index": 96,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 97,
+          "independent_replicates": 600,
+          "rate": 0.06166666666666667,
+          "rejections": 37,
+          "wilson_95": [
+            0.045067361772116676,
+            0.08384306278322762
+          ]
+        },
+        {
+          "cell_index": 98,
+          "independent_replicates": 600,
+          "rate": 0.051666666666666666,
+          "rejections": 31,
+          "wilson_95": [
+            0.036634743907307504,
+            0.0724029146683108
+          ]
+        },
+        {
+          "cell_index": 99,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 100,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 101,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 102,
+          "independent_replicates": 600,
+          "rate": 0.041666666666666664,
+          "rejections": 25,
+          "wilson_95": [
+            0.02837972965493859,
+            0.06078516294095374
+          ]
+        },
+        {
+          "cell_index": 103,
+          "independent_replicates": 600,
+          "rate": 0.06666666666666667,
+          "rejections": 40,
+          "wilson_95": [
+            0.04933761840939038,
+            0.0895091891358169
+          ]
+        },
+        {
+          "cell_index": 104,
+          "independent_replicates": 600,
+          "rate": 0.03833333333333333,
+          "rejections": 23,
+          "wilson_95": [
+            0.025677277815960083,
+            0.0568633594533569
+          ]
+        },
+        {
+          "cell_index": 105,
+          "independent_replicates": 600,
+          "rate": 0.06,
+          "rejections": 36,
+          "wilson_95": [
+            0.043651428759454075,
+            0.08194686813260255
+          ]
+        },
+        {
+          "cell_index": 106,
+          "independent_replicates": 600,
+          "rate": 0.04,
+          "rejections": 24,
+          "wilson_95": [
+            0.02702502927655182,
+            0.05882773565605286
+          ]
+        },
+        {
+          "cell_index": 107,
+          "independent_replicates": 600,
+          "rate": 0.056666666666666664,
+          "rejections": 34,
+          "wilson_95": [
+            0.04083165535330541,
+            0.0781423862121759
+          ]
+        },
+        {
+          "cell_index": 108,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 109,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 110,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 111,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 112,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 113,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 114,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 115,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 116,
+          "independent_replicates": 600,
+          "rate": 0.065,
+          "rejections": 39,
+          "wilson_95": [
+            0.04791058921339886,
+            0.08762409066852075
+          ]
+        },
+        {
+          "cell_index": 117,
+          "independent_replicates": 600,
+          "rate": 0.06,
+          "rejections": 36,
+          "wilson_95": [
+            0.043651428759454075,
+            0.08194686813260255
+          ]
+        },
+        {
+          "cell_index": 118,
+          "independent_replicates": 600,
+          "rate": 0.056666666666666664,
+          "rejections": 34,
+          "wilson_95": [
+            0.04083165535330541,
+            0.0781423862121759
+          ]
+        },
+        {
+          "cell_index": 119,
+          "independent_replicates": 600,
+          "rate": 0.056666666666666664,
+          "rejections": 34,
+          "wilson_95": [
+            0.04083165535330541,
+            0.0781423862121759
+          ]
+        },
+        {
+          "cell_index": 120,
+          "independent_replicates": 600,
+          "rate": 0.055,
+          "rejections": 33,
+          "wilson_95": [
+            0.03942813848636002,
+            0.07623377541583362
+          ]
+        },
+        {
+          "cell_index": 121,
+          "independent_replicates": 600,
+          "rate": 0.056666666666666664,
+          "rejections": 34,
+          "wilson_95": [
+            0.04083165535330541,
+            0.0781423862121759
+          ]
+        },
+        {
+          "cell_index": 122,
+          "independent_replicates": 600,
+          "rate": 0.06,
+          "rejections": 36,
+          "wilson_95": [
+            0.043651428759454075,
+            0.08194686813260255
+          ]
+        },
+        {
+          "cell_index": 123,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 124,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 125,
+          "independent_replicates": 600,
+          "rate": 0.04,
+          "rejections": 24,
+          "wilson_95": [
+            0.02702502927655182,
+            0.05882773565605286
+          ]
+        },
+        {
+          "cell_index": 126,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 127,
+          "independent_replicates": 600,
+          "rate": 0.07166666666666667,
+          "rejections": 43,
+          "wilson_95": [
+            0.05363893908574288,
+            0.0951442514493274
+          ]
+        },
+        {
+          "cell_index": 128,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 129,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 130,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 131,
+          "independent_replicates": 600,
+          "rate": 0.06333333333333334,
+          "rejections": 38,
+          "wilson_95": [
+            0.04648712753383062,
+            0.08573542468480135
+          ]
+        }
+      ],
+      "status": "INCONCLUSIVE"
+    },
+    "shared_crossarm_factor": {
+      "attempted_independent_panels": 600,
+      "holm_132": {
+        "complete_independent_families": 600,
+        "monte_carlo_precision_sufficient": false,
+        "refused_families": 0,
+        "rejections_in_complete_families_diagnostic_only": 9,
+        "required_minimum_independent_families": 2000,
+        "status": "COMPLETE_FAMILIES",
+        "unconditional_rate": 0.015,
+        "wilson_95": [
+          0.007911242967693506,
+          0.028259607015596183
+        ]
+      },
+      "marginal_scope": "Available-cell diagnostics conditional on nonempty cells; pointwise intervals, never pooled across correlated cells.",
+      "marginal_type_i": [
+        {
+          "cell_index": 0,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 1,
+          "independent_replicates": 600,
+          "rate": 0.058333333333333334,
+          "rejections": 35,
+          "wilson_95": [
+            0.04223947455645403,
+            0.08004669467231493
+          ]
+        },
+        {
+          "cell_index": 2,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 3,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 4,
+          "independent_replicates": 600,
+          "rate": 0.058333333333333334,
+          "rejections": 35,
+          "wilson_95": [
+            0.04223947455645403,
+            0.08004669467231493
+          ]
+        },
+        {
+          "cell_index": 5,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 6,
+          "independent_replicates": 600,
+          "rate": 0.056666666666666664,
+          "rejections": 34,
+          "wilson_95": [
+            0.04083165535330541,
+            0.0781423862121759
+          ]
+        },
+        {
+          "cell_index": 7,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 8,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 9,
+          "independent_replicates": 600,
+          "rate": 0.043333333333333335,
+          "rejections": 26,
+          "wilson_95": [
+            0.02974099813478266,
+            0.06273602212439733
+          ]
+        },
+        {
+          "cell_index": 10,
+          "independent_replicates": 600,
+          "rate": 0.051666666666666666,
+          "rejections": 31,
+          "wilson_95": [
+            0.036634743907307504,
+            0.0724029146683108
+          ]
+        },
+        {
+          "cell_index": 11,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 12,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 13,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 14,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 15,
+          "independent_replicates": 600,
+          "rate": 0.03833333333333333,
+          "rejections": 23,
+          "wilson_95": [
+            0.025677277815960083,
+            0.0568633594533569
+          ]
+        },
+        {
+          "cell_index": 16,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 17,
+          "independent_replicates": 600,
+          "rate": 0.06,
+          "rejections": 36,
+          "wilson_95": [
+            0.043651428759454075,
+            0.08194686813260255
+          ]
+        },
+        {
+          "cell_index": 18,
+          "independent_replicates": 600,
+          "rate": 0.043333333333333335,
+          "rejections": 26,
+          "wilson_95": [
+            0.02974099813478266,
+            0.06273602212439733
+          ]
+        },
+        {
+          "cell_index": 19,
+          "independent_replicates": 600,
+          "rate": 0.055,
+          "rejections": 33,
+          "wilson_95": [
+            0.03942813848636002,
+            0.07623377541583362
+          ]
+        },
+        {
+          "cell_index": 20,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 21,
+          "independent_replicates": 600,
+          "rate": 0.041666666666666664,
+          "rejections": 25,
+          "wilson_95": [
+            0.02837972965493859,
+            0.06078516294095374
+          ]
+        },
+        {
+          "cell_index": 22,
+          "independent_replicates": 600,
+          "rate": 0.051666666666666666,
+          "rejections": 31,
+          "wilson_95": [
+            0.036634743907307504,
+            0.0724029146683108
+          ]
+        },
+        {
+          "cell_index": 23,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 24,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 25,
+          "independent_replicates": 600,
+          "rate": 0.041666666666666664,
+          "rejections": 25,
+          "wilson_95": [
+            0.02837972965493859,
+            0.06078516294095374
+          ]
+        },
+        {
+          "cell_index": 26,
+          "independent_replicates": 600,
+          "rate": 0.03833333333333333,
+          "rejections": 23,
+          "wilson_95": [
+            0.025677277815960083,
+            0.0568633594533569
+          ]
+        },
+        {
+          "cell_index": 27,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 28,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 29,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 30,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 31,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 32,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 33,
+          "independent_replicates": 600,
+          "rate": 0.03833333333333333,
+          "rejections": 23,
+          "wilson_95": [
+            0.025677277815960083,
+            0.0568633594533569
+          ]
+        },
+        {
+          "cell_index": 34,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 35,
+          "independent_replicates": 600,
+          "rate": 0.041666666666666664,
+          "rejections": 25,
+          "wilson_95": [
+            0.02837972965493859,
+            0.06078516294095374
+          ]
+        },
+        {
+          "cell_index": 36,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 37,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 38,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 39,
+          "independent_replicates": 600,
+          "rate": 0.055,
+          "rejections": 33,
+          "wilson_95": [
+            0.03942813848636002,
+            0.07623377541583362
+          ]
+        },
+        {
+          "cell_index": 40,
+          "independent_replicates": 600,
+          "rate": 0.041666666666666664,
+          "rejections": 25,
+          "wilson_95": [
+            0.02837972965493859,
+            0.06078516294095374
+          ]
+        },
+        {
+          "cell_index": 41,
+          "independent_replicates": 600,
+          "rate": 0.043333333333333335,
+          "rejections": 26,
+          "wilson_95": [
+            0.02974099813478266,
+            0.06273602212439733
+          ]
+        },
+        {
+          "cell_index": 42,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 43,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 44,
+          "independent_replicates": 600,
+          "rate": 0.051666666666666666,
+          "rejections": 31,
+          "wilson_95": [
+            0.036634743907307504,
+            0.0724029146683108
+          ]
+        },
+        {
+          "cell_index": 45,
+          "independent_replicates": 600,
+          "rate": 0.065,
+          "rejections": 39,
+          "wilson_95": [
+            0.04791058921339886,
+            0.08762409066852075
+          ]
+        },
+        {
+          "cell_index": 46,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 47,
+          "independent_replicates": 600,
+          "rate": 0.041666666666666664,
+          "rejections": 25,
+          "wilson_95": [
+            0.02837972965493859,
+            0.06078516294095374
+          ]
+        },
+        {
+          "cell_index": 48,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 49,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 50,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 51,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 52,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 53,
+          "independent_replicates": 600,
+          "rate": 0.041666666666666664,
+          "rejections": 25,
+          "wilson_95": [
+            0.02837972965493859,
+            0.06078516294095374
+          ]
+        },
+        {
+          "cell_index": 54,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 55,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 56,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 57,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 58,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 59,
+          "independent_replicates": 600,
+          "rate": 0.06166666666666667,
+          "rejections": 37,
+          "wilson_95": [
+            0.045067361772116676,
+            0.08384306278322762
+          ]
+        },
+        {
+          "cell_index": 60,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 61,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 62,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 63,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 64,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 65,
+          "independent_replicates": 600,
+          "rate": 0.056666666666666664,
+          "rejections": 34,
+          "wilson_95": [
+            0.04083165535330541,
+            0.0781423862121759
+          ]
+        },
+        {
+          "cell_index": 66,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 67,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 68,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 69,
+          "independent_replicates": 600,
+          "rate": 0.06666666666666667,
+          "rejections": 40,
+          "wilson_95": [
+            0.04933761840939038,
+            0.0895091891358169
+          ]
+        },
+        {
+          "cell_index": 70,
+          "independent_replicates": 600,
+          "rate": 0.051666666666666666,
+          "rejections": 31,
+          "wilson_95": [
+            0.036634743907307504,
+            0.0724029146683108
+          ]
+        },
+        {
+          "cell_index": 71,
+          "independent_replicates": 600,
+          "rate": 0.03833333333333333,
+          "rejections": 23,
+          "wilson_95": [
+            0.025677277815960083,
+            0.0568633594533569
+          ]
+        },
+        {
+          "cell_index": 72,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 73,
+          "independent_replicates": 600,
+          "rate": 0.055,
+          "rejections": 33,
+          "wilson_95": [
+            0.03942813848636002,
+            0.07623377541583362
+          ]
+        },
+        {
+          "cell_index": 74,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 75,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 76,
+          "independent_replicates": 600,
+          "rate": 0.058333333333333334,
+          "rejections": 35,
+          "wilson_95": [
+            0.04223947455645403,
+            0.08004669467231493
+          ]
+        },
+        {
+          "cell_index": 77,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 78,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 79,
+          "independent_replicates": 600,
+          "rate": 0.056666666666666664,
+          "rejections": 34,
+          "wilson_95": [
+            0.04083165535330541,
+            0.0781423862121759
+          ]
+        },
+        {
+          "cell_index": 80,
+          "independent_replicates": 600,
+          "rate": 0.056666666666666664,
+          "rejections": 34,
+          "wilson_95": [
+            0.04083165535330541,
+            0.0781423862121759
+          ]
+        },
+        {
+          "cell_index": 81,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 82,
+          "independent_replicates": 600,
+          "rate": 0.043333333333333335,
+          "rejections": 26,
+          "wilson_95": [
+            0.02974099813478266,
+            0.06273602212439733
+          ]
+        },
+        {
+          "cell_index": 83,
+          "independent_replicates": 600,
+          "rate": 0.06,
+          "rejections": 36,
+          "wilson_95": [
+            0.043651428759454075,
+            0.08194686813260255
+          ]
+        },
+        {
+          "cell_index": 84,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 85,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 86,
+          "independent_replicates": 600,
+          "rate": 0.041666666666666664,
+          "rejections": 25,
+          "wilson_95": [
+            0.02837972965493859,
+            0.06078516294095374
+          ]
+        },
+        {
+          "cell_index": 87,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 88,
+          "independent_replicates": 600,
+          "rate": 0.058333333333333334,
+          "rejections": 35,
+          "wilson_95": [
+            0.04223947455645403,
+            0.08004669467231493
+          ]
+        },
+        {
+          "cell_index": 89,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 90,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 91,
+          "independent_replicates": 600,
+          "rate": 0.055,
+          "rejections": 33,
+          "wilson_95": [
+            0.03942813848636002,
+            0.07623377541583362
+          ]
+        },
+        {
+          "cell_index": 92,
+          "independent_replicates": 600,
+          "rate": 0.058333333333333334,
+          "rejections": 35,
+          "wilson_95": [
+            0.04223947455645403,
+            0.08004669467231493
+          ]
+        },
+        {
+          "cell_index": 93,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 94,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 95,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 96,
+          "independent_replicates": 600,
+          "rate": 0.051666666666666666,
+          "rejections": 31,
+          "wilson_95": [
+            0.036634743907307504,
+            0.0724029146683108
+          ]
+        },
+        {
+          "cell_index": 97,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 98,
+          "independent_replicates": 600,
+          "rate": 0.06,
+          "rejections": 36,
+          "wilson_95": [
+            0.043651428759454075,
+            0.08194686813260255
+          ]
+        },
+        {
+          "cell_index": 99,
+          "independent_replicates": 600,
+          "rate": 0.04,
+          "rejections": 24,
+          "wilson_95": [
+            0.02702502927655182,
+            0.05882773565605286
+          ]
+        },
+        {
+          "cell_index": 100,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 101,
+          "independent_replicates": 600,
+          "rate": 0.041666666666666664,
+          "rejections": 25,
+          "wilson_95": [
+            0.02837972965493859,
+            0.06078516294095374
+          ]
+        },
+        {
+          "cell_index": 102,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 103,
+          "independent_replicates": 600,
+          "rate": 0.058333333333333334,
+          "rejections": 35,
+          "wilson_95": [
+            0.04223947455645403,
+            0.08004669467231493
+          ]
+        },
+        {
+          "cell_index": 104,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 105,
+          "independent_replicates": 600,
+          "rate": 0.058333333333333334,
+          "rejections": 35,
+          "wilson_95": [
+            0.04223947455645403,
+            0.08004669467231493
+          ]
+        },
+        {
+          "cell_index": 106,
+          "independent_replicates": 600,
+          "rate": 0.041666666666666664,
+          "rejections": 25,
+          "wilson_95": [
+            0.02837972965493859,
+            0.06078516294095374
+          ]
+        },
+        {
+          "cell_index": 107,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 108,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 109,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 110,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 111,
+          "independent_replicates": 600,
+          "rate": 0.06166666666666667,
+          "rejections": 37,
+          "wilson_95": [
+            0.045067361772116676,
+            0.08384306278322762
+          ]
+        },
+        {
+          "cell_index": 112,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 113,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 114,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 115,
+          "independent_replicates": 600,
+          "rate": 0.055,
+          "rejections": 33,
+          "wilson_95": [
+            0.03942813848636002,
+            0.07623377541583362
+          ]
+        },
+        {
+          "cell_index": 116,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 117,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 118,
+          "independent_replicates": 600,
+          "rate": 0.06,
+          "rejections": 36,
+          "wilson_95": [
+            0.043651428759454075,
+            0.08194686813260255
+          ]
+        },
+        {
+          "cell_index": 119,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 120,
+          "independent_replicates": 600,
+          "rate": 0.055,
+          "rejections": 33,
+          "wilson_95": [
+            0.03942813848636002,
+            0.07623377541583362
+          ]
+        },
+        {
+          "cell_index": 121,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 122,
+          "independent_replicates": 600,
+          "rate": 0.05,
+          "rejections": 30,
+          "wilson_95": [
+            0.03524526778459468,
+            0.07048026312773596
+          ]
+        },
+        {
+          "cell_index": 123,
+          "independent_replicates": 600,
+          "rate": 0.043333333333333335,
+          "rejections": 26,
+          "wilson_95": [
+            0.02974099813478266,
+            0.06273602212439733
+          ]
+        },
+        {
+          "cell_index": 124,
+          "independent_replicates": 600,
+          "rate": 0.055,
+          "rejections": 33,
+          "wilson_95": [
+            0.03942813848636002,
+            0.07623377541583362
+          ]
+        },
+        {
+          "cell_index": 125,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 126,
+          "independent_replicates": 600,
+          "rate": 0.043333333333333335,
+          "rejections": 26,
+          "wilson_95": [
+            0.02974099813478266,
+            0.06273602212439733
+          ]
+        },
+        {
+          "cell_index": 127,
+          "independent_replicates": 600,
+          "rate": 0.051666666666666666,
+          "rejections": 31,
+          "wilson_95": [
+            0.036634743907307504,
+            0.0724029146683108
+          ]
+        },
+        {
+          "cell_index": 128,
+          "independent_replicates": 600,
+          "rate": 0.03833333333333333,
+          "rejections": 23,
+          "wilson_95": [
+            0.025677277815960083,
+            0.0568633594533569
+          ]
+        },
+        {
+          "cell_index": 129,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 130,
+          "independent_replicates": 600,
+          "rate": 0.045,
+          "rejections": 27,
+          "wilson_95": [
+            0.03110848866772835,
+            0.0646806592547393
+          ]
+        },
+        {
+          "cell_index": 131,
+          "independent_replicates": 600,
+          "rate": 0.03666666666666667,
+          "rejections": 22,
+          "wilson_95": [
+            0.024336895975690734,
+            0.05489161363033859
+          ]
+        }
+      ],
+      "status": "INCONCLUSIVE"
+    },
+    "sparse_empty_days": {
+      "attempted_independent_panels": 600,
+      "holm_132": {
+        "complete_independent_families": 504,
+        "monte_carlo_precision_sufficient": false,
+        "refused_families": 96,
+        "rejections_in_complete_families_diagnostic_only": 29,
+        "required_minimum_independent_families": 2000,
+        "status": "REFUSE_MISSING_FAMILIES",
+        "unconditional_rate": null,
+        "wilson_95": null
+      },
+      "marginal_scope": "Available-cell diagnostics conditional on nonempty cells; pointwise intervals, never pooled across correlated cells.",
+      "marginal_type_i": [
+        {
+          "cell_index": 0,
+          "independent_replicates": 598,
+          "rate": 0.033444816053511704,
+          "rejections": 20,
+          "wilson_95": [
+            0.0217530134889312,
+            0.051092514478851686
+          ]
+        },
+        {
+          "cell_index": 1,
+          "independent_replicates": 599,
+          "rate": 0.05008347245409015,
+          "rejections": 30,
+          "wilson_95": [
+            0.03530448303435016,
+            0.0705964265440715
+          ]
+        },
+        {
+          "cell_index": 2,
+          "independent_replicates": 598,
+          "rate": 0.048494983277591976,
+          "rejections": 29,
+          "wilson_95": [
+            0.03397485313407903,
+            0.06877888360893666
+          ]
+        },
+        {
+          "cell_index": 3,
+          "independent_replicates": 600,
+          "rate": 0.06666666666666667,
+          "rejections": 40,
+          "wilson_95": [
+            0.04933761840939038,
+            0.0895091891358169
+          ]
+        },
+        {
+          "cell_index": 4,
+          "independent_replicates": 599,
+          "rate": 0.05008347245409015,
+          "rejections": 30,
+          "wilson_95": [
+            0.03530448303435016,
+            0.0705964265440715
+          ]
+        },
+        {
+          "cell_index": 5,
+          "independent_replicates": 597,
+          "rate": 0.04355108877721943,
+          "rejections": 26,
+          "wilson_95": [
+            0.029891311769208034,
+            0.06304744603604952
+          ]
+        },
+        {
+          "cell_index": 6,
+          "independent_replicates": 600,
+          "rate": 0.028333333333333332,
+          "rejections": 17,
+          "wilson_95": [
+            0.01776394016148477,
+            0.044903931128106235
+          ]
+        },
+        {
+          "cell_index": 7,
+          "independent_replicates": 598,
+          "rate": 0.0451505016722408,
+          "rejections": 27,
+          "wilson_95": [
+            0.031213145833161003,
+            0.0648943222931363
+          ]
+        },
+        {
+          "cell_index": 8,
+          "independent_replicates": 595,
+          "rate": 0.06050420168067227,
+          "rejections": 36,
+          "wilson_95": [
+            0.04402093032101543,
+            0.08262604393833134
+          ]
+        },
+        {
+          "cell_index": 9,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 10,
+          "independent_replicates": 597,
+          "rate": 0.04020100502512563,
+          "rejections": 24,
+          "wilson_95": [
+            0.027161571346280732,
+            0.05911985624103376
+          ]
+        },
+        {
+          "cell_index": 11,
+          "independent_replicates": 595,
+          "rate": 0.052100840336134456,
+          "rejections": 31,
+          "wilson_95": [
+            0.03694462202022401,
+            0.07300344161310646
+          ]
+        },
+        {
+          "cell_index": 12,
+          "independent_replicates": 599,
+          "rate": 0.05843071786310518,
+          "rejections": 35,
+          "wilson_95": [
+            0.042310493261035816,
+            0.08017852560164518
+          ]
+        },
+        {
+          "cell_index": 13,
+          "independent_replicates": 599,
+          "rate": 0.038397328881469114,
+          "rejections": 23,
+          "wilson_95": [
+            0.02572036963899401,
+            0.05695718694146456
+          ]
+        },
+        {
+          "cell_index": 14,
+          "independent_replicates": 599,
+          "rate": 0.04340567612687813,
+          "rejections": 26,
+          "wilson_95": [
+            0.029790934414205397,
+            0.06283948773680878
+          ]
+        },
+        {
+          "cell_index": 15,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 16,
+          "independent_replicates": 597,
+          "rate": 0.05360134003350084,
+          "rejections": 32,
+          "wilson_95": [
+            0.03822148507830471,
+            0.07468926338078204
+          ]
+        },
+        {
+          "cell_index": 17,
+          "independent_replicates": 598,
+          "rate": 0.05852842809364549,
+          "rejections": 35,
+          "wilson_95": [
+            0.0423817512056755,
+            0.0803107913874954
+          ]
+        },
+        {
+          "cell_index": 18,
+          "independent_replicates": 599,
+          "rate": 0.05175292153589316,
+          "rejections": 31,
+          "wilson_95": [
+            0.036696302932366844,
+            0.07252222850290668
+          ]
+        },
+        {
+          "cell_index": 19,
+          "independent_replicates": 600,
+          "rate": 0.056666666666666664,
+          "rejections": 34,
+          "wilson_95": [
+            0.04083165535330541,
+            0.0781423862121759
+          ]
+        },
+        {
+          "cell_index": 20,
+          "independent_replicates": 596,
+          "rate": 0.05704697986577181,
+          "rejections": 34,
+          "wilson_95": [
+            0.0411076142539835,
+            0.07865979722493718
+          ]
+        },
+        {
+          "cell_index": 21,
+          "independent_replicates": 595,
+          "rate": 0.05714285714285714,
+          "rejections": 34,
+          "wilson_95": [
+            0.041177187854970834,
+            0.07879022215396941
+          ]
+        },
+        {
+          "cell_index": 22,
+          "independent_replicates": 598,
+          "rate": 0.056856187290969896,
+          "rejections": 34,
+          "wilson_95": [
+            0.04096917006315756,
+            0.07840023822165414
+          ]
+        },
+        {
+          "cell_index": 23,
+          "independent_replicates": 599,
+          "rate": 0.04340567612687813,
+          "rejections": 26,
+          "wilson_95": [
+            0.029790934414205397,
+            0.06283948773680878
+          ]
+        },
+        {
+          "cell_index": 24,
+          "independent_replicates": 600,
+          "rate": 0.051666666666666666,
+          "rejections": 31,
+          "wilson_95": [
+            0.036634743907307504,
+            0.0724029146683108
+          ]
+        },
+        {
+          "cell_index": 25,
+          "independent_replicates": 600,
+          "rate": 0.03666666666666667,
+          "rejections": 22,
+          "wilson_95": [
+            0.024336895975690734,
+            0.05489161363033859
+          ]
+        },
+        {
+          "cell_index": 26,
+          "independent_replicates": 597,
+          "rate": 0.06365159128978225,
+          "rejections": 38,
+          "wilson_95": [
+            0.04672250045961709,
+            0.08616023865329883
+          ]
+        },
+        {
+          "cell_index": 27,
+          "independent_replicates": 599,
+          "rate": 0.05175292153589316,
+          "rejections": 31,
+          "wilson_95": [
+            0.036696302932366844,
+            0.07252222850290668
+          ]
+        },
+        {
+          "cell_index": 28,
+          "independent_replicates": 595,
+          "rate": 0.05042016806722689,
+          "rejections": 30,
+          "wilson_95": [
+            0.03554334739850109,
+            0.07106493410962611
+          ]
+        },
+        {
+          "cell_index": 29,
+          "independent_replicates": 599,
+          "rate": 0.05175292153589316,
+          "rejections": 31,
+          "wilson_95": [
+            0.036696302932366844,
+            0.07252222850290668
+          ]
+        },
+        {
+          "cell_index": 30,
+          "independent_replicates": 599,
+          "rate": 0.05175292153589316,
+          "rejections": 31,
+          "wilson_95": [
+            0.036696302932366844,
+            0.07252222850290668
+          ]
+        },
+        {
+          "cell_index": 31,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 32,
+          "independent_replicates": 599,
+          "rate": 0.05342237061769616,
+          "rejections": 32,
+          "wilson_95": [
+            0.03809301518951106,
+            0.07444313810261433
+          ]
+        },
+        {
+          "cell_index": 33,
+          "independent_replicates": 598,
+          "rate": 0.07692307692307693,
+          "rejections": 46,
+          "wilson_95": [
+            0.058163969575768325,
+            0.10108305040935378
+          ]
+        },
+        {
+          "cell_index": 34,
+          "independent_replicates": 598,
+          "rate": 0.043478260869565216,
+          "rejections": 26,
+          "wilson_95": [
+            0.029841038675979106,
+            0.06294329514195898
+          ]
+        },
+        {
+          "cell_index": 35,
+          "independent_replicates": 597,
+          "rate": 0.07202680067001675,
+          "rejections": 43,
+          "wilson_95": [
+            0.05391070896826741,
+            0.09561535568950616
+          ]
+        },
+        {
+          "cell_index": 36,
+          "independent_replicates": 597,
+          "rate": 0.05360134003350084,
+          "rejections": 32,
+          "wilson_95": [
+            0.03822148507830471,
+            0.07468926338078204
+          ]
+        },
+        {
+          "cell_index": 37,
+          "independent_replicates": 598,
+          "rate": 0.043478260869565216,
+          "rejections": 26,
+          "wilson_95": [
+            0.029841038675979106,
+            0.06294329514195898
+          ]
+        },
+        {
+          "cell_index": 38,
+          "independent_replicates": 599,
+          "rate": 0.04340567612687813,
+          "rejections": 26,
+          "wilson_95": [
+            0.029790934414205397,
+            0.06283948773680878
+          ]
+        },
+        {
+          "cell_index": 39,
+          "independent_replicates": 598,
+          "rate": 0.051839464882943144,
+          "rejections": 31,
+          "wilson_95": [
+            0.03675806920419722,
+            0.07264193615553688
+          ]
+        },
+        {
+          "cell_index": 40,
+          "independent_replicates": 599,
+          "rate": 0.04340567612687813,
+          "rejections": 26,
+          "wilson_95": [
+            0.029790934414205397,
+            0.06283948773680878
+          ]
+        },
+        {
+          "cell_index": 41,
+          "independent_replicates": 599,
+          "rate": 0.07846410684474124,
+          "rejections": 47,
+          "wilson_95": [
+            0.0595174644543791,
+            0.10278301669052431
+          ]
+        },
+        {
+          "cell_index": 42,
+          "independent_replicates": 599,
+          "rate": 0.05676126878130217,
+          "rejections": 34,
+          "wilson_95": [
+            0.040900297109182714,
+            0.0782710998966464
+          ]
+        },
+        {
+          "cell_index": 43,
+          "independent_replicates": 595,
+          "rate": 0.047058823529411764,
+          "rejections": 28,
+          "wilson_95": [
+            0.032756509082777226,
+            0.06717220817494346
+          ]
+        },
+        {
+          "cell_index": 44,
+          "independent_replicates": 599,
+          "rate": 0.048414023372287146,
+          "rejections": 29,
+          "wilson_95": [
+            0.033917781042457594,
+            0.0686655066791122
+          ]
+        },
+        {
+          "cell_index": 45,
+          "independent_replicates": 599,
+          "rate": 0.05509181969949917,
+          "rejections": 33,
+          "wilson_95": [
+            0.039494411105434536,
+            0.07635936404354271
+          ]
+        },
+        {
+          "cell_index": 46,
+          "independent_replicates": 597,
+          "rate": 0.05695142378559464,
+          "rejections": 34,
+          "wilson_95": [
+            0.0410382753853981,
+            0.0785298032916317
+          ]
+        },
+        {
+          "cell_index": 47,
+          "independent_replicates": 599,
+          "rate": 0.05342237061769616,
+          "rejections": 32,
+          "wilson_95": [
+            0.03809301518951106,
+            0.07444313810261433
+          ]
+        },
+        {
+          "cell_index": 48,
+          "independent_replicates": 598,
+          "rate": 0.05016722408026756,
+          "rejections": 30,
+          "wilson_95": [
+            0.035363897609003755,
+            0.07071297344237114
+          ]
+        },
+        {
+          "cell_index": 49,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 50,
+          "independent_replicates": 600,
+          "rate": 0.06833333333333333,
+          "rejections": 41,
+          "wilson_95": [
+            0.05076809443760846,
+            0.09139084077088647
+          ]
+        },
+        {
+          "cell_index": 51,
+          "independent_replicates": 599,
+          "rate": 0.05843071786310518,
+          "rejections": 35,
+          "wilson_95": [
+            0.042310493261035816,
+            0.08017852560164518
+          ]
+        },
+        {
+          "cell_index": 52,
+          "independent_replicates": 600,
+          "rate": 0.035,
+          "rejections": 21,
+          "wilson_95": [
+            0.023004350476005058,
+            0.052912031466736606
+          ]
+        },
+        {
+          "cell_index": 53,
+          "independent_replicates": 599,
+          "rate": 0.048414023372287146,
+          "rejections": 29,
+          "wilson_95": [
+            0.033917781042457594,
+            0.0686655066791122
+          ]
+        },
+        {
+          "cell_index": 54,
+          "independent_replicates": 597,
+          "rate": 0.051926298157453935,
+          "rejections": 31,
+          "wilson_95": [
+            0.036820043771241304,
+            0.07276203957887391
+          ]
+        },
+        {
+          "cell_index": 55,
+          "independent_replicates": 598,
+          "rate": 0.06354515050167224,
+          "rejections": 38,
+          "wilson_95": [
+            0.04664377840100097,
+            0.08601816711724752
+          ]
+        },
+        {
+          "cell_index": 56,
+          "independent_replicates": 599,
+          "rate": 0.04006677796327212,
+          "rejections": 24,
+          "wilson_95": [
+            0.02707039050195593,
+            0.05892478793535451
+          ]
+        },
+        {
+          "cell_index": 57,
+          "independent_replicates": 598,
+          "rate": 0.043478260869565216,
+          "rejections": 26,
+          "wilson_95": [
+            0.029841038675979106,
+            0.06294329514195898
+          ]
+        },
+        {
+          "cell_index": 58,
+          "independent_replicates": 597,
+          "rate": 0.04020100502512563,
+          "rejections": 24,
+          "wilson_95": [
+            0.027161571346280732,
+            0.05911985624103376
+          ]
+        },
+        {
+          "cell_index": 59,
+          "independent_replicates": 599,
+          "rate": 0.05509181969949917,
+          "rejections": 33,
+          "wilson_95": [
+            0.039494411105434536,
+            0.07635936404354271
+          ]
+        },
+        {
+          "cell_index": 60,
+          "independent_replicates": 598,
+          "rate": 0.046822742474916385,
+          "rejections": 28,
+          "wilson_95": [
+            0.032591180565113495,
+            0.06683942186954299
+          ]
+        },
+        {
+          "cell_index": 61,
+          "independent_replicates": 596,
+          "rate": 0.06375838926174497,
+          "rejections": 38,
+          "wilson_95": [
+            0.046801488723440206,
+            0.08630278015731505
+          ]
+        },
+        {
+          "cell_index": 62,
+          "independent_replicates": 599,
+          "rate": 0.06010016694490818,
+          "rejections": 36,
+          "wilson_95": [
+            0.04372483194019379,
+            0.08208180877933909
+          ]
+        },
+        {
+          "cell_index": 63,
+          "independent_replicates": 600,
+          "rate": 0.05333333333333334,
+          "rejections": 32,
+          "wilson_95": [
+            0.038029103590111496,
+            0.07432068264879449
+          ]
+        },
+        {
+          "cell_index": 64,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 65,
+          "independent_replicates": 599,
+          "rate": 0.05175292153589316,
+          "rejections": 31,
+          "wilson_95": [
+            0.036696302932366844,
+            0.07252222850290668
+          ]
+        },
+        {
+          "cell_index": 66,
+          "independent_replicates": 598,
+          "rate": 0.03177257525083612,
+          "rejections": 19,
+          "wilson_95": [
+            0.02043333154333097,
+            0.049089062116092715
+          ]
+        },
+        {
+          "cell_index": 67,
+          "independent_replicates": 597,
+          "rate": 0.06867671691792294,
+          "rejections": 41,
+          "wilson_95": [
+            0.05102524924926542,
+            0.09184348519056508
+          ]
+        },
+        {
+          "cell_index": 68,
+          "independent_replicates": 599,
+          "rate": 0.06844741235392321,
+          "rejections": 41,
+          "wilson_95": [
+            0.05085352418355564,
+            0.09154122582023656
+          ]
+        },
+        {
+          "cell_index": 69,
+          "independent_replicates": 599,
+          "rate": 0.045075125208681135,
+          "rejections": 27,
+          "wilson_95": [
+            0.03116072936884797,
+            0.06478731463901807
+          ]
+        },
+        {
+          "cell_index": 70,
+          "independent_replicates": 598,
+          "rate": 0.046822742474916385,
+          "rejections": 28,
+          "wilson_95": [
+            0.032591180565113495,
+            0.06683942186954299
+          ]
+        },
+        {
+          "cell_index": 71,
+          "independent_replicates": 599,
+          "rate": 0.05676126878130217,
+          "rejections": 34,
+          "wilson_95": [
+            0.040900297109182714,
+            0.0782710998966464
+          ]
+        },
+        {
+          "cell_index": 72,
+          "independent_replicates": 598,
+          "rate": 0.056856187290969896,
+          "rejections": 34,
+          "wilson_95": [
+            0.04096917006315756,
+            0.07840023822165414
+          ]
+        },
+        {
+          "cell_index": 73,
+          "independent_replicates": 599,
+          "rate": 0.05175292153589316,
+          "rejections": 31,
+          "wilson_95": [
+            0.036696302932366844,
+            0.07252222850290668
+          ]
+        },
+        {
+          "cell_index": 74,
+          "independent_replicates": 597,
+          "rate": 0.04020100502512563,
+          "rejections": 24,
+          "wilson_95": [
+            0.027161571346280732,
+            0.05911985624103376
+          ]
+        },
+        {
+          "cell_index": 75,
+          "independent_replicates": 599,
+          "rate": 0.06010016694490818,
+          "rejections": 36,
+          "wilson_95": [
+            0.04372483194019379,
+            0.08208180877933909
+          ]
+        },
+        {
+          "cell_index": 76,
+          "independent_replicates": 598,
+          "rate": 0.043478260869565216,
+          "rejections": 26,
+          "wilson_95": [
+            0.029841038675979106,
+            0.06294329514195898
+          ]
+        },
+        {
+          "cell_index": 77,
+          "independent_replicates": 596,
+          "rate": 0.04865771812080537,
+          "rejections": 29,
+          "wilson_95": [
+            0.03408957550459968,
+            0.06900676422202784
+          ]
+        },
+        {
+          "cell_index": 78,
+          "independent_replicates": 598,
+          "rate": 0.04180602006688963,
+          "rejections": 25,
+          "wilson_95": [
+            0.028475175747085357,
+            0.06098602376249354
+          ]
+        },
+        {
+          "cell_index": 79,
+          "independent_replicates": 600,
+          "rate": 0.055,
+          "rejections": 33,
+          "wilson_95": [
+            0.03942813848636002,
+            0.07623377541583362
+          ]
+        },
+        {
+          "cell_index": 80,
+          "independent_replicates": 598,
+          "rate": 0.0451505016722408,
+          "rejections": 27,
+          "wilson_95": [
+            0.031213145833161003,
+            0.0648943222931363
+          ]
+        },
+        {
+          "cell_index": 81,
+          "independent_replicates": 599,
+          "rate": 0.05008347245409015,
+          "rejections": 30,
+          "wilson_95": [
+            0.03530448303435016,
+            0.0705964265440715
+          ]
+        },
+        {
+          "cell_index": 82,
+          "independent_replicates": 600,
+          "rate": 0.058333333333333334,
+          "rejections": 35,
+          "wilson_95": [
+            0.04223947455645403,
+            0.08004669467231493
+          ]
+        },
+        {
+          "cell_index": 83,
+          "independent_replicates": 596,
+          "rate": 0.05536912751677853,
+          "rejections": 33,
+          "wilson_95": [
+            0.0396945725951761,
+            0.07673862453328596
+          ]
+        },
+        {
+          "cell_index": 84,
+          "independent_replicates": 599,
+          "rate": 0.05843071786310518,
+          "rejections": 35,
+          "wilson_95": [
+            0.042310493261035816,
+            0.08017852560164518
+          ]
+        },
+        {
+          "cell_index": 85,
+          "independent_replicates": 600,
+          "rate": 0.043333333333333335,
+          "rejections": 26,
+          "wilson_95": [
+            0.02974099813478266,
+            0.06273602212439733
+          ]
+        },
+        {
+          "cell_index": 86,
+          "independent_replicates": 600,
+          "rate": 0.055,
+          "rejections": 33,
+          "wilson_95": [
+            0.03942813848636002,
+            0.07623377541583362
+          ]
+        },
+        {
+          "cell_index": 87,
+          "independent_replicates": 598,
+          "rate": 0.05016722408026756,
+          "rejections": 30,
+          "wilson_95": [
+            0.035363897609003755,
+            0.07071297344237114
+          ]
+        },
+        {
+          "cell_index": 88,
+          "independent_replicates": 597,
+          "rate": 0.05695142378559464,
+          "rejections": 34,
+          "wilson_95": [
+            0.0410382753853981,
+            0.0785298032916317
+          ]
+        },
+        {
+          "cell_index": 89,
+          "independent_replicates": 600,
+          "rate": 0.041666666666666664,
+          "rejections": 25,
+          "wilson_95": [
+            0.02837972965493859,
+            0.06078516294095374
+          ]
+        },
+        {
+          "cell_index": 90,
+          "independent_replicates": 599,
+          "rate": 0.048414023372287146,
+          "rejections": 29,
+          "wilson_95": [
+            0.033917781042457594,
+            0.0686655066791122
+          ]
+        },
+        {
+          "cell_index": 91,
+          "independent_replicates": 599,
+          "rate": 0.0333889816360601,
+          "rejections": 20,
+          "wilson_95": [
+            0.02171652637172171,
+            0.05100816463818125
+          ]
+        },
+        {
+          "cell_index": 92,
+          "independent_replicates": 598,
+          "rate": 0.046822742474916385,
+          "rejections": 28,
+          "wilson_95": [
+            0.032591180565113495,
+            0.06683942186954299
+          ]
+        },
+        {
+          "cell_index": 93,
+          "independent_replicates": 600,
+          "rate": 0.056666666666666664,
+          "rejections": 34,
+          "wilson_95": [
+            0.04083165535330541,
+            0.0781423862121759
+          ]
+        },
+        {
+          "cell_index": 94,
+          "independent_replicates": 598,
+          "rate": 0.05518394648829431,
+          "rejections": 33,
+          "wilson_95": [
+            0.03956090690903567,
+            0.07648536706741682
+          ]
+        },
+        {
+          "cell_index": 95,
+          "independent_replicates": 597,
+          "rate": 0.05695142378559464,
+          "rejections": 34,
+          "wilson_95": [
+            0.0410382753853981,
+            0.0785298032916317
+          ]
+        },
+        {
+          "cell_index": 96,
+          "independent_replicates": 600,
+          "rate": 0.055,
+          "rejections": 33,
+          "wilson_95": [
+            0.03942813848636002,
+            0.07623377541583362
+          ]
+        },
+        {
+          "cell_index": 97,
+          "independent_replicates": 599,
+          "rate": 0.045075125208681135,
+          "rejections": 27,
+          "wilson_95": [
+            0.03116072936884797,
+            0.06478731463901807
+          ]
+        },
+        {
+          "cell_index": 98,
+          "independent_replicates": 600,
+          "rate": 0.04666666666666667,
+          "rejections": 28,
+          "wilson_95": [
+            0.03248188567095377,
+            0.06661938991480156
+          ]
+        },
+        {
+          "cell_index": 99,
+          "independent_replicates": 598,
+          "rate": 0.05016722408026756,
+          "rejections": 30,
+          "wilson_95": [
+            0.035363897609003755,
+            0.07071297344237114
+          ]
+        },
+        {
+          "cell_index": 100,
+          "independent_replicates": 597,
+          "rate": 0.051926298157453935,
+          "rejections": 31,
+          "wilson_95": [
+            0.036820043771241304,
+            0.07276203957887391
+          ]
+        },
+        {
+          "cell_index": 101,
+          "independent_replicates": 599,
+          "rate": 0.06010016694490818,
+          "rejections": 36,
+          "wilson_95": [
+            0.04372483194019379,
+            0.08208180877933909
+          ]
+        },
+        {
+          "cell_index": 102,
+          "independent_replicates": 599,
+          "rate": 0.04340567612687813,
+          "rejections": 26,
+          "wilson_95": [
+            0.029790934414205397,
+            0.06283948773680878
+          ]
+        },
+        {
+          "cell_index": 103,
+          "independent_replicates": 597,
+          "rate": 0.051926298157453935,
+          "rejections": 31,
+          "wilson_95": [
+            0.036820043771241304,
+            0.07276203957887391
+          ]
+        },
+        {
+          "cell_index": 104,
+          "independent_replicates": 597,
+          "rate": 0.04020100502512563,
+          "rejections": 24,
+          "wilson_95": [
+            0.027161571346280732,
+            0.05911985624103376
+          ]
+        },
+        {
+          "cell_index": 105,
+          "independent_replicates": 599,
+          "rate": 0.04340567612687813,
+          "rejections": 26,
+          "wilson_95": [
+            0.029790934414205397,
+            0.06283948773680878
+          ]
+        },
+        {
+          "cell_index": 106,
+          "independent_replicates": 597,
+          "rate": 0.04355108877721943,
+          "rejections": 26,
+          "wilson_95": [
+            0.029891311769208034,
+            0.06304744603604952
+          ]
+        },
+        {
+          "cell_index": 107,
+          "independent_replicates": 596,
+          "rate": 0.05201342281879195,
+          "rejections": 31,
+          "wilson_95": [
+            0.03688222768902633,
+            0.07288254073851846
+          ]
+        },
+        {
+          "cell_index": 108,
+          "independent_replicates": 596,
+          "rate": 0.03859060402684564,
+          "rejections": 23,
+          "wilson_95": [
+            0.025850517347750547,
+            0.057240536276125166
+          ]
+        },
+        {
+          "cell_index": 109,
+          "independent_replicates": 600,
+          "rate": 0.03166666666666667,
+          "rejections": 19,
+          "wilson_95": [
+            0.020364911485651824,
+            0.048927215130514526
+          ]
+        },
+        {
+          "cell_index": 110,
+          "independent_replicates": 598,
+          "rate": 0.04180602006688963,
+          "rejections": 25,
+          "wilson_95": [
+            0.028475175747085357,
+            0.06098602376249354
+          ]
+        },
+        {
+          "cell_index": 111,
+          "independent_replicates": 597,
+          "rate": 0.06700167504187604,
+          "rejections": 40,
+          "wilson_95": [
+            0.04958749324655945,
+            0.08995257608429952
+          ]
+        },
+        {
+          "cell_index": 112,
+          "independent_replicates": 598,
+          "rate": 0.05518394648829431,
+          "rejections": 33,
+          "wilson_95": [
+            0.03956090690903567,
+            0.07648536706741682
+          ]
+        },
+        {
+          "cell_index": 113,
+          "independent_replicates": 600,
+          "rate": 0.03166666666666667,
+          "rejections": 19,
+          "wilson_95": [
+            0.020364911485651824,
+            0.048927215130514526
+          ]
+        },
+        {
+          "cell_index": 114,
+          "independent_replicates": 599,
+          "rate": 0.06176961602671119,
+          "rejections": 37,
+          "wilson_95": [
+            0.04514315669085987,
+            0.08398110588552486
+          ]
+        },
+        {
+          "cell_index": 115,
+          "independent_replicates": 598,
+          "rate": 0.05518394648829431,
+          "rejections": 33,
+          "wilson_95": [
+            0.03956090690903567,
+            0.07648536706741682
+          ]
+        },
+        {
+          "cell_index": 116,
+          "independent_replicates": 597,
+          "rate": 0.04690117252931323,
+          "rejections": 28,
+          "wilson_95": [
+            0.032646104312931384,
+            0.06694998371026922
+          ]
+        },
+        {
+          "cell_index": 117,
+          "independent_replicates": 598,
+          "rate": 0.05351170568561873,
+          "rejections": 32,
+          "wilson_95": [
+            0.03815714198929082,
+            0.07456599767880248
+          ]
+        },
+        {
+          "cell_index": 118,
+          "independent_replicates": 599,
+          "rate": 0.05008347245409015,
+          "rejections": 30,
+          "wilson_95": [
+            0.03530448303435016,
+            0.0705964265440715
+          ]
+        },
+        {
+          "cell_index": 119,
+          "independent_replicates": 599,
+          "rate": 0.03171953255425709,
+          "rejections": 19,
+          "wilson_95": [
+            0.020399064141085048,
+            0.04900800501196605
+          ]
+        },
+        {
+          "cell_index": 120,
+          "independent_replicates": 598,
+          "rate": 0.05852842809364549,
+          "rejections": 35,
+          "wilson_95": [
+            0.0423817512056755,
+            0.0803107913874954
+          ]
+        },
+        {
+          "cell_index": 121,
+          "independent_replicates": 599,
+          "rate": 0.04674457429048414,
+          "rejections": 28,
+          "wilson_95": [
+            0.03253644132720991,
+            0.066729224537508
+          ]
+        },
+        {
+          "cell_index": 122,
+          "independent_replicates": 598,
+          "rate": 0.06521739130434782,
+          "rejections": 39,
+          "wilson_95": [
+            0.04807205929080144,
+            0.08791302053580627
+          ]
+        },
+        {
+          "cell_index": 123,
+          "independent_replicates": 597,
+          "rate": 0.05025125628140704,
+          "rejections": 30,
+          "wilson_95": [
+            0.03542351251675875,
+            0.07082990572438494
+          ]
+        },
+        {
+          "cell_index": 124,
+          "independent_replicates": 599,
+          "rate": 0.05843071786310518,
+          "rejections": 35,
+          "wilson_95": [
+            0.042310493261035816,
+            0.08017852560164518
+          ]
+        },
+        {
+          "cell_index": 125,
+          "independent_replicates": 600,
+          "rate": 0.04833333333333333,
+          "rejections": 29,
+          "wilson_95": [
+            0.03386090038689244,
+            0.06855250286215053
+          ]
+        },
+        {
+          "cell_index": 126,
+          "independent_replicates": 599,
+          "rate": 0.045075125208681135,
+          "rejections": 27,
+          "wilson_95": [
+            0.03116072936884797,
+            0.06478731463901807
+          ]
+        },
+        {
+          "cell_index": 127,
+          "independent_replicates": 597,
+          "rate": 0.05360134003350084,
+          "rejections": 32,
+          "wilson_95": [
+            0.03822148507830471,
+            0.07468926338078204
+          ]
+        },
+        {
+          "cell_index": 128,
+          "independent_replicates": 599,
+          "rate": 0.05342237061769616,
+          "rejections": 32,
+          "wilson_95": [
+            0.03809301518951106,
+            0.07444313810261433
+          ]
+        },
+        {
+          "cell_index": 129,
+          "independent_replicates": 598,
+          "rate": 0.05016722408026756,
+          "rejections": 30,
+          "wilson_95": [
+            0.035363897609003755,
+            0.07071297344237114
+          ]
+        },
+        {
+          "cell_index": 130,
+          "independent_replicates": 596,
+          "rate": 0.06375838926174497,
+          "rejections": 38,
+          "wilson_95": [
+            0.046801488723440206,
+            0.08630278015731505
+          ]
+        },
+        {
+          "cell_index": 131,
+          "independent_replicates": 596,
+          "rate": 0.04865771812080537,
+          "rejections": 29,
+          "wilson_95": [
+            0.03408957550459968,
+            0.06900676422202784
+          ]
+        }
+      ],
+      "status": "INCONCLUSIVE"
+    }
+  },
+  "runtime_seconds": 12.899165,
+  "scope": "Candidate synthetic known-covariance Gaussian oracle only; no practical market inference authorized.",
+  "walkforward_readiness": "NOT_READY"
+}

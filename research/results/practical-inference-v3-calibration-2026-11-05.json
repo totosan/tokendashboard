@@ -1,0 +1,244 @@
+{
+  "actual_market_data_used": false,
+  "artifact_status": "COMPLETE_SYNTHETIC_ONLY",
+  "calibration_gate": "FAIL",
+  "limitations": [
+    "Synthetic generators only; no market validity or efficacy claim.",
+    "Frozen walkforward-protocol.json, dist/ and v1/v2 artifacts are unchanged; this result does not satisfy them."
+  ],
+  "protocol_id": "issue-22-practical-inference-candidate-v3-adaptive-blocks",
+  "protocol_sha256": "0ef9db80e54d61186befe9993e1050e680831a2543e2ac6b92561b70be4b2433",
+  "results": {
+    "iid_heteroskedastic": {
+      "any_rejection": 81,
+      "any_rejection_rate": 0.0405,
+      "any_rejection_wilson_95": [
+        0.03270494331440327,
+        0.05005682313706816
+      ],
+      "block_days_used": {
+        "4": 1999,
+        "5": 1
+      },
+      "marginal_rejection_rate_by_cell": [
+        0.004,
+        0.0055,
+        0.0035,
+        0.003,
+        0.002,
+        0.007,
+        0.0035,
+        0.002,
+        0.0015,
+        0.0025,
+        0.003,
+        0.0035
+      ],
+      "panels": 2000,
+      "refusal_rate": 0.0,
+      "refusal_reasons": {},
+      "refused_panels": 0,
+      "scenario": "iid_heteroskedastic",
+      "valid_panels": 2000
+    },
+    "long_memory_serial": {
+      "any_rejection": 319,
+      "any_rejection_rate": 0.1595,
+      "any_rejection_wilson_95": [
+        0.144108286149679,
+        0.17619722304885418
+      ],
+      "block_days_used": {
+        "4": 699,
+        "5": 440
+      },
+      "marginal_rejection_rate_by_cell": [
+        0.077,
+        0.073,
+        0.079,
+        0.078,
+        0.0725,
+        0.0725,
+        0.0735,
+        0.0715,
+        0.0795,
+        0.077,
+        0.0745,
+        0.0715
+      ],
+      "panels": 2000,
+      "refusal_rate": 0.4305,
+      "refusal_reasons": {
+        "insufficient_blocks_under_dependence": 861
+      },
+      "refused_panels": 861,
+      "scenario": "long_memory_serial",
+      "valid_panels": 1139
+    },
+    "power_three_of_twelve": {
+      "any_rejection": 1841,
+      "any_rejection_rate": 0.9205,
+      "any_rejection_wilson_95": [
+        0.9078221139475915,
+        0.9315656492888746
+      ],
+      "block_days_used": {
+        "4": 1999,
+        "5": 1
+      },
+      "marginal_rejection_rate_by_cell": [
+        0.589,
+        0.0045,
+        0.007,
+        0.003,
+        0.584,
+        0.003,
+        0.004,
+        0.0035,
+        0.581,
+        0.0035,
+        0.0015,
+        0.004
+      ],
+      "panels": 2000,
+      "refusal_rate": 0.0,
+      "refusal_reasons": {},
+      "refused_panels": 0,
+      "scenario": "power_three_of_twelve",
+      "valid_panels": 2000
+    },
+    "serial_heteroskedastic": {
+      "any_rejection": 177,
+      "any_rejection_rate": 0.0885,
+      "any_rejection_wilson_95": [
+        0.07682827914571014,
+        0.10174945076676101
+      ],
+      "block_days_used": {
+        "4": 1400,
+        "5": 390
+      },
+      "marginal_rejection_rate_by_cell": [
+        0.0195,
+        0.018,
+        0.022,
+        0.018,
+        0.0205,
+        0.0215,
+        0.021,
+        0.0205,
+        0.019,
+        0.024,
+        0.019,
+        0.016
+      ],
+      "panels": 2000,
+      "refusal_rate": 0.105,
+      "refusal_reasons": {
+        "insufficient_blocks_under_dependence": 210
+      },
+      "refused_panels": 210,
+      "scenario": "serial_heteroskedastic",
+      "valid_panels": 1790
+    },
+    "shared_cross_cell_heteroskedastic": {
+      "any_rejection": 85,
+      "any_rejection_rate": 0.0425,
+      "any_rejection_wilson_95": [
+        0.03450117971009799,
+        0.05225291855224844
+      ],
+      "block_days_used": {
+        "4": 1998,
+        "5": 2
+      },
+      "marginal_rejection_rate_by_cell": [
+        0.011,
+        0.01,
+        0.01,
+        0.011,
+        0.0115,
+        0.0105,
+        0.0105,
+        0.011,
+        0.0095,
+        0.0095,
+        0.012,
+        0.0135
+      ],
+      "panels": 2000,
+      "refusal_rate": 0.0,
+      "refusal_reasons": {},
+      "refused_panels": 0,
+      "scenario": "shared_cross_cell_heteroskedastic",
+      "valid_panels": 2000
+    },
+    "skewed_mean_zero": {
+      "any_rejection": 60,
+      "any_rejection_rate": 0.03,
+      "any_rejection_wilson_95": [
+        0.02337785471293825,
+        0.03842416973143951
+      ],
+      "block_days_used": {
+        "4": 1998,
+        "5": 2
+      },
+      "marginal_rejection_rate_by_cell": [
+        0.004,
+        0.002,
+        0.004,
+        0.0035,
+        0.0025,
+        0.002,
+        0.0035,
+        0.0035,
+        0.0025,
+        0.005,
+        0.003,
+        0.001
+      ],
+      "panels": 2000,
+      "refusal_rate": 0.0,
+      "refusal_reasons": {},
+      "refused_panels": 0,
+      "scenario": "skewed_mean_zero",
+      "valid_panels": 2000
+    },
+    "sparse_days": {
+      "any_rejection": 84,
+      "any_rejection_rate": 0.042,
+      "any_rejection_wilson_95": [
+        0.0340516147420547,
+        0.05170440056757297
+      ],
+      "block_days_used": {
+        "4": 1993,
+        "5": 1
+      },
+      "marginal_rejection_rate_by_cell": [
+        0.0015,
+        0.0035,
+        0.002,
+        0.0045,
+        0.004,
+        0.0025,
+        0.004,
+        0.004,
+        0.005,
+        0.004,
+        0.003,
+        0.0045
+      ],
+      "panels": 2000,
+      "refusal_rate": 0.003,
+      "refusal_reasons": {
+        "too_few_eligible_cells": 6
+      },
+      "refused_panels": 6,
+      "scenario": "sparse_days",
+      "valid_panels": 1994
+    }
+  },
+  "runtime_seconds": 22.057
+}

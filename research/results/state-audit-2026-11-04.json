@@ -1,0 +1,247 @@
+{
+  "audit_utc": "2026-11-04T07:27:17Z",
+  "scope": "Epic #3 continuation from PR #5 head 8070d19ce3a09d8f97ef1e898e5928ece6a9c104; own criteria, not market efficacy",
+  "previous_audit": "research/results/state-audit-2026-11-03.json",
+  "base_verified": {
+    "local_head": "8070d19ce3a09d8f97ef1e898e5928ece6a9c104",
+    "remote_pr5_head": "8070d19ce3a09d8f97ef1e898e5928ece6a9c104",
+    "merge_base": "8070d19ce3a09d8f97ef1e898e5928ece6a9c104",
+    "worktree_initially_clean": true,
+    "pr5": "OPEN, draft, no submitted reviews or reported CI checks at start"
+  },
+  "native_children_verified": {
+    "3": [6, 7, 8, 9, 10, 11, 12, 13, 14],
+    "6": [],
+    "7": [15, 16, 20, 23, 25],
+    "8": [22, 24],
+    "9": [19],
+    "10": [21],
+    "11": [17],
+    "12": [18],
+    "13": [],
+    "14": [],
+    "26": []
+  },
+  "criterion_map": [
+    {
+      "issue": 3,
+      "criteria": [
+        {"criterion": "Numbered linked tasks, truthful labels and agent limitations", "status": "satisfied", "source": "Live native hierarchy/issue labels; #6-#25 acceptance comments; this audit", "demonstrated": "All direct relationships verified; bounded stories not reopened for unchecked old boxes", "next": "Keep one topic and state per applicable issue"},
+        {"criterion": "Inventory and every requested domain covered or explicitly open", "status": "partially satisfied", "source": "INTRADAY_RESEARCH.md; direct-child reports and criterion rows below", "demonstrated": "Every domain has evidence or an explicit owned gate; not all empirical domains complete", "next": "Resolve the owned gates, not new product scope"},
+        {"criterion": "Sources, reproducible data/code/tests/splits/costs and negative uncertainty", "status": "satisfied", "source": "research/results/*.json, saved snapshots, tests; inference-calibration.json and inference-redesign.json", "demonstrated": "Reproducible bounded studies, with selected-only/local-raw limitations; FAIL and INCONCLUSIVE retained", "next": "Preserve failed artifacts; never infer fills from OHLCV"},
+        {"criterion": "Broad versus specific crypto universe and separate TradFi assessment", "status": "blocked", "source": "#9/#10, reference_coverage_gate.py, recovery-reference-data-2026-11-02.json", "demonstrated": "Fixed current-survivor groups compared; complete historical membership/session comparison unavailable", "next": "Effective-dated source ledgers G10/G11"},
+        {"criterion": "Final independent critic and consistency/status check", "status": "partially satisfied", "source": "#8 scoped critic acceptance comments; prior audit; current audit", "demonstrated": "Many bounded independent reviews exist; not a final whole-epic acceptance", "next": "Final synthesis after owned validation/reference/model gates or explicitly narrowed end scope"},
+        {"criterion": "Understandable dashboard and manual field-test proposals without promises", "status": "satisfied", "source": "INTRADAY_RESEARCH.md: Vorlaeufige Synthese und offene Schritte", "demonstrated": "Signal/confirmation separation and recording rejected/non-traded setups proposed, not implemented", "next": "User product decision outside this continuation"},
+        {"criterion": "No production dashboard changes or orders", "status": "satisfied", "source": "Continuation diff restricted to research/docs", "demonstrated": "Research-only changes", "next": "Retain scope boundary"}
+      ]
+    },
+    {
+      "issue": 6,
+      "status": "satisfied",
+      "criteria": [
+        {"criterion": "Long/short, timeframes and closed/open candles", "status": "satisfied", "source": "#6 accepted inventory at c6e2ed0; dist/breakout.js, pattern.js, tradfi.js", "demonstrated": "Rules and long-only 1m TradFi limitation documented", "next": "None for own scope"},
+        {"criterion": "Real data paths, missing history/tests and source-line links", "status": "satisfied", "source": "#6 report; INTRADAY_RESEARCH.md inventory", "demonstrated": "Code inventory, not runtime/market validation", "next": "None for own scope"},
+        {"criterion": "Separate verified facts, hypotheses and Issue #1 assumptions; no production edits", "status": "satisfied", "source": "#6 closure comment; tradingview/README.md", "demonstrated": "Pine runtime not independently verified or claimed", "next": "Retain accepted closure"}
+      ]
+    },
+    {
+      "issue": 7,
+      "status": "blocked",
+      "criteria": [
+        {"criterion": "Official API sources, limits, UTC, instruments and fee evidence", "status": "satisfied", "source": "#7 reports; execution-inputs-2026-11-02.json; trade_pagination.py; funding_history.py", "demonstrated": "Bounded sources/metadata and current margin facts, not historical universality", "next": "Historical fee/margin applicability evidence G12/G13"},
+        {"criterion": "Reproducible requests/responses without secrets and unavailable inputs explicit", "status": "satisfied", "source": "#15/#16/#20/#23/#25; chd_sample.py and requirements-chd.txt", "demonstrated": "Finite anonymous sample workflow, source hashes and local-only raw files", "next": "Broaden coverage only through declared bounded requests"},
+        {"criterion": "Transparent spread/slippage/funding/latency/entry and break-even plan", "status": "partially satisfied", "source": "12/22/37bp scenario outputs; funding schedule evidence; bitget_snapshot_recorder.py", "demonstrated": "Sensitivity assumptions and limited independent snapshots, not historical fills/account cashflows", "next": "G12 aligned execution and settlement model"},
+        {"criterion": "Positions/leverage/liquidation risks and missing dependencies", "status": "blocked", "source": "INTRADAY_RESEARCH.md; execution-inputs-2026-11-02.json", "demonstrated": "Risk explanation exists; historical margin, sizing and overlap model absent", "next": "G13 after G12 and practical inference G08"}
+      ]
+    },
+    {
+      "issue": 8,
+      "status": "blocked",
+      "criteria": [
+        {"criterion": "Synchronize reports and readable comparison matrix", "status": "satisfied", "source": "INTRADAY_RESEARCH.md comparison tables and this audit", "demonstrated": "Bounded research results and explicit gates separated", "next": "Refresh as material evidence changes"},
+        {"criterion": "Tests/costs/uncertainty/multiplicity/lookahead/survivorship/source checks", "status": "partially satisfied", "source": "Research tests; readiness; inference-calibration.json FAIL; inference-redesign.json INCONCLUSIVE", "demonstrated": "Engineering checks and failed diagnostics, not calibrated market inference", "next": "G08 practical estimator/null/sparse-family calibration"},
+        {"criterion": "Independent critic with concrete corrections", "status": "partially satisfied", "source": "#8 scoped review comments for #15-#25", "demonstrated": "Failure timing, family scope and persisted-header issues previously corrected; no final epic approval", "next": "Current bounded critic, then whole-epic review only after prerequisites"},
+        {"criterion": "Prioritized dashboard/field proposals and complete parent status check", "status": "satisfied", "source": "INTRADAY_RESEARCH.md; live native hierarchy and criterion map", "demonstrated": "Proposals only, no product changes or efficacy guarantee", "next": "Owned remaining backlog"},
+        {"criterion": "Actual frozen forward evaluation and fresh validation", "status": "blocked", "source": "walkforward-protocol.json; walkforward-readiness.json", "demonstrated": "Readiness NOT_READY/NOT_RUN; reserved February-April 2027 data unavailable", "next": "G07 development evaluator, then G08/G09 without shifting folds"}
+      ]
+    },
+    {
+      "issue": 9,
+      "status": "blocked",
+      "criteria": [
+        {"criterion": "Current instruments/data status with retrieval date and primary sources", "status": "satisfied", "source": "#9 reports; bitget-instruments-2026-11-01.json; #19 accepted at 87bd4db", "demonstrated": "Current stock-perp metadata and bounded OHLCV/funding samples", "next": "No current classification treated as historical identity"},
+        {"criterion": "Perp-versus-equity sessions/price/funding/volume distinction", "status": "satisfied", "source": "bitget-session-feasibility-2026-11-02.json; recovery-reference-data-2026-11-02.json", "demonstrated": "Current index-source labels are not primary listing MIC/session mappings", "next": "G11 effective-dated linkage and calendar evidence"},
+        {"criterion": "News/premarket/float/stock RVOL only with historical sources", "status": "blocked", "source": "#9 source report and explicit missing-data gates", "demonstrated": "No unsupported equity-derived performance labels added", "next": "Obtain authoritative historical inputs before session comparison"},
+        {"criterion": "Separately testable rules and original long-only 1m heuristic", "status": "partially satisfied", "source": "dist/tradfi.js inventory; inspected stock-perp subgroup studies", "demonstrated": "Rule analysis exists, not complete scanner-parity/backtest coverage", "next": "G05 exploratory parity with adequate 1m data, separate from frozen family"}
+      ]
+    },
+    {
+      "issue": 10,
+      "status": "blocked",
+      "criteria": [
+        {"criterion": "Reproducible universe with PIT listings/delistings", "status": "blocked", "source": "#21 accepted feasibility; bitget-universe-feasibility-2026-11-02.json", "demonstrated": "Current survivor panel, not opening inventory/lifecycle ledger", "next": "G10 full effective-dated identity and membership ledger"},
+        {"criterion": "Same rules/costs/OOS by BTC/ETH, alts and broad/liquidity groups", "status": "partially satisfied", "source": "hypotheses/indicators/regimes-{5m,15m}.json", "demonstrated": "Fixed-panel groups only; broad/liquidity PIT comparison unavailable", "next": "G10 before survivor-corrected comparison"},
+        {"criterion": "Correlation, liquidity, regimes and multiplicity limitations", "status": "satisfied", "source": "INTRADAY_RESEARCH.md; event_uncertainty.py; failed calibration", "demonstrated": "Dependencies and uncertainty visible; no iid significance claims", "next": "G08 before inferential claims"},
+        {"criterion": "Sources/coverage/open points, no fabricated results", "status": "satisfied", "source": "reference_coverage_gate.py and recovery-reference-data-2026-11-02.json", "demonstrated": "Recent notices do not prove historical completeness; publication conflicts preserved", "next": "Reconcile source-effective times"}
+      ]
+    },
+    {
+      "issue": 11,
+      "status": "satisfied",
+      "acceptance_scope": "Own research-deliverable criteria only; fresh efficacy remains owned by #8",
+      "criteria": [
+        {"criterion": "Explicit possible Long/Short rules for EMA, levels/SR, VWAP, Bollinger/RSI", "status": "satisfied", "source": "#11 original report; hypothesis_eval.py; indicator_eval.py and indicator-protocol.json (#17, aab74bf)", "demonstrated": "Testable bounce/breakout alternatives plus separately implemented fixed EMA/VWAP/daily-breakout/RSI/Bollinger arms", "next": "No extra bounce/combo arm implied or added to frozen family"},
+        {"criterion": "Failure modes and needed data per approach", "status": "satisfied", "source": "#11 original report and INTRADAY_RESEARCH.md", "demonstrated": "Whipsaw/lag, level failure, VWAP approximation and trend-against-reversion risks explicit", "next": "None for own research scope"},
+        {"criterion": "Sensible baselines and transparent costs", "status": "satisfied", "source": "hypotheses/indicators-{5m,15m}.json; #17 acceptance", "demonstrated": "Existing stairs/momentum baselines, all cells and assumed 12/22/37bp scenarios", "next": "Measured execution remains #7, not silently supplied"},
+        {"criterion": "Sources with bounded assertions", "status": "satisfied", "source": "#11 cited Moskowitz/Ooi/Pedersen, Chung/Bellotti, Busseti/Boyd and source limits", "demonstrated": "Literature does not validate these Bitget intraday rules", "next": "None for own scope"},
+        {"criterion": "Actual data/backtest status, no names-as-efficacy or production edits", "status": "satisfied", "source": "#17 independent acceptance and saved inspected-window results", "demonstrated": "Fixed-arm exploratory comparisons delivered; all indicator OOS cells negative at 12bp; no fresh efficacy", "next": "#8 G08/G09, not a missing #11 reviewer"}
+      ]
+    },
+    {
+      "issue": 12,
+      "status": "satisfied",
+      "acceptance_scope": "Own causal-definition/test-plan/status deliverables, not completed fresh walk-forward validation",
+      "criteria": [
+        {"criterion": "Causal trend/range/volatility and completed 1h/4h rules", "status": "satisfied", "source": "hypothesis_eval.py HTF functions; regime_eval.py and regime-protocol.json (#18, 6c5bec8)", "demonstrated": "Closed UTC bins, past-only TR/Close terciles and ER20 labels, gap/warmup handling", "next": "No filter efficacy inferred"},
+        {"criterion": "History/time/UTC/lookahead and existing 1h/day context checked", "status": "satisfied", "source": "#12 report; dist/context.js inventory; causal/future-invariance tests", "demonstrated": "Existing display context distinguished from tested filters; timestamps/gaps tested", "next": "None for own research scope"},
+        {"criterion": "Baseline/OOS/walk-forward test plan", "status": "satisfied", "source": "#12 report; hypothesis/regime outputs; walkforward-protocol.json", "demonstrated": "Baseline and inspected-window stratification plus frozen future plan; future test not run", "next": "#8 G08/G09"},
+        {"criterion": "Coverage/delay trade-offs, sources, actual test status and open points", "status": "satisfied", "source": "#12 report; #18 corrected first-failure acceptance; regimes-{5m,15m}.json", "demonstrated": "Counts/retention/delay and retrospective labels separated; nine accepted timing tests", "next": "None for own scope; retain broader validation gates"}
+      ]
+    },
+    {
+      "issue": 13,
+      "status": "blocked",
+      "criteria": [
+        {"criterion": "POC/VA/HVN/LVN/profile-change/RVOL definitions and assumptions", "status": "partially satisfied", "source": "#13 original report; profile-comparison-protocol-2026-11-04-v4.json; rolling_profile_comparison.py; rolling-profile-comparison-2026-11-04.json", "demonstrated": "Frozen as-of 24-bin POC/VA/node/change rules and exploratory comparison; candle estimator is uniform in this single-bar window, so its Pearson and node scores are undefined; RVOL remains separate", "next": "Broaden profile history and availability evidence; no efficacy inferred"},
+        {"criterion": "Candle approximation versus exact trade aggregation and source status", "status": "partially satisfied", "source": "dist/orderbook.js inventory; candle-open-diagnostic-2026-11-04.json; rolling-profile-comparison-2026-11-04.json", "demonstrated": "G01 preserved 12 open differences; G04 found exact high/low/close/base-volume on 8 comparable windows and two millisecond-close ambiguities; no full-ledger certification", "next": "Do not universalize convention or certify full ledger"},
+        {"criterion": "Sources/history/coverage/cost/effort and baseline tests", "status": "partially satisfied", "source": "#13 report; chd_sample.py; bounded acquisition manifest; profile protocol v4/results", "demonstrated": "Pinned bounded source path, explicit one-hour/one-symbol coverage, exact profile baseline and seven targeted tests; no costs or predictive evaluation", "next": "Broader multi-symbol/day profile coverage and candle availability evidence"},
+        {"criterion": "Limits and next evidence requirements without performance/production claims", "status": "satisfied", "source": "INTRADAY_RESEARCH.md; current diagnostic limitations", "demonstrated": "Third-party hourly observations are not complete ledger or fills", "next": "Keep broader issue open"}
+      ]
+    },
+    {
+      "issue": 14,
+      "status": "blocked",
+      "criteria": [
+        {"criterion": "Reproducible consolidation/breakout/retest/impulse/pullback/continuation rules", "status": "satisfied", "source": "#14 original report; hypothesis_eval.py fixed box/stairs; regime-protocol.json", "demonstrated": "Causal fixed candidate rules, no threshold search or general efficacy", "next": "Keep exploratory versus frozen family separate"},
+        {"criterion": "Failure/late-breakout comparison against both original scanners", "status": "partially satisfied", "source": "#18 first-failure/delayed-entry diagnostics; dist/breakout.js and dist/pattern.js inventory", "demonstrated": "Stairs and fixed-box comparisons exist; full counter-candle scanner parity absent", "next": "G05 parity tests and appropriate 1m input before comparative outcomes"},
+        {"criterion": "Long/Short, 5m/15m, baselines and Forward/MFE/MAE evaluation", "status": "partially satisfied", "source": "hypotheses/regimes-{5m,15m}.json", "demonstrated": "All requested axes for stairs/box, not complete original scanner coverage", "next": "G05; never insert these exploratory arms into frozen 11-arm family"},
+        {"criterion": "Bounded sources, data/test status and open points, no production/efficacy claim", "status": "satisfied", "source": "#14 source report; #18 independent acceptance; current audit", "demonstrated": "No reviewer is currently outstanding for delivered diagnostics", "next": "Replace stale review-queue state with explicit input/coverage blocker"}
+      ]
+    }
+  ],
+  "bounded_descendant_acceptance": [
+    {"issue": 15, "parent": 7, "status": "satisfied", "source_commit": "ffc518b", "evidence": "trade_pagination.py, immutable response evidence and 12 tests; accepted two-page consistency only", "next": "No reopening; complete ledger remains #7"},
+    {"issue": 16, "parent": 7, "status": "satisfied", "source_commit": "ffc518b", "evidence": "funding_history.py, 1620 rows, ten tests, accepted provisional schedule only", "next": "Historical ownership/schedule remains #7"},
+    {"issue": 17, "parent": 11, "status": "satisfied", "source_commit": "aab74bf", "evidence": "indicator protocol, two 60-cell outputs, 14 tests and independent exact replay acceptance", "next": "Future efficacy remains #8"},
+    {"issue": 18, "parent": 12, "status": "satisfied", "source_commit": "6c5bec8", "evidence": "regime protocol/outputs, nine tests, first-failure finding corrected and independently accepted", "next": "Future efficacy remains #8"},
+    {"issue": 19, "parent": 9, "status": "satisfied", "source_commit": "87bd4db", "evidence": "Seven-transaction bounded feasibility; missing historical MIC/calendar linkage and selected-only hash limits explicit", "next": "G11 under #9"},
+    {"issue": 20, "parent": 7, "status": "satisfied", "source_commit": "87bd4db", "evidence": "Archive feasibility accepted with exact negative result and next official request; no archive-absence claim", "next": "Historical depth quality remains #7"},
+    {"issue": 21, "parent": 10, "status": "satisfied", "source_commit": "8070d19 (present at verified continuation base; closure comment does not name a delivery commit)", "evidence": "Six hashed raw source responses and explicit missing-inventory/lifecycle gates", "next": "G10 under #10"},
+    {"issue": 22, "parent": 8, "status": "satisfied", "source_commit": "211a7a6", "evidence": "v2 11-arm/132-hypothesis scope correction, seven tests, exact readiness replay; conditional inference later failed", "next": "Do not treat closed preparation as valid market inference"},
+    {"issue": 23, "parent": 7, "status": "satisfied", "source_commit": "f91d9c8", "evidence": "Recovered/sanitized source evidence and accepted wire-contract blocker, zero unsupported POSTs", "next": "No reopening; new CHD path is third party"},
+    {"issue": 24, "parent": 8, "status": "satisfied", "source_commit": "f91d9c8", "evidence": "Prospective synthetic oracle design, finite diagnostics and independent acceptance; INCONCLUSIVE retained", "next": "G08 practical unknown-dependence estimator, not more oracle runs"},
+    {"issue": 25, "parent": 7, "status": "satisfied", "source_commit": "bb21d18", "evidence": "Trade-first pilot, recent within-file replay and finite REST sampler; 16 targeted tests/critic acceptance", "next": "G03/G06 bounded continuation, not historical fills"}
+  ],
+  "deferred": {
+    "issue": 26,
+    "status": "out of scope",
+    "native_epic_child": false,
+    "reason": "Separate pending Pi-recorder idea, not activated; no service, WebSocket recorder or integrated UI"
+  },
+  "operations": {
+    "start_sessions": "Seven visible sessions; this continuation running, other project research sessions not running; no input/plan waits",
+    "start_processes": "No research/download/test process observed before starting bounded work",
+    "old_local_chd_environment": "Unavailable on this execution host; not lost work. Restored source samples by exact anonymous object requests into session storage.",
+    "evaluator_agent": "48f8a235-4ed3-490e-87c6-6ce1a865de47 actually launched; delivered and idle, 34 new tests and exact development digest accepted",
+    "final_research_processes_observed": 0,
+    "final_visible_session_input_or_plan_waits": 0,
+    "lost_agent_finding": "No evidence justifying Lost Repeat; current bounded processes/agent tracked separately from issue state"
+  },
+  "bounded_deliveries": [
+    {"id": "G01", "owner": 13, "status": "satisfied", "evidence": "candle-open-diagnostic-2026-11-04.json", "demonstrated": "12/12 continuity opens, 0/12 first-trade opens, unchanged central hash; adjacent receive-hour check found zero additional target events", "not_demonstrated": "Universal exchange convention, arbitrarily late arrivals, ledger completeness or executable next-open price"},
+    {"id": "G02", "owner": 8, "status": "satisfied", "evidence": "criterion_map for #11/#12/#14", "demonstrated": "#11/#12 own research deliverables accepted; #14 remaining scanner parity/1m input explicitly separated", "not_demonstrated": "Fresh efficacy or whole-epic completion"},
+    {"id": "G03", "owner": 7, "status": "satisfied", "evidence": "chd_sample.py, requirements-chd.txt, chd-bounded-acquisition-2026-11-04.json and chd-clean-cache-smoke-2026-11-04.json", "demonstrated": "Fresh isolated parser environment, five exact source objects/10 HTTP transactions/5682869 bytes, separate clean-cache smoke with original hash", "not_demonstrated": "Raw data redistribution or guaranteed future provider availability"},
+    {"id": "G04", "owner": 13, "status": "satisfied", "evidence": "profile-comparison-protocol-2026-11-04-v4.json; rolling_profile_comparison.py; rolling-profile-comparison-2026-11-04.json", "demonstrated": "Frozen as-of 15m/24-bin comparison; 10 planned windows, 8 source-comparable, 2 excluded for ambiguous millisecond close; 0/8 exact POC bins and explicit VA/node/change diagnostics", "not_demonstrated": "Full ledger, native-candle live availability, broader symbols/days, predictive utility, costs or significance"},
+    {"id": "G06-bounded", "owner": 7, "status": "satisfied", "evidence": "chd_book_chain.py and chd-cross-hour-2026-11-04.json", "demonstrated": "Hash-bound checkpoint import, 39164/39349 messages and exact full-state adjacent-hour snapshot handover", "not_demonstrated": "Multi-symbol/day coverage, September starting state or independent checksum"},
+    {"id": "G07-development", "owner": 8, "status": "satisfied", "evidence": "walkforward_eval.py, test_walkforward_eval.py and walkforward-evaluator-development.json", "demonstrated": "All 11 frozen arms, entry-folds/warmup/purge/embargo, horizons/floors/empty cells/cost scenarios; exact 1584-cell inspected development digest and synthetic fixtures", "not_demonstrated": "Reserved future evaluation, executable fills, valid market inference or whole-epic acceptance"}
+  ],
+  "verification": {
+    "baseline_research_tests": {"count": 138, "status": "PASS"},
+    "targeted_data_tests": {"count": 26, "status": "PASS"},
+    "new_evaluator_tests": {"count": 34, "status": "PASS"},
+    "profile_comparison_tests": {"count": 7, "status": "PASS", "command": "python3 -m unittest research.test_rolling_profile_comparison -v"},
+    "full_research_tests": {"count": 194, "status": "PASS", "command": "python3 -m unittest discover -s research -p 'test_*.py' -q"},
+    "independent_bounded_critic": {
+      "started": true,
+      "completed": true,
+      "name": "continuation-critic",
+      "findings": "No significant actionable issues",
+      "targeted_tests": 49,
+      "checked": "Earlier continuation/G07 code and evidence, exact 1584-cell evaluator digest, frozen hashes and preserved candle/book evidence; G04 files added after that critic completed",
+      "github_submitted_review": false,
+      "whole_epic_acceptance": false
+    },
+    "exact_replays": ["candle-open-diagnostic-2026-11-04.json", "chd-cross-hour-2026-11-04.json", "walkforward-evaluator-development.json", "rolling-profile-comparison-2026-11-04.json"],
+    "profile_comparison": {"protocol_id": "issue-13-g04-common-rolling-profile-comparison-v4", "status": "DESCRIPTIVE_APPROXIMATION_COMPARISON", "windows": {"planned": 10, "comparable": 8, "not_comparable": 2}, "transitions": {"planned": 9, "comparable": 7, "poc_move_sign_agreement": "5/7"}, "trade_source_rows": 7399, "unique_trade_ids": 7399, "identical_duplicates": 0, "conflicting_ids": 0, "event_time_trade_time_mismatches": 0, "target_window_late_trades": 0, "receive_hour_partitions_with_target_rows": ["14"], "target_5m_bars": 12, "exact_poc_matches": "0/8", "normalized_profile_tvd_range": [0.3302, 0.5737], "value_area_iou_range": [0.3333, 0.8235], "pearson_defined_windows": 0, "candle_hvn_lvn_candidates": 0, "profile_payload_sha256": "73d22f893b5e73ad50c9c9a6eec1b82115ce349a38bba846a368fefb8d496af0", "report_file_sha256": "bdf5f0833cef6525924d5a136eb616801643cb0d9e532c0eb54850eec4ba19b7", "evidence_tier": "bounded exploratory profile-method comparison; not prediction/performance or full-ledger evidence"},
+    "readiness": "NOT_READY",
+    "empirical_validation": "NOT_RUN",
+    "readiness_exit": 2,
+    "frozen_source_versions_match": true,
+    "original_dependence_calibration": "FAIL",
+    "synthetic_oracle_candidate": "INCONCLUSIVE",
+    "reserved_outcomes_accessed": false,
+    "old_negative_inconclusive_results_modified": false
+  },
+  "evaluator": {
+    "status": "DEVELOPMENT_ONLY",
+    "input_policy": "Synthetic or exact pinned already-inspected snapshots only; CLI refuses reserved data",
+    "result_cells": 1584,
+    "completed_signal_horizon_labels": {"5m": 555732, "15m": 195645},
+    "count_unit": "Arm/side/symbol signal times horizon, not independent samples or trades",
+    "unresolved_protocol_ambiguity": "Strictly after signal close prose conflicts with adjacent-candle entry formula; development follows entry_open = signal_open + bar_ms and discloses clock equality, no frozen amendment",
+    "next_open_limitation": "Sample continuity open may be preceding trade; no executable post-signal entry proved"
+  },
+  "publication": {
+    "pr": "https://github.com/totosan/tokendashboard/pull/5",
+    "target_remote_branch": "revert-4-copilot/epic-intraday-einstiege-krypto-tradfi",
+    "data_delivery_commit": "b5b6f5864b074fa9631ba5ad3e035fa6bbd256a9",
+    "evaluator_and_criterion_delivery_commit": "48bb4f2bcea4ef472616a5cbe7f73c9e31c96a18",
+    "profile_delivery_commit": "2c37216a73be79007e5e9825bb8145efcdf0c8e6",
+    "remote_delivery_head_verified_by": "git ls-remote and GitHub REST PR head; G04 delivery 2c37216 verified",
+    "pr_body_refreshed": true,
+    "pr_body_concurrency": "G04 narrative merged into the re-read live body with the supplied prior base SHA 80322feadfb4; guarded update succeeded with base SHA be580a49daf1",
+    "issue_comments": {
+      "3": "https://github.com/totosan/tokendashboard/issues/3#issuecomment-6625263162",
+      "7": "https://github.com/totosan/tokendashboard/issues/7#issuecomment-6625234599",
+      "8": "https://github.com/totosan/tokendashboard/issues/8#issuecomment-6625234954",
+      "11": "https://github.com/totosan/tokendashboard/issues/11#issuecomment-6625234719",
+      "12": "https://github.com/totosan/tokendashboard/issues/12#issuecomment-6625235518",
+      "13": "https://github.com/totosan/tokendashboard/issues/13#issuecomment-6625667137",
+      "14": "https://github.com/totosan/tokendashboard/issues/14#issuecomment-6625234609"
+    },
+    "live_issue_states_verified": {
+      "closed_done": [6, 11, 12, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+      "open_blocked": [7, 8, 9, 10, 13, 14],
+      "open_in_progress": [3],
+      "open_pending_separate_idea": [26],
+      "one_topic_and_one_state_label_per_applicable_issue": true
+    },
+    "github_submitted_approvals_observed": 0,
+    "reported_ci_checks_observed": 0,
+    "pr_draft_unmerged": true,
+    "epic_acceptance": "NOT_COMPLETE"
+  },
+  "remaining_priority": [
+    {"id": "G05", "owner": 14, "related_owner": 9, "status": "blocked", "effort": "medium", "next": "Exact counter-candle/first-new-high parity tests plus appropriate bounded 1m data; separately version exploratory study", "depends_on": ["1m source/coverage and exploratory rule specification"]},
+    {"id": "G06", "owner": 7, "status": "partially satisfied", "effort": "medium", "next": "Multi-symbol/day coverage after two adjacent-hour checkpoint imports; retain historical September missing start-state gate", "depends_on": ["declared next sample matrix/budget"]},
+    {"id": "G08", "owner": 8, "status": "blocked", "effort": "large", "next": "Specify a practical estimator/null for unknown dependence and sparse 132-cell family, then independently calibrate", "depends_on": ["method specification"]},
+    {"id": "G09", "owner": 8, "status": "future-data-dependent", "effort": "calendar-dependent", "next": "Only after reserved 2027-02-01 to 2027-04-26 folds and 96h warmup exist; do not shift dates", "depends_on": ["G07", "G08", "future observations"]},
+    {"id": "G10", "owner": 10, "status": "blocked", "effort": "large, source-dependent", "next": "Authoritative historical opening inventory and effective lifecycle/identity ledger", "depends_on": ["source evidence"]},
+    {"id": "G11", "owner": 9, "status": "blocked", "effort": "large, source-dependent", "next": "Effective-dated underlying/reference-venue/timezone/calendar/halt linkage", "depends_on": ["source evidence"]},
+    {"id": "G12", "owner": 7, "status": "blocked", "effort": "large", "next": "Aligned quotes/depth/latency/fee/funding model; separate November books are not September fills", "depends_on": ["G06", "historical coverage/model specification"]},
+    {"id": "G13", "owner": 7, "related_owner": 8, "status": "blocked", "effort": "highest", "next": "Prospective sizing/overlap/allocation, historical margin/liquidation and account cashflow model", "depends_on": ["G12", "G08"]},
+    {"id": "G14", "owner": 8, "related_owner": 3, "status": "blocked", "effort": "medium after prerequisites", "next": "Final whole-epic synthesis/independent acceptance after validation/reference/model evidence or explicitly narrowed final scope", "depends_on": ["G09", "G10", "G11", "G12"]},
+    {"id": "G15", "owner": 26, "status": "deferred", "effort": "later", "next": "Explicitly activate host/budget/deployment request separately", "depends_on": []},
+    {"id": "G16", "owner": 26, "status": "out of scope", "effort": "separate product decision", "next": "Separate UI/journal scope decision; no implementation authorized", "depends_on": []}
+  ]
+}

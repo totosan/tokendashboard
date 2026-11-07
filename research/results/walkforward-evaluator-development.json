@@ -1,0 +1,101 @@
+{
+  "artifact_scope": "Small development smoke digest; all cells are emitted by --output, no event export",
+  "cells_sha256": "bd707d2807b582640923fb3b0e35dce033900a94465e910d3b292ac1b8fc1138",
+  "cost_interpretation": "Assumed round-trip sensitivities subtracted once; not measured fees, fills, funding or P&L",
+  "cost_scenarios_bps": {
+    "12": "Two assumed 6 bp taker fees; historical fee constancy is unverified.",
+    "22": "12 bp plus 10 bp assumed round-trip spread/slippage.",
+    "37": "12 bp plus 25 bp assumed round-trip spread/slippage."
+  },
+  "count_unit": "Arm/side/symbol signal x horizon disposition, not independent samples. Pooled totals sum all three horizons. Boundary rejects may appear in both adjacent fold counters; no completed outcome is reused across folds.",
+  "dependence": "Events overlap and are dependent; floors do not establish power or independence",
+  "development_folds": [
+    {
+      "end_utc_exclusive": "2026-10-05T00:00:00Z",
+      "fold_id": "development-01",
+      "start_utc": "2026-09-21T00:00:00Z"
+    },
+    {
+      "end_utc_exclusive": "2026-10-19T00:00:00Z",
+      "fold_id": "development-02",
+      "start_utc": "2026-10-05T00:00:00Z"
+    },
+    {
+      "end_utc_exclusive": "2026-11-01T00:00:00Z",
+      "fold_id": "development-03",
+      "start_utc": "2026-10-19T00:00:00Z"
+    }
+  ],
+  "development_grid_status": {
+    "15m": "COMPLETE",
+    "5m": "COMPLETE"
+  },
+  "empirical_future_validation_status": "NOT_RUN",
+  "entry_price_limitation": "Next-open outcomes are hypothetical OHLCV descriptors, NOT evidence of a post-signal executable price. The separately verified bounded G01 diagnostic found all 12 inspected AAPL 5m opens equal the previous official close and last observed pre-boundary trade, not the first observed in-bucket trade; adjacent receive partitions supplied no late target-hour events. This does not establish an executable entry or a universal candle convention, and does not change any frozen arm, protocol, or outcome formula.",
+  "evaluation_status": "DEVELOPMENT_ONLY",
+  "evaluator_sha256": "65bfaeaf582975391c9d27ed48e1e42be9cfa94d33ae4df10ba35bb70ad25782",
+  "frozen_source_sha256": {
+    "research/event_uncertainty.py": "f6708e17c5c7c0665c4388d9b1f0dacc769a3e43740282c18f824f421514c02f",
+    "research/hypothesis_eval.py": "aeea2a04cc7e8f8dd1c6937c8514d90ab4d0a725b83f8bbb39e50015be91da60",
+    "research/indicator_eval.py": "2aa03b323a80a4b44072cb9ac39abce5e60c866dae1b9826bd634e38246da2e6",
+    "research/intraday_eval.py": "c0826ae176b075b032f78f8c975efa40225298bb32f265e1bcf5c68b291d80ba",
+    "research/regime_eval.py": "a53f9e85677894d8edc16384101622f2e25368bb439b8f002c03d0b93e02072d",
+    "research/results/indicator-protocol.json": "74e7ae7b0dc490ff0dd9700cedf345cef9f7dafad74ac6095367d7717b385df0",
+    "research/results/regime-protocol.json": "36810d0ae60d1207e6cfafbb89151d2078c44b0dbde026320fce593747f92d83"
+  },
+  "inferential_analysis": "NOT_RUN; no p-values, intervals, or market-validity claims",
+  "known_covariance_oracle_status": "INCONCLUSIVE",
+  "original_inference_status": "FAIL",
+  "overall_readiness": "NOT_READY",
+  "permitted_input_range_utc": [
+    "2026-09-17T00:00:00Z",
+    "2026-11-01T00:00:00Z"
+  ],
+  "pooled_disposition_totals_by_timeframe": {
+    "15m": {
+      "candidates": 196758,
+      "completed": 195645,
+      "embargoed": 733,
+      "incomplete": 0,
+      "insufficient_cells": 33,
+      "insufficient_warmup": 0,
+      "pooled_cells": 198,
+      "purged_boundary": 380,
+      "zero_event_cells": 0
+    },
+    "5m": {
+      "candidates": 556602,
+      "completed": 555732,
+      "embargoed": 609,
+      "incomplete": 0,
+      "insufficient_cells": 6,
+      "insufficient_warmup": 0,
+      "pooled_cells": 198,
+      "purged_boundary": 261,
+      "zero_event_cells": 0
+    }
+  },
+  "protocol_id": "issue-22-fixed-panel-walkforward-v2",
+  "protocol_sha256": "913cbac63b6c3620dad0f9ba9be51647773707ad48a8e923e55d3869b3a8eba2",
+  "report_id": "frozen-walkforward-development-evaluator-v1",
+  "reproduction": "python -m research.walkforward_eval --source inspected --evidence-output research/results/walkforward-evaluator-development.json",
+  "reserved_fold_policy": "Never loaded or evaluated; development folds cannot satisfy future gates",
+  "result_count": 1584,
+  "signal_close_entry_convention": "Signal timestamp is candle open; signal close and next candle entry-open share the boundary signal_timestamp + bar_ms, per the frozen explicit timestamp formula. They are separate price observations, not distinct clock instants.",
+  "source_kind": "inspected",
+  "source_provenance": {
+    "15m": {
+      "input_rows": 51840,
+      "path": "research/data/bitget-15m-2026-09-17_2026-11-01.csv.gz",
+      "sha256": "0dc70efe1e2b2ac6367af3e14da4a413482332b40f999f6a6f28b39b12cfd881"
+    },
+    "5m": {
+      "input_rows": 155520,
+      "path": "research/data/bitget-5m-2026-09-17_2026-11-01.csv.gz",
+      "sha256": "1364e80e62353c853f2bacb4ba5dba59e2f618ca72e80a1b1fb493bb8a57992f"
+    }
+  },
+  "unresolved_protocol_ambiguities": [
+    "The prose 'strictly after signal close' conflicts with adjacent-candle signal-close/next-open clock equality. Development code follows the explicit entry_timestamp = signal_timestamp + one bar formula; the protocol is not amended."
+  ]
+}

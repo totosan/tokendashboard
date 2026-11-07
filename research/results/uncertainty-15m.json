@@ -1,0 +1,1285 @@
+{
+  "block": "UTC calendar day, synchronously across symbols and both arms; empty days retained",
+  "development_oos_split_utc": "2026-10-17T00:00:00+00:00",
+  "estimand": "event-weighted mean return; paired difference uses matched day resamples, not matched events",
+  "granularity": "15m",
+  "limitations": [
+    "Descriptive resampling sensitivity, not a validated trading edge or portfolio simulation.",
+    "Within-day cross-symbol dependence is retained; dependence across days is not modeled.",
+    "Short periods and sparse signals make percentile intervals unstable.",
+    "Intervals are marginal, not multiplicity-corrected; no statistical discovery claims.",
+    "OOS has already been inspected; this is exploratory reuse, not fresh validation.",
+    "Cost scenarios are fixed assumptions; no measured fees, spread, slippage, funding or fills.",
+    "Shared signal lookbacks, simultaneous symbols/arms and consecutive returns create dependence; event N is not independent N."
+  ],
+  "range_end_utc_exclusive": "2026-11-01T00:00:00+00:00",
+  "range_start_utc": "2026-09-17T00:00:00+00:00",
+  "replicates": 2000,
+  "results": [
+    {
+      "arms": {
+        "dashboard_breakout": {
+          "active_days": 12,
+          "bootstrap_empty_replicates": 0,
+          "bootstrap_valid_replicates": 2000,
+          "calendar_days": 30,
+          "cost_sensitivity": {
+            "12": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -22.80540065653831,
+                1.8532131544068484
+              ],
+              "mean_net_bps": -10.18248072998387
+            },
+            "22": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -32.80540065653831,
+                -8.146786845593152
+              ],
+              "mean_net_bps": -20.182480729983872
+            },
+            "37": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -47.80540065653831,
+                -23.14678684559315
+              ],
+              "mean_net_bps": -35.18248072998387
+            }
+          },
+          "day_block_bootstrap_95pct_mean_gross_bps": [
+            -10.805400656538309,
+            13.853213154406848
+          ],
+          "events_by_symbol": {
+            "BTCUSDT": 7,
+            "ETHUSDT": 11
+          },
+          "largest_symbol_event_share": 0.6111111111111112,
+          "max_simultaneous_events": 2,
+          "mean_gross_bps": 1.817519270016129,
+          "n_events": 18,
+          "symbols_with_events": 2,
+          "unique_entry_times": 17,
+          "zero_return_events": 0
+        },
+        "three_close_momentum_baseline": {
+          "active_days": 30,
+          "bootstrap_empty_replicates": 0,
+          "bootstrap_valid_replicates": 2000,
+          "calendar_days": 30,
+          "cost_sensitivity": {
+            "12": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -13.309176178883629,
+                -10.568082998030011
+              ],
+              "mean_net_bps": -11.92214099665602
+            },
+            "22": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -23.30917617888363,
+                -20.56808299803001
+              ],
+              "mean_net_bps": -21.92214099665602
+            },
+            "37": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -38.309176178883625,
+                -35.56808299803001
+              ],
+              "mean_net_bps": -36.92214099665602
+            }
+          },
+          "day_block_bootstrap_95pct_mean_gross_bps": [
+            -1.309176178883628,
+            1.4319170019699892
+          ],
+          "events_by_symbol": {
+            "BTCUSDT": 716,
+            "ETHUSDT": 735
+          },
+          "largest_symbol_event_share": 0.5065472088215024,
+          "max_simultaneous_events": 2,
+          "mean_gross_bps": 0.07785900334397954,
+          "n_events": 1451,
+          "symbols_with_events": 2,
+          "unique_entry_times": 958,
+          "zero_return_events": 2
+        }
+      },
+      "breakout_minus_baseline_mean_gross_bps": 1.7396602666721495,
+      "group": "BTC_ETH",
+      "paired_valid_replicates": 2000,
+      "period": "development",
+      "side": "long",
+      "synchronized_day_bootstrap_95pct_difference_bps": [
+        -11.018036111843795,
+        13.857091745522009
+      ]
+    },
+    {
+      "arms": {
+        "dashboard_breakout": {
+          "active_days": 14,
+          "bootstrap_empty_replicates": 0,
+          "bootstrap_valid_replicates": 2000,
+          "calendar_days": 30,
+          "cost_sensitivity": {
+            "12": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -20.469453566844813,
+                17.095045340138164
+              ],
+              "mean_net_bps": -5.840236011127544
+            },
+            "22": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -30.469453566844813,
+                7.095045340138164
+              ],
+              "mean_net_bps": -15.840236011127544
+            },
+            "37": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -45.46945356684481,
+                -7.904954659861836
+              ],
+              "mean_net_bps": -30.840236011127544
+            }
+          },
+          "day_block_bootstrap_95pct_mean_gross_bps": [
+            -8.469453566844814,
+            29.095045340138164
+          ],
+          "events_by_symbol": {
+            "BTCUSDT": 11,
+            "ETHUSDT": 10
+          },
+          "largest_symbol_event_share": 0.5238095238095238,
+          "max_simultaneous_events": 2,
+          "mean_gross_bps": 6.159763988872456,
+          "n_events": 21,
+          "symbols_with_events": 2,
+          "unique_entry_times": 18,
+          "zero_return_events": 0
+        },
+        "three_close_momentum_baseline": {
+          "active_days": 30,
+          "bootstrap_empty_replicates": 0,
+          "bootstrap_valid_replicates": 2000,
+          "calendar_days": 30,
+          "cost_sensitivity": {
+            "12": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -13.614089989072076,
+                -11.879944517537302
+              ],
+              "mean_net_bps": -12.745811762702793
+            },
+            "22": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -23.614089989072077,
+                -21.879944517537304
+              ],
+              "mean_net_bps": -22.745811762702793
+            },
+            "37": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -38.61408998907208,
+                -36.879944517537304
+              ],
+              "mean_net_bps": -37.74581176270279
+            }
+          },
+          "day_block_bootstrap_95pct_mean_gross_bps": [
+            -1.6140899890720763,
+            0.12005548246269804
+          ],
+          "events_by_symbol": {
+            "BTCUSDT": 693,
+            "ETHUSDT": 697
+          },
+          "largest_symbol_event_share": 0.5014388489208633,
+          "max_simultaneous_events": 2,
+          "mean_gross_bps": -0.7458117627027937,
+          "n_events": 1390,
+          "symbols_with_events": 2,
+          "unique_entry_times": 914,
+          "zero_return_events": 2
+        }
+      },
+      "breakout_minus_baseline_mean_gross_bps": 6.90557575157525,
+      "group": "BTC_ETH",
+      "paired_valid_replicates": 2000,
+      "period": "development",
+      "side": "short",
+      "synchronized_day_bootstrap_95pct_difference_bps": [
+        -7.604352776187507,
+        29.86287982322151
+      ]
+    },
+    {
+      "arms": {
+        "dashboard_breakout": {
+          "active_days": 21,
+          "bootstrap_empty_replicates": 0,
+          "bootstrap_valid_replicates": 2000,
+          "calendar_days": 30,
+          "cost_sensitivity": {
+            "12": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -17.41873307150943,
+                3.8927832598405807
+              ],
+              "mean_net_bps": -6.555412262661985
+            },
+            "22": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -27.41873307150943,
+                -6.107216740159419
+              ],
+              "mean_net_bps": -16.555412262661985
+            },
+            "37": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -42.41873307150943,
+                -21.10721674015942
+              ],
+              "mean_net_bps": -31.555412262661985
+            }
+          },
+          "day_block_bootstrap_95pct_mean_gross_bps": [
+            -5.41873307150943,
+            15.89278325984058
+          ],
+          "events_by_symbol": {
+            "ADAUSDT": 7,
+            "BNBUSDT": 12,
+            "DOGEUSDT": 9,
+            "LINKUSDT": 13,
+            "SOLUSDT": 8,
+            "XRPUSDT": 6
+          },
+          "largest_symbol_event_share": 0.23636363636363636,
+          "max_simultaneous_events": 3,
+          "mean_gross_bps": 5.444587737338015,
+          "n_events": 55,
+          "symbols_with_events": 6,
+          "unique_entry_times": 43,
+          "zero_return_events": 1
+        },
+        "three_close_momentum_baseline": {
+          "active_days": 30,
+          "bootstrap_empty_replicates": 0,
+          "bootstrap_valid_replicates": 2000,
+          "calendar_days": 30,
+          "cost_sensitivity": {
+            "12": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -13.797218410439894,
+                -9.499802736498797
+              ],
+              "mean_net_bps": -11.59392353642643
+            },
+            "22": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -23.797218410439896,
+                -19.499802736498797
+              ],
+              "mean_net_bps": -21.59392353642643
+            },
+            "37": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -38.797218410439896,
+                -34.4998027364988
+              ],
+              "mean_net_bps": -36.59392353642643
+            }
+          },
+          "day_block_bootstrap_95pct_mean_gross_bps": [
+            -1.7972184104398952,
+            2.500197263501202
+          ],
+          "events_by_symbol": {
+            "ADAUSDT": 641,
+            "BNBUSDT": 722,
+            "DOGEUSDT": 684,
+            "LINKUSDT": 698,
+            "SOLUSDT": 726,
+            "XRPUSDT": 673
+          },
+          "largest_symbol_event_share": 0.1751930501930502,
+          "max_simultaneous_events": 6,
+          "mean_gross_bps": 0.40607646357356975,
+          "n_events": 4144,
+          "symbols_with_events": 6,
+          "unique_entry_times": 1447,
+          "zero_return_events": 55
+        }
+      },
+      "breakout_minus_baseline_mean_gross_bps": 5.0385112737644455,
+      "group": "altcoins",
+      "paired_valid_replicates": 2000,
+      "period": "development",
+      "side": "long",
+      "synchronized_day_bootstrap_95pct_difference_bps": [
+        -5.685990776093143,
+        15.510154540923464
+      ]
+    },
+    {
+      "arms": {
+        "dashboard_breakout": {
+          "active_days": 20,
+          "bootstrap_empty_replicates": 0,
+          "bootstrap_valid_replicates": 2000,
+          "calendar_days": 30,
+          "cost_sensitivity": {
+            "12": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -33.63094055901024,
+                -9.79785556009303
+              ],
+              "mean_net_bps": -22.200067130338255
+            },
+            "22": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -43.63094055901024,
+                -19.79785556009303
+              ],
+              "mean_net_bps": -32.200067130338255
+            },
+            "37": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -58.63094055901024,
+                -34.797855560093026
+              ],
+              "mean_net_bps": -47.200067130338255
+            }
+          },
+          "day_block_bootstrap_95pct_mean_gross_bps": [
+            -21.630940559010245,
+            2.2021444399069705
+          ],
+          "events_by_symbol": {
+            "ADAUSDT": 10,
+            "BNBUSDT": 8,
+            "DOGEUSDT": 8,
+            "LINKUSDT": 7,
+            "SOLUSDT": 9,
+            "XRPUSDT": 7
+          },
+          "largest_symbol_event_share": 0.20408163265306123,
+          "max_simultaneous_events": 5,
+          "mean_gross_bps": -10.200067130338255,
+          "n_events": 49,
+          "symbols_with_events": 6,
+          "unique_entry_times": 32,
+          "zero_return_events": 0
+        },
+        "three_close_momentum_baseline": {
+          "active_days": 30,
+          "bootstrap_empty_replicates": 0,
+          "bootstrap_valid_replicates": 2000,
+          "calendar_days": 30,
+          "cost_sensitivity": {
+            "12": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -15.322941000615762,
+                -12.32533352166651
+              ],
+              "mean_net_bps": -13.821990385056948
+            },
+            "22": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -25.32294100061576,
+                -22.32533352166651
+              ],
+              "mean_net_bps": -23.82199038505695
+            },
+            "37": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -40.322941000615764,
+                -37.32533352166651
+              ],
+              "mean_net_bps": -38.82199038505695
+            }
+          },
+          "day_block_bootstrap_95pct_mean_gross_bps": [
+            -3.3229410006157614,
+            -0.3253335216665097
+          ],
+          "events_by_symbol": {
+            "ADAUSDT": 588,
+            "BNBUSDT": 682,
+            "DOGEUSDT": 654,
+            "LINKUSDT": 647,
+            "SOLUSDT": 686,
+            "XRPUSDT": 661
+          },
+          "largest_symbol_event_share": 0.17508933129147525,
+          "max_simultaneous_events": 6,
+          "mean_gross_bps": -1.821990385056948,
+          "n_events": 3918,
+          "symbols_with_events": 6,
+          "unique_entry_times": 1339,
+          "zero_return_events": 61
+        }
+      },
+      "breakout_minus_baseline_mean_gross_bps": -8.378076745281307,
+      "group": "altcoins",
+      "paired_valid_replicates": 2000,
+      "period": "development",
+      "side": "short",
+      "synchronized_day_bootstrap_95pct_difference_bps": [
+        -19.75473604038761,
+        3.792310628649912
+      ]
+    },
+    {
+      "arms": {
+        "dashboard_breakout": {
+          "active_days": 20,
+          "bootstrap_empty_replicates": 0,
+          "bootstrap_valid_replicates": 2000,
+          "calendar_days": 30,
+          "cost_sensitivity": {
+            "12": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -12.69181157156523,
+                1.8039065468382507
+              ],
+              "mean_net_bps": -7.088949156241069
+            },
+            "22": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -22.691811571565232,
+                -8.19609345316175
+              ],
+              "mean_net_bps": -17.08894915624107
+            },
+            "37": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -37.69181157156523,
+                -23.19609345316175
+              ],
+              "mean_net_bps": -32.08894915624107
+            }
+          },
+          "day_block_bootstrap_95pct_mean_gross_bps": [
+            -0.6918115715652305,
+            13.80390654683825
+          ],
+          "events_by_symbol": {
+            "AAPLUSDT": 11,
+            "COINUSDT": 5,
+            "NVDAUSDT": 7,
+            "TSLAUSDT": 13
+          },
+          "largest_symbol_event_share": 0.3611111111111111,
+          "max_simultaneous_events": 2,
+          "mean_gross_bps": 4.911050843758931,
+          "n_events": 36,
+          "symbols_with_events": 4,
+          "unique_entry_times": 35,
+          "zero_return_events": 1
+        },
+        "three_close_momentum_baseline": {
+          "active_days": 30,
+          "bootstrap_empty_replicates": 0,
+          "bootstrap_valid_replicates": 2000,
+          "calendar_days": 30,
+          "cost_sensitivity": {
+            "12": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -13.00638892680578,
+                -11.265079916601769
+              ],
+              "mean_net_bps": -12.1065335115942
+            },
+            "22": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -23.00638892680578,
+                -21.26507991660177
+              ],
+              "mean_net_bps": -22.1065335115942
+            },
+            "37": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -38.00638892680578,
+                -36.26507991660177
+              ],
+              "mean_net_bps": -37.1065335115942
+            }
+          },
+          "day_block_bootstrap_95pct_mean_gross_bps": [
+            -1.0063889268057804,
+            0.7349200833982311
+          ],
+          "events_by_symbol": {
+            "AAPLUSDT": 663,
+            "COINUSDT": 695,
+            "NVDAUSDT": 685,
+            "TSLAUSDT": 694
+          },
+          "largest_symbol_event_share": 0.2539276580197296,
+          "max_simultaneous_events": 4,
+          "mean_gross_bps": -0.10653351159420114,
+          "n_events": 2737,
+          "symbols_with_events": 4,
+          "unique_entry_times": 1753,
+          "zero_return_events": 79
+        }
+      },
+      "breakout_minus_baseline_mean_gross_bps": 5.017584355353132,
+      "group": "stock_perpetuals",
+      "paired_valid_replicates": 2000,
+      "period": "development",
+      "side": "long",
+      "synchronized_day_bootstrap_95pct_difference_bps": [
+        -0.8474198291180023,
+        14.3256717158202
+      ]
+    },
+    {
+      "arms": {
+        "dashboard_breakout": {
+          "active_days": 22,
+          "bootstrap_empty_replicates": 0,
+          "bootstrap_valid_replicates": 2000,
+          "calendar_days": 30,
+          "cost_sensitivity": {
+            "12": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -25.2658308312444,
+                -9.783862891471053
+              ],
+              "mean_net_bps": -16.55485446927768
+            },
+            "22": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -35.2658308312444,
+                -19.783862891471053
+              ],
+              "mean_net_bps": -26.55485446927768
+            },
+            "37": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -50.2658308312444,
+                -34.78386289147105
+              ],
+              "mean_net_bps": -41.55485446927768
+            }
+          },
+          "day_block_bootstrap_95pct_mean_gross_bps": [
+            -13.2658308312444,
+            2.2161371085289465
+          ],
+          "events_by_symbol": {
+            "AAPLUSDT": 3,
+            "COINUSDT": 9,
+            "NVDAUSDT": 13,
+            "TSLAUSDT": 7
+          },
+          "largest_symbol_event_share": 0.40625,
+          "max_simultaneous_events": 1,
+          "mean_gross_bps": -4.554854469277677,
+          "n_events": 32,
+          "symbols_with_events": 4,
+          "unique_entry_times": 32,
+          "zero_return_events": 1
+        },
+        "three_close_momentum_baseline": {
+          "active_days": 30,
+          "bootstrap_empty_replicates": 0,
+          "bootstrap_valid_replicates": 2000,
+          "calendar_days": 30,
+          "cost_sensitivity": {
+            "12": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -13.36074092913866,
+                -11.972779656945802
+              ],
+              "mean_net_bps": -12.658990743818787
+            },
+            "22": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -23.360740929138657,
+                -21.972779656945804
+              ],
+              "mean_net_bps": -22.658990743818787
+            },
+            "37": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -38.36074092913866,
+                -36.972779656945804
+              ],
+              "mean_net_bps": -37.65899074381879
+            }
+          },
+          "day_block_bootstrap_95pct_mean_gross_bps": [
+            -1.3607409291386592,
+            0.0272203430541973
+          ],
+          "events_by_symbol": {
+            "AAPLUSDT": 604,
+            "COINUSDT": 631,
+            "NVDAUSDT": 663,
+            "TSLAUSDT": 640
+          },
+          "largest_symbol_event_share": 0.26122931442080377,
+          "max_simultaneous_events": 4,
+          "mean_gross_bps": -0.6589907438187881,
+          "n_events": 2538,
+          "symbols_with_events": 4,
+          "unique_entry_times": 1627,
+          "zero_return_events": 65
+        }
+      },
+      "breakout_minus_baseline_mean_gross_bps": -3.895863725458889,
+      "group": "stock_perpetuals",
+      "paired_valid_replicates": 2000,
+      "period": "development",
+      "side": "short",
+      "synchronized_day_bootstrap_95pct_difference_bps": [
+        -12.539984581252897,
+        2.7040786809726924
+      ]
+    },
+    {
+      "arms": {
+        "dashboard_breakout": {
+          "active_days": 5,
+          "bootstrap_empty_replicates": 4,
+          "bootstrap_valid_replicates": 1996,
+          "calendar_days": 15,
+          "cost_sensitivity": {
+            "12": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -29.74227803976469,
+                -10.339855049385902
+              ],
+              "mean_net_bps": -19.66543018418767
+            },
+            "22": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -39.74227803976469,
+                -20.3398550493859
+              ],
+              "mean_net_bps": -29.66543018418767
+            },
+            "37": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -54.74227803976469,
+                -35.3398550493859
+              ],
+              "mean_net_bps": -44.66543018418767
+            }
+          },
+          "day_block_bootstrap_95pct_mean_gross_bps": [
+            -17.74227803976469,
+            1.660144950614099
+          ],
+          "events_by_symbol": {
+            "BTCUSDT": 5,
+            "ETHUSDT": 2
+          },
+          "largest_symbol_event_share": 0.7142857142857143,
+          "max_simultaneous_events": 1,
+          "mean_gross_bps": -7.665430184187669,
+          "n_events": 7,
+          "symbols_with_events": 2,
+          "unique_entry_times": 7,
+          "zero_return_events": 0
+        },
+        "three_close_momentum_baseline": {
+          "active_days": 15,
+          "bootstrap_empty_replicates": 0,
+          "bootstrap_valid_replicates": 2000,
+          "calendar_days": 15,
+          "cost_sensitivity": {
+            "12": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -15.307918241515528,
+                -12.217707197069862
+              ],
+              "mean_net_bps": -13.7434940397656
+            },
+            "22": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -25.30791824151553,
+                -22.217707197069863
+              ],
+              "mean_net_bps": -23.7434940397656
+            },
+            "37": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -40.30791824151553,
+                -37.21770719706986
+              ],
+              "mean_net_bps": -38.7434940397656
+            }
+          },
+          "day_block_bootstrap_95pct_mean_gross_bps": [
+            -3.3079182415155284,
+            -0.21770719706986214
+          ],
+          "events_by_symbol": {
+            "BTCUSDT": 327,
+            "ETHUSDT": 329
+          },
+          "largest_symbol_event_share": 0.5015243902439024,
+          "max_simultaneous_events": 2,
+          "mean_gross_bps": -1.7434940397656016,
+          "n_events": 656,
+          "symbols_with_events": 2,
+          "unique_entry_times": 424,
+          "zero_return_events": 1
+        }
+      },
+      "breakout_minus_baseline_mean_gross_bps": -5.921936144422068,
+      "group": "BTC_ETH",
+      "paired_valid_replicates": 1996,
+      "period": "out_of_sample",
+      "side": "long",
+      "synchronized_day_bootstrap_95pct_difference_bps": [
+        -16.55108514235573,
+        3.637432129190663
+      ]
+    },
+    {
+      "arms": {
+        "dashboard_breakout": {
+          "active_days": 7,
+          "bootstrap_empty_replicates": 0,
+          "bootstrap_valid_replicates": 2000,
+          "calendar_days": 15,
+          "cost_sensitivity": {
+            "12": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -29.55324657341128,
+                -4.264572662113585
+              ],
+              "mean_net_bps": -17.573324911684455
+            },
+            "22": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -39.55324657341128,
+                -14.264572662113585
+              ],
+              "mean_net_bps": -27.573324911684455
+            },
+            "37": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -54.55324657341128,
+                -29.264572662113586
+              ],
+              "mean_net_bps": -42.57332491168445
+            }
+          },
+          "day_block_bootstrap_95pct_mean_gross_bps": [
+            -17.55324657341128,
+            7.735427337886415
+          ],
+          "events_by_symbol": {
+            "BTCUSDT": 7,
+            "ETHUSDT": 4
+          },
+          "largest_symbol_event_share": 0.6363636363636364,
+          "max_simultaneous_events": 2,
+          "mean_gross_bps": -5.573324911684455,
+          "n_events": 11,
+          "symbols_with_events": 2,
+          "unique_entry_times": 9,
+          "zero_return_events": 0
+        },
+        "three_close_momentum_baseline": {
+          "active_days": 15,
+          "bootstrap_empty_replicates": 0,
+          "bootstrap_valid_replicates": 2000,
+          "calendar_days": 15,
+          "cost_sensitivity": {
+            "12": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -13.785156093032906,
+                -9.048848390244633
+              ],
+              "mean_net_bps": -11.566507496448086
+            },
+            "22": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -23.785156093032906,
+                -19.048848390244633
+              ],
+              "mean_net_bps": -21.566507496448086
+            },
+            "37": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -38.78515609303291,
+                -34.048848390244636
+              ],
+              "mean_net_bps": -36.56650749644809
+            }
+          },
+          "day_block_bootstrap_95pct_mean_gross_bps": [
+            -1.785156093032907,
+            2.9511516097553665
+          ],
+          "events_by_symbol": {
+            "BTCUSDT": 377,
+            "ETHUSDT": 359
+          },
+          "largest_symbol_event_share": 0.5122282608695652,
+          "max_simultaneous_events": 2,
+          "mean_gross_bps": 0.4334925035519133,
+          "n_events": 736,
+          "symbols_with_events": 2,
+          "unique_entry_times": 465,
+          "zero_return_events": 0
+        }
+      },
+      "breakout_minus_baseline_mean_gross_bps": -6.006817415236369,
+      "group": "BTC_ETH",
+      "paired_valid_replicates": 2000,
+      "period": "out_of_sample",
+      "side": "short",
+      "synchronized_day_bootstrap_95pct_difference_bps": [
+        -20.068621650289472,
+        8.593073769899853
+      ]
+    },
+    {
+      "arms": {
+        "dashboard_breakout": {
+          "active_days": 9,
+          "bootstrap_empty_replicates": 0,
+          "bootstrap_valid_replicates": 2000,
+          "calendar_days": 15,
+          "cost_sensitivity": {
+            "12": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -21.855836811344542,
+                7.777489617724044
+              ],
+              "mean_net_bps": -9.498274845663214
+            },
+            "22": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -31.855836811344542,
+                -2.2225103822759564
+              ],
+              "mean_net_bps": -19.498274845663214
+            },
+            "37": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -46.855836811344545,
+                -17.222510382275956
+              ],
+              "mean_net_bps": -34.49827484566321
+            }
+          },
+          "day_block_bootstrap_95pct_mean_gross_bps": [
+            -9.855836811344542,
+            19.777489617724044
+          ],
+          "events_by_symbol": {
+            "ADAUSDT": 1,
+            "BNBUSDT": 5,
+            "DOGEUSDT": 3,
+            "LINKUSDT": 6,
+            "SOLUSDT": 3,
+            "XRPUSDT": 4
+          },
+          "largest_symbol_event_share": 0.2727272727272727,
+          "max_simultaneous_events": 5,
+          "mean_gross_bps": 2.501725154336786,
+          "n_events": 22,
+          "symbols_with_events": 6,
+          "unique_entry_times": 15,
+          "zero_return_events": 0
+        },
+        "three_close_momentum_baseline": {
+          "active_days": 15,
+          "bootstrap_empty_replicates": 0,
+          "bootstrap_valid_replicates": 2000,
+          "calendar_days": 15,
+          "cost_sensitivity": {
+            "12": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -14.761099836089233,
+                -10.800416331375
+              ],
+              "mean_net_bps": -12.804314083691198
+            },
+            "22": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -24.761099836089233,
+                -20.800416331375
+              ],
+              "mean_net_bps": -22.804314083691196
+            },
+            "37": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -39.76109983608923,
+                -35.800416331375004
+              ],
+              "mean_net_bps": -37.804314083691196
+            }
+          },
+          "day_block_bootstrap_95pct_mean_gross_bps": [
+            -2.7610998360892327,
+            1.1995836686249985
+          ],
+          "events_by_symbol": {
+            "ADAUSDT": 268,
+            "BNBUSDT": 372,
+            "DOGEUSDT": 324,
+            "LINKUSDT": 328,
+            "SOLUSDT": 320,
+            "XRPUSDT": 349
+          },
+          "largest_symbol_event_share": 0.18969913309535952,
+          "max_simultaneous_events": 6,
+          "mean_gross_bps": -0.8043140836911972,
+          "n_events": 1961,
+          "symbols_with_events": 6,
+          "unique_entry_times": 668,
+          "zero_return_events": 38
+        }
+      },
+      "breakout_minus_baseline_mean_gross_bps": 3.3060392380279833,
+      "group": "altcoins",
+      "paired_valid_replicates": 2000,
+      "period": "out_of_sample",
+      "side": "long",
+      "synchronized_day_bootstrap_95pct_difference_bps": [
+        -7.9662749981521666,
+        19.90868603813421
+      ]
+    },
+    {
+      "arms": {
+        "dashboard_breakout": {
+          "active_days": 8,
+          "bootstrap_empty_replicates": 0,
+          "bootstrap_valid_replicates": 2000,
+          "calendar_days": 15,
+          "cost_sensitivity": {
+            "12": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -29.574010388213395,
+                -5.120096695005888
+              ],
+              "mean_net_bps": -16.266821167807922
+            },
+            "22": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -39.574010388213395,
+                -15.120096695005888
+              ],
+              "mean_net_bps": -26.266821167807922
+            },
+            "37": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -54.574010388213395,
+                -30.120096695005888
+              ],
+              "mean_net_bps": -41.26682116780792
+            }
+          },
+          "day_block_bootstrap_95pct_mean_gross_bps": [
+            -17.574010388213395,
+            6.879903304994112
+          ],
+          "events_by_symbol": {
+            "ADAUSDT": 2,
+            "BNBUSDT": 2,
+            "DOGEUSDT": 5,
+            "LINKUSDT": 8,
+            "SOLUSDT": 6,
+            "XRPUSDT": 4
+          },
+          "largest_symbol_event_share": 0.2962962962962963,
+          "max_simultaneous_events": 6,
+          "mean_gross_bps": -4.2668211678079215,
+          "n_events": 27,
+          "symbols_with_events": 6,
+          "unique_entry_times": 16,
+          "zero_return_events": 0
+        },
+        "three_close_momentum_baseline": {
+          "active_days": 15,
+          "bootstrap_empty_replicates": 0,
+          "bootstrap_valid_replicates": 2000,
+          "calendar_days": 15,
+          "cost_sensitivity": {
+            "12": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -14.589011518449238,
+                -7.114805538464197
+              ],
+              "mean_net_bps": -11.14806962784934
+            },
+            "22": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -24.58901151844924,
+                -17.114805538464196
+              ],
+              "mean_net_bps": -21.148069627849342
+            },
+            "37": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -39.58901151844924,
+                -32.114805538464196
+              ],
+              "mean_net_bps": -36.14806962784934
+            }
+          },
+          "day_block_bootstrap_95pct_mean_gross_bps": [
+            -2.5890115184492384,
+            4.885194461535803
+          ],
+          "events_by_symbol": {
+            "ADAUSDT": 320,
+            "BNBUSDT": 332,
+            "DOGEUSDT": 344,
+            "LINKUSDT": 351,
+            "SOLUSDT": 361,
+            "XRPUSDT": 333
+          },
+          "largest_symbol_event_share": 0.17687408133268007,
+          "max_simultaneous_events": 6,
+          "mean_gross_bps": 0.8519303721506593,
+          "n_events": 2041,
+          "symbols_with_events": 6,
+          "unique_entry_times": 680,
+          "zero_return_events": 39
+        }
+      },
+      "breakout_minus_baseline_mean_gross_bps": -5.118751539958581,
+      "group": "altcoins",
+      "paired_valid_replicates": 2000,
+      "period": "out_of_sample",
+      "side": "short",
+      "synchronized_day_bootstrap_95pct_difference_bps": [
+        -16.512028782632857,
+        4.294769376068676
+      ]
+    },
+    {
+      "arms": {
+        "dashboard_breakout": {
+          "active_days": 10,
+          "bootstrap_empty_replicates": 0,
+          "bootstrap_valid_replicates": 2000,
+          "calendar_days": 15,
+          "cost_sensitivity": {
+            "12": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -9.684975699930852,
+                -2.0001947929069868
+              ],
+              "mean_net_bps": -5.5476351221361195
+            },
+            "22": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -19.684975699930852,
+                -12.000194792906987
+              ],
+              "mean_net_bps": -15.54763512213612
+            },
+            "37": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -34.68497569993085,
+                -27.00019479290699
+              ],
+              "mean_net_bps": -30.54763512213612
+            }
+          },
+          "day_block_bootstrap_95pct_mean_gross_bps": [
+            2.3150243000691475,
+            9.999805207093013
+          ],
+          "events_by_symbol": {
+            "AAPLUSDT": 5,
+            "COINUSDT": 5,
+            "NVDAUSDT": 3,
+            "TSLAUSDT": 7
+          },
+          "largest_symbol_event_share": 0.35,
+          "max_simultaneous_events": 2,
+          "mean_gross_bps": 6.4523648778638805,
+          "n_events": 20,
+          "symbols_with_events": 4,
+          "unique_entry_times": 17,
+          "zero_return_events": 0
+        },
+        "three_close_momentum_baseline": {
+          "active_days": 15,
+          "bootstrap_empty_replicates": 0,
+          "bootstrap_valid_replicates": 2000,
+          "calendar_days": 15,
+          "cost_sensitivity": {
+            "12": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -13.535633332585325,
+                -10.331473910269082
+              ],
+              "mean_net_bps": -11.944116938940454
+            },
+            "22": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -23.535633332585327,
+                -20.331473910269082
+              ],
+              "mean_net_bps": -21.944116938940454
+            },
+            "37": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -38.53563333258533,
+                -35.33147391026908
+              ],
+              "mean_net_bps": -36.944116938940454
+            }
+          },
+          "day_block_bootstrap_95pct_mean_gross_bps": [
+            -1.5356333325853255,
+            1.6685260897309182
+          ],
+          "events_by_symbol": {
+            "AAPLUSDT": 312,
+            "COINUSDT": 310,
+            "NVDAUSDT": 325,
+            "TSLAUSDT": 352
+          },
+          "largest_symbol_event_share": 0.270977675134719,
+          "max_simultaneous_events": 4,
+          "mean_gross_bps": 0.05588306105954635,
+          "n_events": 1299,
+          "symbols_with_events": 4,
+          "unique_entry_times": 788,
+          "zero_return_events": 27
+        }
+      },
+      "breakout_minus_baseline_mean_gross_bps": 6.396481816804334,
+      "group": "stock_perpetuals",
+      "paired_valid_replicates": 2000,
+      "period": "out_of_sample",
+      "side": "long",
+      "synchronized_day_bootstrap_95pct_difference_bps": [
+        2.4994555757523758,
+        9.727071592633804
+      ]
+    },
+    {
+      "arms": {
+        "dashboard_breakout": {
+          "active_days": 9,
+          "bootstrap_empty_replicates": 0,
+          "bootstrap_valid_replicates": 2000,
+          "calendar_days": 15,
+          "cost_sensitivity": {
+            "12": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -16.215883839620833,
+                -4.8456156754196416
+              ],
+              "mean_net_bps": -11.114103512074895
+            },
+            "22": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -26.215883839620833,
+                -14.84561567541964
+              ],
+              "mean_net_bps": -21.114103512074895
+            },
+            "37": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -41.21588383962083,
+                -29.84561567541964
+              ],
+              "mean_net_bps": -36.1141035120749
+            }
+          },
+          "day_block_bootstrap_95pct_mean_gross_bps": [
+            -4.215883839620833,
+            7.1543843245803584
+          ],
+          "events_by_symbol": {
+            "AAPLUSDT": 2,
+            "COINUSDT": 2,
+            "NVDAUSDT": 6,
+            "TSLAUSDT": 5
+          },
+          "largest_symbol_event_share": 0.4,
+          "max_simultaneous_events": 1,
+          "mean_gross_bps": 0.8858964879251049,
+          "n_events": 15,
+          "symbols_with_events": 4,
+          "unique_entry_times": 15,
+          "zero_return_events": 0
+        },
+        "three_close_momentum_baseline": {
+          "active_days": 15,
+          "bootstrap_empty_replicates": 0,
+          "bootstrap_valid_replicates": 2000,
+          "calendar_days": 15,
+          "cost_sensitivity": {
+            "12": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -12.490361540402628,
+                -10.599609524692388
+              ],
+              "mean_net_bps": -11.589363972243131
+            },
+            "22": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -22.490361540402628,
+                -20.599609524692386
+              ],
+              "mean_net_bps": -21.58936397224313
+            },
+            "37": {
+              "day_block_bootstrap_95pct_mean_net_bps": [
+                -37.490361540402624,
+                -35.59960952469239
+              ],
+              "mean_net_bps": -36.589363972243135
+            }
+          },
+          "day_block_bootstrap_95pct_mean_gross_bps": [
+            -0.4903615404026271,
+            1.4003904753076122
+          ],
+          "events_by_symbol": {
+            "AAPLUSDT": 311,
+            "COINUSDT": 400,
+            "NVDAUSDT": 371,
+            "TSLAUSDT": 361
+          },
+          "largest_symbol_event_share": 0.2772002772002772,
+          "max_simultaneous_events": 4,
+          "mean_gross_bps": 0.4106360277568687,
+          "n_events": 1443,
+          "symbols_with_events": 4,
+          "unique_entry_times": 843,
+          "zero_return_events": 35
+        }
+      },
+      "breakout_minus_baseline_mean_gross_bps": 0.4752604601682362,
+      "group": "stock_perpetuals",
+      "paired_valid_replicates": 2000,
+      "period": "out_of_sample",
+      "side": "short",
+      "synchronized_day_bootstrap_95pct_difference_bps": [
+        -4.757574511754226,
+        6.8787360166221365
+      ]
+    }
+  ],
+  "seed": 20261101,
+  "sources": {
+    "research/results/bitget-15m-2026-09-17_2026-11-01-events.csv.gz": "61c75f3b55cd64f37063cec4b8af21d125145ad56ff22619cf123e2b7d06c8b4",
+    "research/results/bitget-15m-2026-09-17_2026-11-01.json": "3fb68d8b05f72b9e25ecf85ddda46bdd90ef9b947dfe4a923f2c63d29863fc40"
+  }
+}

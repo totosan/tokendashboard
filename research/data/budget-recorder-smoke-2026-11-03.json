@@ -1,0 +1,59 @@
+{
+  "status": "COMPLETE_SAMPLED_SNAPSHOTS",
+  "symbol": "AAPLUSDT",
+  "url": "https://api.bitget.com/api/v3/market/orderbook?category=USDT-FUTURES&symbol=AAPLUSDT&limit=50",
+  "documentation": "https://www.bitget.com/docs/catalog/market/market-data#get-order-book",
+  "requested_samples": 3,
+  "interval_seconds": 2.0,
+  "depth_limit_per_side": 50,
+  "semantics": "Independent sampled current top-N REST books; no delta continuity or historical backfill",
+  "started_utc": "2026-11-03T16:24:21.375394+00:00",
+  "records": [
+    {
+      "request_started_ns": 1793723061375477124,
+      "received_ns": 1793723061748024703,
+      "exchange_timestamp_ms": 1793723061674,
+      "bid_levels": 50,
+      "ask_levels": 50,
+      "repeated_exchange_timestamp": false,
+      "raw_response_sha256": "b97cb20bd4da0f233fe085630265b3ecc43564ca7055c9ed8d38eaeaa23527d3",
+      "raw_response_bytes": 1526
+    },
+    {
+      "request_started_ns": 1793723063748612397,
+      "received_ns": 1793723064403773038,
+      "exchange_timestamp_ms": 1793723064325,
+      "bid_levels": 50,
+      "ask_levels": 50,
+      "repeated_exchange_timestamp": false,
+      "raw_response_sha256": "6e4f37399ae43e3ad59dcb38a465e3655cd6338f4543fead8f9e8519065051ff",
+      "raw_response_bytes": 1529
+    },
+    {
+      "request_started_ns": 1793723066404449494,
+      "received_ns": 1793723066873605598,
+      "exchange_timestamp_ms": 1793723066788,
+      "bid_levels": 50,
+      "ask_levels": 50,
+      "repeated_exchange_timestamp": false,
+      "raw_response_sha256": "a54c3f2b0bd8575ac78ae8d228113018214caeea5bca4316b1d953d2f0a2d735",
+      "raw_response_bytes": 1528
+    }
+  ],
+  "failures": [],
+  "raw_jsonl": "/root/.local/share/cryptohftdata/samples/2026-11-03-budget/live-aapl-smoke/snapshots.jsonl",
+  "limits": {
+    "recording_bytes": 20971520,
+    "response_bytes": 1048576,
+    "whole_request_seconds": 10,
+    "retries": 0
+  },
+  "finished_utc": "2026-11-03T16:24:26.876333+00:00",
+  "saved_jsonl_bytes": 7136,
+  "saved_jsonl_sha256": "b33eead14429a2d907ebad290aeab2138ab9fe25f1a1fc88e5a38cf76b494a28",
+  "limitations": [
+    "Forward sampled top50 REST snapshots, not a continuous WebSocket stream",
+    "No September backfill or guaranteed execution",
+    "Smoke run ended normally; no long-running process left active"
+  ]
+}

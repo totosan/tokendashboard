@@ -1,0 +1,105 @@
+{
+ "protocol_id": "sentiment-v1.1-2026-11-05",
+ "status": "PRE_REGISTERED_NOT_RUN",
+ "amends": {
+  "protocol_id": "sentiment-v1-2026-11-05",
+  "file": "research/results/sentiment-protocol-2026-11-05.json",
+  "sha256": "85f76b0ad2f7835dc7e16bc63e2c1ab7d14eb111114a7942af2cb39e7e9e4686",
+  "v1_file_untouched": true
+ },
+ "amendment_timing": "Made BEFORE any sentiment data (Binance metrics history or Bitget recorder sentiment) was loaded into an analysis. The only Binance data fetched is a 12-file availability/format smoke test (BTCUSDT 2022-01-01..2022-01-12; manifest binance-metrics-smoke-2026-11-05.json), which was NOT analysed: no returns, rule signals or statistics were computed from it.",
+ "reason": "The 60-day wait for Bitget recorder data is too long. Bitget serves only ~30 latest points per sentiment series (no backfill). The Binance USD-M public bulk archive holds 5m 'metrics' history since at least 2021.",
+ "unchanged_from_v1": [
+  "rules R1-R5 and grids (24 grid points per symbol)",
+  "horizon 12 bars, entry next-bar close, non-overlapping events",
+  "cost scenarios 12/22/37bp, primary 22bp",
+  "selection rule, freeze + sha256, one-shot confirmation ledger",
+  "status ladder criteria (events>=30, net>=5bp at 22bp, plateau, Holm p<0.05, >=20 blocks)",
+  "no efficacy claim, no trading advice"
+ ],
+ "stages": {
+  "stage_1_binance_history": {
+   "purpose": "Discovery and first confirmation on Binance USD-M history: a SOURCE-VENUE study.",
+   "data": {
+    "sentiment": "data.binance.vision/data/futures/um/daily/metrics/<SYM>/<SYM>-metrics-YYYY-MM-DD.zip (5m)",
+    "price": "data.binance.vision/data/futures/um/monthly/klines/<SYM>/5m/ (close of 5m kline, assigned to the bar of its close time = open+5m, no look-ahead)",
+    "field_mapping": {
+     "oi": "sum_open_interest",
+     "long_ratio": "count_long_short_ratio L/S -> r/(1+r) (global account ratio; closest analogue to Bitget account ratio)",
+     "taker_buy_share": "sum_taker_long_short_vol_ratio buy/sell -> r/(1+r)",
+     "not_used": [
+      "toptrader ratios (declared unused; not tried as alternatives)"
+     ]
+    },
+    "bar_alignment": "metrics create_time bucketed to 5m; missing bars are dropped, never forward-filled"
+   },
+   "period": {
+    "start": "2022-01-01",
+    "end": "2026-10-31",
+    "days": 1765
+   },
+   "split": {
+    "discovery": "2022-01-01..2024-11-24 (1059 days = 60%)",
+    "embargo": "2024-11-25 (1 day)",
+    "confirmation": "2024-11-26..2026-10-31 (705 days)",
+    "frozen": "dates fixed now, before any analysis; selection only on discovery; confirmation untouched until frozen levels are recorded"
+   },
+   "symbols": {
+    "primary_family": [
+     "BTCUSDT",
+     "ETHUSDT"
+    ],
+    "optional_primary": "SOLUSDT (included only if the same gates pass; decided by gate, not by results)",
+    "multiplicity": "grid points x symbols: 24 x 2 = 48 (72 if SOLUSDT is included); Holm over the full count",
+    "secondary_family_stock_like": {
+     "symbols": [
+      "AAPLUSDT",
+      "TSLAUSDT"
+     ],
+     "availability": "metrics exist at least on 2026-09-17 (TSLAUSDT 200, AAPLUSDT 200); AAPLUSDT metrics returned 404 on 2025-12-01 and 2026-01-05; listing dates not established. History is therefore at most months, far below the 60% / 20-block requirements for the 2022 period.",
+     "handling": "separate family, own Holm count, never pooled with crypto; runs only if its own gate (>=95% day coverage over its available span and >=20 confirmation blocks) passes; otherwise stays exploratory / INCONCLUSIVE; no cross-family claims"
+    }
+   },
+   "gates": {
+    "day_coverage": ">=95% of calendar days in the period have >=95% of 288 bars with oi, long_ratio, taker_buy_share and close",
+    "min_events_per_segment_per_level": 30,
+    "min_confirmation_blocks": 20,
+    "otherwise": "verdict NOT_READY (INCONCLUSIVE), exit 2, nothing selected or evaluated"
+   },
+   "inference": {
+    "block_days": 5,
+    "why": "Sample is now ~1700 days, so blocks longer than v1's 1 day are affordable (705 confirmation days -> ~141 blocks of 5 days) and reduce serial dependence between neighbouring blocks. 5 is declared a priori as a round, moderate value; it is NOT calibrated on real data, and 10 days is not tried as an alternative.",
+    "method": "non-overlapping events; sign-flip permutation on block means of net signed returns; Monte Carlo above 16 blocks (seeded)",
+    "validity_caveat": "The repo's day-block sign-flip tests (practical-inference v1-v3) FAILED size control under serial dependence. Longer blocks may help but are NOT validated; p-values stay descriptive and 'proven' means only that the pre-declared screen was passed. Block-level, non-overlapping-event methods are preferred over event-level inference."
+   },
+   "claims": "A 'proven' label here is a Binance source-venue result ONLY. It is never a Bitget execution claim and carries no statement about tradability."
+  },
+  "stage_2_bitget_transfer": {
+   "purpose": "Transfer check of the frozen Stage-1 levels on Bitget recorder data, BTCUSDT.",
+   "status": "transfer_pending",
+   "gates": {
+    "min_days_btcusdt_sentiment": 60,
+    "min_coverage_pct_per_integrity_report": 95.0,
+    "max_gap_seconds": 60.0,
+    "integrity_ok_required": true,
+    "min_confirmation_day_blocks": 20,
+    "min_events_per_segment_per_level": 30,
+    "note": "the v1 60-day Bitget gate applies only to this stage"
+   },
+   "rules": "levels frozen in Stage 1 are applied unchanged; no re-selection on Bitget data; one-shot ledger",
+   "costs": "Bitget assumed round-trip 12/22/37bp scenarios plus measured recorder spreads reported alongside for the net-of-cost test",
+   "claims": "only after Stage 2 passes may a Bitget-venue statement be made; still no trading advice"
+  }
+ },
+ "status_ladder_addition": {
+  "transfer_pending": "Stage-1 result exists, Bitget transfer gates not yet met",
+  "proven": "Stage 1: source-venue (Binance) only; Stage 2 required for any Bitget statement"
+ },
+ "acquisition": {
+  "tool": "research/acquire_binance_metrics.py",
+  "caps": "allowlisted host data.binance.vision, https only, no redirects, 10s timeout, 0.2s rate limit, hard caps on files/MiB/wall clock, sha256 per file, manifest, resume-safe, 404 days recorded",
+  "raw_zips": "local only in research/data/binance_raw/ (git-ignored), never committed",
+  "planned_full_download": "3 symbols x 1765 days = 5295 daily metrics files (~11 KB each, ~55 MiB upper estimate; early files ~5 KB) plus 3 x 58 monthly 5m kline files (~0.3 MB each est.)"
+ },
+ "reproduction": "python3 -m research.sentiment_rules --binance-metrics research/data/binance_raw/metrics --binance-klines research/data/binance_raw/klines5m  (exits 2 while gates unmet)"
+}

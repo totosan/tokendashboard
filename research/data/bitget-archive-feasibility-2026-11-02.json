@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "title": "Bounded public Bitget futures quote/depth archive feasibility",
+  "issue": 20,
+  "parent_issue": 7,
+  "epic_issue": 3,
+  "completed_utc": "2026-11-02T17:04:24.651195+00:00",
+  "scope": {
+    "objective": "Find a first-party public historical futures quote/depth file or documented supported read-only listing, then validate at most one small sample.",
+    "product_focus": "Bitget futures; no claim that any query parameter selection below identifies the intended depth product until confirmed by Bitget.",
+    "exclusions": [
+      "No credentials, cookies, account access, orders, unsupported-method probes, paid procurement, Binance, bulk download, production changes, or executable-price inference from trades/live books."
+    ]
+  },
+  "budget": {
+    "fresh_http_transactions_including_redirects": 2,
+    "fresh_redirects": 0,
+    "fresh_request_timeout_seconds_max": 15,
+    "whole_command_timeout_seconds_max": 240,
+    "fresh_response_body_bytes": 218184,
+    "fresh_response_body_bytes_limit": 2097152,
+    "preexisting_evidence_http_records_reused_without_reissuing": 25,
+    "preexisting_evidence_response_body_bytes": 1535978,
+    "combined_recorded_response_body_bytes_including_reused_evidence": 1754162,
+    "combined_response_body_bytes_limit": 2097152,
+    "accounting_note": "Fresh-call transaction budget applies to this bounded follow-up; prior requests are identified as already-existing evidence, not this run's new calls. Aggregate byte accounting includes their recorded bodies and duplicate saved responses."
+  },
+  "finding": {
+    "status": "BLOCKED_NO_PUBLIC_READ_ONLY_SAMPLE",
+    "summary": "Bitget first-party documentation advertises historical futures order-book depth downloads on its web data-download page, and the page's public client source names a download-listing endpoint. No supported public GET listing or archive file was established, so no sample could be validated.",
+    "what_is_supported": "The data-download page describes recent-years futures candlestick, transaction, and order-book depth data. The classic futures merge-depth API documentation separately says historical futures depth data can be downloaded on Bitget's web page.",
+    "what_is_not_established": [
+      "Whether a public download file/listing is currently retrievable without using the web UI.",
+      "The HTTP method, host/base path, or other transport requirements for the client-referenced listing endpoint.",
+      "Whether the failed GET route is a wrong route/configuration, a GET-incompatible endpoint, a transient issue, or an access limitation.",
+      "Coverage for BTCUSDT or any other symbol, futures product, date, depth level, BBO fields, or saved research window.",
+      "That historical archives do not exist, require login/private access, or that executable-price coverage is complete."
+    ],
+    "blocker": "The official page's client references /statistics/public/download/getPublicDataV2 but does not document its HTTP method or complete supported read-only listing contract in the reviewed excerpts. A GET to that page-relative path returned a Bitget HTML 404 rather than a listing/file. A previously recorded GET to the speculative /v1-prefixed path returned JSON 405, 'The HTTP Method is not supported'; that response does not establish the method for the page-relative path. No non-GET attempt was made.",
+    "next_official_step": "Ask Bitget through its official support/data-download channel to provide the supported public read-only listing method and exact base URL, a small futures-depth sample and downloadable URL, symbol/product and UTC coverage manifest (including the intended saved window), and the schema/semantics for snapshot versus delta, sequence continuity, bid/ask levels and quantities. If listing requires a non-GET operation, keep it out of this GET-only gate and obtain an explicitly authorized bounded procedure before proceeding."
+  },
+  "sample_gate": {
+    "sample_recovered": false,
+    "symbol_product_identity": "NOT_TESTED",
+    "timestamps_utc_and_saved_window_applicability": "NOT_TESTED",
+    "bid_ask_order_and_nonnegative_level_quantities": "NOT_TESTED",
+    "snapshot_delta_and_sequence_semantics": "NOT_TESTED",
+    "coverage_and_gaps": "NOT_TESTED",
+    "trade_prices_or_live_orderbook_substituted": false,
+    "executable_price_coverage_claimed": false,
+    "parser_or_tests_added": false
+  },
+  "first_party_sources": [
+    {
+      "url": "https://www.bitget.com/data-download",
+      "retrieved_at_utc": "2026-11-01T20:51:10.371362+00:00",
+      "status": 200,
+      "redirect_chain": [],
+      "raw_response_bytes": 90733,
+      "raw_response_sha256": "d01de4a06e8893a374fc69f2bf3354ad40f6634df9e1340545478b65f13284f9",
+      "selection": "Selected text from the full HTML response; full body not retained in the pre-existing evidence.",
+      "relevant_excerpt": "History data download | Bitget. Download candlestick charts, order book depth, and transaction history for spot and futures trading from recent years. Futures / Depth data: Bitget's order book data for recent years."
+    },
+    {
+      "url": "https://www.bitget.com/legacy-docs/classic/contract/market/Get-Merge-Depth",
+      "retrieved_at_utc": "2026-11-01T20:50:10.168832+00:00",
+      "status": 200,
+      "redirect_chain": [],
+      "raw_response_bytes": 41546,
+      "raw_response_sha256": "8927a9cbf357d8f90d6b56e784f99ccc85900061f3fd586b53f9b3bfe797b696",
+      "selection": "Selected text from the full HTML response; full body not retained in the pre-existing evidence.",
+      "relevant_excerpt": "Get Merge Market Depth. Description: Get merge depth data. 'You can download historical futures depth data on our web.' The documented GET /api/v2/mix/market/merge-depth is a current market-depth route; the excerpt does not document historical retrieval through that API."
+    },
+    {
+      "url": "https://www.bitget.com/landing-static/client/js/pages-data-download-index-page.1f14c0d0ddfaba7e1f21.chunk.js",
+      "retrieved_at_utc": "2026-11-02T17:03:48.298243+00:00",
+      "status": 200,
+      "redirect_chain": [],
+      "raw_response_bytes": 31647,
+      "raw_response_sha256": "90f9a66e66122906dcb2df4b8ca74aec15317e30712e91738b8180a03200a3cb",
+      "selection": "Read-only inspection; response body not saved. Relevant exact source text: const R=(0,E.$)({endpoint:\"/statistics/public/download/getPublicDataV2\"}). The excerpt does not expose the HTTP method or full helper configuration."
+    }
+  ],
+  "requests": [
+    {
+      "id": "fresh-1",
+      "purpose": "Inspect the official data-download page client bundle for its documented listing endpoint without executing the script.",
+      "method": "GET",
+      "url": "https://www.bitget.com/landing-static/client/js/pages-data-download-index-page.1f14c0d0ddfaba7e1f21.chunk.js",
+      "parameters": {},
+      "started_at_utc": "2026-11-02T17:03:47.921534+00:00",
+      "retrieved_at_utc": "2026-11-02T17:03:48.298243+00:00",
+      "status": 200,
+      "final_url": "https://www.bitget.com/landing-static/client/js/pages-data-download-index-page.1f14c0d0ddfaba7e1f21.chunk.js",
+      "redirect_chain": [],
+      "content_type": "application/javascript; charset=utf-8",
+      "raw_response_bytes": 31647,
+      "raw_response_sha256": "90f9a66e66122906dcb2df4b8ca74aec15317e30712e91738b8180a03200a3cb",
+      "canonical_sha256": null,
+      "response_saved": false,
+      "selection": "Only the endpoint text and nearby source context were selected; not the full script. No script execution."
+    },
+    {
+      "id": "fresh-2",
+      "purpose": "One public GET to the page-relative listing path and exact query previously extracted from the public client source; determine whether it yields a listing or file.",
+      "method": "GET",
+      "url": "https://www.bitget.com/statistics/public/download/getPublicDataV2?displaySymbol=BTCUSDT&businessLine=2&businessType=3&dateType=1&beginTimeStr=2026-09-17&endTimeStr=2026-09-17&deptType=1",
+      "parameters": {
+        "displaySymbol": "BTCUSDT",
+        "businessLine": "2",
+        "businessType": "3",
+        "dateType": "1",
+        "beginTimeStr": "2026-09-17",
+        "endTimeStr": "2026-09-17",
+        "deptType": "1"
+      },
+      "parameter_semantics": "Names and values reused from the prior public-client evidence; businessLine/businessType meaning for a futures-depth archive was not independently verified.",
+      "started_at_utc": "2026-11-02T17:04:24.181224+00:00",
+      "retrieved_at_utc": "2026-11-02T17:04:24.651195+00:00",
+      "status": 404,
+      "final_url": "https://www.bitget.com/statistics/public/download/getPublicDataV2?displaySymbol=BTCUSDT&businessLine=2&businessType=3&dateType=1&beginTimeStr=2026-09-17&endTimeStr=2026-09-17&deptType=1",
+      "redirect_chain": [],
+      "content_type": "text/html; charset=utf-8",
+      "raw_response_bytes": 186537,
+      "raw_response_sha256": "f1c45c5aa796546536fd0348f193988b9335988b3da61277232cbafe7719e795",
+      "canonical_sha256": null,
+      "response_saved": false,
+      "selection": "First 250 characters only; HTML response body not saved.",
+      "selected_prefix": "<!DOCTYPE html>\\n<html lang=\"en\" dir=\"ltr\" class=\"micro micro-dark\">\\n<head>\\n  <meta charset=\"utf-8\">\\n  \\n  <link data-rh=\"true\" rel=\"dns-prefetch\" href=\"https://static.bgbstatic.com\"/><link data-rh=\"true\" rel=\"preconnect\" href=\"https://static.bgbstatic"
+    }
+  ],
+  "reused_prior_route_observations": [
+    {
+      "source_artifact": "research/data/bitget-followup-feasibility-2026-11-01.json",
+      "source_request_id": 24,
+      "method": "GET",
+      "url": "https://www.bitget.com/statistics/public/download/getPublicDataV2?displaySymbol=BTCUSDT&businessLine=2&businessType=3&dateType=1&beginTimeStr=2026-09-17&endTimeStr=2026-09-17&deptType=1",
+      "retrieved_at_utc": "2026-11-01T20:52:04.786177+00:00",
+      "status": 404,
+      "raw_response_bytes": 186537,
+      "raw_response_sha256": "46d3874a0b61bbe080f9ef594290b54971f4924155e8035b12a47c27268ec523",
+      "canonical_sha256": "67da52f08a969d1467ee826e9934ebeae22445fa48a9cd1972bb381f6486d310",
+      "selection": "Only first 700 text characters selected from HTML; full response not saved. Canonical hash was recorded by prior collector; no absence conclusion."
+    },
+    {
+      "source_artifact": "research/data/bitget-followup-feasibility-2026-11-01.json",
+      "source_request_id": 25,
+      "method": "GET",
+      "url": "https://www.bitget.com/v1/statistics/public/download/getPublicDataV2?displaySymbol=BTCUSDT&businessLine=2&businessType=3&dateType=1&beginTimeStr=2026-09-17&endTimeStr=2026-09-17&deptType=1",
+      "retrieved_at_utc": "2026-11-01T20:52:05.320664+00:00",
+      "status": 405,
+      "final_url": "https://www.bitget.com/v1/statistics/public/download/getPublicDataV2?displaySymbol=BTCUSDT&businessLine=2&businessType=3&dateType=1&beginTimeStr=2026-09-17&endTimeStr=2026-09-17&deptType=1",
+      "redirect_chain": [],
+      "raw_response_bytes": 124,
+      "raw_response_sha256": "14ef042b1a08eb403efd82b27c7ff36eb7e0352f8d343d375637c47c24b8bbb3",
+      "canonical_sha256": "112b10b4e9ae094eb26d2d9103bcbcb177208a346cd03f7e1d68fe21be5c372c",
+      "decoded_response": {
+        "code": "405",
+        "flag": true,
+        "group": "common",
+        "msg": "The HTTP Method is not supported",
+        "params": [],
+        "requestTime": 1793566325755
+      },
+      "raw_base64_saved": false,
+      "raw_base64_note": "The prior artifact retained parsed JSON and hashes, not the original 124 response octets; these must not be reconstructed or represented as a raw-byte capture.",
+      "selection": "Full decoded JSON response as recorded by prior evidence."
+    }
+  ],
+  "validation": {
+    "json_structure": "To be validated after writing.",
+    "inference_guard": "Reports a failed bounded GET and missing sample only; explicitly does not infer nonexistence, private/login access, or executable coverage.",
+    "budget_guard": "Fresh calls are 2, fresh body bytes are 218184, and recorded combined body bytes including reused evidence are 1754162, below 2097152.",
+    "hash_guard": "Raw SHA-256 values refer to complete bodies as captured; selected excerpts are explicitly labeled. Canonical hashes are provided only where prior evidence recorded them."
+  }
+}

@@ -1,0 +1,123 @@
+{
+ "caps": {
+  "max_files": 12,
+  "max_mib": 1.0,
+  "min_interval_s": 0.2,
+  "timeout_s": 10,
+  "wall_s": 80
+ },
+ "created_utc": "2026-11-05T21:55:35Z",
+ "dataset": "metrics",
+ "downloaded_files": 12,
+ "end": "2022-01-12",
+ "errors": [],
+ "estimated_total_mib": 0.13,
+ "files": [
+  {
+   "bytes": 5642,
+   "label": "2022-01-01",
+   "sha256": "1846df7dc4a6279afd20c010cb09ee271db8ffa9991c7acea7a73f0e00c0b2c5",
+   "source": "download",
+   "symbol": "BTCUSDT",
+   "url": "https://data.binance.vision/data/futures/um/daily/metrics/BTCUSDT/BTCUSDT-metrics-2022-01-01.zip"
+  },
+  {
+   "bytes": 5724,
+   "label": "2022-01-02",
+   "sha256": "145dab40eee5eaaa5f6ffca8ee53edca5bdf8693ad7ce4af52513bf7ec5c2c37",
+   "source": "download",
+   "symbol": "BTCUSDT",
+   "url": "https://data.binance.vision/data/futures/um/daily/metrics/BTCUSDT/BTCUSDT-metrics-2022-01-02.zip"
+  },
+  {
+   "bytes": 5771,
+   "label": "2022-01-03",
+   "sha256": "999e5b235d92652689b648fdd4764c40513d3eb59a8068761f18686e7891e684",
+   "source": "download",
+   "symbol": "BTCUSDT",
+   "url": "https://data.binance.vision/data/futures/um/daily/metrics/BTCUSDT/BTCUSDT-metrics-2022-01-03.zip"
+  },
+  {
+   "bytes": 5724,
+   "label": "2022-01-04",
+   "sha256": "28da1ed645e8fd7f7b62a437cbc70f50d8f32ece4048dd068276d5ad887c37a6",
+   "source": "download",
+   "symbol": "BTCUSDT",
+   "url": "https://data.binance.vision/data/futures/um/daily/metrics/BTCUSDT/BTCUSDT-metrics-2022-01-04.zip"
+  },
+  {
+   "bytes": 5731,
+   "label": "2022-01-05",
+   "sha256": "a2c624bcd3a1eb2b458a83d9c48bf3511edc674fbe25d351395db8c052d99840",
+   "source": "download",
+   "symbol": "BTCUSDT",
+   "url": "https://data.binance.vision/data/futures/um/daily/metrics/BTCUSDT/BTCUSDT-metrics-2022-01-05.zip"
+  },
+  {
+   "bytes": 5725,
+   "label": "2022-01-06",
+   "sha256": "41131be406f685675635b1e3baf7364858d29de7faa0c7d1f6c8a9d73fa2bba6",
+   "source": "download",
+   "symbol": "BTCUSDT",
+   "url": "https://data.binance.vision/data/futures/um/daily/metrics/BTCUSDT/BTCUSDT-metrics-2022-01-06.zip"
+  },
+  {
+   "bytes": 5716,
+   "label": "2022-01-07",
+   "sha256": "d8d454c3f6fe0b05a42e57316a3c4e73637a0cd596b25e33ad63cb454f358763",
+   "source": "download",
+   "symbol": "BTCUSDT",
+   "url": "https://data.binance.vision/data/futures/um/daily/metrics/BTCUSDT/BTCUSDT-metrics-2022-01-07.zip"
+  },
+  {
+   "bytes": 5671,
+   "label": "2022-01-08",
+   "sha256": "78ceb6a90c93bf8f479ae2d2bcb5ed98e719de7d708c59d3ba706492d3785f16",
+   "source": "download",
+   "symbol": "BTCUSDT",
+   "url": "https://data.binance.vision/data/futures/um/daily/metrics/BTCUSDT/BTCUSDT-metrics-2022-01-08.zip"
+  },
+  {
+   "bytes": 5675,
+   "label": "2022-01-09",
+   "sha256": "af199235c64f92cf9daa10e524b68caa17d079067f7ee44549c9774c796b0c70",
+   "source": "download",
+   "symbol": "BTCUSDT",
+   "url": "https://data.binance.vision/data/futures/um/daily/metrics/BTCUSDT/BTCUSDT-metrics-2022-01-09.zip"
+  },
+  {
+   "bytes": 5760,
+   "label": "2022-01-10",
+   "sha256": "44c5067dce9cd7461284422273aece474a51d5278a516ede6ec5554762017d91",
+   "source": "download",
+   "symbol": "BTCUSDT",
+   "url": "https://data.binance.vision/data/futures/um/daily/metrics/BTCUSDT/BTCUSDT-metrics-2022-01-10.zip"
+  },
+  {
+   "bytes": 5694,
+   "label": "2022-01-11",
+   "sha256": "2eb3d1d7e658ea6330aa6bb1e31758d79d8af7609d425322b774757fcb1d4a4c",
+   "source": "download",
+   "symbol": "BTCUSDT",
+   "url": "https://data.binance.vision/data/futures/um/daily/metrics/BTCUSDT/BTCUSDT-metrics-2022-01-11.zip"
+  },
+  {
+   "bytes": 5653,
+   "label": "2022-01-12",
+   "sha256": "63f90f9dff5e9ed01be096a1206458d3c84a5ba1a29c3ba5a67575a8c60430d1",
+   "source": "download",
+   "symbol": "BTCUSDT",
+   "url": "https://data.binance.vision/data/futures/um/daily/metrics/BTCUSDT/BTCUSDT-metrics-2022-01-12.zip"
+  }
+ ],
+ "missing": [],
+ "mode": "execute",
+ "planned_files": 12,
+ "requests": 12,
+ "start": "2022-01-01",
+ "stopped_by": null,
+ "symbols": [
+  "BTCUSDT"
+ ],
+ "total_bytes": 68486
+}
